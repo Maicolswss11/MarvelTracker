@@ -2,6 +2,8 @@
 
 Marvel Archive è un tracker web delle edizioni italiane Marvel.
 
+La home `#/home` riunisce il riepilogo globale, il pulsante per riprendere l'ultimo percorso e le schede dei cinque personaggi. Le pagine `#/{personaggio}` aprono il tracker completo del singolo eroe.
+
 ## Architettura
 
 - `index.html` — shell leggera
