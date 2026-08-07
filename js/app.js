@@ -42,15 +42,31 @@ function coverImg(i,lazy=true){return `<img ${lazy?'loading="lazy" ':''}src="${e
 async function loadManifest(){
   const r=await fetch("data/characters.json",{cache:"no-cache"}); if(!r.ok)throw new Error(`Manifest HTTP ${r.status}`); manifest=await r.json(); state=normalizeState(state);
 }
+async function loadEncodedCharacter(id, meta){
+  if(typeof DecompressionStream!=="function") throw new Error("Il browser non supporta la decompressione gzip richiesta dal tracker. Aggiorna il browser e riprova.");
+  const specResponse=await fetch(`data/encoded/${id}.json`,{cache:"force-cache"});
+  if(!specResponse.ok) throw new Error(`${meta.name}: manifest dati compressi HTTP ${specResponse.status}`);
+  const spec=await specResponse.json();
+  if(spec.encoding!=="gzip-base64-parts"||!Array.isArray(spec.sources)) throw new Error(`${meta.name}: formato dati compressi non riconosciuto`);
+  const chunks=await Promise.all(spec.sources.map(async src=>{
+    const response=await fetch(src,{cache:"force-cache"});
+    if(!response.ok) throw new Error(`${meta.name}: ${src} HTTP ${response.status}`);
+    return (await response.text()).replace(/\s+/g,"");
+  }));
+  const binary=atob(chunks.join(""));
+  const bytes=new Uint8Array(binary.length);
+  for(let i=0;i<binary.length;i++) bytes[i]=binary.charCodeAt(i);
+  const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
+  return JSON.parse(await new Response(stream).text());
+}
 async function loadCharacter(id){
   if(characterCache.has(id))return characterCache.get(id);
   const meta=manifest.characters.find(c=>c.id===id); if(!meta)throw new Error(`Personaggio sconosciuto: ${id}`);
-  const r=await fetch(meta.data); if(!r.ok)throw new Error(`${meta.name}: HTTP ${r.status}`); const c=await r.json();
-  if(Array.isArray(c.issueSources)){
-    const parts=await Promise.all(c.issueSources.map(async src=>{const rr=await fetch(src);if(!rr.ok)throw new Error(`${meta.name}: ${src} HTTP ${rr.status}`);return rr.json()}));
-    c.issues=parts.flatMap(p=>p.issues||[]).sort((a,b)=>(a.seq??Number.MAX_SAFE_INTEGER)-(b.seq??Number.MAX_SAFE_INTEGER)||a.n-b.n);
-  }
-  c.issues??=[]; characterCache.set(id,c); return c;
+  const r=await fetch(meta.data,{cache:"force-cache"}); if(!r.ok)throw new Error(`${meta.name}: HTTP ${r.status}`); let c=await r.json();
+  if(Array.isArray(c.issueSources)) c=await loadEncodedCharacter(id,meta);
+  c.issues??=[];
+  c.issues.sort((a,b)=>(a.seq??Number.MAX_SAFE_INTEGER)-(b.seq??Number.MAX_SAFE_INTEGER)||a.n-b.n);
+  characterCache.set(id,c); return c;
 }
 function parseHash(){const p=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean);return {character:p[0]||state.activeCharacter||manifest.defaultCharacter,issue:p[1]?Number(p[1]):null}}
 async function switchCharacter(id,{updateHash=true,issue=null}={}){
