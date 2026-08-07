@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#070a0e">
   <meta name="description" content="Marvel Archive: tracker personale delle edizioni italiane Marvel.">
   <title>Marvel Archive</title>
-  <link rel="stylesheet" href="css/app.css?v=3">
+  <link rel="stylesheet" href="css/app.css?v=4">
 </head>
 <body>
 <div class="app">
@@ -22,18 +22,21 @@
   </aside>
   <main class="main">
     <section class="homeView" id="homeView" hidden>
-      <header class="homeTopbar"><div><span class="homeKicker">Marvel Archive</span><strong>Il tuo archivio personale</strong></div><button type="button" class="homeTopAction" id="homeTopResume">Riprendi percorso</button></header>
+      <header class="homeTopbar">
+        <div class="homeTopBrand"><img src="assets/brand/marvel.png?v=2" alt="Marvel"><span><b>MARVEL ARCHIVE</b><small>Il tuo archivio personale</small></span></div>
+        <div class="homeTopActions"><button type="button" class="homeTopAction" id="homeTopResume">Riprendi percorso</button><button type="button" class="accountButton" id="homeAccountBtn" aria-haspopup="dialog"><span class="accountAvatar" data-account-avatar>M</span><span class="accountButtonText"><b data-account-name>Profilo locale</b><small data-account-status>Accedi per sincronizzare</small></span></button></div>
+      </header>
       <div class="homeContent">
-        <section class="homeHero">
-          <div class="homeHeroCopy"><div class="homeEyebrow">Personal reading system · Edizioni italiane</div><h1>Il tuo universo Marvel,<br><span>albo dopo albo.</span></h1><p>Segui i percorsi italiani dei tuoi eroi, conserva la collezione e riprendi sempre dal prossimo numero da leggere.</p><div class="homeHeroActions"><button type="button" class="homePrimary" id="homeResume">Riprendi</button><button type="button" class="homeSecondary" id="homeExplore">Esplora i percorsi</button></div></div>
-          <div class="homeHeroVisual"><div class="homeVisualGlow"></div><img src="assets/brand/marvel.png?v=2" class="homeMarvelMark" alt="Marvel"><div class="homeHeroIcons" id="homeHeroIcons"></div><div class="homeVisualCaption"><span>5 percorsi</span><b>Un unico archivio</b></div></div>
+        <section class="homeDashboardHero">
+          <div class="homeIntro"><div class="homeEyebrow">Personal reading system · Edizioni italiane</div><h1>Bentornato,<br><span id="homeGreetingName">lettore.</span></h1><p>La tua collezione Marvel in un solo posto: riprendi dal prossimo albo, controlla i progressi e passa da un eroe all'altro senza perdere il filo.</p><div class="homeHeroActions"><button type="button" class="homePrimary" id="homeResume">Riprendi</button><button type="button" class="homeSecondary" id="homeExplore">Tutti i percorsi</button></div><div class="homeHeroIcons" id="homeHeroIcons" aria-label="Personaggi disponibili"></div></div>
+          <aside class="homeContinue" id="homeContinue"><div class="homeContinueLoading"><span></span><div><b>Prepariamo il prossimo albo…</b><small>Caricamento del percorso</small></div></div></aside>
         </section>
         <section class="homeStats" id="homeStats" aria-label="Riepilogo progressi"></section>
-        <section class="homeSection" id="homeCharactersSection"><div class="homeSectionHead"><div><span class="homeKicker">I tuoi percorsi</span><h2>Scegli il prossimo eroe</h2></div><p>Ogni percorso conserva separatamente gli albi letti, mentre i numeri recuperati restano condivisi nella collezione.</p></div><div class="homeCharacterGrid" id="homeCharacterGrid"></div></section>
+        <section class="homeSection" id="homeCharactersSection"><div class="homeSectionHead"><div><span class="homeKicker">I tuoi percorsi</span><h2>Scegli il prossimo eroe</h2></div><p>Gli albi recuperati sono condivisi nella collezione; la lettura resta separata per ogni personaggio.</p></div><div class="homeCharacterGrid" id="homeCharacterGrid"></div></section>
       </div>
     </section>
     <div id="trackerView">
-      <header class="topbar"><div class="topbarTitle"><strong id="topTitle">Marvel Archive</strong><span id="topSub">Caricamento…</span></div><div class="search"><input id="search" type="search" placeholder="Cerca numero, titolo, evento, anno…"></div><button class="compactBtn" id="compactBtn">Vista compatta</button></header>
+      <header class="topbar"><button type="button" class="trackerHomeBtn" id="trackerHomeBtn" aria-label="Torna alla home"><span id="trackerHomeIcon"></span><b>Home</b></button><div class="topbarTitle"><strong id="topTitle">Marvel Archive</strong><span id="topSub">Caricamento…</span></div><div class="search"><input id="search" type="search" placeholder="Cerca numero, titolo, evento, anno…"></div><div class="trackerTopActions"><button class="compactBtn" id="compactBtn">Vista compatta</button><button type="button" class="trackerAccountBtn" id="trackerAccountBtn" aria-label="Apri profilo" aria-haspopup="dialog"><span class="accountAvatar" data-account-avatar>M</span></button></div></header>
       <div class="content">
         <section class="hero"><article class="heroPanel"><div class="label" id="heroLabel">Percorso attivo</div><h1 id="heroTitle">Marvel Archive</h1><p id="heroDesc">Caricamento dati…</p></article><aside class="nextPanel" id="nextPanel"><div class="loading">Caricamento…</div></aside></section>
         <div class="route" id="route"></div>
@@ -44,6 +47,19 @@
     </div>
   </main>
 </div>
-<script type="module" src="js/app.js?v=3"></script>
+<dialog class="accountDialog" id="accountDialog" aria-labelledby="accountDialogTitle">
+  <div class="accountDialogShell">
+    <form method="dialog"><button class="accountDialogClose" aria-label="Chiudi profilo">×</button></form>
+    <header><span class="homeKicker">Marvel Archive Cloud</span><h2 id="accountDialogTitle">Il tuo profilo</h2><p>Sincronizza collezione e letture su tutti i tuoi dispositivi.</p></header>
+    <div class="accountLoading" id="accountLoading">Caricamento profilo…</div>
+    <section class="accountSetup" id="accountSetup" hidden><div class="accountSetupIcon">↗</div><h3>Sincronizzazione pronta</h3><p>L'interfaccia è completa. Per attivare login e salvataggio cloud collega il progetto Supabase nelle impostazioni del sito.</p></section>
+    <section class="accountAuth" id="accountAuth" hidden>
+      <div class="accountTabs" role="tablist"><button type="button" class="active" id="loginTab" role="tab" aria-selected="true">Accedi</button><button type="button" id="registerTab" role="tab" aria-selected="false">Crea account</button></div>
+      <form id="authForm"><label id="displayNameField" hidden>Nome profilo<input id="authDisplayName" autocomplete="name" maxlength="40" placeholder="Come vuoi essere chiamato"></label><label>Email<input id="authEmail" type="email" autocomplete="email" required placeholder="nome@email.it"></label><label>Password<input id="authPassword" type="password" autocomplete="current-password" minlength="8" required placeholder="Almeno 8 caratteri"></label><button type="submit" class="accountSubmit" id="authSubmit">Accedi e sincronizza</button><p class="accountMessage" id="authMessage" role="status"></p></form>
+    </section>
+    <section class="accountSigned" id="accountSigned" hidden><div class="accountIdentity"><span class="accountAvatar accountAvatarLarge" data-account-avatar>M</span><div><b id="accountProfileName">Lettore Marvel</b><span id="accountEmail"></span></div></div><div class="accountSyncCard"><span id="accountSyncIcon"></span><div><b id="accountSyncTitle">Sincronizzato</b><small id="accountSyncDetail">Progressi salvati nel cloud</small></div></div><div class="accountSignedActions"><button type="button" id="syncNowBtn">Sincronizza ora</button><button type="button" class="danger" id="signOutBtn">Esci dal profilo</button></div></section>
+  </div>
+</dialog>
+<script type="module" src="js/app.js?v=4"></script>
 </body>
 </html>

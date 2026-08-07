@@ -2,7 +2,7 @@
 
 Marvel Archive è un tracker web delle edizioni italiane Marvel.
 
-La home `#/home` riunisce il riepilogo globale, il pulsante per riprendere l'ultimo percorso e le schede dei cinque personaggi. Le pagine `#/{personaggio}` aprono il tracker completo del singolo eroe.
+La home `#/home` riunisce il prossimo albo, il riepilogo globale, il pulsante per riprendere l'ultimo percorso e le schede dei cinque personaggi. Le pagine `#/{personaggio}` aprono il tracker completo del singolo eroe e includono un tasto Home esplicito.
 
 ## Architettura
 
@@ -28,6 +28,18 @@ La vecchia `const DATA` monolitica non esiste più nell'HTML. I dati vengono car
 ## Progressi
 
 I progressi restano nel `localStorage` del browser. `Recuperato` è globale per albo fisico; `Letto` è separato per personaggio. Export/import JSON inclusi.
+
+## Profili e sincronizzazione
+
+Il frontend supporta account Supabase con email/password e una strategia local-first: le modifiche vengono salvate subito sul dispositivo e sincronizzate nel record cloud dell'utente. Il vecchio stato locale viene migrato automaticamente al primo accesso quando il profilo non contiene ancora progressi.
+
+Per attivare il cloud:
+
+1. eseguire `supabase/schema.sql` nel SQL Editor del progetto;
+2. inserire Project URL e Publishable key in `js/supabase-config.js`;
+3. configurare l'URL pubblico di MarvelTracker tra i Redirect URLs di Supabase Auth.
+
+La Publishable key può essere esposta nel browser; la protezione dei dati dipende dalle policy RLS incluse nello schema. Non inserire mai una `service_role` key nel repository.
 
 ## GitHub Pages
 
