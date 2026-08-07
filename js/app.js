@@ -7,6 +7,7 @@ let activeCharacter = "ironman";
 let activeEra = "Tutte";
 let activeSeries = "Tutte";
 let optionalVisible = false;
+let characterSwitchRequest = 0;
 let state = loadState();
 
 const $ = (id) => document.getElementById(id);
@@ -31,6 +32,10 @@ function setStatus(id,patch){state.collection??={};if(Object.hasOwn(patch,"owned
 function requiredIssues(){return currentCharacter.issues.filter(i=>i.required!==false&&!i.future)}
 function nextIssue(){return requiredIssues().find(i=>!status(i.id).read)||null}
 function pad3(n){return String(n).padStart(3,"0")}
+function versioned(path){
+  const separator=path.includes("?")?"&":"?";
+  return `${path}${separator}v=${encodeURIComponent(manifest?.version||1)}`;
+}
 function coverPlaceholder(i){
   const accent=currentCharacter.accent||currentMeta.accent||"#43d7ff",safe=s=>String(s??"").replace(/[<>&]/g,m=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[m]));
   const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 600"><rect width="420" height="600" fill="#0b1118"/><rect x="18" y="18" width="384" height="564" rx="22" fill="none" stroke="${accent}" stroke-width="4" opacity=".6"/><text x="34" y="76" font-family="Arial" font-size="24" font-weight="700" fill="${accent}">${safe(i.series)}</text><text x="34" y="138" font-family="Arial" font-size="48" font-weight="900" fill="#fff">#${pad3(i.n)}</text><foreignObject x="34" y="175" width="352" height="270"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial;color:#d8e2eb;font-size:27px;font-weight:800;line-height:1.18">${safe(i.title)}</div></foreignObject><text x="34" y="548" font-family="Arial" font-size="17" fill="#8292a3">Copertina remota non disponibile</text></svg>`;
@@ -44,12 +49,12 @@ async function loadManifest(){
 }
 async function loadEncodedCharacter(id, meta){
   if(typeof DecompressionStream!=="function") throw new Error("Il browser non supporta la decompressione gzip richiesta dal tracker. Aggiorna il browser e riprova.");
-  const specResponse=await fetch(`data/encoded/${id}.json`,{cache:"force-cache"});
+  const specResponse=await fetch(versioned(`data/encoded/${id}.json`),{cache:"no-cache"});
   if(!specResponse.ok) throw new Error(`${meta.name}: manifest dati compressi HTTP ${specResponse.status}`);
   const spec=await specResponse.json();
   if(spec.encoding!=="gzip-base64-parts"||!Array.isArray(spec.sources)) throw new Error(`${meta.name}: formato dati compressi non riconosciuto`);
   const chunks=await Promise.all(spec.sources.map(async src=>{
-    const response=await fetch(src,{cache:"force-cache"});
+    const response=await fetch(versioned(src),{cache:"no-cache"});
     if(!response.ok) throw new Error(`${meta.name}: ${src} HTTP ${response.status}`);
     return (await response.text()).replace(/\s+/g,"");
   }));
@@ -57,12 +62,14 @@ async function loadEncodedCharacter(id, meta){
   const bytes=new Uint8Array(binary.length);
   for(let i=0;i<binary.length;i++) bytes[i]=binary.charCodeAt(i);
   const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
-  return JSON.parse(await new Response(stream).text());
+  const character=JSON.parse(await new Response(stream).text());
+  if(character.id!==id||!Array.isArray(character.issues)) throw new Error(`${meta.name}: archivio dati incompleto`);
+  return character;
 }
 async function loadCharacter(id){
   if(characterCache.has(id))return characterCache.get(id);
   const meta=manifest.characters.find(c=>c.id===id); if(!meta)throw new Error(`Personaggio sconosciuto: ${id}`);
-  const r=await fetch(meta.data,{cache:"force-cache"}); if(!r.ok)throw new Error(`${meta.name}: HTTP ${r.status}`); let c=await r.json();
+  const r=await fetch(versioned(meta.data),{cache:"no-cache"}); if(!r.ok)throw new Error(`${meta.name}: HTTP ${r.status}`); let c=await r.json();
   if(Array.isArray(c.issueSources)) c=await loadEncodedCharacter(id,meta);
   c.issues??=[];
   c.issues.sort((a,b)=>(a.seq??Number.MAX_SAFE_INTEGER)-(b.seq??Number.MAX_SAFE_INTEGER)||a.n-b.n);
@@ -70,14 +77,28 @@ async function loadCharacter(id){
 }
 function parseHash(){const p=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean);return {character:p[0]||state.activeCharacter||manifest.defaultCharacter,issue:p[1]?Number(p[1]):null}}
 async function switchCharacter(id,{updateHash=true,issue=null}={}){
+  const requestId=++characterSwitchRequest;
   const meta=manifest.characters.find(c=>c.id===id)||manifest.characters[0]; activeCharacter=meta.id; currentMeta=meta;
+  document.documentElement.style.setProperty("--accent",meta.accent);
+  renderCharacters();
   els.seriesBlocks.innerHTML='<div class="loading">Caricamento dati…</div>';
-  currentCharacter=await loadCharacter(meta.id); activeEra="Tutte";activeSeries="Tutte";optionalVisible=false;saveState();renderAll();
+  let character;
+  try{character=await loadCharacter(meta.id)}catch(error){
+    if(requestId!==characterSwitchRequest)return false;
+    console.error(error);
+    els.topTitle.textContent=`${meta.name} Reading System`;
+    els.topSub.textContent="Archivio non disponibile";
+    els.seriesBlocks.innerHTML=`<div class="loading error"><b>Impossibile caricare ${esc(meta.name)}</b><br>${esc(error.message)}<br><br>Riprova selezionando nuovamente il personaggio.</div>`;
+    return false;
+  }
+  if(requestId!==characterSwitchRequest)return false;
+  currentCharacter=character; activeEra="Tutte";activeSeries="Tutte";optionalVisible=false;saveState();renderAll();
   if(updateHash)history.replaceState(null,"",`#/${meta.id}${issue?`/${issue}`:""}`);
   if(issue)requestAnimationFrame(()=>$( `issue-${currentCharacter.issues.find(i=>i.n===issue)?.seriesId}-${issue}` )?.scrollIntoView({behavior:"smooth",block:"center"}));
+  return true;
 }
 function visibleIssues(){const q=els.search.value.trim().toLowerCase();return currentCharacter.issues.filter(i=>(optionalVisible||!i.skip)&&(activeSeries==="Tutte"||i.seriesId===activeSeries)&&(activeEra==="Tutte"||i.era===activeEra)&&(!q||[i.n,i.name,i.title,i.date,i.era,i.eraSub,i.series].join(" ").toLowerCase().includes(q)))}
-function renderCharacters(){els.charGrid.innerHTML=manifest.characters.map(c=>`<button class="charBtn ${c.id===activeCharacter?"active":""}" data-char="${esc(c.id)}"><div class="charIcon"><span class="logoFallback">LOGO</span><img src="${esc(c.logo)}" alt="Logo ${esc(c.name)}" onerror="this.style.display='none'"></div><b>${esc(c.name)}</b><span>${esc(c.subtitle)}</span></button>`).join("");els.charGrid.querySelectorAll("[data-char]").forEach(b=>b.onclick=()=>switchCharacter(b.dataset.char))}
+function renderCharacters(){els.charGrid.innerHTML=manifest.characters.map(c=>`<button type="button" class="charBtn ${c.id===activeCharacter?"active":""}" data-char="${esc(c.id)}" aria-pressed="${c.id===activeCharacter}"><div class="charIcon"><span class="logoFallback">LOGO</span><img src="${esc(versioned(c.logo))}" alt="Logo ${esc(c.name)}" onerror="this.style.display='none'"></div><b>${esc(c.name)}</b><span>${esc(c.subtitle)}</span></button>`).join("");els.charGrid.querySelectorAll("[data-char]").forEach(b=>b.onclick=()=>void switchCharacter(b.dataset.char))}
 function renderStats(){const req=requiredIssues(),r=req.filter(i=>status(i.id).read).length,o=req.filter(i=>status(i.id).owned).length,p=Math.round(r/(req.length||1)*100);els.doneCount.textContent=r;els.totalCount.textContent=req.length;els.ownedCount.textContent=o;els.pct.textContent=p+"%";els.progressBar.style.width=p+"%"}
 function renderHero(){document.documentElement.style.setProperty("--accent",currentCharacter.accent||currentMeta.accent);els.logoSub.textContent=currentCharacter.subtitle||currentMeta.subtitle;els.heroLabel.textContent="Percorso attivo";els.heroTitle.innerHTML=`${esc(currentCharacter.name)}<br><span>${esc(currentCharacter.start)}</span>`;els.heroDesc.textContent=currentCharacter.description;els.topTitle.textContent=`${currentCharacter.name} Reading System`;els.topSub.textContent=`${currentCharacter.start} → ${currentCharacter.end}`;els.footerNote.innerHTML=`<b>${esc(currentCharacter.name)}</b><br>${esc(currentCharacter.start)}<br>→ ${esc(currentCharacter.end)}`}
 function renderNext(){const i=nextIssue();if(!i){els.nextPanel.innerHTML=`<div class="nextMeta" style="grid-column:1/-1"><div class="label">Percorso completato</div><h2>Sei in pari con ${esc(currentCharacter.name)}.</h2><p>${esc(currentCharacter.end)}</p></div>`;return}const st=status(i.id);els.nextPanel.innerHTML=`<div class="nextCover"><div class="fallback">${esc(i.name)}</div>${coverImg(i,false)}</div><div class="nextMeta"><div class="label">Leggi adesso · ${i.seq}/${currentCharacter.totalRequired}</div><h2>${esc(i.name)}</h2><p>${esc(i.date)} · ${esc(i.era)}<br>${esc(i.title)}</p><div class="nextBtns"><button class="btn ${st.owned?"primary":""}" id="nextOwned">${st.owned?"✓ Recuperato":"Segna recuperato"}</button><button class="btn done" id="nextRead">Segna letto</button><button class="btn" id="nextJump">Mostra</button></div></div>`;$("nextOwned").onclick=()=>setStatus(i.id,{owned:!st.owned});$("nextRead").onclick=()=>setStatus(i.id,{read:true,owned:true});$("nextJump").onclick=()=>jumpToIssue(i)}

@@ -37,4 +37,8 @@ Le copertine sono remote. Per Spider-Man vengono usati URL puntuali ComicsBox `U
 
 ## Loghi
 
-I loghi non sono inclusi nel repository: inserire i PNG personalizzati in `assets/heroes/` mantenendo i nomi documentati nel relativo README.
+Il repository include cinque emblemi PNG locali per il selettore dei personaggi e il wordmark Marvel dell'intestazione. Gli asset possono essere rigenerati con `python scripts/generate_logos.py`.
+
+## Verifica dati
+
+Eseguire `node scripts/verify-data.mjs` per controllare integrità gzip, schema, duplicati e conteggi di tutti gli archivi. `scripts/rebuild_character_data.py` ricostruisce gli indici danneggiati dai dati pubblici ComicsBox.

@@ -1,6 +1,6 @@
 # Loghi personaggi
 
-Inserisci qui i PNG personalizzati mantenendo questi nomi:
+I PNG locali del selettore vengono generati da `scripts/generate_logos.py` mantenendo questi nomi:
 
 - `ironman.png`
 - `thor.png`
