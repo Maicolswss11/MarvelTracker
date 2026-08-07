@@ -6,29 +6,44 @@
   <meta name="theme-color" content="#070a0e">
   <meta name="description" content="Marvel Archive: tracker personale delle edizioni italiane Marvel.">
   <title>Marvel Archive</title>
-  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/app.css?v=3">
 </head>
 <body>
 <div class="app">
   <aside class="sidebar">
-    <div class="logo"><img class="logoMark" src="assets/brand/marvel.png?v=2" alt="Marvel"><div><strong>MARVEL ARCHIVE</strong><small id="logoSub">Reading tracker</small></div></div>
+    <button type="button" class="logo" id="homeBtn" aria-label="Vai alla home"><img class="logoMark" src="assets/brand/marvel.png?v=2" alt="Marvel"><span><strong>MARVEL ARCHIVE</strong><small id="logoSub">Reading tracker</small></span></button>
     <div><div class="label" style="margin-bottom:7px">Personaggi</div><div class="charGrid" id="charGrid"></div></div>
-    <div class="card"><div class="label">Percorso del personaggio</div><div class="bigNum"><b id="doneCount">0</b>/<span id="totalCount">0</span></div><div class="progressTrack"><span id="progressBar"></span></div><div class="stats"><div class="stat"><b id="ownedCount">0</b><span>Recuperati</span></div><div class="stat"><b id="pct">0%</b><span>Completamento</span></div></div></div>
-    <div class="seriesNav" id="seriesNav"></div>
-    <div class="sideActions"><button id="jumpNext">→ Vai al prossimo albo</button><button id="showOptional">+ Mostra numeri facoltativi</button><button id="exportBtn">⇩ Esporta progressi</button><label>⇧ Importa progressi<input type="file" id="importFile" accept="application/json" hidden></label><button id="resetBtn">↺ Reset personaggio</button></div>
-    <div class="footerNote" id="footerNote"></div>
+    <div class="trackerSidebar" id="trackerSidebar">
+      <div class="card"><div class="label">Percorso del personaggio</div><div class="bigNum"><b id="doneCount">0</b>/<span id="totalCount">0</span></div><div class="progressTrack"><span id="progressBar"></span></div><div class="stats"><div class="stat"><b id="ownedCount">0</b><span>Recuperati</span></div><div class="stat"><b id="pct">0%</b><span>Completamento</span></div></div></div>
+      <div class="seriesNav" id="seriesNav"></div>
+      <div class="sideActions"><button id="jumpNext">→ Vai al prossimo albo</button><button id="showOptional">+ Mostra numeri facoltativi</button><button id="exportBtn">⇩ Esporta progressi</button><label>⇧ Importa progressi<input type="file" id="importFile" accept="application/json" hidden></label><button id="resetBtn">↺ Reset personaggio</button></div>
+      <div class="footerNote" id="footerNote"></div>
+    </div>
   </aside>
   <main class="main">
-    <header class="topbar"><div class="topbarTitle"><strong id="topTitle">Marvel Archive</strong><span id="topSub">Caricamento…</span></div><div class="search"><input id="search" type="search" placeholder="Cerca numero, titolo, evento, anno…"></div><button class="compactBtn" id="compactBtn">Vista compatta</button></header>
-    <div class="content">
-      <section class="hero"><article class="heroPanel"><div class="label" id="heroLabel">Percorso attivo</div><h1 id="heroTitle">Marvel Archive</h1><p id="heroDesc">Caricamento dati…</p></article><aside class="nextPanel" id="nextPanel"><div class="loading">Caricamento…</div></aside></section>
-      <div class="route" id="route"></div>
-      <div id="noticeWrap"></div>
-      <div class="filterBar" id="filterBar"></div>
-      <div id="seriesBlocks"><div class="loading">Caricamento personaggio…</div></div>
+    <section class="homeView" id="homeView" hidden>
+      <header class="homeTopbar"><div><span class="homeKicker">Marvel Archive</span><strong>Il tuo archivio personale</strong></div><button type="button" class="homeTopAction" id="homeTopResume">Riprendi percorso</button></header>
+      <div class="homeContent">
+        <section class="homeHero">
+          <div class="homeHeroCopy"><div class="homeEyebrow">Personal reading system · Edizioni italiane</div><h1>Il tuo universo Marvel,<br><span>albo dopo albo.</span></h1><p>Segui i percorsi italiani dei tuoi eroi, conserva la collezione e riprendi sempre dal prossimo numero da leggere.</p><div class="homeHeroActions"><button type="button" class="homePrimary" id="homeResume">Riprendi</button><button type="button" class="homeSecondary" id="homeExplore">Esplora i percorsi</button></div></div>
+          <div class="homeHeroVisual"><div class="homeVisualGlow"></div><img src="assets/brand/marvel.png?v=2" class="homeMarvelMark" alt="Marvel"><div class="homeHeroIcons" id="homeHeroIcons"></div><div class="homeVisualCaption"><span>5 percorsi</span><b>Un unico archivio</b></div></div>
+        </section>
+        <section class="homeStats" id="homeStats" aria-label="Riepilogo progressi"></section>
+        <section class="homeSection" id="homeCharactersSection"><div class="homeSectionHead"><div><span class="homeKicker">I tuoi percorsi</span><h2>Scegli il prossimo eroe</h2></div><p>Ogni percorso conserva separatamente gli albi letti, mentre i numeri recuperati restano condivisi nella collezione.</p></div><div class="homeCharacterGrid" id="homeCharacterGrid"></div></section>
+      </div>
+    </section>
+    <div id="trackerView">
+      <header class="topbar"><div class="topbarTitle"><strong id="topTitle">Marvel Archive</strong><span id="topSub">Caricamento…</span></div><div class="search"><input id="search" type="search" placeholder="Cerca numero, titolo, evento, anno…"></div><button class="compactBtn" id="compactBtn">Vista compatta</button></header>
+      <div class="content">
+        <section class="hero"><article class="heroPanel"><div class="label" id="heroLabel">Percorso attivo</div><h1 id="heroTitle">Marvel Archive</h1><p id="heroDesc">Caricamento dati…</p></article><aside class="nextPanel" id="nextPanel"><div class="loading">Caricamento…</div></aside></section>
+        <div class="route" id="route"></div>
+        <div id="noticeWrap"></div>
+        <div class="filterBar" id="filterBar"></div>
+        <div id="seriesBlocks"><div class="loading">Caricamento personaggio…</div></div>
+      </div>
     </div>
   </main>
 </div>
-<script type="module" src="js/app.js"></script>
+<script type="module" src="js/app.js?v=3"></script>
 </body>
 </html>
