@@ -1,0 +1,51 @@
+name: Apply Avengers character paths
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-avengers-characters.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Check builder syntax
+        run: python -m py_compile scripts/build_avengers_characters.py
+
+      - name: Build character paths
+        run: python scripts/build_avengers_characters.py
+
+      - name: Check JavaScript syntax
+        run: node --check js/app.js
+
+      - name: Verify all archives
+        run: node scripts/verify-data.mjs
+
+      - name: Commit generated paths
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/characters.json data/characters/antman.json data/characters/wasp.json data/characters/scarletwitch.json data/characters/vision.json data/characters/wonderman.json \
+            data/encoded/antman.json data/encoded/wasp.json data/encoded/scarletwitch.json data/encoded/vision.json data/encoded/wonderman.json \
+            data/b64/antman-*.b64 data/b64/wasp-*.b64 data/b64/scarletwitch-*.b64 data/b64/vision-*.b64 data/b64/wonderman-*.b64 \
+            assets/heroes/antman.svg assets/heroes/wasp.svg assets/heroes/scarlet-witch.svg assets/heroes/vision.svg assets/heroes/wonder-man.svg \
+            js/app.js css/app.css index.html scripts/verify-data.mjs scripts/rebuild_character_data.py scripts/build_avengers_characters.py
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git commit -m "Add five Avengers character reading paths"
+          git push
