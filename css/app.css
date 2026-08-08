@@ -38,3 +38,6 @@ body.compact .cover{display:none}body.compact .issue{grid-template-columns:54px 
 /* Avengers timeline support */
 .timelineBlock>.seriesHead{padding:0 3px 5px}.issueBadges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:5px}.publicationBadge{display:inline-flex;padding:3px 7px;border-radius:999px;border:1px solid var(--line2);background:#0a1118;color:var(--muted);font-size:7px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}.timelineBlock .era{scroll-margin-top:92px}@media(min-width:1121px){.publicationBadge{font-size:8px;padding:4px 8px}.timelineBlock>.seriesHead h2{font-size:30px}}
 /* /Avengers timeline support */
+
+/* Avengers character paths v1 */
+.homeHeroIcons{flex-wrap:wrap;row-gap:8px}.homeIntro .homeHeroIcons{max-width:620px}.homeCharacterGrid{grid-template-columns:repeat(auto-fit,minmax(185px,1fr))}
