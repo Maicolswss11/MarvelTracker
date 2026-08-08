@@ -306,7 +306,7 @@ def scan_avengers_issue(issue: dict) -> tuple[str, set[str]]:
         "wonderman": {"wonder man", "wonderman", "simon williams"},
     }
     for route_id, aliases in token_aliases.items():
-        if any(alias in token for token in exact_tokens for alias in aliases):
+        if any(re.search(rf"(^| ){re.escape(alias)}( |$)", token) for token in exact_tokens for alias in aliases):
             matched.add(route_id)
     for href, text in parser.links:
         for route_id in ROUTES:
