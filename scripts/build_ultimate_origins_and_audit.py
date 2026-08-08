@@ -146,13 +146,18 @@ def main() -> None:
     world25 = make_world_issue(25, "Cataclisma: L'ultima battaglia degli Ultimates 1", "Agosto 2014", "Cataclisma", "EVENTO PRINCIPALE: prologo Vision + prime due parti di The Ultimates' Last Stand.")
     world26 = make_world_issue(26, "Cataclisma: L'ultima battaglia degli Ultimates 2", "Ottobre 2014", "Cataclisma", "EVENTO PRINCIPALE: conclude The Ultimates' Last Stand dopo i tie-in Spider-Man, X-Men e Ultimates.")
 
-    tie_ids = {"ULTC_SM_M:28", "ULTCM_M:28", "UCAV_M:28"}
+    tie_order = ["ULTC_SM_M:28", "ULTCM_M:28", "UCAV_M:28"]
+    tie_ids = set(tie_order)
     first_tie = next((idx for idx, issue in enumerate(issues) if issue["id"] in tie_ids), None)
     if first_tie is None:
         raise RuntimeError("Cataclisma: tie-in principali non trovati nel master")
-    issues[first_tie:first_tie] = [world23, world24, world25]
-    last_tie = max(idx for idx, issue in enumerate(issues) if issue["id"] in tie_ids)
-    issues.insert(last_tie + 1, world26)
+    tie_map = {issue["id"]: deepcopy(issue) for issue in issues if issue["id"] in tie_ids}
+    missing_ties = [issue_id for issue_id in tie_order if issue_id not in tie_map]
+    if missing_ties:
+        raise RuntimeError(f"Cataclisma: tie-in mancanti {missing_ties}")
+    issues = [issue for issue in issues if issue["id"] not in tie_ids]
+    block = [world23, world24, world25] + [tie_map[issue_id] for issue_id in tie_order] + [world26]
+    issues[first_tie:first_tie] = block
     issues = resequence(issues)
     annotate_crossovers(issues)
 

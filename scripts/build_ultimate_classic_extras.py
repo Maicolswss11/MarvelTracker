@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 CHUNK_SIZE = 7500
-MANIFEST_VERSION = 9
+MANIFEST_VERSION = 10
 
 MONTHS = {
     "Gennaio": 1, "Febbraio": 2, "Marzo": 3, "Aprile": 4,

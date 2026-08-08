@@ -379,7 +379,7 @@ def patch_ui() -> None:
     verify_path.write_text(verify, encoding="utf-8")
 
     rebuild_path = ROOT / "scripts" / "rebuild_character_data.py"
-    rebuild = rebuild_path.read_text(encoding="utf-8").replace('manifest["version"] = 9', 'manifest["version"] = 9')
+    rebuild = rebuild_path.read_text(encoding="utf-8").replace('manifest["version"] = 10', 'manifest["version"] = 10')
     rebuild_path.write_text(rebuild, encoding="utf-8")
 
 
@@ -475,7 +475,7 @@ def main() -> None:
 
     manifest_path = DATA / "characters.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    manifest["version"] = 9
+    manifest["version"] = 10
     entry = {
         "id": "avengers",
         "name": "Vendicatori",
