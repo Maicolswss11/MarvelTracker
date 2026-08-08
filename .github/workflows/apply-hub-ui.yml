@@ -25,23 +25,8 @@ jobs:
 
           path = Path('index.html')
           source = path.read_text(encoding='utf-8')
-
-          if 'css/hub-ui.css' not in source:
-              match = re.search(r'(?P<line>\s*<link\s+rel="stylesheet"\s+href="css/app\.css\?v=\d+">)', source)
-              if not match:
-                  raise SystemExit('app.css link not found')
-              source = source[:match.end()] + '\n  <link rel="stylesheet" href="css/hub-ui.css?v=2">' + source[match.end():]
-          else:
-              source = re.sub(r'css/hub-ui\.css\?v=\d+', 'css/hub-ui.css?v=2', source)
-
-          if 'js/hub-ui.js' not in source:
-              script = '  <script type="module" src="js/hub-ui.js?v=2"></script>\n'
-              if '</body>' not in source:
-                  raise SystemExit('closing body tag not found')
-              source = source.replace('</body>', script + '</body>', 1)
-          else:
-              source = re.sub(r'js/hub-ui\.js\?v=\d+', 'js/hub-ui.js?v=2', source)
-
+          source = re.sub(r'css/hub-ui\.css\?v=\d+', 'css/hub-ui.css?v=2', source)
+          source = re.sub(r'js/hub-ui\.js\?v=\d+', 'js/hub-ui.js?v=2', source)
           path.write_text(source, encoding='utf-8')
 
       - name: Polish hub navigation behavior
@@ -56,7 +41,8 @@ jobs:
             const paths = hubPaths(hub);
             const total = paths.reduce((sum,path)=>sum+(Number(path.totalRequired)||0),0);
             return {paths,total};
-          }'''.replace('          ','')
+          }'''
+          old_stats = '\n'.join(line[10:] if line.startswith('          ') else line for line in old_stats.splitlines())
           new_stats = '''function hubStats(hub,visited=new Set()){
             if(!hub || visited.has(hub.id)) return {paths:[],total:0};
             visited.add(hub.id);
@@ -73,82 +59,56 @@ jobs:
             const paths = [...unique.values()];
             const total = paths.reduce((sum,path)=>sum+(Number(path.totalRequired)||0),0);
             return {paths,total};
-          }'''.replace('          ','')
-          if old_stats not in source:
+          }'''
+          new_stats = '\n'.join(line[10:] if line.startswith('          ') else line for line in new_stats.splitlines())
+          if old_stats in source:
+              source = source.replace(old_stats,new_stats,1)
+          elif 'function hubStats(hub,visited=new Set())' not in source:
               raise SystemExit('hubStats block not found')
-          source = source.replace(old_stats,new_stats,1)
 
-          old_legacy = '''  const legacy = byId("charGrid");
-            if(!legacy) return;
-            legacy.classList.add("hubLegacySidebar");'''.replace('          ','')
-          new_legacy = '''  const legacy = byId("charGrid");
-            if(!legacy) return;
-            const sidebarLabel = legacy.previousElementSibling;
-            if(sidebarLabel?.classList.contains("label")) sidebarLabel.textContent = "Sezione";
-            legacy.classList.add("hubLegacySidebar");'''.replace('          ','')
-          if old_legacy not in source:
+          old_legacy = '  const legacy = byId("charGrid");\n  if(!legacy) return;\n  legacy.classList.add("hubLegacySidebar");'
+          new_legacy = '  const legacy = byId("charGrid");\n  if(!legacy) return;\n  const sidebarLabel = legacy.previousElementSibling;\n  if(sidebarLabel?.classList.contains("label")) sidebarLabel.textContent = "Sezione";\n  legacy.classList.add("hubLegacySidebar");'
+          if old_legacy in source:
+              source = source.replace(old_legacy,new_legacy,1)
+          elif 'const sidebarLabel = legacy.previousElementSibling;' not in source:
               raise SystemExit('legacy sidebar block not found')
-          source = source.replace(old_legacy,new_legacy,1)
 
-          old_init = '''    ensureHomeExplorer();
-            refresh();
-
-            const legacyGrid=byId("homeCharacterGrid");'''.replace('          ','')
-          new_init = '''    ensureHomeExplorer();
-            refresh();
-            ["homeBtn","trackerHomeBtn"].forEach(id=>byId(id)?.addEventListener("click",()=>{activeHubId=null},{capture:true}));
-
-            const legacyGrid=byId("homeCharacterGrid");'''.replace('          ','')
-          if old_init not in source:
+          old_init = '    ensureHomeExplorer();\n    refresh();\n\n    const legacyGrid=byId("homeCharacterGrid");'
+          new_init = '    ensureHomeExplorer();\n    refresh();\n    ["homeBtn","trackerHomeBtn"].forEach(id=>byId(id)?.addEventListener("click",()=>{activeHubId=null},{capture:true}));\n\n    const legacyGrid=byId("homeCharacterGrid");'
+          if old_init in source:
+              source = source.replace(old_init,new_init,1)
+          elif '["homeBtn","trackerHomeBtn"].forEach' not in source:
               raise SystemExit('init block not found')
-          source = source.replace(old_init,new_init,1)
+
           path.write_text(source,encoding='utf-8')
 
           css = Path('css/hub-ui.css')
           css_source = css.read_text(encoding='utf-8')
           rule = 'body.hubUiEnabled #homeCharactersSection>.homeSectionHead{display:none}\n'
           if rule not in css_source:
-              css_source = css_source.replace('body.hubUiEnabled .hubLegacyGrid{display:none!important}\n', 'body.hubUiEnabled .hubLegacyGrid{display:none!important}\n'+rule, 1)
+              needle='body.hubUiEnabled .hubLegacyGrid{display:none!important}\n'
+              if needle not in css_source:
+                  raise SystemExit('legacy grid CSS rule not found')
+              css_source = css_source.replace(needle, needle+rule, 1)
           css.write_text(css_source,encoding='utf-8')
-
-      - name: Remove migration markers
-        run: rm -f data/.hub-ui-phase1 data/.hub-ui-phase1-notes
 
       - name: Validate hub taxonomy
         shell: python
         run: |
           import json
           from pathlib import Path
-
           hubs = json.loads(Path('data/hubs.json').read_text(encoding='utf-8'))
           paths = json.loads(Path('data/characters.json').read_text(encoding='utf-8'))
           hub_ids = {hub['id'] for hub in hubs['hubs']}
           path_ids = {path['id'] for path in paths['characters']}
-
           for path in paths['characters']:
-              for hub_id in path.get('hubs', []):
-                  assert hub_id in hub_ids, f"{path['id']}: hub sconosciuto {hub_id}"
-              if path.get('primaryHub'):
-                  assert path['primaryHub'] in hub_ids, f"{path['id']}: primaryHub sconosciuto"
-
+              for hub_id in path.get('hubs', []): assert hub_id in hub_ids
+              if path.get('primaryHub'): assert path['primaryHub'] in hub_ids
           for hub in hubs['hubs']:
-              if hub.get('parent'):
-                  assert hub['parent'] in hub_ids, f"{hub['id']}: parent sconosciuto"
+              if hub.get('parent'): assert hub['parent'] in hub_ids
               for group in hub.get('groups', []):
-                  for path_id in group.get('paths', []):
-                      assert path_id in path_ids, f"{hub['id']}: percorso sconosciuto {path_id}"
-
+                  for path_id in group.get('paths', []): assert path_id in path_ids
           print(f"{len(hub_ids)} hub, {len(path_ids)} percorsi — OK")
-
-      - name: Ensure verifier targets manifest v5
-        shell: python
-        run: |
-          from pathlib import Path
-          path = Path('scripts/verify-data.mjs')
-          source = path.read_text(encoding='utf-8')
-          source = source.replace('manifest.version, 4', 'manifest.version, 5')
-          source = source.replace('versione cache v4', 'versione cache v5')
-          path.write_text(source, encoding='utf-8')
 
       - name: Check JavaScript syntax
         run: |
@@ -162,8 +122,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html data/hubs.json data/characters.json js/hub-ui.js css/hub-ui.css scripts/verify-data.mjs
-          git add -u data/.hub-ui-phase1 data/.hub-ui-phase1-notes 2>/dev/null || true
+          git add index.html js/hub-ui.js css/hub-ui.css
           if git diff --cached --quiet; then
             echo "No hub UI changes to commit."
             exit 0
