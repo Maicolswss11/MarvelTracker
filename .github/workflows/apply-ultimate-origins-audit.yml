@@ -41,6 +41,37 @@ jobs:
           )
           verify.write_text(source, encoding='utf-8')
 
+      - name: Fix curated Cataclysm order
+        shell: python
+        run: |
+          from pathlib import Path
+          path = Path('scripts/build_ultimate_origins_and_audit.py')
+          source = path.read_text(encoding='utf-8')
+          old = '''    tie_ids = {"ULTC_SM_M:28", "ULTCM_M:28", "UCAV_M:28"}
+              first_tie = next((idx for idx, issue in enumerate(issues) if issue["id"] in tie_ids), None)
+              if first_tie is None:
+                  raise RuntimeError("Cataclisma: tie-in principali non trovati nel master")
+              issues[first_tie:first_tie] = [world23, world24, world25]
+              last_tie = max(idx for idx, issue in enumerate(issues) if issue["id"] in tie_ids)
+              issues.insert(last_tie + 1, world26)
+          '''.replace('              ', '    ')
+          new = '''    tie_order = ["ULTC_SM_M:28", "ULTCM_M:28", "UCAV_M:28"]
+              tie_ids = set(tie_order)
+              first_tie = next((idx for idx, issue in enumerate(issues) if issue["id"] in tie_ids), None)
+              if first_tie is None:
+                  raise RuntimeError("Cataclisma: tie-in principali non trovati nel master")
+              tie_map = {issue["id"]: deepcopy(issue) for issue in issues if issue["id"] in tie_ids}
+              missing_ties = [issue_id for issue_id in tie_order if issue_id not in tie_map]
+              if missing_ties:
+                  raise RuntimeError(f"Cataclisma: tie-in mancanti {missing_ties}")
+              issues = [issue for issue in issues if issue["id"] not in tie_ids]
+              block = [world23, world24, world25] + [tie_map[issue_id] for issue_id in tie_order] + [world26]
+              issues[first_tie:first_tie] = block
+          '''.replace('              ', '    ')
+          if old not in source:
+              raise SystemExit('Blocco Cataclisma da correggere non trovato')
+          path.write_text(source.replace(old, new, 1), encoding='utf-8')
+
       - name: Rebuild Ultimate core
         run: python scripts/build_ultimate_classic_core.py
 
@@ -75,6 +106,7 @@ jobs:
           events=next(group for group in hub['groups'] if group['id']=='events')
           assert origins['paths']==['ultimate-origins','ultimate-ironman','ultimate-thor','ultimate-cap']
           assert 'ultimate-cataclysm' in events['paths']
+          assert hub['featuredPath']=='ultimate-universe'
           assert audit['masterTotal']==317
 
           def unpack(cid):
@@ -92,6 +124,8 @@ jobs:
           assert [i['id'] for i in thor['issues']]==['ULTCM_M:1','ULTCM_M:2']
           origins_path=unpack('ultimate-origins')
           assert [i['id'] for i in origins_path['issues']]==['MCROS_M:54']
+          cat_path=unpack('ultimate-cataclysm')
+          assert [i['id'] for i in cat_path['issues']]==cat
           print('Ultimate origins/audit taxonomy — OK')
 
       - name: Validate JavaScript
