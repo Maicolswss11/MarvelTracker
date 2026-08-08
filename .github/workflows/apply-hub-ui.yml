@@ -69,6 +69,16 @@ jobs:
 
           print(f"{len(hub_ids)} hub, {len(path_ids)} percorsi — OK")
 
+      - name: Update verifier for manifest v5
+        shell: python
+        run: |
+          from pathlib import Path
+          path = Path('scripts/verify-data.mjs')
+          source = path.read_text(encoding='utf-8')
+          source = source.replace('manifest.version, 4', 'manifest.version, 5')
+          source = source.replace('versione cache v4', 'versione cache v5')
+          path.write_text(source, encoding='utf-8')
+
       - name: Check JavaScript syntax
         run: |
           node --check js/app.js
@@ -81,7 +91,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html data/hubs.json data/characters.json js/hub-ui.js css/hub-ui.css
+          git add index.html data/hubs.json data/characters.json js/hub-ui.js css/hub-ui.css scripts/verify-data.mjs
           git add -u data/.hub-ui-phase1 data/.hub-ui-phase1-notes 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No hub UI changes to commit."
