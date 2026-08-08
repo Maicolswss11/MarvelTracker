@@ -22,7 +22,7 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Align manifest cache version
+      - name: Align builders and cache version
         shell: python
         run: |
           from pathlib import Path
@@ -32,6 +32,14 @@ jobs:
               source = re.sub(r'MANIFEST_VERSION\s*=\s*\d+', 'MANIFEST_VERSION = 7', source)
               source = re.sub(r'manifest\["version"\]\s*=\s*\d+', 'manifest["version"] = 7', source)
               path.write_text(source, encoding='utf-8')
+
+          # F4_SM contiene anche uno speciale #0: usiamo finestre sovrapposte
+          # per evitare che la paginazione ComicsBox faccia cadere il #100 tra due pagine.
+          ff = Path('scripts/build_fantastic_four_data.py')
+          source = ff.read_text(encoding='utf-8')
+          source = source.replace('limite={page*50}', 'limite={page*45}')
+          ff.write_text(source, encoding='utf-8')
+
           verify = Path('scripts/verify-data.mjs')
           source = verify.read_text(encoding='utf-8')
           source = re.sub(r'assert\.equal\(manifest\.version,\s*\d+,\s*"Il manifest deve usare la versione cache v\d+"\);', 'assert.equal(manifest.version, 7, "Il manifest deve usare la versione cache v7");', source)
