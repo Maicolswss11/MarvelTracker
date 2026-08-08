@@ -108,3 +108,30 @@ body.hubUiEnabled #homeCharactersSection>.homeSectionHead{display:none}
   .hubPathArrow{display:none}
   .hubDetailHero h2{font-size:38px}
 }
+
+
+/* Editorial artwork v1 */
+.hubCard.withArt{background:#080d13;isolation:isolate}
+.hubCardArt{position:absolute;inset:0;z-index:0;display:flex;overflow:hidden;opacity:.50;pointer-events:none}
+.hubCardArt img{min-width:0;flex:1 1 0;width:0;height:100%;object-fit:cover;object-position:center 18%;filter:saturate(.92) contrast(1.08)}
+.hubCardShade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(5,9,14,.94) 0%,rgba(5,9,14,.72) 48%,rgba(5,9,14,.48) 100%),linear-gradient(180deg,rgba(4,8,12,.12),rgba(4,8,12,.82))}
+.hubCard.withArt .hubCardGlow{z-index:2;opacity:.18}
+.hubCard.withArt .hubCardTop,.hubCard.withArt .hubCardBody,.hubCard.withArt .hubCardBottom{z-index:3}
+.hubCard.withArt .hubCardBody b{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.82)}
+.hubCard.withArt .hubCardBody span{color:#b7c2ce;text-shadow:0 2px 12px rgba(0,0,0,.88)}
+.hubCard.withArt .hubCardBottom{color:#aeb9c5;border-top-color:rgba(255,255,255,.18);text-shadow:0 1px 8px rgba(0,0,0,.9)}
+.hubCard.withArt .hubType{color:#c2ccd6;text-shadow:0 1px 8px rgba(0,0,0,.9)}
+.hubCard.withArt .hubStatus{backdrop-filter:blur(7px);background:rgba(7,12,18,.58)}
+
+.hubPathLogo{position:relative;isolation:isolate}
+.hubPathLogo img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none}
+.hubPathLogo .pathArtFallback{z-index:1;object-fit:contain;padding:6px;background:#080d13}
+.hubPathLogo .pathArtPrimary{z-index:2;object-fit:cover;padding:0;background:#080d13}
+.hubPathCard:has(.pathArtPrimary) .hubPathLogo{box-shadow:0 8px 18px rgba(0,0,0,.28)}
+
+.hubSidePath{grid-template-columns:34px minmax(0,1fr)}
+.hubSideArtwork{position:relative;width:34px;height:34px;border-radius:9px;overflow:hidden;border:1px solid color-mix(in srgb,var(--path-accent) 32%,#263443);background:#080d13;isolation:isolate}
+.hubSideArtwork img{position:absolute;inset:0;width:100%;height:100%}
+.hubSideArtwork .pathArtFallback{z-index:1;object-fit:contain;padding:4px;background:#080d13}
+.hubSideArtwork .pathArtPrimary{z-index:2;object-fit:cover;padding:0}
+@media(max-width:520px){.hubCardArt{opacity:.46}.hubCardShade{background:linear-gradient(90deg,rgba(5,9,14,.95),rgba(5,9,14,.63)),linear-gradient(180deg,rgba(4,8,12,.15),rgba(4,8,12,.84))}}

@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#070a0e">
   <meta name="description" content="Marvel Archive: tracker personale delle edizioni italiane Marvel.">
   <title>Marvel Archive</title>
-  <link rel="stylesheet" href="css/app.css?v=8">
-  <link rel="stylesheet" href="css/hub-ui.css?v=6">
+  <link rel="stylesheet" href="css/app.css?v=9">
+  <link rel="stylesheet" href="css/hub-ui.css?v=7">
   <link rel="stylesheet" href="css/bulk-actions.css?v=1">
   <link rel="stylesheet" href="css/collection-formats.css?v=1">
   <link rel="stylesheet" href="css/profile.css?v=1">
@@ -15,7 +15,7 @@
 <body>
 <div class="app">
   <aside class="sidebar">
-    <button type="button" class="logo" id="homeBtn" aria-label="Vai alla home"><img class="logoMark" src="assets/brand/marvel.png?v=2" alt="Marvel"><span><strong>MARVEL ARCHIVE</strong><small id="logoSub">Reading tracker</small></span></button>
+    <button type="button" class="logo" id="homeBtn" aria-label="Vai alla home"><img class="logoMark" src="assets/brand/marvel.png?v=3" alt="Marvel"><span><strong>MARVEL ARCHIVE</strong><small id="logoSub">Reading tracker</small></span></button>
     <div><div class="label" style="margin-bottom:7px">Percorsi</div><div class="charGrid" id="charGrid"></div></div>
     <div class="trackerSidebar" id="trackerSidebar">
       <div class="card"><div class="label">Progresso del percorso</div><div class="bigNum"><b id="doneCount">0</b>/<span id="totalCount">0</span></div><div class="progressTrack"><span id="progressBar"></span></div><div class="stats collectionStats"><div class="stat"><b id="ownedCount">0</b><span>Recuperati</span></div><div class="stat"><b id="physicalCount">0</b><span>Fisici</span></div><div class="stat"><b id="digitalCount">0</b><span>Digitali</span></div><div class="stat"><b id="pct">0%</b><span>Completamento</span></div></div></div>
@@ -27,8 +27,8 @@
   <main class="main">
     <section class="homeView" id="homeView" hidden>
       <header class="homeTopbar">
-        <div class="homeTopBrand"><img src="assets/brand/marvel.png?v=2" alt="Marvel"><span><b>MARVEL ARCHIVE</b><small>Il tuo archivio personale</small></span></div>
-        <div class="homeTopActions"><button type="button" class="homeTopAction" id="homeTopResume">Riprendi percorso</button><button type="button" class="homeTopAction" id="homeProfileBtn">Collezione</button><button type="button" class="accountButton" id="homeAccountBtn" aria-haspopup="dialog"><span class="accountAvatar" data-account-avatar>M</span><span class="accountButtonText"><b data-account-name>Profilo locale</b><small data-account-status>Accedi per sincronizzare</small></span></button></div>
+        <div class="homeTopBrand"><img src="assets/brand/marvel.png?v=3" alt="Marvel"><span><b>MARVEL ARCHIVE</b><small>Il tuo archivio personale</small></span></div>
+        <div class="homeTopActions"><button type="button" class="homeTopAction" id="homeTopResume">Riprendi percorso</button><button type="button" class="homeTopAction" id="homeProfileBtn" aria-label="Apri la collezione"><svg class="homeTopActionIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8v12h16V8"/><path d="M2.5 4h19v4h-19z"/><path d="M9 12h6"/></svg><span class="homeTopActionLabel">Collezione</span></button><button type="button" class="accountButton" id="homeAccountBtn" aria-haspopup="dialog"><span class="accountAvatar" data-account-avatar>M</span><span class="accountButtonText"><b data-account-name>Profilo locale</b><small data-account-status>Accedi per sincronizzare</small></span></button></div>
       </header>
       <div class="homeContent">
         <section class="homeDashboardHero">
@@ -79,6 +79,6 @@
 </dialog>
 <script src="js/profile-ui.js?v=1"></script>
 <script type="module" src="js/app.js?v=11"></script>
-  <script type="module" src="js/hub-ui.js?v=6"></script>
+  <script type="module" src="js/hub-ui.js?v=7"></script>
 </body>
 </html>

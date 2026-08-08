@@ -52,6 +52,81 @@ def fill_missing(target: dict[str, Any], issue: dict[str, Any]) -> None:
             target[key] = value
 
 
+
+def _norm(value: Any) -> str:
+    return " ".join(str(value or "").casefold().replace("–", "-").split())
+
+
+def choose_path_cover(path_meta: dict[str, Any], issues: list[dict[str, Any]]) -> str | None:
+    path_id = path_meta["id"]
+    candidates = [
+        row for row in issues
+        if path_id in row.get("paths", []) and row.get("cover") and not row.get("future")
+    ]
+    if not candidates:
+        return None
+
+    start_name = _norm(str(path_meta.get("start", "")).split(" — ", 1)[0])
+    if start_name:
+        for row in candidates:
+            issue_name = _norm(row.get("name", ""))
+            if issue_name == start_name or start_name in issue_name or issue_name in start_name:
+                return str(row["cover"])
+    return str(candidates[0]["cover"])
+
+
+def write_ui_art(manifest: dict[str, Any], issues: list[dict[str, Any]]) -> None:
+    path_art: dict[str, str] = {}
+    for path_meta in manifest.get("characters", []):
+        cover = choose_path_cover(path_meta, issues)
+        if cover:
+            path_art[path_meta["id"]] = cover
+
+    preferred_hub_paths = {
+        "main": ["spiderman", "avengers", "xmen", "fantastic-four"],
+        "ultimate-classic": ["ultimate-spiderman-classic", "ultimate-xmen", "ultimates", "ultimate-fantastic-four"],
+        "ultimate-new": ["ultimate-new-spiderman", "ultimate-new-black-panther", "ultimate-new-xmen", "ultimate-new-ultimates", "ultimate-new-wolverine"],
+        "avengers": ["ironman", "thor", "cap", "hulk"],
+        "xmen": ["xmen"],
+        "spider": ["spiderman"],
+        "fantastic-four": ["fantastic-four"],
+        "mystic": ["scarletwitch"],
+    }
+
+    hubs_manifest = read_json(DATA / "hubs.json")
+    hub_art: dict[str, list[str]] = {}
+    for hub in hubs_manifest.get("hubs", []):
+        ids = list(preferred_hub_paths.get(hub["id"], []))
+        if not ids:
+            for group in hub.get("groups", []):
+                ids.extend(group.get("paths", []))
+            ids.extend(
+                path_meta["id"]
+                for path_meta in manifest.get("characters", [])
+                if hub["id"] in path_meta.get("hubs", [])
+            )
+        covers: list[str] = []
+        for path_id in ids:
+            cover = path_art.get(path_id)
+            if cover and cover not in covers:
+                covers.append(cover)
+            if len(covers) >= 4:
+                break
+        if covers:
+            hub_art[hub["id"]] = covers
+
+    payload = {
+        "version": 1,
+        "manifestVersion": manifest.get("version"),
+        "paths": path_art,
+        "hubs": hub_art,
+    }
+    (DATA / "ui-art.json").write_text(
+        json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
+        encoding="utf-8",
+    )
+
+
 def main() -> None:
     manifest = read_json(DATA / "characters.json")
     catalog: dict[str, dict[str, Any]] = {}
@@ -110,6 +185,7 @@ def main() -> None:
         json.dumps(output, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
     )
+    write_ui_art(manifest, issues)
     print(f"Catalogo globale: {len(issues)} albi fisici unici")
 
 

@@ -2,6 +2,7 @@ const HUB_SESSION_KEY = "marvel_archive_last_hub";
 
 let hubManifest = null;
 let pathManifest = null;
+let uiArt = {paths:{},hubs:{}};
 let activeHubId = null;
 let progressSnapshot = new Map();
 
@@ -15,6 +16,26 @@ function pathTypeLabel(path){
   return labels[path?.type] || "Percorso";
 }
 function pathHubIds(path){ return Array.isArray(path?.hubs) ? path.hubs : path?.primaryHub ? [path.primaryHub] : []; }
+
+function pathLogoUrl(path){
+  const logo = path?.logo || "";
+  if(!logo) return "";
+  const separator = logo.includes("?") ? "&" : "?";
+  return `${logo}${separator}v=${encodeURIComponent(pathManifest?.version||1)}`;
+}
+function pathArtworkMarkup(path){
+  const cover = uiArt?.paths?.[path?.id] || "";
+  const fallback = pathLogoUrl(path);
+  return `${cover?`<img class="pathArtPrimary" loading="lazy" src="${esc(cover)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">`:""}${fallback?`<img class="pathArtFallback" loading="lazy" src="${esc(fallback)}" alt="">`:""}`;
+}
+function hubArtworkUrls(hub){
+  return [...new Set(uiArt?.hubs?.[hub?.id] || [])].filter(Boolean).slice(0,4);
+}
+function hubArtworkMarkup(hub){
+  const covers = hubArtworkUrls(hub);
+  if(!covers.length) return "";
+  return `<span class="hubCardArt" aria-hidden="true">${covers.map(src=>`<img loading="lazy" src="${esc(src)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">`).join("")}</span><span class="hubCardShade" aria-hidden="true"></span>`;
+}
 
 function collectProgress(){
   const grid = byId("homeCharacterGrid");
@@ -88,8 +109,9 @@ function hubCard(hub,{compact=false}={}){
   const stats = hubStats(hub);
   const coming = hub.status === "coming";
   const label = hub.type === "universe" ? "Universo" : hub.type === "event-index" ? "Eventi" : "Famiglia";
-  return `<button type="button" class="hubCard ${compact?"compact":""} ${coming?"coming":""}" style="--hub-accent:${esc(hub.accent||"#ed1d24")}" data-open-hub="${esc(hub.id)}">
-    <span class="hubCardGlow"></span>
+  const artwork = hubArtworkMarkup(hub);
+  return `<button type="button" class="hubCard ${compact?"compact":""} ${coming?"coming":""} ${artwork?"withArt":""}" style="--hub-accent:${esc(hub.accent||"#ed1d24")}" data-open-hub="${esc(hub.id)}">
+    ${artwork}<span class="hubCardGlow"></span>
     <span class="hubCardTop"><span class="hubType">${esc(label)}</span>${coming?'<span class="hubStatus">In preparazione</span>':`<span class="hubStatus live">${stats.paths.length} percorsi</span>`}</span>
     <span class="hubCardBody"><b>${esc(hub.name)}</b><span>${esc(hub.subtitle)}</span></span>
     <span class="hubCardBottom">${coming?"Struttura pronta":`${stats.total.toLocaleString("it-IT")} tappe mappate`}<span aria-hidden="true">→</span></span>
@@ -99,7 +121,7 @@ function hubCard(hub,{compact=false}={}){
 function pathCard(path,hubId){
   const progress = progressSnapshot.get(path.id);
   return `<button type="button" class="hubPathCard" style="--path-accent:${esc(path.accent||"#ed1d24")}" data-hub-path="${esc(path.id)}" data-from-hub="${esc(hubId)}">
-    <span class="hubPathLogo"><img src="${esc(path.logo)}?v=${encodeURIComponent(pathManifest.version||1)}" alt="" onerror="this.style.display='none'"></span>
+    <span class="hubPathLogo">${pathArtworkMarkup(path)}</span>
     <span class="hubPathMain"><small>${esc(pathTypeLabel(path))}</small><b>${esc(path.name)}</b><span>${esc(path.subtitle)}</span></span>
     <span class="hubPathProgress">${progress?`<b>${esc(progress.pct)}</b><small>${esc(progress.count)}</small>`:`<b>${Number(path.totalRequired||0).toLocaleString("it-IT")}</b><small>tappe</small>`}</span>
     <span class="hubPathArrow" aria-hidden="true">→</span>
@@ -182,7 +204,7 @@ function ensureHomeExplorer(){
 }
 
 function sidebarPathButton(path,currentId,hubId){
-  return `<button type="button" class="hubSidePath ${path.id===currentId?"active":""}" style="--path-accent:${esc(path.accent)}" data-side-path="${esc(path.id)}" data-side-hub="${esc(hubId)}"><img src="${esc(path.logo)}?v=${encodeURIComponent(pathManifest.version||1)}" alt="" onerror="this.style.visibility='hidden'"><span><b>${esc(path.name)}</b><small>${esc(path.subtitle)}</small></span></button>`;
+  return `<button type="button" class="hubSidePath ${path.id===currentId?"active":""}" style="--path-accent:${esc(path.accent)}" data-side-path="${esc(path.id)}" data-side-hub="${esc(hubId)}"><span class="hubSideArtwork">${pathArtworkMarkup(path)}</span><span><b>${esc(path.name)}</b><small>${esc(path.subtitle)}</small></span></button>`;
 }
 
 function renderTrackerContext(){
@@ -241,13 +263,15 @@ function refresh(){
 
 async function initHubUi(){
   try{
-    const [hubResponse,pathResponse] = await Promise.all([
+    const [hubResponse,pathResponse,artResponse] = await Promise.all([
       fetch("data/hubs.json",{cache:"no-cache"}),
-      fetch("data/characters.json",{cache:"no-cache"})
+      fetch("data/characters.json",{cache:"no-cache"}),
+      fetch("data/ui-art.json",{cache:"no-cache"}).catch(()=>null)
     ]);
     if(!hubResponse.ok || !pathResponse.ok) throw new Error("Impossibile caricare la tassonomia Marvel");
     hubManifest = await hubResponse.json();
     pathManifest = await pathResponse.json();
+    if(artResponse?.ok) uiArt = await artResponse.json();
     ensureHomeExplorer();
     refresh();
     ["homeBtn","trackerHomeBtn"].forEach(id=>byId(id)?.addEventListener("click",()=>{
