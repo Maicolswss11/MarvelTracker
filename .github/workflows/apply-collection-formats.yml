@@ -1,0 +1,267 @@
+name: Apply collection formats
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-collection-formats.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Add physical and digital collection states
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          path=Path('js/app.js')
+          source=path.read_text(encoding='utf-8')
+
+          def replace_once(old,new,label):
+              global source
+              if old not in source:
+                  raise SystemExit(f'Anchor non trovato: {label}')
+              source=source.replace(old,new,1)
+
+          replace_once(
+              'charGrid: $("charGrid"), doneCount: $("doneCount"), totalCount: $("totalCount"), progressBar: $("progressBar"), ownedCount: $("ownedCount"), pct: $("pct"),',
+              'charGrid: $("charGrid"), doneCount: $("doneCount"), totalCount: $("totalCount"), progressBar: $("progressBar"), ownedCount: $("ownedCount"), physicalCount: $("physicalCount"), digitalCount: $("digitalCount"), pct: $("pct"),',
+              'sidebar counters',
+          )
+
+          old='''function normalizeState(x){
+            x ??= {}; x.characters ??= {}; x.collection ??= {};
+            if(manifest){ for(const c of manifest.characters){ x.characters[c.id] ??= {issues:{}}; x.characters[c.id].issues ??= {}; } }
+            for(const c of Object.values(x.characters||{})){ for(const [id,v] of Object.entries(c.issues||{})){ if(v?.owned) x.collection[id]={...(x.collection[id]||{}),owned:true}; } }
+            return x;
+          }
+          function loadState(key=activeStorageKey){try{return normalizeState(JSON.parse(localStorage.getItem(key)))}catch{return normalizeState({characters:{},collection:{}})}}'''
+          new='''function normalizeState(x){
+            x ??= {}; x.characters ??= {}; x.collection ??= {};
+            if(manifest){ for(const c of manifest.characters){ x.characters[c.id] ??= {issues:{}}; x.characters[c.id].issues ??= {}; } }
+            // Migrazione v2: ogni vecchio `Recuperato` viene considerato DIGITALE.
+            for(const c of Object.values(x.characters||{})){
+              for(const [id,v] of Object.entries(c.issues||{})){
+                if(!v?.owned)continue;
+                const entry={...(x.collection[id]||{})};
+                if(!Object.hasOwn(entry,"physical")&&!Object.hasOwn(entry,"digital"))entry.digital=true;
+                x.collection[id]=entry;
+              }
+            }
+            for(const [id,value] of Object.entries(x.collection||{})){
+              const entry={...(value||{})};
+              const hasFormat=Object.hasOwn(entry,"physical")||Object.hasOwn(entry,"digital");
+              const physical=!!entry.physical;
+              const digital=hasFormat?!!entry.digital:!!entry.owned;
+              x.collection[id]={...entry,physical,digital,owned:physical||digital};
+            }
+            x.collectionSchema=2;
+            return x;
+          }
+          function loadState(key=activeStorageKey){
+            try{
+              const parsed=JSON.parse(localStorage.getItem(key)),normalized=normalizeState(parsed);
+              localStorage.setItem(key,JSON.stringify(normalized));
+              return normalized;
+            }catch{return normalizeState({characters:{},collection:{}})}
+          }'''
+          replace_once(old,new,'state migration')
+
+          old='''function status(id){return {owned:!!state.collection?.[id]?.owned,read:!!bucket()[id]?.read}}
+          function setStatuses(ids,patch){
+            state.collection??={};
+            const routeBucket=bucket();
+            for(const id of new Set(ids)){
+              if(!id)continue;
+              if(Object.hasOwn(patch,"owned"))state.collection[id]={...(state.collection[id]||{}),owned:!!patch.owned};
+              if(Object.hasOwn(patch,"read")){
+                routeBucket[id]={...(routeBucket[id]||{}),read:!!patch.read};
+                if(patch.read)state.collection[id]={...(state.collection[id]||{}),owned:true};
+              }
+            }
+            saveState();
+            renderAll();
+          }'''
+          new='''function status(id){
+            const item=state.collection?.[id]||{},physical=!!item.physical,digital=!!item.digital;
+            return {physical,digital,owned:physical||digital,read:!!bucket()[id]?.read};
+          }
+          function setStatuses(ids,patch){
+            state.collection??={};
+            const routeBucket=bucket();
+            for(const id of new Set(ids)){
+              if(!id)continue;
+              const entry={...(state.collection[id]||{})};
+              if(Object.hasOwn(patch,"owned")){
+                if(patch.owned){if(!entry.physical&&!entry.digital)entry.digital=true}
+                else{entry.physical=false;entry.digital=false}
+              }
+              if(Object.hasOwn(patch,"physical"))entry.physical=!!patch.physical;
+              if(Object.hasOwn(patch,"digital"))entry.digital=!!patch.digital;
+              entry.owned=!!entry.physical||!!entry.digital;
+              state.collection[id]=entry;
+              if(Object.hasOwn(patch,"read"))routeBucket[id]={...(routeBucket[id]||{}),read:!!patch.read};
+            }
+            saveState();
+            renderAll();
+          }'''
+          replace_once(old,new,'format state')
+
+          pattern=r'function renderBulkToolbar\(\)\{.*?\n\}\nfunction requiredIssues'
+          replacement='''function renderBulkToolbar(){
+            let bar=els.seriesBlocks.querySelector(":scope > .bulkToolbar");
+            if(!bar){bar=document.createElement("div");bar.className="bulkToolbar";els.seriesBlocks.prepend(bar)}
+            const visibleIds=actionableVisibleIssues().map(i=>i.id),selectedCount=selectedIssueIds.size;
+            if(!bulkSelectionMode){
+              bar.innerHTML=`<div class="bulkToolbarTitle"><b>Gestione multipla</b><span>${visibleIds.length} albi visibili</span></div><div class="bulkToolbarActions"><button type="button" data-bulk-mode>Seleziona albi</button><button type="button" class="bulkPhysical" data-bulk-visible-physical>Fisici visibili</button><button type="button" class="bulkDigital" data-bulk-visible-digital>Digitali visibili</button><button type="button" data-bulk-visible-read>Letti visibili</button></div>`;
+              bar.querySelector("[data-bulk-mode]").onclick=()=>setBulkSelectionMode(true);
+              bar.querySelector("[data-bulk-visible-physical]").onclick=()=>applyBulk(visibleIds,{physical:true});
+              bar.querySelector("[data-bulk-visible-digital]").onclick=()=>applyBulk(visibleIds,{digital:true});
+              bar.querySelector("[data-bulk-visible-read]").onclick=()=>applyBulk(visibleIds,{read:true});
+              return;
+            }
+            bar.innerHTML=`<div class="bulkToolbarTitle"><b>${selectedCount} selezionati</b><span>Fisico e digitale possono coesistere sullo stesso albo.</span></div><div class="bulkToolbarActions"><button type="button" data-bulk-select-visible>Seleziona visibili</button><button type="button" data-bulk-clear>Deseleziona</button><button type="button" class="bulkPhysical" data-bulk-selected-physical>Fisici</button><button type="button" class="bulkDigital" data-bulk-selected-digital>Digitali</button><button type="button" class="bulkPositive" data-bulk-selected-read>Letti</button><button type="button" class="bulkNegative" data-bulk-selected-unphysical>Togli fisico</button><button type="button" class="bulkNegative" data-bulk-selected-undigital>Togli digitale</button><button type="button" class="bulkNegative" data-bulk-selected-unread>Togli letto</button><button type="button" data-bulk-close>Chiudi</button></div>`;
+            bar.querySelector("[data-bulk-select-visible]").onclick=()=>selectBulkIds(visibleIds);
+            bar.querySelector("[data-bulk-clear]").onclick=()=>{selectedIssueIds.clear();renderAll()};
+            bar.querySelector("[data-bulk-selected-physical]").onclick=()=>applyBulk([...selectedIssueIds],{physical:true});
+            bar.querySelector("[data-bulk-selected-digital]").onclick=()=>applyBulk([...selectedIssueIds],{digital:true});
+            bar.querySelector("[data-bulk-selected-read]").onclick=()=>applyBulk([...selectedIssueIds],{read:true});
+            bar.querySelector("[data-bulk-selected-unphysical]").onclick=()=>applyBulk([...selectedIssueIds],{physical:false},{confirmText:"Togliere Fisico dagli albi selezionati?"});
+            bar.querySelector("[data-bulk-selected-undigital]").onclick=()=>applyBulk([...selectedIssueIds],{digital:false},{confirmText:"Togliere Digitale dagli albi selezionati?"});
+            bar.querySelector("[data-bulk-selected-unread]").onclick=()=>applyBulk([...selectedIssueIds],{read:false},{confirmText:"Togliere Letto dagli albi selezionati?"});
+            bar.querySelector("[data-bulk-close]").onclick=()=>setBulkSelectionMode(false);
+          }
+          function requiredIssues'''
+          source,n=re.subn(pattern,replacement,source,count=1,flags=re.S)
+          if n!=1: raise SystemExit('Anchor non trovato: bulk toolbar')
+
+          replace_once(
+              'const ownedTotal=Object.values(state.collection||{}).filter(x=>x?.owned).length;',
+              'const collectionValues=Object.values(state.collection||{}),physicalTotal=collectionValues.filter(x=>x?.physical).length,digitalTotal=collectionValues.filter(x=>x?.digital).length,ownedTotal=collectionValues.filter(x=>x?.physical||x?.digital).length;',
+              'home collection totals',
+          )
+          replace_once(
+              '<small>Nella collezione globale</small>',
+              '<small>${fmt(physicalTotal)} fisici · ${fmt(digitalTotal)} digitali</small>',
+              'home collection breakdown',
+          )
+
+          old='function renderStats(){const req=requiredIssues(),r=req.filter(i=>status(i.id).read).length,o=req.filter(i=>status(i.id).owned).length,p=Math.round(r/(req.length||1)*100);els.doneCount.textContent=r;els.totalCount.textContent=req.length;els.ownedCount.textContent=o;els.pct.textContent=p+"%";els.progressBar.style.width=p+"%"}'
+          new='function renderStats(){const req=requiredIssues(),r=req.filter(i=>status(i.id).read).length,o=req.filter(i=>status(i.id).owned).length,ph=req.filter(i=>status(i.id).physical).length,dg=req.filter(i=>status(i.id).digital).length,p=Math.round(r/(req.length||1)*100);els.doneCount.textContent=r;els.totalCount.textContent=req.length;els.ownedCount.textContent=o;els.physicalCount.textContent=ph;els.digitalCount.textContent=dg;els.pct.textContent=p+"%";els.progressBar.style.width=p+"%"}'
+          replace_once(old,new,'sidebar stats')
+
+          pattern=r'function renderNext\(\)\{.*?\}\nfunction renderRoute'
+          replacement='''function renderNext(){const i=nextIssue();if(!i){els.nextPanel.innerHTML=`<div class="nextMeta" style="grid-column:1/-1"><div class="label">Percorso completato</div><h2>Sei in pari con ${esc(currentCharacter.name)}.</h2><p>${esc(currentCharacter.end)}</p></div>`;return}const st=status(i.id);els.nextPanel.innerHTML=`<div class="nextCover"><div class="fallback">${esc(i.name)}</div>${coverImg(i,false)}</div><div class="nextMeta"><div class="label">Leggi adesso · ${i.seq}/${currentCharacter.totalRequired}</div><h2>${esc(i.name)}</h2><p>${esc(i.date)} · ${esc(i.era)}<br>${esc(i.title)}</p><div class="nextBtns"><button type="button" class="btn formatPhysical ${st.physical?"primary":""}" id="nextPhysical">${icon(st.physical?"check":"archive")}<span>Fisico</span></button><button type="button" class="btn formatDigital ${st.digital?"primary":""}" id="nextDigital">${icon(st.digital?"check":"cloud")}<span>Digitale</span></button><button type="button" class="btn done" id="nextRead">${icon(st.read?"check":"book")}<span>${st.read?"Letto":"Segna letto"}</span></button><button type="button" class="btn" id="nextJump"><span>Mostra</span>${icon("arrow")}</button></div></div>`;$("nextPhysical").onclick=()=>setStatus(i.id,{physical:!st.physical});$("nextDigital").onclick=()=>setStatus(i.id,{digital:!st.digital});$("nextRead").onclick=()=>setStatus(i.id,{read:!st.read});$("nextJump").onclick=()=>jumpToIssue(i)}
+          function renderRoute'''
+          source,n=re.subn(pattern,replacement,source,count=1,flags=re.S)
+          if n!=1: raise SystemExit('Anchor non trovato: renderNext')
+
+          old='<div class="status"><button type="button" class="${st.owned?"on owned":""}" data-owned="${esc(i.id)}">${icon(st.owned?"check":"archive")}<span>Recuperato</span></button><button type="button" class="${st.read?"on read":""}" data-read="${esc(i.id)}">${icon(st.read?"check":"book")}<span>Letto</span></button></div>'
+          new='<div class="status collectionFormats"><button type="button" class="${st.physical?"on physical":""}" data-physical="${esc(i.id)}">${icon(st.physical?"check":"archive")}<span>Fisico</span></button><button type="button" class="${st.digital?"on digital":""}" data-digital="${esc(i.id)}">${icon(st.digital?"check":"cloud")}<span>Digitale</span></button><button type="button" class="${st.read?"on read":""}" data-read="${esc(i.id)}">${icon(st.read?"check":"book")}<span>Letto</span></button></div>'
+          replace_once(old,new,'issue format buttons')
+
+          old='<div class="eraBulkActions"><button type="button" data-select-section="${esc(ids)}">Seleziona</button><button type="button" data-bulk-section-owned="${esc(ids)}">Recupera tutti</button><button type="button" data-bulk-section-read="${esc(ids)}">Letti tutti</button></div>'
+          new='<div class="eraBulkActions"><button type="button" data-select-section="${esc(ids)}">Seleziona</button><button type="button" class="bulkPhysical" data-bulk-section-physical="${esc(ids)}">Fisici tutti</button><button type="button" class="bulkDigital" data-bulk-section-digital="${esc(ids)}">Digitali tutti</button><button type="button" data-bulk-section-read="${esc(ids)}">Letti tutti</button></div>'
+          replace_once(old,new,'section format actions')
+
+          pattern=r'function bindIssueActions\(\)\{.*?\n\}\nfunction jumpToIssue'
+          replacement='''function bindIssueActions(){
+            renderBulkToolbar();
+            document.querySelectorAll("[data-physical]").forEach(b=>b.onclick=()=>setStatus(b.dataset.physical,{physical:!status(b.dataset.physical).physical}));
+            document.querySelectorAll("[data-digital]").forEach(b=>b.onclick=()=>setStatus(b.dataset.digital,{digital:!status(b.dataset.digital).digital}));
+            document.querySelectorAll("[data-read]").forEach(b=>b.onclick=()=>setStatus(b.dataset.read,{read:!status(b.dataset.read).read}));
+            document.querySelectorAll("[data-select-issue]").forEach(b=>b.onclick=()=>toggleSelectedIssue(b.dataset.selectIssue));
+            document.querySelectorAll("[data-select-section]").forEach(b=>b.onclick=()=>selectBulkIds(idsFromBulkAttr(b.dataset.selectSection)));
+            document.querySelectorAll("[data-bulk-section-physical]").forEach(b=>b.onclick=()=>applyBulk(idsFromBulkAttr(b.dataset.bulkSectionPhysical),{physical:true}));
+            document.querySelectorAll("[data-bulk-section-digital]").forEach(b=>b.onclick=()=>applyBulk(idsFromBulkAttr(b.dataset.bulkSectionDigital),{digital:true}));
+            document.querySelectorAll("[data-bulk-section-read]").forEach(b=>b.onclick=()=>applyBulk(idsFromBulkAttr(b.dataset.bulkSectionRead),{read:true}));
+          }
+          function jumpToIssue'''
+          source,n=re.subn(pattern,replacement,source,count=1,flags=re.S)
+          if n!=1: raise SystemExit('Anchor non trovato: bind actions')
+
+          replace_once(
+              'let remote=null,remoteLoaded=false;',
+              'let remote=null,remoteLoaded=false,needsCollectionMigration=false;',
+              'cloud migration flag',
+          )
+          replace_once(
+              'if(remote?.state&&!hasUnsyncedState())state=normalizeState(remote.state);',
+              'if(remote?.state&&!hasUnsyncedState()){needsCollectionMigration=remote.state?.collectionSchema!==2;state=normalizeState(remote.state)}',
+              'cloud migration detect',
+          )
+          replace_once(
+              'if(remoteLoaded&&(!remote||hasUnsyncedState()))await flushCloudState(state).catch(error=>console.error("Prima sincronizzazione non riuscita",error));',
+              'if(remoteLoaded&&(!remote||hasUnsyncedState()||needsCollectionMigration))await flushCloudState(state).catch(error=>console.error("Prima sincronizzazione non riuscita",error));',
+              'cloud migration sync',
+          )
+
+          source=source.replace('Gli albi recuperati resteranno nella collezione globale.','Gli stati Fisico/Digitale resteranno nella collezione globale.')
+          source=source.replace('Recuperato è globale, mentre Letto rimane indipendente','Fisico/Digitale sono globali, mentre Letto rimane indipendente')
+          source=source.replace('Recuperato è globale per albo fisico; Letto resta separato','Fisico/Digitale sono globali per albo; Letto resta separato')
+
+          path.write_text(source,encoding='utf-8')
+
+      - name: Update interface shell
+        shell: python
+        run: |
+          from pathlib import Path
+          path=Path('index.html')
+          source=path.read_text(encoding='utf-8')
+          old='<div class="stats"><div class="stat"><b id="ownedCount">0</b><span>Recuperati</span></div><div class="stat"><b id="pct">0%</b><span>Completamento</span></div></div>'
+          new='<div class="stats collectionStats"><div class="stat"><b id="ownedCount">0</b><span>Recuperati</span></div><div class="stat"><b id="physicalCount">0</b><span>Fisici</span></div><div class="stat"><b id="digitalCount">0</b><span>Digitali</span></div><div class="stat"><b id="pct">0%</b><span>Completamento</span></div></div>'
+          if old not in source: raise SystemExit('Sidebar stats anchor non trovato')
+          source=source.replace(old,new,1)
+          source=source.replace('Gli albi recuperati sono condivisi nella collezione; la lettura resta separata per ogni percorso.','Fisico e Digitale sono condivisi nella collezione globale; la lettura resta separata per ogni percorso.')
+          anchor='  <link rel="stylesheet" href="css/bulk-actions.css?v=1">'
+          if 'css/collection-formats.css' not in source:
+              if anchor not in source: raise SystemExit('CSS anchor non trovato')
+              source=source.replace(anchor,anchor+'\n  <link rel="stylesheet" href="css/collection-formats.css?v=1">',1)
+          source=source.replace('js/app.js?v=9','js/app.js?v=10')
+          path.write_text(source,encoding='utf-8')
+
+      - name: Add collection format styles
+        shell: python
+        run: |
+          from pathlib import Path
+          Path('css/collection-formats.css').write_text(r'''/* Physical / digital collection states */
+          .collectionStats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+          .collectionFormats{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+          .collectionFormats button{min-width:0}
+          .collectionFormats button.physical.on,.nextBtns .formatPhysical.primary,.bulkToolbarActions .bulkPhysical,.eraBulkActions .bulkPhysical{border-color:rgba(255,183,77,.55)!important;background:rgba(255,183,77,.12)!important;color:#ffd08a!important}
+          .collectionFormats button.digital.on,.nextBtns .formatDigital.primary,.bulkToolbarActions .bulkDigital,.eraBulkActions .bulkDigital{border-color:rgba(88,176,255,.55)!important;background:rgba(88,176,255,.12)!important;color:#9ed2ff!important}
+          .collectionFormats button.physical.on svg,.collectionFormats button.digital.on svg{color:currentColor}
+          .nextBtns{flex-wrap:wrap}
+          .nextBtns .formatPhysical,.nextBtns .formatDigital{min-width:110px}
+          @media(max-width:700px){.collectionFormats{grid-template-columns:1fr}.collectionFormats button{min-height:38px}.collectionStats{grid-template-columns:repeat(2,minmax(0,1fr))!important}.nextBtns .formatPhysical,.nextBtns .formatDigital{min-width:0;flex:1 1 42%}}
+          ''',encoding='utf-8')
+
+      - name: Validate collection formats
+        run: |
+          node --check js/app.js
+          grep -q 'collectionSchema=2' js/app.js
+          grep -q 'data-physical=' js/app.js
+          grep -q 'data-digital=' js/app.js
+          grep -q 'Fisici visibili' js/app.js
+          grep -q 'Digitali visibili' js/app.js
+          grep -q 'physicalCount' index.html
+          grep -q 'collection-formats.css?v=1' index.html
+          if grep -q 'data-owned=' js/app.js; then echo 'Legacy data-owned ancora presente' >&2; exit 1; fi
+          node scripts/verify-data.mjs
+
+      - name: Commit collection formats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/app.js index.html css/collection-formats.css
+          git commit -m "Distinguish physical and digital collection states"
+          git push
