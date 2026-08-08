@@ -403,7 +403,7 @@ def pack_character(character: dict) -> None:
 def update_manifests() -> None:
     manifest_path = DATA / "characters.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    manifest["version"] = 2
+    manifest["version"] = 3
     for character in manifest["characters"]:
         if character["id"] == "cap":
             character["accent"] = "#3b6eea"

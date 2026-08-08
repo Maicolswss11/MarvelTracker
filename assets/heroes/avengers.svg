@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Placeholder Vendicatori">
+<rect width="128" height="128" rx="26" fill="#080d13"/>
+<circle cx="64" cy="64" r="48" fill="none" stroke="#6fa8ff" stroke-width="6"/>
+<path d="M43 92 61 34h13l17 58H78l-4-16H56l-4 16H43Zm16-27h12l-6-23-6 23Z" fill="#eef4f8"/>
+<path d="M81 36h17v12H84" fill="#6fa8ff"/>
+</svg>
