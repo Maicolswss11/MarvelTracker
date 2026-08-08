@@ -22,22 +22,16 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Make ComicsBox character matching robust
+      - name: Harden ComicsBox character token matching
         shell: python
         run: |
           from pathlib import Path
           path = Path('scripts/build_avengers_characters.py')
           source = path.read_text(encoding='utf-8')
-          source = source.replace('if "/personaggio/" not in href:', 'if "personaggio/" not in href:')
-          source = source.replace('h.endswith(" personaggio vision") or h.endswith(" personaggio visione")', 'h.endswith("personaggio vision") or h.endswith("personaggio visione")')
-          source = source.replace(
-              '("scarlet witch", "wanda maximoff", "maximoff wanda")',
-              '("scarlet witch", "scarlet", "wanda maximoff", "maximoff wanda")',
-          )
-          old = '''    matched: set[str] = set()\n    for href, text in parser.links:\n        for route_id in ROUTES:\n            if person_matches(route_id, href, text):\n                matched.add(route_id)\n    return issue["id"], matched'''
-          new = '''    matched: set[str] = set()\n    exact_tokens = {normalize(token) for token in parser.tokens}\n    token_aliases = {\n        "antman": {"ant man", "hank pym", "henry pym", "scott lang", "giant man", "yellowjacket"},\n        "wasp": {"wasp", "janet van dyne", "nadia van dyne", "nadia pym"},\n        "scarletwitch": {"scarlet witch", "scarlet", "wanda maximoff", "wanda"},\n        "vision": {"vision", "visione"},\n        "wonderman": {"wonder man", "wonderman", "simon williams"},\n    }\n    for route_id, aliases in token_aliases.items():\n        if any(alias in token for token in exact_tokens for alias in aliases):\n            matched.add(route_id)\n    for href, text in parser.links:\n        for route_id in ROUTES:\n            if person_matches(route_id, href, text):\n                matched.add(route_id)\n    return issue["id"], matched'''
+          old = 'if any(alias in token for token in exact_tokens for alias in aliases):'
+          new = 'if any(re.search(rf"(^| ){re.escape(alias)}( |$)", token) for token in exact_tokens for alias in aliases):'
           if old not in source:
-              raise SystemExit('scan_avengers_issue block not found')
+              raise SystemExit('token matcher not found')
           source = source.replace(old, new, 1)
           path.write_text(source, encoding='utf-8')
 
@@ -80,5 +74,5 @@ jobs:
             echo "No generated changes to commit."
             exit 0
           fi
-          git commit -m "Populate Avengers character timelines"
+          git commit -m "Harden Avengers character timelines"
           git push
