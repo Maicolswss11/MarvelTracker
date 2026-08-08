@@ -66,9 +66,19 @@ function openPath(pathId, hubId = null){
   location.hash = `#/${pathId}`;
 }
 
-function returnHomeThen(callback){
-  if(location.hash !== "#/home") location.hash = "#/home";
-  requestAnimationFrame(()=>requestAnimationFrame(callback));
+let internalHomeNavigation = false;
+function goToExplorer(hubId=null){
+  internalHomeNavigation = true;
+  if(!document.body.classList.contains("homeActive")){
+    const homeControl = byId("trackerHomeBtn") || byId("homeBtn");
+    if(homeControl) homeControl.click();
+    else location.hash = "#/home";
+  }
+  internalHomeNavigation = false;
+  activeHubId = hubId || null;
+  ensureHomeExplorer();
+  openHub(activeHubId);
+  byId("hubExplorer")?.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
 function hubCard(hub,{compact=false}={}){
@@ -190,9 +200,9 @@ function renderTrackerContext(){
   }
   const parent = hub.parent ? hubById(hub.parent) : null;
   breadcrumb.innerHTML = `<button type="button" data-tracker-home>Marvel Archive</button><span>›</span>${parent?`<button type="button" data-tracker-parent="${esc(parent.id)}">${esc(parent.name)}</button><span>›</span>`:""}<button type="button" data-tracker-hub="${esc(hub.id)}">${esc(hub.name)}</button><span>›</span><b>${esc(path.name)}</b>`;
-  breadcrumb.querySelector("[data-tracker-home]").onclick=()=>returnHomeThen(()=>openHub(null));
-  breadcrumb.querySelector("[data-tracker-parent]")?.addEventListener("click",event=>returnHomeThen(()=>openHub(event.currentTarget.dataset.trackerParent)));
-  breadcrumb.querySelector("[data-tracker-hub]").onclick=()=>returnHomeThen(()=>openHub(hub.id));
+  breadcrumb.querySelector("[data-tracker-home]").onclick=()=>goToExplorer(null);
+  breadcrumb.querySelector("[data-tracker-parent]")?.addEventListener("click",event=>goToExplorer(event.currentTarget.dataset.trackerParent));
+  breadcrumb.querySelector("[data-tracker-hub]").onclick=()=>goToExplorer(hub.id);
 
   const legacy = byId("charGrid");
   if(!legacy) return;
@@ -208,7 +218,7 @@ function renderTrackerContext(){
   }
   const groups = hub.groups || [];
   nav.innerHTML = `<div class="hubSideHead" style="--hub-accent:${esc(hub.accent)}"><button type="button" data-side-back>←</button><span><small>Sezione</small><b>${esc(hub.name)}</b></span></div>${groups.map(group=>`<div class="hubSideGroup"><div class="hubSideLabel">${esc(group.label)}</div>${(group.paths||[]).map(pathById).filter(Boolean).map(item=>sidebarPathButton(item,path.id,hub.id)).join("")}</div>`).join("")}`;
-  nav.querySelector("[data-side-back]").onclick=()=>returnHomeThen(()=>openHub(hub.id));
+  nav.querySelector("[data-side-back]").onclick=()=>goToExplorer(hub.id);
   nav.querySelectorAll("[data-side-path]").forEach(button=>button.onclick=()=>openPath(button.dataset.sidePath,button.dataset.sideHub));
 }
 
@@ -237,7 +247,16 @@ async function initHubUi(){
     pathManifest = await pathResponse.json();
     ensureHomeExplorer();
     refresh();
-    ["homeBtn","trackerHomeBtn"].forEach(id=>byId(id)?.addEventListener("click",()=>{activeHubId=null},{capture:true}));
+    ["homeBtn","trackerHomeBtn"].forEach(id=>byId(id)?.addEventListener("click",()=>{
+    if(internalHomeNavigation) return;
+    activeHubId=null;
+    requestAnimationFrame(()=>{
+      ensureHomeExplorer();
+      openHub(null);
+    });
+  },{capture:true}));
+  const exploreButton=byId("homeExplore");
+  if(exploreButton) exploreButton.onclick=()=>goToExplorer(null);
 
     const legacyGrid=byId("homeCharacterGrid");
     if(legacyGrid){
