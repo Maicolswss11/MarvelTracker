@@ -11,7 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 DATA=ROOT/"data"
 CHUNK_SIZE=7500
 USER_AGENT="MarvelTracker data maintenance/5.0"
-MANIFEST_VERSION = 10
+MANIFEST_VERSION = 11
 MONTHS_IT={"Jan":"Gennaio","Feb":"Febbraio","Mar":"Marzo","Apr":"Aprile","May":"Maggio","Jun":"Giugno","Jul":"Luglio","Aug":"Agosto","Sep":"Settembre","Oct":"Ottobre","Nov":"Novembre","Dec":"Dicembre"}
 
 class SeriesTableParser(HTMLParser):

@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 CHUNK_SIZE = 7500
-MANIFEST_VERSION = 10
+MANIFEST_VERSION = 11
 
 
 def unpack(cid: str) -> dict:
