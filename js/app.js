@@ -45,7 +45,7 @@ function icon(name){return ICONS[name]||""}
 
 function esc(x){return String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function normalizeState(x){
-  x ??= {}; x.characters ??= {}; x.collection ??= {};
+  x ??= {}; x.characters ??= {}; x.collection ??= {}; x.wishlist ??= {}; x.lists ??= {}; x.profileSchema ??= 1;
   if(manifest){ for(const c of manifest.characters){ x.characters[c.id] ??= {issues:{}}; x.characters[c.id].issues ??= {}; } }
   // Migrazione v2: ogni vecchio `Recuperato` viene considerato DIGITALE.
   for(const c of Object.values(x.characters||{})){
@@ -197,13 +197,14 @@ async function loadCharacter(id){
   c.issues.sort((a,b)=>(a.seq??Number.MAX_SAFE_INTEGER)-(b.seq??Number.MAX_SAFE_INTEGER)||a.n-b.n);
   characterCache.set(id,c); return c;
 }
-function parseHash(){const p=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean);if(!p.length||p[0]==="home")return {view:"home",character:null,issue:null};return {view:"character",character:p[0],issue:p[1]||null}}
+function parseHash(){const p=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean);if(!p.length||p[0]==="home")return {view:"home",character:null,issue:null};if(p[0]==="profile")return {view:"profile",character:null,issue:null};return {view:"character",character:p[0],issue:p[1]||null}}
 function routeIssueToken(i){return currentCharacter?.timelineMode&&Number.isInteger(i.seq)?`p${i.seq}`:String(i.n)}
 function resolveIssueToken(character,token){if(!character||token===null||token===undefined||token==="")return null;const value=String(token);if(value.startsWith("p")){const seq=Number(value.slice(1));return character.issues.find(i=>i.seq===seq)||null}const n=Number(value);return Number.isFinite(n)?character.issues.find(i=>i.n===n)||null:null}
 async function switchCharacter(id,{updateHash=true,issue=null}={}){
   const requestId=++characterSwitchRequest;
   const meta=manifest.characters.find(c=>c.id===id)||manifest.characters[0]; activeCharacter=meta.id; currentMeta=meta; bulkSelectionMode=false; selectedIssueIds.clear(); document.body.classList.remove("bulkSelectMode");
-  document.body.classList.remove("homeActive");
+  document.body.classList.remove("homeActive","profileActive");
+  $("profileView") && ($("profileView").hidden=true);
   els.homeView.hidden=true;
   els.trackerView.hidden=false;
   document.documentElement.style.setProperty("--accent",meta.accent);
@@ -229,7 +230,7 @@ function visibleIssues(){const q=els.search.value.trim().toLowerCase();return cu
 function renderCharacters(){const home=document.body.classList.contains("homeActive");els.charGrid.innerHTML=manifest.characters.map(c=>`<button type="button" class="charBtn ${!home&&c.id===activeCharacter?"active":""}" data-char="${esc(c.id)}" aria-pressed="${!home&&c.id===activeCharacter}"><div class="charIcon"><span class="logoFallback">LOGO</span><img src="${esc(versioned(c.logo))}" alt="Logo ${esc(c.name)}" onerror="this.style.display='none'"></div><b>${esc(c.name)}</b><span>${esc(c.subtitle)}</span></button>`).join("");els.charGrid.querySelectorAll("[data-char]").forEach(b=>b.onclick=()=>void switchCharacter(b.dataset.char))}
 function readCountFor(id){return Object.values(state.characters?.[id]?.issues||{}).filter(x=>x?.read).length}
 function accountStorageKey(id){return `${STORAGE_KEY}:user:${id}`}
-function refreshCurrentView(){if(!manifest)return;if(document.body.classList.contains("homeActive")||!currentCharacter)showHome({updateHash:false});else if(currentCharacter.id!==activeCharacter)void switchCharacter(activeCharacter);else renderAll()}
+function refreshCurrentView(){if(!manifest)return;if(document.body.classList.contains("profileActive")){void window.MarvelProfile?.render();return}if(document.body.classList.contains("homeActive")||!currentCharacter)showHome({updateHash:false});else if(currentCharacter.id!==activeCharacter)void switchCharacter(activeCharacter);else renderAll()}
 function renderAccountUi(){
   const signed=!!accountView.user,name=signed?accountView.displayName:"Profilo locale",initial=(name||"M").trim().charAt(0).toUpperCase()||"M";
   const statusText=signed?({synced:"Sincronizzato",syncing:"Sincronizzazione…",offline:"Offline · copia locale",error:"Sync da riprovare",ready:"Cloud collegato"}[accountView.syncStatus]||"Cloud collegato"):(accountView.configured?"Accedi per sincronizzare":"Cloud da collegare");
@@ -312,6 +313,8 @@ function renderHome(){
 function showHome({updateHash=true}={}){
   characterSwitchRequest++;
   bulkSelectionMode=false; selectedIssueIds.clear(); document.body.classList.remove("bulkSelectMode");
+  document.body.classList.remove("profileActive");
+  $("profileView") && ($("profileView").hidden=true);
   document.body.classList.add("homeActive");
   document.documentElement.style.setProperty("--accent","#ed1d24");
   els.homeView.hidden=false;
@@ -404,6 +407,6 @@ els.compactBtn.onclick=()=>{document.body.classList.toggle("compact");els.compac
 els.resetBtn.onclick=()=>{if(confirm(`Azzerare solo lo stato LETTO di ${currentCharacter.name}? Gli stati Fisico/Digitale resteranno nella collezione globale.`)){state.characters[activeCharacter]={issues:{}};saveState();renderAll()}};
 els.exportBtn.onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="marvel_archive_progressi.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),600)};
 els.importFile.onchange=e=>{const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{state=normalizeState(JSON.parse(r.result));saveState();document.body.classList.contains("homeActive")?renderHome():renderAll()}catch{alert("Backup non valido.")}};r.readAsText(f);e.target.value=""};
-window.addEventListener("hashchange",async()=>{if(!manifest)return;const h=parseHash();if(h.view==="home"){showHome({updateHash:false});return}if(els.trackerView.hidden||!currentCharacter||h.character!==activeCharacter)await switchCharacter(h.character,{updateHash:false,issue:h.issue});else if(h.issue){const i=resolveIssueToken(currentCharacter,h.issue);if(i)jumpToIssue(i)}});
+window.addEventListener("hashchange",async()=>{if(!manifest)return;const h=parseHash();if(h.view==="home"){showHome({updateHash:false});return}if(h.view==="profile"){await window.MarvelProfile?.show({updateHash:false});return}if(els.trackerView.hidden||!currentCharacter||h.character!==activeCharacter)await switchCharacter(h.character,{updateHash:false,issue:h.issue});else if(h.issue){const i=resolveIssueToken(currentCharacter,h.issue);if(i)jumpToIssue(i)}});
 
-(async()=>{try{await loadManifest();const h=parseHash();if(h.view==="home"){showHome({updateHash:false});if(!location.hash)history.replaceState(null,"","#/home")}else await switchCharacter(h.character,{updateHash:false,issue:h.issue});renderAccountUi();void initAccount(handleAccountChange)}catch(e){console.error(e);els.seriesBlocks.innerHTML=`<div class="loading error"><b>Errore di caricamento</b><br>${esc(e.message)}<br><br>Apri il sito tramite GitHub Pages o un server HTTP: i JSON non possono essere caricati correttamente con alcuni browser da file://.</div>`}})();
+(async()=>{try{await loadManifest();window.MarvelProfile?.init({getState:()=>state,getManifest:()=>manifest,saveState:()=>saveState(),showHome:()=>showHome(),openCharacter:id=>switchCharacter(id),openAccount:openAccountDialog});const h=parseHash();if(h.view==="home"){showHome({updateHash:false});if(!location.hash)history.replaceState(null,"","#/home")}else if(h.view==="profile")await window.MarvelProfile?.show({updateHash:false});else await switchCharacter(h.character,{updateHash:false,issue:h.issue});renderAccountUi();void initAccount(handleAccountChange)}catch(e){console.error(e);els.seriesBlocks.innerHTML=`<div class="loading error"><b>Errore di caricamento</b><br>${esc(e.message)}<br><br>Apri il sito tramite GitHub Pages o un server HTTP: i JSON non possono essere caricati correttamente con alcuni browser da file://.</div>`}})();
