@@ -33,8 +33,20 @@ function hubPaths(hub){
   return [...ids].map(pathById).filter(Boolean);
 }
 
-function hubStats(hub){
-  const paths = hubPaths(hub);
+function hubStats(hub,visited=new Set()){
+  if(!hub || visited.has(hub.id)) return {paths:[],total:0};
+  visited.add(hub.id);
+  const unique = new Map(hubPaths(hub).map(path=>[path.id,path]));
+  const childIds = new Set([
+    ...(hub.sections?.flatMap(section=>section.items||[]) || []),
+    ...(hubManifest?.hubs||[]).filter(child=>child.parent===hub.id).map(child=>child.id)
+  ]);
+  for(const childId of childIds){
+    const child = hubById(childId);
+    const nested = hubStats(child,new Set(visited));
+    for(const path of nested.paths) unique.set(path.id,path);
+  }
+  const paths = [...unique.values()];
   const total = paths.reduce((sum,path)=>sum+(Number(path.totalRequired)||0),0);
   return {paths,total};
 }
@@ -184,6 +196,8 @@ function renderTrackerContext(){
 
   const legacy = byId("charGrid");
   if(!legacy) return;
+  const sidebarLabel = legacy.previousElementSibling;
+  if(sidebarLabel?.classList.contains("label")) sidebarLabel.textContent = "Sezione";
   legacy.classList.add("hubLegacySidebar");
   let nav = byId("hubSidebarNav");
   if(!nav){
@@ -223,6 +237,7 @@ async function initHubUi(){
     pathManifest = await pathResponse.json();
     ensureHomeExplorer();
     refresh();
+    ["homeBtn","trackerHomeBtn"].forEach(id=>byId(id)?.addEventListener("click",()=>{activeHubId=null},{capture:true}));
 
     const legacyGrid=byId("homeCharacterGrid");
     if(legacyGrid){

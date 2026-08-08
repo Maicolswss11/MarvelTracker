@@ -1,6 +1,7 @@
 /* Marvel Archive — hierarchical hub navigation */
 body.hubUiEnabled #homeHeroIcons{display:none}
 body.hubUiEnabled .hubLegacyGrid{display:none!important}
+body.hubUiEnabled #homeCharactersSection>.homeSectionHead{display:none}
 .hubLegacySidebar{display:none!important}
 
 .hubExplorer{margin-top:18px;scroll-margin-top:92px}
