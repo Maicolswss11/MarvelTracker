@@ -156,7 +156,7 @@ function ensureHomeExplorer(){
   const section = byId("homeCharactersSection");
   const legacyGrid = byId("homeCharacterGrid");
   if(!section || !legacyGrid) return;
-  document.body.classList.add("hubUiEnabled");
+  if(!document.body.classList.contains("hubUiEnabled")) document.body.classList.add("hubUiEnabled");
   legacyGrid.classList.add("hubLegacyGrid");
   let root = byId("hubExplorer");
   if(!root){
@@ -247,7 +247,13 @@ async function initHubUi(){
       }).observe(legacyGrid,{childList:true,subtree:true,characterData:true});
     }
     window.addEventListener("hashchange",()=>setTimeout(refresh,0));
-    new MutationObserver(()=>refresh()).observe(document.body,{attributes:true,attributeFilter:["class"]});
+    let lastHomeActive = document.body.classList.contains("homeActive");
+    new MutationObserver(()=>{
+      const homeActive = document.body.classList.contains("homeActive");
+      if(homeActive === lastHomeActive) return;
+      lastHomeActive = homeActive;
+      setTimeout(refresh,0);
+    }).observe(document.body,{attributes:true,attributeFilter:["class"]});
   }catch(error){
     console.error("Hub UI non disponibile",error);
   }
