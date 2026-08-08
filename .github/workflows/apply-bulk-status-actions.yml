@@ -1,0 +1,196 @@
+name: Apply bulk status actions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-bulk-status-actions.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Add bulk selection logic
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('js/app.js')
+          source = path.read_text(encoding='utf-8')
+
+          def replace_once(old, new, label):
+              global source
+              if old not in source:
+                  raise SystemExit(f'Anchor non trovato: {label}')
+              source = source.replace(old, new, 1)
+
+          replace_once(
+              'let optionalVisible = false;\n',
+              'let optionalVisible = false;\nlet bulkSelectionMode = false;\nconst selectedIssueIds = new Set();\n',
+              'bulk state',
+          )
+
+          replace_once(
+              'function setStatus(id,patch){state.collection??={};if(Object.hasOwn(patch,"owned"))state.collection[id]={...(state.collection[id]||{}),owned:!!patch.owned};if(Object.hasOwn(patch,"read"))bucket()[id]={...(bucket()[id]||{}),read:!!patch.read};saveState();renderAll()}\n',
+              '''function setStatuses(ids,patch){
+            state.collection??={};
+            const routeBucket=bucket();
+            for(const id of new Set(ids)){
+              if(!id)continue;
+              if(Object.hasOwn(patch,"owned"))state.collection[id]={...(state.collection[id]||{}),owned:!!patch.owned};
+              if(Object.hasOwn(patch,"read")){
+                routeBucket[id]={...(routeBucket[id]||{}),read:!!patch.read};
+                if(patch.read)state.collection[id]={...(state.collection[id]||{}),owned:true};
+              }
+            }
+            saveState();
+            renderAll();
+          }
+          function setStatus(id,patch){setStatuses([id],patch)}
+          function actionableVisibleIssues(){return visibleIssues().filter(i=>!i.future)}
+          function idsFromBulkAttr(value){return String(value||"").split("|").filter(Boolean)}
+          function applyBulk(ids,patch,{confirmText=null}={}){
+            const unique=[...new Set(ids)].filter(Boolean);
+            if(!unique.length)return;
+            if(confirmText&&!confirm(`${confirmText}\\n\\n${unique.length} albi interessati.`))return;
+            setStatuses(unique,patch);
+          }
+          function setBulkSelectionMode(enabled){
+            bulkSelectionMode=!!enabled;
+            document.body.classList.toggle("bulkSelectMode",bulkSelectionMode);
+            if(!bulkSelectionMode)selectedIssueIds.clear();
+            renderAll();
+          }
+          function selectBulkIds(ids){
+            bulkSelectionMode=true;
+            document.body.classList.add("bulkSelectMode");
+            for(const id of ids)if(id)selectedIssueIds.add(id);
+            renderAll();
+          }
+          function toggleSelectedIssue(id){
+            if(!id)return;
+            selectedIssueIds.has(id)?selectedIssueIds.delete(id):selectedIssueIds.add(id);
+            const card=document.querySelector(`[data-issue-id="${CSS.escape(id)}"]`);
+            card?.classList.toggle("bulkSelected",selectedIssueIds.has(id));
+            const button=card?.querySelector("[data-select-issue]");
+            if(button){button.setAttribute("aria-pressed",String(selectedIssueIds.has(id)));button.innerHTML=selectedIssueIds.has(id)?"✓":""}
+            renderBulkToolbar();
+          }
+          function renderBulkToolbar(){
+            let bar=els.seriesBlocks.querySelector(":scope > .bulkToolbar");
+            if(!bar){bar=document.createElement("div");bar.className="bulkToolbar";els.seriesBlocks.prepend(bar)}
+            const visibleIds=actionableVisibleIssues().map(i=>i.id);
+            const selectedCount=selectedIssueIds.size;
+            if(!bulkSelectionMode){
+              bar.innerHTML=`<div class="bulkToolbarTitle"><b>Gestione multipla</b><span>${visibleIds.length} albi visibili</span></div><div class="bulkToolbarActions"><button type="button" data-bulk-mode>Seleziona albi</button><button type="button" data-bulk-visible-owned>Recupera visibili</button><button type="button" data-bulk-visible-read>Letti visibili</button></div>`;
+              bar.querySelector("[data-bulk-mode]").onclick=()=>setBulkSelectionMode(true);
+              bar.querySelector("[data-bulk-visible-owned]").onclick=()=>applyBulk(visibleIds,{owned:true});
+              bar.querySelector("[data-bulk-visible-read]").onclick=()=>applyBulk(visibleIds,{read:true});
+              return;
+            }
+            bar.innerHTML=`<div class="bulkToolbarTitle"><b>${selectedCount} selezionati</b><span>Le modifiche vengono salvate e sincronizzate in un'unica operazione.</span></div><div class="bulkToolbarActions"><button type="button" data-bulk-select-visible>Seleziona visibili</button><button type="button" data-bulk-clear>Deseleziona</button><button type="button" class="bulkPositive" data-bulk-selected-owned>Recuperati</button><button type="button" class="bulkPositive" data-bulk-selected-read>Letti</button><button type="button" class="bulkNegative" data-bulk-selected-unowned>Togli Recuperato</button><button type="button" class="bulkNegative" data-bulk-selected-unread>Togli Letto</button><button type="button" data-bulk-close>Chiudi</button></div>`;
+            bar.querySelector("[data-bulk-select-visible]").onclick=()=>selectBulkIds(visibleIds);
+            bar.querySelector("[data-bulk-clear]").onclick=()=>{selectedIssueIds.clear();renderAll()};
+            bar.querySelector("[data-bulk-selected-owned]").onclick=()=>applyBulk([...selectedIssueIds],{owned:true});
+            bar.querySelector("[data-bulk-selected-read]").onclick=()=>applyBulk([...selectedIssueIds],{read:true});
+            bar.querySelector("[data-bulk-selected-unowned]").onclick=()=>applyBulk([...selectedIssueIds],{owned:false},{confirmText:"Togliere Recuperato dagli albi selezionati?"});
+            bar.querySelector("[data-bulk-selected-unread]").onclick=()=>applyBulk([...selectedIssueIds],{read:false},{confirmText:"Togliere Letto dagli albi selezionati?"});
+            bar.querySelector("[data-bulk-close]").onclick=()=>setBulkSelectionMode(false);
+          }
+          ''',
+              'setStatus',
+          )
+
+          replace_once(
+              'const meta=manifest.characters.find(c=>c.id===id)||manifest.characters[0]; activeCharacter=meta.id; currentMeta=meta;\n',
+              'const meta=manifest.characters.find(c=>c.id===id)||manifest.characters[0]; activeCharacter=meta.id; currentMeta=meta; bulkSelectionMode=false; selectedIssueIds.clear(); document.body.classList.remove("bulkSelectMode");\n',
+              'switch reset',
+          )
+
+          replace_once(
+              '  document.body.classList.add("homeActive");\n',
+              '  bulkSelectionMode=false; selectedIssueIds.clear(); document.body.classList.remove("bulkSelectMode");\n  document.body.classList.add("homeActive");\n',
+              'home reset',
+          )
+
+          old_article = 'return `<article class="issue ${st.read?"read":""} ${i.skip?"optional":""} ${i.future?"future":""} ${isInsert?"chronologyInsert":""}" id="issue-${esc(i.seriesId)}-${i.n}">${numberHtml}'
+          new_article = 'return `<article class="issue ${st.read?"read":""} ${i.skip?"optional":""} ${i.future?"future":""} ${isInsert?"chronologyInsert":""} ${selectedIssueIds.has(i.id)?"bulkSelected":""}" data-issue-id="${esc(i.id)}" id="issue-${esc(i.seriesId)}-${i.n}">${i.future?"":`<button type="button" class="issueSelect" data-select-issue="${esc(i.id)}" aria-pressed="${selectedIssueIds.has(i.id)}" aria-label="Seleziona ${esc(i.name)}">${selectedIssueIds.has(i.id)?"✓":""}</button>`}${numberHtml}'
+          replace_once(old_article, new_article, 'issue selection control')
+
+          replace_once(
+              'function eraHtml(g){const req=g.items.filter(i=>i.required!==false&&!i.future);return `<section class="era"><div class="eraHead"><div><h3>${esc(g.era)}</h3><p>${esc(g.sub)}</p></div><div class="count">${req.filter(i=>status(i.id).read).length}/${req.length} richiesti letti</div></div><div class="issueList">${g.items.map(issueHtml).join("")}</div></section>`}\n',
+              '''function eraHtml(g){
+            const req=g.items.filter(i=>i.required!==false&&!i.future),actionable=g.items.filter(i=>!i.future),ids=actionable.map(i=>i.id).join("|");
+            return `<section class="era"><div class="eraHead"><div><h3>${esc(g.era)}</h3><p>${esc(g.sub)}</p></div><div class="eraHeadRight"><div class="count">${req.filter(i=>status(i.id).read).length}/${req.length} richiesti letti</div>${actionable.length?`<div class="eraBulkActions"><button type="button" data-select-section="${esc(ids)}">Seleziona</button><button type="button" data-bulk-section-owned="${esc(ids)}">Recupera tutti</button><button type="button" data-bulk-section-read="${esc(ids)}">Letti tutti</button></div>`:""}</div></div><div class="issueList">${g.items.map(issueHtml).join("")}</div></section>`
+          }
+          ''',
+              'era controls',
+          )
+
+          replace_once(
+              'function bindIssueActions(){document.querySelectorAll("[data-owned]").forEach(b=>b.onclick=()=>setStatus(b.dataset.owned,{owned:!status(b.dataset.owned).owned}));document.querySelectorAll("[data-read]").forEach(b=>b.onclick=()=>{const s=status(b.dataset.read),v=!s.read;setStatus(b.dataset.read,{read:v,owned:v?true:s.owned})})}\n',
+              '''function bindIssueActions(){
+            renderBulkToolbar();
+            document.querySelectorAll("[data-owned]").forEach(b=>b.onclick=()=>setStatus(b.dataset.owned,{owned:!status(b.dataset.owned).owned}));
+            document.querySelectorAll("[data-read]").forEach(b=>b.onclick=()=>{const s=status(b.dataset.read),v=!s.read;setStatus(b.dataset.read,{read:v,owned:v?true:s.owned})});
+            document.querySelectorAll("[data-select-issue]").forEach(b=>b.onclick=()=>toggleSelectedIssue(b.dataset.selectIssue));
+            document.querySelectorAll("[data-select-section]").forEach(b=>b.onclick=()=>selectBulkIds(idsFromBulkAttr(b.dataset.selectSection)));
+            document.querySelectorAll("[data-bulk-section-owned]").forEach(b=>b.onclick=()=>applyBulk(idsFromBulkAttr(b.dataset.bulkSectionOwned),{owned:true}));
+            document.querySelectorAll("[data-bulk-section-read]").forEach(b=>b.onclick=()=>applyBulk(idsFromBulkAttr(b.dataset.bulkSectionRead),{read:true}));
+          }
+          ''',
+              'bulk action binding',
+          )
+
+          path.write_text(source, encoding='utf-8')
+
+      - name: Add bulk action styles
+        shell: python
+        run: |
+          from pathlib import Path
+          Path('css/bulk-actions.css').write_text(r'''/* Bulk collection / reading actions */
+          .bulkToolbar{position:sticky;top:72px;z-index:24;display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 18px;padding:12px 14px;border:1px solid rgba(255,255,255,.11);border-radius:14px;background:rgba(8,12,18,.94);backdrop-filter:blur(16px);box-shadow:0 12px 30px rgba(0,0,0,.22)}
+          .bulkToolbarTitle{display:flex;flex-direction:column;gap:2px;min-width:180px}.bulkToolbarTitle b{font-size:13px}.bulkToolbarTitle span{font-size:11px;color:#8292a3}
+          .bulkToolbarActions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px}.bulkToolbarActions button,.eraBulkActions button{border:1px solid rgba(255,255,255,.12);border-radius:9px;background:#111823;color:#dce7f1;padding:8px 10px;font:inherit;font-size:11px;font-weight:750;cursor:pointer;transition:.16s ease}.bulkToolbarActions button:hover,.eraBulkActions button:hover{border-color:var(--accent);color:#fff;transform:translateY(-1px)}
+          .bulkToolbarActions .bulkPositive{border-color:color-mix(in srgb,var(--accent) 46%,transparent);background:color-mix(in srgb,var(--accent) 13%,#111823)}.bulkToolbarActions .bulkNegative{border-color:rgba(255,105,105,.28);color:#ffb2b2}
+          .eraHeadRight{display:flex;align-items:flex-end;flex-direction:column;gap:8px}.eraBulkActions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}.eraBulkActions button{padding:6px 8px;font-size:10px;background:rgba(255,255,255,.035)}
+          .issue{position:relative}.issueSelect{display:none;position:absolute;z-index:8;top:8px;left:8px;width:32px;height:32px;border:2px solid rgba(255,255,255,.34);border-radius:10px;background:rgba(5,9,14,.92);color:#fff;font-size:17px;font-weight:900;cursor:pointer;box-shadow:0 5px 16px rgba(0,0,0,.35)}body.bulkSelectMode .issueSelect{display:grid;place-items:center}.issue.bulkSelected{outline:2px solid var(--accent);outline-offset:-2px;background:color-mix(in srgb,var(--accent) 7%,transparent)}.issue.bulkSelected .issueSelect{border-color:var(--accent);background:var(--accent);color:#071018}
+          @media(max-width:900px){.bulkToolbar{top:62px;align-items:stretch;flex-direction:column}.bulkToolbarActions{justify-content:flex-start}.eraHeadRight{align-items:flex-start}.eraBulkActions{justify-content:flex-start}.eraHead{align-items:flex-start!important;flex-direction:column}.issueSelect{top:6px;left:6px}}
+          @media(max-width:560px){.bulkToolbar{padding:10px}.bulkToolbarActions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.bulkToolbarActions button{min-height:38px}.eraBulkActions{width:100%}.eraBulkActions button{flex:1 1 auto}}
+          ''', encoding='utf-8')
+
+      - name: Wire assets and cache bust
+        shell: python
+        run: |
+          from pathlib import Path
+          path=Path('index.html')
+          source=path.read_text(encoding='utf-8')
+          anchor='  <link rel="stylesheet" href="css/hub-ui.css?v=6">'
+          if 'css/bulk-actions.css' not in source:
+              if anchor not in source: raise SystemExit('CSS anchor non trovato')
+              source=source.replace(anchor,anchor+'\n  <link rel="stylesheet" href="css/bulk-actions.css?v=1">',1)
+          source=source.replace('js/app.js?v=8','js/app.js?v=9')
+          path.write_text(source,encoding='utf-8')
+
+      - name: Validate implementation
+        run: |
+          node --check js/app.js
+          grep -q 'function setStatuses' js/app.js
+          grep -q 'data-select-section' js/app.js
+          grep -q 'bulk-actions.css?v=1' index.html
+          node scripts/verify-data.mjs
+
+      - name: Commit bulk actions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/app.js css/bulk-actions.css index.html
+          git commit -m "Add bulk issue status actions"
+          git push
