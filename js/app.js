@@ -10,6 +10,8 @@ let activeCharacter = "ironman";
 let activeEra = "Tutte";
 let activeSeries = "Tutte";
 let optionalVisible = false;
+let bulkSelectionMode = false;
+const selectedIssueIds = new Set();
 let characterSwitchRequest = 0;
 let homeContinueRequest = 0;
 let accountActivationRequest = 0;
@@ -52,7 +54,71 @@ function loadState(key=activeStorageKey){try{return normalizeState(JSON.parse(lo
 function saveState({sync=true}={}){state.activeCharacter=activeCharacter;localStorage.setItem(activeStorageKey,JSON.stringify(state));if(sync&&accountView.user)queueCloudState(state)}
 function bucket(){state.characters[activeCharacter]??={issues:{}};state.characters[activeCharacter].issues??={};return state.characters[activeCharacter].issues}
 function status(id){return {owned:!!state.collection?.[id]?.owned,read:!!bucket()[id]?.read}}
-function setStatus(id,patch){state.collection??={};if(Object.hasOwn(patch,"owned"))state.collection[id]={...(state.collection[id]||{}),owned:!!patch.owned};if(Object.hasOwn(patch,"read"))bucket()[id]={...(bucket()[id]||{}),read:!!patch.read};saveState();renderAll()}
+function setStatuses(ids,patch){
+  state.collection??={};
+  const routeBucket=bucket();
+  for(const id of new Set(ids)){
+    if(!id)continue;
+    if(Object.hasOwn(patch,"owned"))state.collection[id]={...(state.collection[id]||{}),owned:!!patch.owned};
+    if(Object.hasOwn(patch,"read")){
+      routeBucket[id]={...(routeBucket[id]||{}),read:!!patch.read};
+      if(patch.read)state.collection[id]={...(state.collection[id]||{}),owned:true};
+    }
+  }
+  saveState();
+  renderAll();
+}
+function setStatus(id,patch){setStatuses([id],patch)}
+function actionableVisibleIssues(){return visibleIssues().filter(i=>!i.future)}
+function idsFromBulkAttr(value){return String(value||"").split("|").filter(Boolean)}
+function applyBulk(ids,patch,{confirmText=null}={}){
+  const unique=[...new Set(ids)].filter(Boolean);
+  if(!unique.length)return;
+  if(confirmText&&!confirm(`${confirmText}\n\n${unique.length} albi interessati.`))return;
+  setStatuses(unique,patch);
+}
+function setBulkSelectionMode(enabled){
+  bulkSelectionMode=!!enabled;
+  document.body.classList.toggle("bulkSelectMode",bulkSelectionMode);
+  if(!bulkSelectionMode)selectedIssueIds.clear();
+  renderAll();
+}
+function selectBulkIds(ids){
+  bulkSelectionMode=true;
+  document.body.classList.add("bulkSelectMode");
+  for(const id of ids)if(id)selectedIssueIds.add(id);
+  renderAll();
+}
+function toggleSelectedIssue(id){
+  if(!id)return;
+  selectedIssueIds.has(id)?selectedIssueIds.delete(id):selectedIssueIds.add(id);
+  const card=document.querySelector(`[data-issue-id="${CSS.escape(id)}"]`);
+  card?.classList.toggle("bulkSelected",selectedIssueIds.has(id));
+  const button=card?.querySelector("[data-select-issue]");
+  if(button){button.setAttribute("aria-pressed",String(selectedIssueIds.has(id)));button.innerHTML=selectedIssueIds.has(id)?"✓":""}
+  renderBulkToolbar();
+}
+function renderBulkToolbar(){
+  let bar=els.seriesBlocks.querySelector(":scope > .bulkToolbar");
+  if(!bar){bar=document.createElement("div");bar.className="bulkToolbar";els.seriesBlocks.prepend(bar)}
+  const visibleIds=actionableVisibleIssues().map(i=>i.id);
+  const selectedCount=selectedIssueIds.size;
+  if(!bulkSelectionMode){
+    bar.innerHTML=`<div class="bulkToolbarTitle"><b>Gestione multipla</b><span>${visibleIds.length} albi visibili</span></div><div class="bulkToolbarActions"><button type="button" data-bulk-mode>Seleziona albi</button><button type="button" data-bulk-visible-owned>Recupera visibili</button><button type="button" data-bulk-visible-read>Letti visibili</button></div>`;
+    bar.querySelector("[data-bulk-mode]").onclick=()=>setBulkSelectionMode(true);
+    bar.querySelector("[data-bulk-visible-owned]").onclick=()=>applyBulk(visibleIds,{owned:true});
+    bar.querySelector("[data-bulk-visible-read]").onclick=()=>applyBulk(visibleIds,{read:true});
+    return;
+  }
+  bar.innerHTML=`<div class="bulkToolbarTitle"><b>${selectedCount} selezionati</b><span>Le modifiche vengono salvate e sincronizzate in un'unica operazione.</span></div><div class="bulkToolbarActions"><button type="button" data-bulk-select-visible>Seleziona visibili</button><button type="button" data-bulk-clear>Deseleziona</button><button type="button" class="bulkPositive" data-bulk-selected-owned>Recuperati</button><button type="button" class="bulkPositive" data-bulk-selected-read>Letti</button><button type="button" class="bulkNegative" data-bulk-selected-unowned>Togli Recuperato</button><button type="button" class="bulkNegative" data-bulk-selected-unread>Togli Letto</button><button type="button" data-bulk-close>Chiudi</button></div>`;
+  bar.querySelector("[data-bulk-select-visible]").onclick=()=>selectBulkIds(visibleIds);
+  bar.querySelector("[data-bulk-clear]").onclick=()=>{selectedIssueIds.clear();renderAll()};
+  bar.querySelector("[data-bulk-selected-owned]").onclick=()=>applyBulk([...selectedIssueIds],{owned:true});
+  bar.querySelector("[data-bulk-selected-read]").onclick=()=>applyBulk([...selectedIssueIds],{read:true});
+  bar.querySelector("[data-bulk-selected-unowned]").onclick=()=>applyBulk([...selectedIssueIds],{owned:false},{confirmText:"Togliere Recuperato dagli albi selezionati?"});
+  bar.querySelector("[data-bulk-selected-unread]").onclick=()=>applyBulk([...selectedIssueIds],{read:false},{confirmText:"Togliere Letto dagli albi selezionati?"});
+  bar.querySelector("[data-bulk-close]").onclick=()=>setBulkSelectionMode(false);
+}
 function requiredIssues(){return currentCharacter.issues.filter(i=>i.required!==false&&!i.future)}
 function nextIssue(){return requiredIssues().find(i=>!status(i.id).read)||null}
 function pad3(n){return String(n).padStart(3,"0")}
@@ -104,7 +170,7 @@ function routeIssueToken(i){return currentCharacter?.timelineMode&&Number.isInte
 function resolveIssueToken(character,token){if(!character||token===null||token===undefined||token==="")return null;const value=String(token);if(value.startsWith("p")){const seq=Number(value.slice(1));return character.issues.find(i=>i.seq===seq)||null}const n=Number(value);return Number.isFinite(n)?character.issues.find(i=>i.n===n)||null:null}
 async function switchCharacter(id,{updateHash=true,issue=null}={}){
   const requestId=++characterSwitchRequest;
-  const meta=manifest.characters.find(c=>c.id===id)||manifest.characters[0]; activeCharacter=meta.id; currentMeta=meta;
+  const meta=manifest.characters.find(c=>c.id===id)||manifest.characters[0]; activeCharacter=meta.id; currentMeta=meta; bulkSelectionMode=false; selectedIssueIds.clear(); document.body.classList.remove("bulkSelectMode");
   document.body.classList.remove("homeActive");
   els.homeView.hidden=true;
   els.trackerView.hidden=false;
@@ -213,6 +279,7 @@ function renderHome(){
 }
 function showHome({updateHash=true}={}){
   characterSwitchRequest++;
+  bulkSelectionMode=false; selectedIssueIds.clear(); document.body.classList.remove("bulkSelectMode");
   document.body.classList.add("homeActive");
   document.documentElement.style.setProperty("--accent","#ed1d24");
   els.homeView.hidden=false;
@@ -261,9 +328,20 @@ function issueHtml(i){
     :`<div class="num narrativeNum"><span>${i.future?"Annunciato":"Albo"}</span><b>#${esc(editorial)}</b>${i.required===false?"<small>Facoltativo</small>":""}</div>`;
   const insertBadge=isInsert?'<span class="chronologyBadge">Inserto cronologico</span>':"";
   const publicationBadge=currentCharacter.timelineMode?`<span class="publicationBadge">${esc(i.series)}</span>`:"";
-  return `<article class="issue ${st.read?"read":""} ${i.skip?"optional":""} ${i.future?"future":""} ${isInsert?"chronologyInsert":""}" id="issue-${esc(i.seriesId)}-${i.n}">${numberHtml}<div class="cover"><div class="fallback">${esc(i.name)}</div>${coverImg(i)}</div><div class="meta"><div class="issueBadges">${publicationBadge}${insertBadge}</div><h4>${esc(i.name)} ${i.url?`<a href="${esc(i.url)}" target="_blank" rel="noopener">ComicsBox ↗</a>`:""}${i.sharedWith?.length?`<span class="sharedBadge">condiviso con ${esc(i.sharedWith.join(", "))}</span>`:""}${i.future?'<span class="futureBadge">ANNUNCIATO</span>':""}</h4><div class="title">${esc(i.title)}</div><div class="instruction">${esc(i.instruction)}</div></div><div class="date">${esc(i.date)}${i.dateQuality==="ricostruita"?' <span title="Data ricostruita" style="color:#718196;font-size:7px">≈</span>':""}<br><span class="eraName">${esc(i.era)}</span><span class="seq">${i.required!==false?(i.future?"ANNUNCIATO":"Tappa obbligatoria"):"FACOLTATIVO / SALTA"}</span></div><div class="status"><button type="button" class="${st.owned?"on owned":""}" data-owned="${esc(i.id)}">${icon(st.owned?"check":"archive")}<span>Recuperato</span></button><button type="button" class="${st.read?"on read":""}" data-read="${esc(i.id)}">${icon(st.read?"check":"book")}<span>Letto</span></button></div></article>`}
-function eraHtml(g){const req=g.items.filter(i=>i.required!==false&&!i.future);return `<section class="era"><div class="eraHead"><div><h3>${esc(g.era)}</h3><p>${esc(g.sub)}</p></div><div class="count">${req.filter(i=>status(i.id).read).length}/${req.length} richiesti letti</div></div><div class="issueList">${g.items.map(issueHtml).join("")}</div></section>`}
-function renderBlocks(){const vis=visibleIssues();if(currentCharacter.timelineMode){const xs=[...vis].sort((a,b)=>(a.seq??Number.MAX_SAFE_INTEGER)-(b.seq??Number.MAX_SAFE_INTEGER));const all=currentCharacter.issues.filter(i=>i.required!==false&&!i.future),r=all.filter(i=>status(i.id).read).length,eras=[];for(const i of xs){let g=eras.find(x=>x.era===i.era);if(!g){g={era:i.era,sub:i.eraSub,items:[]};eras.push(g)}g.items.push(i)}els.seriesBlocks.innerHTML=xs.length?`<section class="seriesBlock timelineBlock" id="series-timeline"><div class="seriesHead"><div><div class="label">Timeline di lettura · più testate italiane</div><h2>${esc(currentCharacter.name)} — percorso narrativo</h2><p>${all.length} albi fisici ordinati come un unico percorso; usa i filtri per isolare una testata.</p></div><div class="seriesPct">${r}/${all.length} letti<br>${Math.round(r/(all.length||1)*100)}%</div></div>${eras.map(eraHtml).join("")}</section>`:'<div class="loading">Nessun albo trovato.</div>';bindIssueActions();return}const normalVis=visibleIssues(),order=(currentCharacter.series||[]).filter(s=>activeSeries==="Tutte"||s.id===activeSeries);els.seriesBlocks.innerHTML=order.map(s=>{const xs=normalVis.filter(i=>i.seriesId===s.id);if(!xs.length)return"";const all=currentCharacter.issues.filter(i=>i.seriesId===s.id&&i.required!==false&&!i.future),r=all.filter(i=>status(i.id).read).length,eras=[];for(const i of xs){let g=eras.find(x=>x.era===i.era);if(!g){g={era:i.era,sub:i.eraSub,items:[]};eras.push(g)}g.items.push(i)}return `<section class="seriesBlock" id="series-${esc(s.id)}"><div class="seriesHead"><div><div class="label">${esc(s.publisher)} · ${esc(s.years)}</div><h2>${esc(s.name)} ${esc(s.range)}</h2><p>${all.length} albi richiesti nel percorso</p></div><div class="seriesPct">${r}/${all.length} letti<br>${Math.round(r/(all.length||1)*100)}%</div></div>${eras.map(eraHtml).join("")}</section>`}).join("")||'<div class="loading">Nessun albo trovato.</div>';bindIssueActions()}function bindIssueActions(){document.querySelectorAll("[data-owned]").forEach(b=>b.onclick=()=>setStatus(b.dataset.owned,{owned:!status(b.dataset.owned).owned}));document.querySelectorAll("[data-read]").forEach(b=>b.onclick=()=>{const s=status(b.dataset.read),v=!s.read;setStatus(b.dataset.read,{read:v,owned:v?true:s.owned})})}
+  return `<article class="issue ${st.read?"read":""} ${i.skip?"optional":""} ${i.future?"future":""} ${isInsert?"chronologyInsert":""} ${selectedIssueIds.has(i.id)?"bulkSelected":""}" data-issue-id="${esc(i.id)}" id="issue-${esc(i.seriesId)}-${i.n}">${i.future?"":`<button type="button" class="issueSelect" data-select-issue="${esc(i.id)}" aria-pressed="${selectedIssueIds.has(i.id)}" aria-label="Seleziona ${esc(i.name)}">${selectedIssueIds.has(i.id)?"✓":""}</button>`}${numberHtml}<div class="cover"><div class="fallback">${esc(i.name)}</div>${coverImg(i)}</div><div class="meta"><div class="issueBadges">${publicationBadge}${insertBadge}</div><h4>${esc(i.name)} ${i.url?`<a href="${esc(i.url)}" target="_blank" rel="noopener">ComicsBox ↗</a>`:""}${i.sharedWith?.length?`<span class="sharedBadge">condiviso con ${esc(i.sharedWith.join(", "))}</span>`:""}${i.future?'<span class="futureBadge">ANNUNCIATO</span>':""}</h4><div class="title">${esc(i.title)}</div><div class="instruction">${esc(i.instruction)}</div></div><div class="date">${esc(i.date)}${i.dateQuality==="ricostruita"?' <span title="Data ricostruita" style="color:#718196;font-size:7px">≈</span>':""}<br><span class="eraName">${esc(i.era)}</span><span class="seq">${i.required!==false?(i.future?"ANNUNCIATO":"Tappa obbligatoria"):"FACOLTATIVO / SALTA"}</span></div><div class="status"><button type="button" class="${st.owned?"on owned":""}" data-owned="${esc(i.id)}">${icon(st.owned?"check":"archive")}<span>Recuperato</span></button><button type="button" class="${st.read?"on read":""}" data-read="${esc(i.id)}">${icon(st.read?"check":"book")}<span>Letto</span></button></div></article>`}
+function eraHtml(g){
+  const req=g.items.filter(i=>i.required!==false&&!i.future),actionable=g.items.filter(i=>!i.future),ids=actionable.map(i=>i.id).join("|");
+  return `<section class="era"><div class="eraHead"><div><h3>${esc(g.era)}</h3><p>${esc(g.sub)}</p></div><div class="eraHeadRight"><div class="count">${req.filter(i=>status(i.id).read).length}/${req.length} richiesti letti</div>${actionable.length?`<div class="eraBulkActions"><button type="button" data-select-section="${esc(ids)}">Seleziona</button><button type="button" data-bulk-section-owned="${esc(ids)}">Recupera tutti</button><button type="button" data-bulk-section-read="${esc(ids)}">Letti tutti</button></div>`:""}</div></div><div class="issueList">${g.items.map(issueHtml).join("")}</div></section>`
+}
+function renderBlocks(){const vis=visibleIssues();if(currentCharacter.timelineMode){const xs=[...vis].sort((a,b)=>(a.seq??Number.MAX_SAFE_INTEGER)-(b.seq??Number.MAX_SAFE_INTEGER));const all=currentCharacter.issues.filter(i=>i.required!==false&&!i.future),r=all.filter(i=>status(i.id).read).length,eras=[];for(const i of xs){let g=eras.find(x=>x.era===i.era);if(!g){g={era:i.era,sub:i.eraSub,items:[]};eras.push(g)}g.items.push(i)}els.seriesBlocks.innerHTML=xs.length?`<section class="seriesBlock timelineBlock" id="series-timeline"><div class="seriesHead"><div><div class="label">Timeline di lettura · più testate italiane</div><h2>${esc(currentCharacter.name)} — percorso narrativo</h2><p>${all.length} albi fisici ordinati come un unico percorso; usa i filtri per isolare una testata.</p></div><div class="seriesPct">${r}/${all.length} letti<br>${Math.round(r/(all.length||1)*100)}%</div></div>${eras.map(eraHtml).join("")}</section>`:'<div class="loading">Nessun albo trovato.</div>';bindIssueActions();return}const normalVis=visibleIssues(),order=(currentCharacter.series||[]).filter(s=>activeSeries==="Tutte"||s.id===activeSeries);els.seriesBlocks.innerHTML=order.map(s=>{const xs=normalVis.filter(i=>i.seriesId===s.id);if(!xs.length)return"";const all=currentCharacter.issues.filter(i=>i.seriesId===s.id&&i.required!==false&&!i.future),r=all.filter(i=>status(i.id).read).length,eras=[];for(const i of xs){let g=eras.find(x=>x.era===i.era);if(!g){g={era:i.era,sub:i.eraSub,items:[]};eras.push(g)}g.items.push(i)}return `<section class="seriesBlock" id="series-${esc(s.id)}"><div class="seriesHead"><div><div class="label">${esc(s.publisher)} · ${esc(s.years)}</div><h2>${esc(s.name)} ${esc(s.range)}</h2><p>${all.length} albi richiesti nel percorso</p></div><div class="seriesPct">${r}/${all.length} letti<br>${Math.round(r/(all.length||1)*100)}%</div></div>${eras.map(eraHtml).join("")}</section>`}).join("")||'<div class="loading">Nessun albo trovato.</div>';bindIssueActions()}function bindIssueActions(){
+  renderBulkToolbar();
+  document.querySelectorAll("[data-owned]").forEach(b=>b.onclick=()=>setStatus(b.dataset.owned,{owned:!status(b.dataset.owned).owned}));
+  document.querySelectorAll("[data-read]").forEach(b=>b.onclick=()=>{const s=status(b.dataset.read),v=!s.read;setStatus(b.dataset.read,{read:v,owned:v?true:s.owned})});
+  document.querySelectorAll("[data-select-issue]").forEach(b=>b.onclick=()=>toggleSelectedIssue(b.dataset.selectIssue));
+  document.querySelectorAll("[data-select-section]").forEach(b=>b.onclick=()=>selectBulkIds(idsFromBulkAttr(b.dataset.selectSection)));
+  document.querySelectorAll("[data-bulk-section-owned]").forEach(b=>b.onclick=()=>applyBulk(idsFromBulkAttr(b.dataset.bulkSectionOwned),{owned:true}));
+  document.querySelectorAll("[data-bulk-section-read]").forEach(b=>b.onclick=()=>applyBulk(idsFromBulkAttr(b.dataset.bulkSectionRead),{read:true}));
+}
 function jumpToIssue(i){history.replaceState(null,"",`#/${activeCharacter}/${routeIssueToken(i)}`);$( `issue-${i.seriesId}-${i.n}` )?.scrollIntoView({behavior:"smooth",block:"center"})}
 function renderAll(){if(!currentCharacter)return;renderCharacters();renderHero();renderStats();renderNext();renderRoute();renderSeriesNav();renderFilters();renderBlocks();els.showOptional.style.display=currentCharacter.issues.some(i=>i.skip)?"block":"none";els.showOptional.textContent=optionalVisible?"− Nascondi numeri facoltativi":"+ Mostra numeri facoltativi"}
 
