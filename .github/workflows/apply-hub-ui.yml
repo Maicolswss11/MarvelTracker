@@ -1,0 +1,91 @@
+name: Apply hierarchical hub UI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-hub-ui.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Wire hub assets into index
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          path = Path('index.html')
+          source = path.read_text(encoding='utf-8')
+
+          if 'css/hub-ui.css' not in source:
+              match = re.search(r'(?P<line>\s*<link\s+rel="stylesheet"\s+href="css/app\.css\?v=\d+">)', source)
+              if not match:
+                  raise SystemExit('app.css link not found')
+              source = source[:match.end()] + '\n  <link rel="stylesheet" href="css/hub-ui.css?v=1">' + source[match.end():]
+
+          if 'js/hub-ui.js' not in source:
+              script = '  <script type="module" src="js/hub-ui.js?v=1"></script>\n'
+              if '</body>' not in source:
+                  raise SystemExit('closing body tag not found')
+              source = source.replace('</body>', script + '</body>', 1)
+
+          path.write_text(source, encoding='utf-8')
+
+      - name: Remove migration markers
+        run: rm -f data/.hub-ui-phase1 data/.hub-ui-phase1-notes
+
+      - name: Validate hub taxonomy
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          hubs = json.loads(Path('data/hubs.json').read_text(encoding='utf-8'))
+          paths = json.loads(Path('data/characters.json').read_text(encoding='utf-8'))
+          hub_ids = {hub['id'] for hub in hubs['hubs']}
+          path_ids = {path['id'] for path in paths['characters']}
+
+          for path in paths['characters']:
+              for hub_id in path.get('hubs', []):
+                  assert hub_id in hub_ids, f"{path['id']}: hub sconosciuto {hub_id}"
+              if path.get('primaryHub'):
+                  assert path['primaryHub'] in hub_ids, f"{path['id']}: primaryHub sconosciuto"
+
+          for hub in hubs['hubs']:
+              if hub.get('parent'):
+                  assert hub['parent'] in hub_ids, f"{hub['id']}: parent sconosciuto"
+              for group in hub.get('groups', []):
+                  for path_id in group.get('paths', []):
+                      assert path_id in path_ids, f"{hub['id']}: percorso sconosciuto {path_id}"
+
+          print(f"{len(hub_ids)} hub, {len(path_ids)} percorsi — OK")
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check js/app.js
+          node --check js/hub-ui.js
+
+      - name: Verify archive data
+        run: node scripts/verify-data.mjs
+
+      - name: Commit UI integration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html data/hubs.json data/characters.json js/hub-ui.js css/hub-ui.css
+          git add -u data/.hub-ui-phase1 data/.hub-ui-phase1-notes 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No hub UI changes to commit."
+            exit 0
+          fi
+          git commit -m "Integrate hierarchical Marvel hub UI"
+          git push
