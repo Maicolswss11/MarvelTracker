@@ -1,0 +1,10 @@
+/* Physical / digital collection states */
+.collectionStats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.collectionFormats{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.collectionFormats button{min-width:0}
+.collectionFormats button.physical.on,.nextBtns .formatPhysical.primary,.bulkToolbarActions .bulkPhysical,.eraBulkActions .bulkPhysical{border-color:rgba(255,183,77,.55)!important;background:rgba(255,183,77,.12)!important;color:#ffd08a!important}
+.collectionFormats button.digital.on,.nextBtns .formatDigital.primary,.bulkToolbarActions .bulkDigital,.eraBulkActions .bulkDigital{border-color:rgba(88,176,255,.55)!important;background:rgba(88,176,255,.12)!important;color:#9ed2ff!important}
+.collectionFormats button.physical.on svg,.collectionFormats button.digital.on svg{color:currentColor}
+.nextBtns{flex-wrap:wrap}
+.nextBtns .formatPhysical,.nextBtns .formatDigital{min-width:110px}
+@media(max-width:700px){.collectionFormats{grid-template-columns:1fr}.collectionFormats button{min-height:38px}.collectionStats{grid-template-columns:repeat(2,minmax(0,1fr))!important}.nextBtns .formatPhysical,.nextBtns .formatDigital{min-width:0;flex:1 1 42%}}
