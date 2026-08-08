@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 CHUNK_SIZE = 7_500
 USER_AGENT = "MarvelTracker data maintenance/4.0"
-MANIFEST_VERSION = 7
+MANIFEST_VERSION = 8
 
 MONTHS_IT = {
     "Jan": "Gennaio", "Feb": "Febbraio", "Mar": "Marzo", "Apr": "Aprile",
