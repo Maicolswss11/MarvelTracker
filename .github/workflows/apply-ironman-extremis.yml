@@ -1,0 +1,40 @@
+name: Apply Iron Man Extremis chronology
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-ironman-extremis.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Insert Extremis in Iron Man chronology
+        run: python scripts/insert_ironman_extremis.py
+
+      - name: Verify generated archives
+        run: node scripts/verify-data.mjs
+
+      - name: Commit generated chronology
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/characters.json data/characters/ironman.json data/encoded/ironman.json data/b64/ironman-*.b64 js/app.js
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git commit -m "Insert Extremis before Iron Man House of M"
+          git push
