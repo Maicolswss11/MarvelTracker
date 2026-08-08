@@ -51,7 +51,7 @@ def fetch_url(url, attempts=5):
 def fetch_all_series(code,max_pages=12):
     records={}
     for page in range(max_pages):
-        parser=SeriesTableParser(); parser.feed(fetch_url(f"https://www.comicsbox.it/serie.php?limite={page*50}&serie={code}")); rows=parser.rows
+        parser=SeriesTableParser(); parser.feed(fetch_url(f"https://www.comicsbox.it/serie.php?limite={page*45}&serie={code}")); rows=parser.rows
         if not rows: break
         before=len(records)
         for row in rows: records[int(row["n"])]=row
