@@ -272,7 +272,7 @@ def pack_character(character: dict) -> None:
 
 
 def person_matches(route_id: str, href: str, text: str) -> bool:
-    if "/personaggio/" not in href:
+    if "personaggio/" not in href:
         return False
     h = normalize(href)
     t = normalize(text)
@@ -288,7 +288,7 @@ def person_matches(route_id: str, href: str, text: str) -> bool:
         return any(key in hay for key in ("scarlet witch", "wanda maximoff", "maximoff wanda"))
     if route_id == "vision":
         # Deliberately avoid Viv Vision / Virginia Vision and unrelated uses of the word.
-        return t in {"vision", "visione"} or h.endswith(" personaggio vision") or h.endswith(" personaggio visione")
+        return t in {"vision", "visione"} or h.endswith("personaggio vision") or h.endswith("personaggio visione")
     if route_id == "wonderman":
         return any(key in hay for key in ("wonder man", "wonderman", "simon williams", "williams simon"))
     return False
