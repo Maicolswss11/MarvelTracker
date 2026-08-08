@@ -22,6 +22,16 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Fix ComicsBox character link matching
+        shell: python
+        run: |
+          from pathlib import Path
+          path = Path('scripts/build_avengers_characters.py')
+          source = path.read_text(encoding='utf-8')
+          source = source.replace('if "/personaggio/" not in href:', 'if "personaggio/" not in href:')
+          source = source.replace('h.endswith(" personaggio vision") or h.endswith(" personaggio visione")', 'h.endswith("personaggio vision") or h.endswith("personaggio visione")')
+          path.write_text(source, encoding='utf-8')
+
       - name: Check builder syntax
         run: python -m py_compile scripts/build_avengers_characters.py
 
@@ -47,5 +57,5 @@ jobs:
             echo "No generated changes to commit."
             exit 0
           fi
-          git commit -m "Add five Avengers character reading paths"
+          git commit -m "Populate Avengers character timelines"
           git push
