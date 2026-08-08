@@ -1,0 +1,81 @@
+name: Apply Fantastic Four and Ultimate Spider-Man paths
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-f4-ultimate-paths.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Align manifest cache version
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          for path in Path('scripts').glob('*.py'):
+              source = path.read_text(encoding='utf-8')
+              source = re.sub(r'MANIFEST_VERSION\s*=\s*\d+', 'MANIFEST_VERSION = 7', source)
+              source = re.sub(r'manifest\["version"\]\s*=\s*\d+', 'manifest["version"] = 7', source)
+              path.write_text(source, encoding='utf-8')
+          verify = Path('scripts/verify-data.mjs')
+          source = verify.read_text(encoding='utf-8')
+          source = re.sub(r'assert\.equal\(manifest\.version,\s*\d+,\s*"Il manifest deve usare la versione cache v\d+"\);', 'assert.equal(manifest.version, 7, "Il manifest deve usare la versione cache v7");', source)
+          verify.write_text(source, encoding='utf-8')
+
+      - name: Build Fantastic Four
+        run: python scripts/build_fantastic_four_data.py
+
+      - name: Build classic Ultimate Spider-Man
+        run: python scripts/build_ultimate_spiderman_data.py
+
+      - name: Validate taxonomy
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          hubs=json.loads(Path('data/hubs.json').read_text(encoding='utf-8'))
+          manifest=json.loads(Path('data/characters.json').read_text(encoding='utf-8'))
+          assert manifest['version']==7
+          paths={p['id']:p for p in manifest['characters']}
+          hubmap={h['id']:h for h in hubs['hubs']}
+          assert paths['fantastic-four']['totalRequired'] >= 475
+          assert paths['ultimate-spiderman-classic']['totalRequired'] == 108
+          assert hubmap['fantastic-four']['featuredPath']=='fantastic-four'
+          assert 'status' not in hubmap['fantastic-four']
+          assert hubmap['ultimate-classic']['featuredPath']=='ultimate-spiderman-classic'
+          assert 'status' not in hubmap['ultimate-classic']
+          print(f"{len(paths)} percorsi — F4 {paths['fantastic-four']['totalRequired']} / Ultimate Spider-Man {paths['ultimate-spiderman-classic']['totalRequired']} — OK")
+
+      - name: Validate JavaScript
+        run: |
+          node --check js/app.js
+          node --check js/hub-ui.js
+
+      - name: Verify all archives
+        run: node scripts/verify-data.mjs
+
+      - name: Commit generated paths
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/characters.json data/hubs.json
+          git add data/characters/fantastic-four.json data/encoded/fantastic-four.json data/b64/fantastic-four-*.b64 assets/heroes/fantastic-four.svg
+          git add data/characters/ultimate-spiderman-classic.json data/encoded/ultimate-spiderman-classic.json data/b64/ultimate-spiderman-classic-*.b64 assets/heroes/ultimate-spiderman.svg
+          git add scripts/*.py scripts/verify-data.mjs
+          git commit -m "Add Fantastic Four and classic Ultimate Spider-Man paths"
+          git push
