@@ -695,7 +695,7 @@ def write_stub(character: dict) -> None:
 def update_manifest(characters: dict[str, dict]) -> None:
     path = DATA / "characters.json"
     manifest = json.loads(path.read_text(encoding="utf-8"))
-    manifest["version"] = 8
+    manifest["version"] = 9
     existing = {item["id"]: item for item in manifest["characters"]}
     for route_id, character in characters.items():
         cfg = ROUTES[route_id]
@@ -747,7 +747,7 @@ def patch_project_files() -> None:
 
     rebuild_path = ROOT / "scripts" / "rebuild_character_data.py"
     rebuild = rebuild_path.read_text(encoding="utf-8")
-    rebuild = rebuild.replace('manifest["version"] = 8', 'manifest["version"] = 8')
+    rebuild = rebuild.replace('manifest["version"] = 9', 'manifest["version"] = 9')
     rebuild_path.write_text(rebuild, encoding="utf-8")
 
 
