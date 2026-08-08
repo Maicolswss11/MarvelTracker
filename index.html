@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#070a0e">
   <meta name="description" content="Marvel Archive: tracker personale delle edizioni italiane Marvel.">
   <title>Marvel Archive</title>
-  <link rel="stylesheet" href="css/app.css?v=6">
+  <link rel="stylesheet" href="css/app.css?v=7">
 </head>
 <body>
 <div class="app">
@@ -14,7 +14,7 @@
     <button type="button" class="logo" id="homeBtn" aria-label="Vai alla home"><img class="logoMark" src="assets/brand/marvel.png?v=2" alt="Marvel"><span><strong>MARVEL ARCHIVE</strong><small id="logoSub">Reading tracker</small></span></button>
     <div><div class="label" style="margin-bottom:7px">Percorsi</div><div class="charGrid" id="charGrid"></div></div>
     <div class="trackerSidebar" id="trackerSidebar">
-      <div class="card"><div class="label">Percorso del personaggio</div><div class="bigNum"><b id="doneCount">0</b>/<span id="totalCount">0</span></div><div class="progressTrack"><span id="progressBar"></span></div><div class="stats"><div class="stat"><b id="ownedCount">0</b><span>Recuperati</span></div><div class="stat"><b id="pct">0%</b><span>Completamento</span></div></div></div>
+      <div class="card"><div class="label">Progresso del percorso</div><div class="bigNum"><b id="doneCount">0</b>/<span id="totalCount">0</span></div><div class="progressTrack"><span id="progressBar"></span></div><div class="stats"><div class="stat"><b id="ownedCount">0</b><span>Recuperati</span></div><div class="stat"><b id="pct">0%</b><span>Completamento</span></div></div></div>
       <div class="seriesNav" id="seriesNav"></div>
       <div class="sideActions"><button id="jumpNext">→ Vai al prossimo albo</button><button id="showOptional">+ Mostra numeri facoltativi</button><button id="exportBtn">⇩ Esporta progressi</button><label>⇧ Importa progressi<input type="file" id="importFile" accept="application/json" hidden></label><button id="resetBtn">↺ Reset personaggio</button></div>
       <div class="footerNote" id="footerNote"></div>
@@ -28,11 +28,11 @@
       </header>
       <div class="homeContent">
         <section class="homeDashboardHero">
-          <div class="homeIntro"><div class="homeEyebrow">Personal reading system · Edizioni italiane</div><h1>Bentornato,<br><span id="homeGreetingName">lettore.</span></h1><p>La tua collezione Marvel in un solo posto: riprendi dal prossimo albo, controlla i progressi e passa da un eroe all'altro senza perdere il filo.</p><div class="homeHeroActions"><button type="button" class="homePrimary" id="homeResume">Riprendi</button><button type="button" class="homeSecondary" id="homeExplore">Tutti i percorsi</button></div><div class="homeHeroIcons" id="homeHeroIcons" aria-label="Personaggi disponibili"></div></div>
+          <div class="homeIntro"><div class="homeEyebrow">Personal reading system · Edizioni italiane</div><h1>Bentornato,<br><span id="homeGreetingName">lettore.</span></h1><p>La tua collezione Marvel in un solo posto: riprendi dal prossimo albo, controlla i progressi e passa da un percorso all'altro senza perdere il filo.</p><div class="homeHeroActions"><button type="button" class="homePrimary" id="homeResume">Riprendi</button><button type="button" class="homeSecondary" id="homeExplore">Tutti i percorsi</button></div><div class="homeHeroIcons" id="homeHeroIcons" aria-label="Percorsi disponibili"></div></div>
           <aside class="homeContinue" id="homeContinue"><div class="homeContinueLoading"><span></span><div><b>Prepariamo il prossimo albo…</b><small>Caricamento del percorso</small></div></div></aside>
         </section>
         <section class="homeStats" id="homeStats" aria-label="Riepilogo progressi"></section>
-        <section class="homeSection" id="homeCharactersSection"><div class="homeSectionHead"><div><span class="homeKicker">I tuoi percorsi</span><h2>Scegli il prossimo percorso</h2></div><p>Gli albi recuperati sono condivisi nella collezione; la lettura resta separata per ogni personaggio.</p></div><div class="homeCharacterGrid" id="homeCharacterGrid"></div></section>
+        <section class="homeSection" id="homeCharactersSection"><div class="homeSectionHead"><div><span class="homeKicker">I tuoi percorsi</span><h2>Scegli il prossimo percorso</h2></div><p>Gli albi recuperati sono condivisi nella collezione; la lettura resta separata per ogni percorso.</p></div><div class="homeCharacterGrid" id="homeCharacterGrid"></div></section>
       </div>
     </section>
     <div id="trackerView">
@@ -42,7 +42,7 @@
         <div class="route" id="route"></div>
         <div id="noticeWrap"></div>
         <div class="filterBar" id="filterBar"></div>
-        <div id="seriesBlocks"><div class="loading">Caricamento personaggio…</div></div>
+        <div id="seriesBlocks"><div class="loading">Caricamento percorso…</div></div>
       </div>
     </div>
   </main>
@@ -60,6 +60,6 @@
     <section class="accountSigned" id="accountSigned" hidden><div class="accountIdentity"><span class="accountAvatar accountAvatarLarge" data-account-avatar>M</span><div><b id="accountProfileName">Lettore Marvel</b><span id="accountEmail"></span></div></div><div class="accountSyncCard"><span id="accountSyncIcon"></span><div><b id="accountSyncTitle">Sincronizzato</b><small id="accountSyncDetail">Progressi salvati nel cloud</small></div></div><div class="accountSignedActions"><button type="button" id="syncNowBtn">Sincronizza ora</button><button type="button" class="danger" id="signOutBtn">Esci dal profilo</button></div></section>
   </div>
 </dialog>
-<script type="module" src="js/app.js?v=6"></script>
+<script type="module" src="js/app.js?v=7"></script>
 </body>
 </html>
