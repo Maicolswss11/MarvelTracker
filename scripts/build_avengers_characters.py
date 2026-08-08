@@ -285,7 +285,7 @@ def person_matches(route_id: str, href: str, text: str) -> bool:
         keys = ("wasp", "janet van dyne", "nadia van dyne", "nadia pym", "van dyne janet", "van dyne nadia")
         return any(key in hay for key in keys)
     if route_id == "scarletwitch":
-        return any(key in hay for key in ("scarlet witch", "wanda maximoff", "maximoff wanda"))
+        return any(key in hay for key in ("scarlet witch", "scarlet", "wanda maximoff", "maximoff wanda"))
     if route_id == "vision":
         # Deliberately avoid Viv Vision / Virginia Vision and unrelated uses of the word.
         return t in {"vision", "visione"} or h.endswith("personaggio vision") or h.endswith("personaggio visione")
@@ -297,6 +297,17 @@ def person_matches(route_id: str, href: str, text: str) -> bool:
 def scan_avengers_issue(issue: dict) -> tuple[str, set[str]]:
     parser = parse_issue(issue["url"])
     matched: set[str] = set()
+    exact_tokens = {normalize(token) for token in parser.tokens}
+    token_aliases = {
+        "antman": {"ant man", "hank pym", "henry pym", "scott lang", "giant man", "yellowjacket"},
+        "wasp": {"wasp", "janet van dyne", "nadia van dyne", "nadia pym"},
+        "scarletwitch": {"scarlet witch", "scarlet", "wanda maximoff", "wanda"},
+        "vision": {"vision", "visione"},
+        "wonderman": {"wonder man", "wonderman", "simon williams"},
+    }
+    for route_id, aliases in token_aliases.items():
+        if any(alias in token for token in exact_tokens for alias in aliases):
+            matched.add(route_id)
     for href, text in parser.links:
         for route_id in ROUTES:
             if person_matches(route_id, href, text):
