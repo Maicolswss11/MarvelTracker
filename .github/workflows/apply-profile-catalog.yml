@@ -1,0 +1,157 @@
+name: Apply profile catalog
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-profile-catalog.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Wire profile routing and state
+        shell: python
+        run: |
+          from pathlib import Path
+          path=Path('js/app.js')
+          source=path.read_text(encoding='utf-8')
+
+          def once(old,new,label):
+              global source
+              if old not in source:
+                  raise SystemExit(f'Anchor non trovato: {label}')
+              source=source.replace(old,new,1)
+
+          once(
+              'x ??= {}; x.characters ??= {}; x.collection ??= {};',
+              'x ??= {}; x.characters ??= {}; x.collection ??= {}; x.wishlist ??= {}; x.lists ??= {}; x.profileSchema ??= 1;',
+              'profile state defaults',
+          )
+          once(
+              'function parseHash(){const p=location.hash.replace(/^#\\/?/,"").split("/").filter(Boolean);if(!p.length||p[0]==="home")return {view:"home",character:null,issue:null};return {view:"character",character:p[0],issue:p[1]||null}}',
+              'function parseHash(){const p=location.hash.replace(/^#\\/?/,"").split("/").filter(Boolean);if(!p.length||p[0]==="home")return {view:"home",character:null,issue:null};if(p[0]==="profile")return {view:"profile",character:null,issue:null};return {view:"character",character:p[0],issue:p[1]||null}}',
+              'profile hash',
+          )
+          once(
+              'document.body.classList.remove("homeActive");\n  els.homeView.hidden=true;',
+              'document.body.classList.remove("homeActive","profileActive");\n  $("profileView") && ($("profileView").hidden=true);\n  els.homeView.hidden=true;',
+              'hide profile on character',
+          )
+          once(
+              'function refreshCurrentView(){if(!manifest)return;if(document.body.classList.contains("homeActive")||!currentCharacter)showHome({updateHash:false});else if(currentCharacter.id!==activeCharacter)void switchCharacter(activeCharacter);else renderAll()}',
+              'function refreshCurrentView(){if(!manifest)return;if(document.body.classList.contains("profileActive")){void window.MarvelProfile?.render();return}if(document.body.classList.contains("homeActive")||!currentCharacter)showHome({updateHash:false});else if(currentCharacter.id!==activeCharacter)void switchCharacter(activeCharacter);else renderAll()}',
+              'refresh profile',
+          )
+          once(
+              'document.body.classList.add("homeActive");\n  document.documentElement.style.setProperty("--accent","#ed1d24");',
+              'document.body.classList.remove("profileActive");\n  $("profileView") && ($("profileView").hidden=true);\n  document.body.classList.add("homeActive");\n  document.documentElement.style.setProperty("--accent","#ed1d24");',
+              'hide profile on home',
+          )
+          once(
+              'window.addEventListener("hashchange",async()=>{if(!manifest)return;const h=parseHash();if(h.view==="home"){showHome({updateHash:false});return}if(els.trackerView.hidden||!currentCharacter||h.character!==activeCharacter)await switchCharacter(h.character,{updateHash:false,issue:h.issue});else if(h.issue){const i=resolveIssueToken(currentCharacter,h.issue);if(i)jumpToIssue(i)}});',
+              'window.addEventListener("hashchange",async()=>{if(!manifest)return;const h=parseHash();if(h.view==="home"){showHome({updateHash:false});return}if(h.view==="profile"){await window.MarvelProfile?.show({updateHash:false});return}if(els.trackerView.hidden||!currentCharacter||h.character!==activeCharacter)await switchCharacter(h.character,{updateHash:false,issue:h.issue});else if(h.issue){const i=resolveIssueToken(currentCharacter,h.issue);if(i)jumpToIssue(i)}});',
+              'profile hashchange',
+          )
+          old='''(async()=>{try{await loadManifest();const h=parseHash();if(h.view==="home"){showHome({updateHash:false});if(!location.hash)history.replaceState(null,"","#/home")}else await switchCharacter(h.character,{updateHash:false,issue:h.issue});renderAccountUi();void initAccount(handleAccountChange)}catch(e){console.error(e);els.seriesBlocks.innerHTML=`<div class="loading error"><b>Errore di caricamento</b><br>${esc(e.message)}<br><br>Apri il sito tramite GitHub Pages o un server HTTP: i JSON non possono essere caricati correttamente con alcuni browser da file://.</div>`}})();'''
+          new='''(async()=>{try{await loadManifest();window.MarvelProfile?.init({getState:()=>state,getManifest:()=>manifest,saveState:()=>saveState(),showHome:()=>showHome(),openCharacter:id=>switchCharacter(id),openAccount:openAccountDialog});const h=parseHash();if(h.view==="home"){showHome({updateHash:false});if(!location.hash)history.replaceState(null,"","#/home")}else if(h.view==="profile")await window.MarvelProfile?.show({updateHash:false});else await switchCharacter(h.character,{updateHash:false,issue:h.issue});renderAccountUi();void initAccount(handleAccountChange)}catch(e){console.error(e);els.seriesBlocks.innerHTML=`<div class="loading error"><b>Errore di caricamento</b><br>${esc(e.message)}<br><br>Apri il sito tramite GitHub Pages o un server HTTP: i JSON non possono essere caricati correttamente con alcuni browser da file://.</div>`}})();'''
+          once(old,new,'profile bootstrap')
+          path.write_text(source,encoding='utf-8')
+
+      - name: Add profile page shell
+        shell: python
+        run: |
+          from pathlib import Path
+          path=Path('index.html')
+          source=path.read_text(encoding='utf-8')
+
+          if 'css/profile.css' not in source:
+              source=source.replace(
+                  '  <link rel="stylesheet" href="css/collection-formats.css?v=1">',
+                  '  <link rel="stylesheet" href="css/collection-formats.css?v=1">\n  <link rel="stylesheet" href="css/profile.css?v=1">',
+                  1,
+              )
+
+          source=source.replace(
+              '<div class="homeTopActions"><button type="button" class="homeTopAction" id="homeTopResume">Riprendi percorso</button><button type="button" class="accountButton" id="homeAccountBtn"',
+              '<div class="homeTopActions"><button type="button" class="homeTopAction" id="homeTopResume">Riprendi percorso</button><button type="button" class="homeTopAction" id="homeProfileBtn">Collezione</button><button type="button" class="accountButton" id="homeAccountBtn"',
+              1,
+          )
+          source=source.replace(
+              '<div class="trackerTopActions"><button class="compactBtn" id="compactBtn">Vista compatta</button><button type="button" class="trackerAccountBtn"',
+              '<div class="trackerTopActions"><button class="compactBtn" id="trackerProfileBtn">Collezione</button><button class="compactBtn" id="compactBtn">Vista compatta</button><button type="button" class="trackerAccountBtn"',
+              1,
+          )
+
+          marker='''    <div id="trackerView">'''
+          profile='''    <section class="profileView" id="profileView" hidden>
+      <header class="profileTopbar">
+        <div class="profileTopbarLeft"><button type="button" class="profileHomeButton" id="profileHomeBtn">← Home</button><div class="profileBrand"><b>MARVEL ARCHIVE</b><span>Profilo · Collezione globale</span></div></div>
+        <div class="profileTopbarRight"><button type="button" class="profileAccountButton" id="profileAccountBtn"><span class="accountAvatar" data-account-avatar>M</span><span data-account-name>Profilo locale</span></button></div>
+      </header>
+      <div class="profileContent">
+        <section class="profileHero"><div><div class="eyebrow">Il tuo archivio personale</div><h1>Profilo & Collezione</h1><p>Un catalogo unico per copie fisiche, digitali, letture, wishlist e liste personali. Lo stesso albo compare una sola volta anche quando appartiene a più percorsi.</p></div><div class="profileHeroMark">M</div></section>
+        <section class="profileStats" id="profileStats"></section>
+        <nav class="profileTabs" id="profileTabs" aria-label="Sezioni profilo"></nav>
+        <div class="profileToolbar" id="profileToolbar"></div>
+        <div id="profileBody"><div class="profileLoading">Preparazione del catalogo personale…</div></div>
+      </div>
+    </section>
+    <div id="trackerView">'''
+          if 'id="profileView"' not in source:
+              if marker not in source: raise SystemExit('Tracker marker non trovato')
+              source=source.replace(marker,profile,1)
+
+          if 'js/profile-ui.js' not in source:
+              source=source.replace(
+                  '<script type="module" src="js/app.js?v=10"></script>',
+                  '<script src="js/profile-ui.js?v=1"></script>\n<script type="module" src="js/app.js?v=11"></script>',
+                  1,
+              )
+          else:
+              source=source.replace('js/app.js?v=10','js/app.js?v=11')
+          path.write_text(source,encoding='utf-8')
+
+      - name: Build global catalog
+        run: python scripts/build_catalog.py
+
+      - name: Validate profile and catalog
+        shell: bash
+        run: |
+          node --check js/app.js
+          node --check js/profile-ui.js
+          node --check js/hub-ui.js
+          node scripts/verify-data.mjs
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          catalog=json.loads(Path('data/catalog.json').read_text(encoding='utf-8'))
+          ids=[x['id'] for x in catalog['issues']]
+          assert catalog['version']==1
+          assert catalog['manifestVersion']==11
+          assert len(ids)==len(set(ids))==catalog['total']
+          assert catalog['total']>1000
+          source=Path('js/app.js').read_text(encoding='utf-8')
+          html=Path('index.html').read_text(encoding='utf-8')
+          assert 'view:"profile"' in source
+          assert 'MarvelProfile?.init' in source
+          assert 'id="profileView"' in html
+          assert 'id="homeProfileBtn"' in html
+          assert 'id="trackerProfileBtn"' in html
+          print(f"Profilo globale — {catalog['total']} albi unici — OK")
+          PY
+
+      - name: Commit profile catalog
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/app.js index.html data/catalog.json
+          git commit -m "Add global collection profile"
+          git push
