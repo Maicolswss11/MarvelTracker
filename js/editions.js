@@ -24,14 +24,24 @@
 
   async function load(version=1){
     if(loadPromise) return loadPromise;
-    loadPromise = fetch(`data/editions.json?v=${encodeURIComponent(version)}`, {cache:"no-cache"})
-      .then(response => {
+    const token = encodeURIComponent(version);
+    loadPromise = Promise.all([
+      fetch(`data/editions.json?v=${token}`, {cache:"no-cache"}).then(response => {
         if(!response.ok) throw new Error(`Edizioni alternative HTTP ${response.status}`);
         return response.json();
-      })
-      .then(data => {
+      }),
+      fetch(`data/curated-editions.json?v=${token}`, {cache:"no-cache"})
+        .then(response => response.ok ? response.json() : {version:1,editions:[]})
+        .catch(() => ({version:1,editions:[]})),
+    ])
+      .then(([data,curated]) => {
         if(!Array.isArray(data.editions)) throw new Error("Manifest edizioni alternative non valido");
-        manifest = data;
+        const merged = new Map(data.editions.map(item => [item.id,item]));
+        for(const item of curated.editions || []){
+          const previous = merged.get(item.id) || {};
+          merged.set(item.id,{...previous,...item});
+        }
+        manifest = {...data,curatedVersion:curated.version || 1,editions:[...merged.values()]};
         rebuildIndexes();
         return manifest;
       })
