@@ -7,7 +7,7 @@ import { gunzipSync } from "node:zlib";
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
 const manifest = await readJson("data/characters.json");
 
-assert.equal(manifest.version, 17, "Il manifest deve usare la versione cache v17");
+assert.equal(manifest.version, 18, "Il manifest deve usare la versione cache v18");
 assert.ok(Array.isArray(manifest.characters) && manifest.characters.length > 0, "Manifest personaggi vuoto");
 
 for (const meta of manifest.characters) {
