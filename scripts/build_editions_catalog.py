@@ -64,6 +64,15 @@ PATH_ALIASES = {
     "siege": ["assedio", "siege"],
     "fear-itself": ["fear itself"],
     "avengers-vs-xmen": ["avengers vs x-men", "avengers vs. x-men", "avx"],
+    "infinity": ["infinity"],
+    "civil-war-ii": ["civil war ii", "civil war 2"],
+    "secret-empire": ["secret empire"],
+    "war-of-the-realms": ["war of the realms", "guerra dei regni"],
+    "absolute-carnage": ["absolute carnage"],
+    "empyre": ["empyre"],
+    "king-in-black": ["king in black"],
+    "blood-hunt": ["blood hunt"],
+    "infinity-gauntlet": ["infinity gauntlet", "guanto dell\'infinito"],
     "judgment-day": ["a.x.e. judgment day", "a.x.e.", "judgment day"],
     "ultimate-spiderman-classic": ["ultimate spider-man", "ultimate spiderman"],
     "ultimate-xmen": ["ultimate x-men", "ultimate x men"],
@@ -207,6 +216,8 @@ def candidates_for_title(title: str) -> set[str]:
     candidates = {path for path, aliases in PATH_ALIASES.items() if any(alias in text for alias in aliases)}
     if "civil war ii" in text or "civil war 2" in text:
         candidates.discard("civil-war")
+    if any(x in text for x in ("infinity gauntlet", "guanto dell\'infinito", "infinity wars", "infinity countdown")):
+        candidates.discard("infinity")
     if "ultimate" in text:
         candidates = {path for path in candidates if path.startswith("ultimate") or path == "ultimates"}
     else:
