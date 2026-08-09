@@ -71,7 +71,7 @@
   function get(id){ return byId.get(id) || null; }
   function isOwned(state,id){
     const value = state?.editions?.[id];
-    return value === true || !!value?.owned;
+    return value === true || !!value?.owned || !!state?.collection?.[id]?.physical;
   }
   function setOwned(state,id,owned){
     state.editions ??= {};

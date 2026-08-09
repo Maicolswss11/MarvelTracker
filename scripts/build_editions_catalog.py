@@ -34,6 +34,8 @@ SERIES = {
     "MISMJMDM": {"name": "Marvel Integrale: Spider-Man di J.M. DeMatteis", "publisher": "Panini Comics", "format": "Integrale"},
     "MARVINTSM": {"name": "Marvel Integrale: Spider-Man di Todd McFarlane", "publisher": "Panini Comics", "format": "Integrale"},
     "MARINTTH": {"name": "Marvel Integrale: Thor di Jason Aaron", "publisher": "Panini Comics", "format": "Integrale"},
+    "DSTRANGEORO": {"name": "Doctor Strange (Serie Oro)", "publisher": "Panini Comics", "format": "Brossurato"},
+    "ULF4D_M": {"name": "Ultimate Fantastic Four Deluxe", "publisher": "Marvel Italia", "format": "Brossurato"},
 }
 
 PATH_ALIASES = {
@@ -55,6 +57,7 @@ PATH_ALIASES = {
     "captainmarvel": ["captain marvel"],
     "shehulk": ["she-hulk", "she hulk"],
     "fantastic-four": ["fantastici quattro", "fantastic four"],
+    "doctor-strange": ["doctor strange", "dottor strange", "dr. strange", "dr strange"],
     "ultimate-spiderman-classic": ["ultimate spider-man", "ultimate spiderman"],
     "ultimate-xmen": ["ultimate x-men", "ultimate x men"],
     "ultimates": ["ultimates"],
