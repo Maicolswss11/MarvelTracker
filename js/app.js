@@ -107,10 +107,27 @@ function setEditionOwned(id,owned){
   renderAll();
   void window.MarvelProfile?.render();
 }
+function setEditionWishlist(id,wishlisted){
+  state.wishlist??={};
+  if(wishlisted) state.wishlist[id]={addedAt:new Date().toISOString()};
+  else delete state.wishlist[id];
+  saveState();
+  renderAll();
+  void window.MarvelProfile?.render();
+}
+function addEditionToList(id,listId){
+  const list=state.lists?.[listId];
+  if(!list)return;
+  list.issueIds??=[];
+  if(!list.issueIds.includes(id))list.issueIds.push(id);
+  saveState();
+  renderAll();
+  void window.MarvelProfile?.render();
+}
 function openEditionPicker(issueId){
   const issue=currentCharacter?.issues?.find(item=>item.id===issueId);
   if(!issue)return;
-  window.MarvelEditions?.openPicker({state,pathId:activeCharacter,issue,onToggle:setEditionOwned});
+  window.MarvelEditions?.openPicker({state,pathId:activeCharacter,issue,onToggle:setEditionOwned,onToggleWishlist:setEditionWishlist,onAddToList:addEditionToList});
 }
 function actionableVisibleIssues(){return visibleIssues().filter(i=>!i.future)}
 function idsFromBulkAttr(value){return String(value||"").split("|").filter(Boolean)}

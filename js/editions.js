@@ -82,6 +82,7 @@
         owned:true,
         addedAt: previous?.addedAt || new Date().toISOString(),
       };
+      if(state.wishlist?.[id]) delete state.wishlist[id];
     }else delete state.editions[id];
   }
 
@@ -146,7 +147,7 @@
     return dialog;
   }
 
-  function openPicker({state,pathId,issue,onToggle}){
+  function openPicker({state,pathId,issue,onToggle,onToggleWishlist,onAddToList}){
     const options = optionsFor(pathId,issue?.id);
     if(!options.length) return;
     const dialog = ensureDialog();
@@ -160,19 +161,38 @@
       <div class="editionExactNote"><b>Edizione mostrata nel percorso</b><span>${esc(issue.name)} · usa “Fisico” sulla scheda solo se possiedi davvero questo albo.</span></div>
       <div class="editionChoices">${options.map(edition => {
         const owned = isOwned(state,edition.id);
+        const wishlisted = !!state?.wishlist?.[edition.id];
+        const lists = Object.entries(state?.lists || {});
         const contents = (edition.contents || []).join(" · ");
         return `<article class="editionChoice ${owned?"owned":""}">
           <div class="editionChoiceCover">${edition.cover?`<img src="${esc(edition.cover)}" alt="${esc(edition.name)}" referrerpolicy="no-referrer">`:""}</div>
           <div class="editionChoiceInfo"><span>${esc(edition.format || "Edizione alternativa")}</span><h3>${esc(edition.name)}</h3><p>${esc(edition.series)}${edition.number?` #${esc(edition.number)}`:""} · ${esc(edition.publisher || "")}</p><small>${esc(edition.coverage?.label || contents)}</small>${edition.url?`<a href="${esc(edition.url)}" target="_blank" rel="noopener">ComicsBox ↗</a>`:""}</div>
-          <button type="button" class="editionOwnButton ${owned?"owned":""}" data-toggle-edition="${esc(edition.id)}">${owned?"✓ Posseduto":"Segna posseduto"}</button>
+          <div class="editionChoiceActions">
+            <button type="button" class="editionWishlistButton ${wishlisted?"active":""}" data-toggle-edition-wishlist="${esc(edition.id)}">${wishlisted?"★ In wishlist":"☆ Wishlist"}</button>
+            ${lists.length?`<select class="editionListSelect" data-add-edition-list="${esc(edition.id)}" aria-label="Aggiungi ${esc(edition.name)} a una lista"><option value="">+ Lista…</option>${lists.map(([listId,list])=>`<option value="${esc(listId)}">${(list.issueIds||[]).includes(edition.id)?"✓ ":""}${esc(list.name)}</option>`).join("")}</select>`:""}
+            <button type="button" class="editionOwnButton ${owned?"owned":""}" data-toggle-edition="${esc(edition.id)}">${owned?"✓ Posseduto":"Segna posseduto"}</button>
+          </div>
         </article>`;
       }).join("")}</div>`;
+    body.querySelectorAll("[data-toggle-edition-wishlist]").forEach(button => button.onclick = () => {
+      const id = button.dataset.toggleEditionWishlist;
+      onToggleWishlist?.(id,!state?.wishlist?.[id]);
+      openPicker({state,pathId,issue,onToggle,onToggleWishlist,onAddToList});
+    });
+    body.querySelectorAll("[data-add-edition-list]").forEach(select => select.onchange = () => {
+      const listId = select.value;
+      select.value = "";
+      if(listId) onAddToList?.(select.dataset.addEditionList,listId);
+      openPicker({state,pathId,issue,onToggle,onToggleWishlist,onAddToList});
+    });
     body.querySelectorAll("[data-toggle-edition]").forEach(button => button.onclick = () => {
       const id = button.dataset.toggleEdition;
       onToggle?.(id,!isOwned(state,id));
-      openPicker({state,pathId,issue,onToggle});
+      openPicker({state,pathId,issue,onToggle,onToggleWishlist,onAddToList});
     });
-    if(typeof dialog.showModal === "function") dialog.showModal(); else dialog.setAttribute("open","");
+    if(!dialog.open){
+      if(typeof dialog.showModal === "function") dialog.showModal(); else dialog.setAttribute("open","");
+    }
   }
 
   window.MarvelEditions = {load,normalizeState,all,get,isOwned,setOwned,optionsFor,coverageStatus,physicalObjectCount,ownedPublicationCount,catalogItems,openPicker};
