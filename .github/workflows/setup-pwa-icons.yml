@@ -1,0 +1,82 @@
+name: Set up Marvel Archive app icons
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/setup-pwa-icons.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add PWA manifest and launcher icons
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64, json, struct
+
+          icons = {
+            'assets/app-icons/icon-192.png': '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',
+            'assets/app-icons/icon-512.png': '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'
+          }
+
+          for name, payload in icons.items():
+              p = Path(name)
+              p.parent.mkdir(parents=True, exist_ok=True)
+              p.write_bytes(base64.b64decode(payload))
+
+          manifest = {
+            'id': './',
+            'name': 'Marvel Archive',
+            'short_name': 'Marvel Archive',
+            'description': 'Tracker personale delle edizioni italiane Marvel.',
+            'start_url': './',
+            'scope': './',
+            'display': 'standalone',
+            'background_color': '#070a0e',
+            'theme_color': '#070a0e',
+            'prefer_related_applications': False,
+            'icons': [
+              {'src': 'assets/app-icons/icon-192.png?v=1', 'sizes': '192x192', 'type': 'image/png', 'purpose': 'any maskable'},
+              {'src': 'assets/app-icons/icon-512.png?v=1', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'any maskable'}
+            ]
+          }
+          Path('manifest.webmanifest').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          index = Path('index.html')
+          text = index.read_text(encoding='utf-8')
+          block = '''  <!-- PWA: launcher identity -->\n  <link rel="manifest" href="manifest.webmanifest?v=1">\n  <link rel="icon" type="image/png" sizes="192x192" href="assets/app-icons/icon-192.png?v=1">\n  <link rel="apple-touch-icon" sizes="192x192" href="assets/app-icons/icon-192.png?v=1">\n  <meta name="application-name" content="Marvel Archive">\n  <meta name="mobile-web-app-capable" content="yes">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="apple-mobile-web-app-title" content="Marvel Archive">\n  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">\n  <!-- /PWA -->\n'''
+          start = text.find('  <!-- PWA: launcher identity -->')
+          if start != -1:
+              end = text.find('  <!-- /PWA -->', start)
+              if end == -1:
+                  raise RuntimeError('PWA block malformed')
+              end += len('  <!-- /PWA -->\n')
+              text = text[:start] + text[end:]
+          marker = '  <title>Marvel Archive</title>\n'
+          if marker not in text:
+              raise RuntimeError('Title marker not found')
+          text = text.replace(marker, marker + block, 1)
+          index.write_text(text, encoding='utf-8')
+
+          for path, expected in [('assets/app-icons/icon-192.png', 192), ('assets/app-icons/icon-512.png', 512)]:
+              raw = Path(path).read_bytes()
+              assert raw[:8] == b'\x89PNG\r\n\x1a\n'
+              w, h = struct.unpack('>II', raw[16:24])
+              assert (w, h) == (expected, expected), (path, w, h)
+          print('PWA manifest + launcher icons OK')
+          PY
+      - name: Commit PWA assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html manifest.webmanifest assets/app-icons
+          git commit -m "Add Marvel Archive launcher icons"
+          git pull --rebase origin main
+          git push origin HEAD:main
