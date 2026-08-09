@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "editions": [
+    {
+      "id": "MVNWCOL_P:12",
+      "name": "Iron Man: Credere",
+      "series": "Marvel Collection II",
+      "number": 12,
+      "publisher": "Panini Comics",
+      "format": "Cartonato",
+      "cover": "https://www.comicsbox.it/cover/MVNWCOL_P_012.jpg",
+      "url": "https://www.comicsbox.it/albo/MVNWCOL_P_012",
+      "contents": [
+        "Iron Man (2012) #1–5"
+      ],
+      "coverage": [
+        {
+          "path": "ironman",
+          "issueIds": [
+            "IRONM3_P:1",
+            "IRONM3_P:2",
+            "IRONM3_P:3"
+          ],
+          "label": "Credere — Iron Man (2012) #1–5"
+        }
+      ]
+    }
+  ]
+}

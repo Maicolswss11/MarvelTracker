@@ -15,6 +15,8 @@
   function state(){
     const s = api.getState();
     s.collection ??= {};
+    s.editions ??= {};
+    window.MarvelEditions?.normalizeState(s);
     s.wishlist ??= {};
     s.lists ??= {};
     return s;
@@ -40,14 +42,12 @@
   }
 
   function itemStatus(id){
-    const entry = state().collection?.[id] || {};
-    return {
-      physical: !!entry.physical,
-      digital: !!entry.digital,
-      owned: !!entry.physical || !!entry.digital,
-      wishlist: !!state().wishlist?.[id],
-      read: readIds().has(id),
-    };
+    const s = state();
+    const entry = s.collection?.[id] || {};
+    const editionPhysical = !!window.MarvelEditions?.get(id) && !!window.MarvelEditions?.isOwned(s,id);
+    const physical = !!entry.physical || editionPhysical;
+    const digital = !!entry.digital;
+    return {physical,digital,owned:physical||digital,wishlist:!!s.wishlist?.[id],read:readIds().has(id),editionPhysical};
   }
 
   function save(){
@@ -74,16 +74,31 @@
     return catalogPromise;
   }
 
+  function allCatalogItems(){
+    const merged = new Map((catalog?.issues || []).map(item => [item.id,{...item}]));
+    for(const edition of window.MarvelEditions?.catalogItems(manifest()) || []) merged.set(edition.id,{...(merged.get(edition.id)||{}),...edition});
+    return [...merged.values()];
+  }
+
   function collectionStats(){
-    const values = Object.values(state().collection || {});
-    const physical = values.filter(x => x?.physical).length;
+    const s = state();
+    const values = Object.values(s.collection || {});
+    const directPhysical = values.filter(x => x?.physical).length;
+    const physical = window.MarvelEditions?.physicalObjectCount(s) ?? directPhysical;
     const digital = values.filter(x => x?.digital).length;
     const both = values.filter(x => x?.physical && x?.digital).length;
-    const owned = values.filter(x => x?.physical || x?.digital).length;
+    const owned = window.MarvelEditions?.ownedPublicationCount(s) ?? values.filter(x => x?.physical || x?.digital).length;
     const read = readIds().size;
     const wishlist = Object.keys(state().wishlist || {}).length;
     const lists = Object.keys(state().lists || {}).length;
     return {physical,digital,both,owned,read,wishlist,lists};
+  }
+
+  function toggleEdition(id){
+    const s = state();
+    window.MarvelEditions?.setOwned(s,id,!window.MarvelEditions?.isOwned(s,id));
+    save();
+    void render();
   }
 
   function toggleFormat(id, key){
@@ -175,7 +190,7 @@
       tabButton("read","Letti",s.read),
       tabButton("wishlist","Wishlist",s.wishlist),
       tabButton("lists","Liste",s.lists),
-      tabButton("catalog","Catalogo",catalog?.total || 0),
+      tabButton("catalog","Catalogo",allCatalogItems().length),
     ].join("");
     $("profileTabs").querySelectorAll("[data-profile-tab]").forEach(button => button.onclick = () => {
       activeTab = button.dataset.profileTab;
@@ -198,7 +213,7 @@
 
   function renderOverview(){
     const stats = collectionStats();
-    const total = catalog?.total || 0;
+    const total = allCatalogItems().length;
     const missing = Math.max(0,total-stats.owned);
     $("profileToolbar").innerHTML = "";
     $("profileBody").innerHTML = `
@@ -227,10 +242,10 @@
   }
 
   function itemPool(){
-    const all = catalog?.issues || [];
+    const all = allCatalogItems();
     const s = state();
     const reads = readIds();
-    if(activeTab === "collection") return all.filter(item => s.collection?.[item.id]?.physical || s.collection?.[item.id]?.digital);
+    if(activeTab === "collection") return all.filter(item => itemStatus(item.id).owned);
     if(activeTab === "read") return all.filter(item => reads.has(item.id));
     if(activeTab === "wishlist") return all.filter(item => s.wishlist?.[item.id]);
     if(activeTab === "catalog") return all;
@@ -245,13 +260,14 @@
 
   function issueCard(item,{listId=null}={}){
     const st = itemStatus(item.id);
+    const isAlternative = !!item.isAlternativeEdition;
     const readPaths = st.read ? readPathsFor(item.id) : [];
     const pathButtons = (item.paths || []).slice(0,3).map((id,index)=>`<button type="button" data-open-path="${esc(id)}">${esc(item.pathNames?.[index] || id)}</button>`).join("");
     const morePaths = (item.paths?.length || 0) > 3 ? `<span>+${item.paths.length-3}</span>` : "";
-    return `<article class="profileIssueCard" data-profile-issue="${esc(item.id)}">
+    return `<article class="profileIssueCard ${isAlternative?"editionCard":""}" data-profile-issue="${esc(item.id)}">
       <div class="profileIssueCover">${item.cover?`<img loading="lazy" src="${esc(item.cover)}" alt="${esc(item.name)}" referrerpolicy="no-referrer">`:`<div>${esc(item.series || "Marvel")}<b>#${esc(item.displayNumber ?? item.n ?? "")}</b></div>`}</div>
       <div class="profileIssueInfo">
-        <div class="profileIssueBadges">${st.physical?'<span class="physical">Fisico</span>':""}${st.digital?'<span class="digital">Digitale</span>':""}${st.read?'<span class="read">Letto</span>':""}${st.wishlist?'<span class="wishlist">Wishlist</span>':""}</div>
+        <div class="profileIssueBadges">${isAlternative?'<span class="editionAlternative">Edizione alternativa</span>':""}${st.physical?'<span class="physical">Fisico</span>':""}${st.digital?'<span class="digital">Digitale</span>':""}${st.read?'<span class="read">Letto</span>':""}${st.wishlist?'<span class="wishlist">Wishlist</span>':""}</div>
         <h3>${esc(item.name)}</h3>
         <p>${esc(item.title || "")}</p>
         <small>${esc(item.date || "")}${item.future?" · Annunciato":""}</small>
@@ -259,8 +275,7 @@
         <div class="profileIssuePaths">${pathButtons}${morePaths}</div>
       </div>
       <div class="profileIssueActions">
-        <button type="button" class="${st.physical?"on physical":""}" data-profile-physical="${esc(item.id)}">Fisico</button>
-        <button type="button" class="${st.digital?"on digital":""}" data-profile-digital="${esc(item.id)}">Digitale</button>
+        ${isAlternative?`<button type="button" class="${st.physical?"on physical":""}" data-profile-edition="${esc(item.id)}">${st.physical?"✓ ":""}Fisico</button>`:`<button type="button" class="${st.physical?"on physical":""}" data-profile-physical="${esc(item.id)}">Fisico</button><button type="button" class="${st.digital?"on digital":""}" data-profile-digital="${esc(item.id)}">Digitale</button>`}
         <button type="button" class="${st.wishlist?"on wishlist":""}" data-profile-wishlist="${esc(item.id)}">★ Wishlist</button>
         ${listOptions(item.id)}
         ${listId?`<button type="button" class="removeListIssue" data-remove-list-issue="${esc(item.id)}" data-list-id="${esc(listId)}">Rimuovi dalla lista</button>`:""}
@@ -270,6 +285,7 @@
 
   function bindIssueCards(root=$("profileBody")){
     root.querySelectorAll("[data-profile-physical]").forEach(button => button.onclick = () => toggleFormat(button.dataset.profilePhysical,"physical"));
+    root.querySelectorAll("[data-profile-edition]").forEach(button => button.onclick = () => toggleEdition(button.dataset.profileEdition));
     root.querySelectorAll("[data-profile-digital]").forEach(button => button.onclick = () => toggleFormat(button.dataset.profileDigital,"digital"));
     root.querySelectorAll("[data-profile-wishlist]").forEach(button => button.onclick = () => toggleWishlist(button.dataset.profileWishlist));
     root.querySelectorAll("[data-open-path]").forEach(button => button.onclick = () => api.openCharacter(button.dataset.openPath));
