@@ -2,12 +2,12 @@
   "use strict";
 
   const CATEGORIES = [
-    {id:"reading",label:"Lettura",eyebrow:"Cronologie",description:"Dalla prima pagina alla conoscenza completa dell’archivio.",accent:"#57c7ff",mark:"R"},
-    {id:"collection",label:"Collezione",eyebrow:"Archivio",description:"Copie recuperate, formati e copertura del catalogo globale.",accent:"#ffb637",mark:"C"},
-    {id:"journeys",label:"Percorsi",eyebrow:"Esplorazione",description:"Universi, personaggi ed eventi iniziati e portati a termine.",accent:"#54dfa5",mark:"P"},
-    {id:"legends",label:"Leggende",eyebrow:"Sfide speciali",description:"Imprese dedicate agli eroi e alle grandi saghe Marvel.",accent:"#ef647f",mark:"L"},
-    {id:"organizer",label:"Organizzazione",eyebrow:"Metodo",description:"Wishlist e liste personali per dominare anche l’arretrato.",accent:"#a98aff",mark:"O"},
-    {id:"identity",label:"Identità",eyebrow:"Profilo",description:"Personalizzazione, cloud e anzianità nel Marvel Archive.",accent:"#f079d0",mark:"I"},
+    {id:"reading",label:"Lettura",eyebrow:"Cronologie",description:"Dalla prima pagina alla conoscenza completa dell’archivio.",accent:"#57c7ff",mark:"R",art:"read-1"},
+    {id:"collection",label:"Collezione",eyebrow:"Archivio",description:"Copie recuperate, formati e copertura del catalogo globale.",accent:"#ffb637",mark:"C",art:"owned-1"},
+    {id:"journeys",label:"Percorsi",eyebrow:"Esplorazione",description:"Universi, personaggi ed eventi iniziati e portati a termine.",accent:"#54dfa5",mark:"P",art:"started-1"},
+    {id:"legends",label:"Leggende",eyebrow:"Sfide speciali",description:"Imprese dedicate agli eroi e alle grandi saghe Marvel.",accent:"#ef647f",mark:"L",art:"legend-big-three"},
+    {id:"organizer",label:"Organizzazione",eyebrow:"Metodo",description:"Wishlist e liste personali per dominare anche l’arretrato.",accent:"#a98aff",mark:"O",art:"lists-1"},
+    {id:"identity",label:"Identità",eyebrow:"Profilo",description:"Personalizzazione, cloud e anzianità nel Marvel Archive.",accent:"#f079d0",mark:"I",art:"identity-complete"},
   ];
 
   const RARITIES = {
@@ -42,12 +42,12 @@
     return "mythic";
   };
 
-  function makeAchievement({id,category,title,detail,icon,value=0,goal=1,unit="",rarity="common",xp=null,hidden=false,pathId=null,done=null}){
+  function makeAchievement({id,category,title,detail,icon,art=null,value=0,goal=1,unit="",rarity="common",xp=null,hidden=false,pathId=null,done=null}){
     const target=Math.max(1,Number(goal)||1);
     const current=Math.max(0,Number(value)||0);
     const unlocked=done===null ? current>=target : !!done;
     return {
-      id,category,title,detail,icon,rarity,
+      id,category,title,detail,icon,art:art||id,rarity,
       rarityLabel:RARITIES[rarity]?.label||RARITIES.common.label,
       xp:Number(xp)||RARITIES[rarity]?.xp||RARITIES.common.xp,
       hidden:!!hidden,pathId,
@@ -62,6 +62,7 @@
       id:`${prefix}-${step.goal}`,
       category,
       icon,
+      art:step.art||`${prefix}-${step.goal}`,
       value,
       goal:step.goal,
       unit,
@@ -154,25 +155,25 @@
       {goal:5,title:"Cinque su cinque",detail:"Completa 5 percorsi."},
       {goal:10,title:"Decatleta narrativo",detail:"Completa 10 percorsi."},
       {goal:25,title:"Veterano delle cronologie",detail:"Completa 25 percorsi."},
-      {goal:Math.max(1,paths.length),title:"Nessuna storia lasciata indietro",detail:"Completa ogni percorso disponibile.",hidden:true,rarity:"mythic"},
+      {goal:Math.max(1,paths.length),title:"Nessuna storia lasciata indietro",detail:"Completa ogni percorso disponibile.",hidden:true,rarity:"mythic",art:"completed-all"},
     ]});
     addSeries(achievements,{category:"journeys",prefix:"events",icon:"⚡",value:completedEvents.length,steps:[
       {goal:1,title:"Testimone dell’evento",detail:"Completa il primo grande evento."},
       {goal:3,title:"Dopo la crisi",detail:"Completa 3 eventi."},
       {goal:5,title:"Epicentro",detail:"Completa 5 eventi."},
       {goal:10,title:"Cronista delle catastrofi",detail:"Completa 10 eventi."},
-      {goal:Math.max(1,events.length),title:"La storia segreta degli eventi",detail:"Completa tutti gli eventi disponibili.",hidden:true,rarity:"mythic"},
+      {goal:Math.max(1,events.length),title:"La storia segreta degli eventi",detail:"Completa tutti gli eventi disponibili.",hidden:true,rarity:"mythic",art:"events-all"},
     ]});
     addSeries(achievements,{category:"journeys",prefix:"characters",icon:"◆",value:completedCharacters.length,steps:[
       {goal:1,title:"Biografo dell’eroe",detail:"Completa un percorso personaggio o squadra."},
       {goal:3,title:"Tre leggende",detail:"Completa 3 percorsi di eroi o squadre."},
       {goal:5,title:"Album degli eroi",detail:"Completa 5 percorsi di eroi o squadre."},
       {goal:10,title:"Enciclopedia vivente",detail:"Completa 10 percorsi di eroi o squadre."},
-      {goal:Math.max(1,characters.length),title:"Ogni eroe, ogni storia",detail:"Completa tutti i percorsi di eroi e squadre.",hidden:true,rarity:"mythic"},
+      {goal:Math.max(1,characters.length),title:"Ogni eroe, ogni storia",detail:"Completa tutti i percorsi di eroi e squadre.",hidden:true,rarity:"mythic",art:"characters-all"},
     ]});
     addSeries(achievements,{category:"journeys",prefix:"universes",icon:"∞",value:completedUniverses.length,steps:[
       {goal:1,title:"Un universo intero",detail:"Completa un percorso universo."},
-      {goal:Math.max(1,universes.length),title:"Multiversale",detail:"Completa tutti i percorsi universo.",hidden:true,rarity:"mythic"},
+      {goal:Math.max(1,universes.length),title:"Multiversale",detail:"Completa tutti i percorsi universo.",hidden:true,rarity:"mythic",art:"universes-all"},
     ]});
     achievements.push(makeAchievement({id:"journeys-every-kind",category:"journeys",title:"Ogni tipo di storia",detail:"Inizia almeno un percorso personaggio, squadra, evento e universo.",icon:"4",value:startedTypes.size,goal:Math.max(1,availableTypes.size),rarity:"legendary"}));
 

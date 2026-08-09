@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import {createRequire} from "node:module";
+import {readFileSync,readdirSync} from "node:fs";
 
 const require=createRequire(import.meta.url);
 require("../js/achievements.js");
@@ -42,4 +43,16 @@ const complete=globalThis.MarvelAchievements.build({
 assert.equal(complete.unlocked,complete.total,"Il profilo completo deve sbloccare l’intero catalogo");
 assert.equal(complete.rank.level,10,"Il completamento totale deve raggiungere il livello massimo");
 
-console.log(`Achievement catalog verified: ${complete.total} traguardi, ${complete.categories.length} categorie, ${complete.maxXp} XP massimi.`);
+const assetDirectory=new URL("../assets/achievements/",import.meta.url);
+const artKeys=[...new Set(complete.achievements.map(item=>item.art))].sort();
+const assetFiles=readdirSync(assetDirectory).filter(file=>file.endsWith(".png")).sort();
+assert.equal(artKeys.length,complete.total,"Ogni traguardo deve avere un PNG dedicato");
+assert.deepEqual(assetFiles,artKeys.map(key=>`${key}.png`),"Il set PNG deve corrispondere esattamente alle chiavi art");
+const pngSignature=Buffer.from([0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a]);
+for(const file of assetFiles){
+  const bytes=readFileSync(new URL(file,assetDirectory));
+  assert.equal(bytes.subarray(0,8).compare(pngSignature),0,`${file} deve essere un PNG valido`);
+  assert.ok(bytes.length<100_000,`${file} deve restare sotto 100 KB`);
+}
+
+console.log(`Achievement catalog verified: ${complete.total} traguardi, ${complete.categories.length} categorie, ${complete.maxXp} XP massimi, ${assetFiles.length} PNG.`);

@@ -12,6 +12,7 @@ La home `#/home` riunisce il prossimo albo, il riepilogo globale e un explorer g
 - `js/app.js` — logica dell'app
 - `js/profile-ui.js` — profilo, collezione globale e interfaccia della carriera
 - `js/achievements.js` — catalogo e motore dei 90 traguardi derivati dai progressi
+- `assets/achievements/` — 90 emblemi PNG originali, ottimizzati a 256×256 e caricati in modo lazy
 - `js/hub-ui.js` — navigazione per universi, famiglie ed eventi
 - `js/motion.js` — transizioni, reveal, micro-interazioni e menu mobile
 - `data/characters.json` — manifest dei personaggi
@@ -48,7 +49,7 @@ La Publishable key può essere esposta nel browser; la protezione dei dati dipen
 
 ## Traguardi e carriera
 
-La pagina `#/profile/achievements` comprende 90 traguardi in sei categorie, dieci livelli di carriera, XP, rarità, sfide speciali, obiettivi segreti e suggerimenti sui prossimi sblocchi. Tutto viene calcolato dallo stato già sincronizzato: non esistono contatori separati che possano divergere da letture e collezione.
+La pagina `#/profile/achievements` comprende 90 traguardi in sei categorie, dieci livelli di carriera, XP, rarità, sfide speciali, obiettivi segreti e suggerimenti sui prossimi sblocchi. Ogni traguardo usa un emblema raster dedicato; le sei palette distinguono Lettura, Collezione, Percorsi, Leggende, Organizzazione e Identità. Tutto viene calcolato dallo stato già sincronizzato: non esistono contatori separati che possano divergere da letture e collezione.
 
 ## GitHub Pages
 
@@ -64,4 +65,4 @@ Il repository include emblemi locali per personaggi, squadre, universi ed eventi
 
 ## Verifica dati
 
-Eseguire `node scripts/verify-data.mjs` per controllare integrità gzip, schema, duplicati e conteggi di tutti gli archivi. `node scripts/verify-achievements.mjs` verifica catalogo, ID, categorie e condizioni limite della carriera. `scripts/rebuild_character_data.py` ricostruisce gli indici danneggiati dai dati pubblici ComicsBox.
+Eseguire `node scripts/verify-data.mjs` per controllare integrità gzip, schema, duplicati e conteggi di tutti gli archivi. `node scripts/verify-achievements.mjs` verifica catalogo, ID, categorie, condizioni limite e corrispondenza esatta dei 90 PNG. `scripts/rebuild_character_data.py` ricostruisce gli indici danneggiati dai dati pubblici ComicsBox.

@@ -89,9 +89,9 @@
 
 .profileAchievements h2,.profileBackupPanel h2{font-size:21px}.profileAchievementGrid{display:grid;gap:7px;margin-top:16px}
 .profileAchievement{display:flex;align-items:center;gap:11px;padding:10px;border:1px solid rgba(128,158,188,.13);border-radius:12px;background:rgba(5,10,15,.55);opacity:.68}
-.profileAchievement>span{display:grid;place-items:center;width:35px;height:35px;flex:none;border:1px solid rgba(128,158,188,.22);border-radius:10px;color:#6e8192;font-size:8px;font-weight:950}
-.profileAchievement>div{display:grid;grid-template-columns:1fr;gap:3px;min-width:0;width:100%}.profileAchievement b{font-size:9px}.profileAchievement small{color:#6f8090;font-size:7px}.profileAchievement i{height:3px;margin-top:3px;overflow:hidden;border-radius:99px;background:#19232d}.profileAchievement em{display:block;height:100%;border-radius:inherit;background:#607485}
-.profileAchievement.unlocked{border-color:color-mix(in srgb,var(--profile-accent) 30%,#293a4b);opacity:1}.profileAchievement.unlocked>span{border-color:color-mix(in srgb,var(--profile-accent) 50%,#3e5368);background:color-mix(in srgb,var(--profile-accent) 13%,#101923);color:var(--profile-accent)}.profileAchievement.unlocked em{background:var(--profile-accent)}
+.profileAchievement>.achievementIconAsset{display:grid;place-items:center;width:35px;height:35px;flex:none;border:1px solid rgba(128,158,188,.22);border-radius:10px;color:#6e8192;font-size:8px;font-weight:950}
+.profileAchievement>div{display:grid;grid-template-columns:1fr;gap:3px;min-width:0;width:100%}.profileAchievement>div>b{font-size:9px}.profileAchievement>div>small{color:#6f8090;font-size:7px}.profileAchievement>div>i{height:3px;margin-top:3px;overflow:hidden;border-radius:99px;background:#19232d}.profileAchievement>div>i>em{display:block;height:100%;border-radius:inherit;background:#607485}
+.profileAchievement.unlocked{border-color:color-mix(in srgb,var(--profile-accent) 30%,#293a4b);opacity:1}.profileAchievement.unlocked>.achievementIconAsset{border-color:color-mix(in srgb,var(--profile-accent) 50%,#3e5368);background:color-mix(in srgb,var(--profile-accent) 13%,#101923);color:var(--profile-accent)}.profileAchievement.unlocked>div>i>em{background:var(--profile-accent)}
 .profileBackupPanel p{margin:9px 0 15px;color:#778797;font-size:8px;line-height:1.55}.profileBackupPanel>div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 
 @keyframes profileAccountSpin{to{transform:rotate(360deg)}}

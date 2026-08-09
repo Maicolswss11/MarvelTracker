@@ -35,6 +35,12 @@
   const esc = value => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   const fmt = value => new Intl.NumberFormat("it-IT").format(value || 0);
 
+  function achievementIconHtml(item,{concealed=false,eager=false,showStatus=true}={}){
+    const fallback=concealed?"?":String(item?.icon||"•");
+    const art=concealed?"":String(item?.art||item?.id||"");
+    return `<span class="achievementIconAsset ${concealed?"concealed":""} ${item?.done?"unlocked":""}" aria-hidden="true"><i>${esc(fallback)}</i>${art?`<img src="assets/achievements/${esc(art)}.png" alt="" ${eager?'loading="eager" fetchpriority="high"':'loading="lazy"'} decoding="async" onerror="this.hidden=true">`:""}${showStatus&&item?.done?'<b class="achievementIconStatus">✓</b>':""}</span>`;
+  }
+
   function state(){
     const s = api.getState();
     s.collection ??= {};
@@ -355,7 +361,7 @@
   function achievementPreviewHtml(career=achievementCareer()){
     const items=career.next.length?career.next:career.achievements.filter(item=>item.done).slice(-4).reverse();
     if(!items.length)return `<div class="profileAchievementEmpty">Segna il primo albo come letto per iniziare la carriera.</div>`;
-    return items.map(item=>`<article class="profileAchievement ${item.done?"unlocked":""}" data-rarity="${esc(item.rarity)}"><span>${item.done?"✓":esc(item.icon)}</span><div><b>${esc(item.title)}</b><small>${item.done?`Sbloccato · +${fmt(item.xp)} XP`:esc(item.detail)}</small><i><em style="width:${Math.round(item.progress)}%"></em></i></div></article>`).join("");
+    return items.map(item=>`<article class="profileAchievement ${item.done?"unlocked":""}" data-rarity="${esc(item.rarity)}">${achievementIconHtml(item)}<div><b>${esc(item.title)}</b><small>${item.done?`Sbloccato · +${fmt(item.xp)} XP`:esc(item.detail)}</small><i><em style="width:${Math.round(item.progress)}%"></em></i></div></article>`).join("");
   }
 
   function accountCloudHtml(){
@@ -550,9 +556,8 @@
     const concealed=item.hidden&&!item.done;
     const title=concealed?"Traguardo segreto":item.title;
     const detail=concealed?"Continua a esplorare l’archivio per rivelare questa impresa.":item.detail;
-    const mark=item.done?"✓":concealed?"?":item.icon;
     return `<article class="achievementCard ${item.done?"unlocked":"locked"} ${concealed?"concealed":""}" data-rarity="${esc(item.rarity)}" style="--achievement-accent:${esc(category.accent)}">
-      <div class="achievementCardTop"><span class="achievementCardMark">${esc(mark)}</span><div class="achievementCardMeta"><span>${esc(category.label)}</span><b>+${fmt(item.xp)} XP</b></div></div>
+      <div class="achievementCardTop"><span class="achievementCardMark">${achievementIconHtml(item,{concealed})}</span><div class="achievementCardMeta"><span>${esc(category.label)}</span><b>+${fmt(item.xp)} XP</b></div></div>
       <div class="achievementCardCopy"><h3>${esc(title)}</h3><p>${esc(detail)}</p></div>
       <div class="achievementCardProgress"><span><b>${item.done?"Sbloccato":concealed?"Obiettivo nascosto":esc(item.valueLabel)}</b><small>${esc(item.rarityLabel)}</small></span><i><em style="width:${Math.round(item.progress)}%"></em></i></div>
       ${item.pathId&&!concealed?`<button type="button" data-open-achievement-path="${esc(item.pathId)}">Apri percorso <span>→</span></button>`:""}
@@ -560,7 +565,7 @@
   }
 
   function achievementNextHtml(item){
-    return `<article class="achievementNextCard" data-rarity="${esc(item.rarity)}"><span>${esc(item.icon)}</span><div><small>Prossimo sblocco · ${Math.round(item.progress)}%</small><b>${esc(item.title)}</b><i><em style="width:${Math.round(item.progress)}%"></em></i><p>${esc(item.valueLabel)} · +${fmt(item.xp)} XP</p></div>${item.pathId?`<button type="button" data-open-achievement-path="${esc(item.pathId)}" aria-label="Apri ${esc(item.title)}">→</button>`:""}</article>`;
+    return `<article class="achievementNextCard" data-rarity="${esc(item.rarity)}">${achievementIconHtml(item)}<div><small>Prossimo sblocco · ${Math.round(item.progress)}%</small><b>${esc(item.title)}</b><i><em style="width:${Math.round(item.progress)}%"></em></i><p>${esc(item.valueLabel)} · +${fmt(item.xp)} XP</p></div>${item.pathId?`<button type="button" data-open-achievement-path="${esc(item.pathId)}" aria-label="Apri ${esc(item.title)}">→</button>`:""}</article>`;
   }
 
   function renderAchievements(){
@@ -580,7 +585,7 @@
       if(!items.length)return "";
       const stats=career.categoryStats[category.id]||{unlocked:0,total:0};
       return `<section class="achievementCategorySection" style="--achievement-accent:${esc(category.accent)}">
-        <header><span class="achievementCategoryMark">${esc(category.mark)}</span><div><small>${esc(category.eyebrow)}</small><h2>${esc(category.label)}</h2><p>${esc(category.description)}</p></div><strong>${fmt(stats.unlocked)}/${fmt(stats.total)}</strong></header>
+        <header><span class="achievementCategoryMark">${achievementIconHtml({art:category.art,icon:category.mark},{eager:true,showStatus:false})}</span><div><small>${esc(category.eyebrow)}</small><h2>${esc(category.label)}</h2><p>${esc(category.description)}</p></div><strong>${fmt(stats.unlocked)}/${fmt(stats.total)}</strong></header>
         <div class="achievementGrid">${items.map(item=>achievementCardHtml(item,category)).join("")}</div>
       </section>`;
     }).join("");
@@ -595,7 +600,7 @@
 
       ${career.next.length?`<section class="achievementNextSection"><header><div><span>Obiettivi vicini</span><h2>I prossimi sblocchi</h2></div><small>Ordinati per avanzamento</small></header><div class="achievementNextGrid">${career.next.map(achievementNextHtml).join("")}</div></section>`:""}
 
-      <nav class="achievementCategoryNav" aria-label="Categorie traguardi"><button type="button" class="${achievementCategory==="all"?"active":""}" data-achievement-category="all"><span>${fmt(career.total)}</span><b>Tutti</b><small>${fmt(career.unlocked)}/${fmt(career.total)}</small></button>${career.categories.map(category=>{const stats=career.categoryStats[category.id];return `<button type="button" class="${achievementCategory===category.id?"active":""}" style="--achievement-accent:${esc(category.accent)}" data-achievement-category="${esc(category.id)}"><span>${esc(category.mark)}</span><b>${esc(category.label)}</b><small>${fmt(stats.unlocked)}/${fmt(stats.total)}</small></button>`}).join("")}</nav>
+      <nav class="achievementCategoryNav" aria-label="Categorie traguardi"><button type="button" class="${achievementCategory==="all"?"active":""}" data-achievement-category="all"><span class="achievementNavTotal">${fmt(career.total)}</span><b>Tutti</b><small>${fmt(career.unlocked)}/${fmt(career.total)}</small></button>${career.categories.map(category=>{const stats=career.categoryStats[category.id];return `<button type="button" class="${achievementCategory===category.id?"active":""}" style="--achievement-accent:${esc(category.accent)}" data-achievement-category="${esc(category.id)}">${achievementIconHtml({art:category.art,icon:category.mark},{eager:true,showStatus:false})}<b>${esc(category.label)}</b><small>${fmt(stats.unlocked)}/${fmt(stats.total)}</small></button>`}).join("")}</nav>
 
       <div class="achievementSections">${categorySections||'<div class="profileEmpty"><b>Nessun traguardo con questi filtri</b><span>Prova un’altra categoria o mostra tutti gli stati.</span></div>'}</div>
     </section>`;
