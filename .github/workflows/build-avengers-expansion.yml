@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Build new Avengers paths
-        run: python scripts/build_avengers_expansion.py
+        run: python scripts/build_avengers_expansion_v2.py
 
       - name: Rebuild catalog
         run: python scripts/build_catalog.py
@@ -35,4 +35,4 @@ jobs:
           git commit -m "Add Hawkeye Black Widow Black Panther Captain Marvel and She-Hulk paths"
           git push
 
-# validation target: manifest v12
+# validation target: manifest v12; text-token cast matching enabled
