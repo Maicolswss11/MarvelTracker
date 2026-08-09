@@ -58,6 +58,7 @@ PATH_ALIASES = {
     "shehulk": ["she-hulk", "she hulk"],
     "fantastic-four": ["fantastici quattro", "fantastic four"],
     "doctor-strange": ["doctor strange", "dottor strange", "dr. strange", "dr strange"],
+    "judgment-day": ["a.x.e. judgment day", "a.x.e.", "judgment day"],
     "ultimate-spiderman-classic": ["ultimate spider-man", "ultimate spiderman"],
     "ultimate-xmen": ["ultimate x-men", "ultimate x men"],
     "ultimates": ["ultimates"],
@@ -74,7 +75,7 @@ PATH_ALIASES = {
 DETAIL_HINTS = tuple(sorted({alias for values in PATH_ALIASES.values() for alias in values} | {
     "house of m", "civil war", "secret invasion", "assedio", "siege", "fear itself",
     "avengers vs x-men", "infinity", "secret wars", "world war hulk", "planet hulk",
-    "extremis", "ragnarok", "spider-verse", "absolute carnage", "king in black",
+    "extremis", "ragnarok", "spider-verse", "absolute carnage", "king in black", "a.x.e.", "judgment day",
 }, key=len, reverse=True))
 
 class SeriesParser(HTMLParser):
