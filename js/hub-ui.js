@@ -131,7 +131,7 @@ function pathCard(path,hubId){
 function breadcrumbHtml(hub){
   const parent = hub?.parent ? hubById(hub.parent) : null;
   return `<nav class="hubBreadcrumb" aria-label="Percorso di navigazione">
-    <button type="button" data-hub-home>Marvel Archive</button>
+    <button type="button" class="hubHomeLevelsBtn" data-hub-home aria-label="Torna alla home dei livelli">← Home livelli</button>
     ${parent?`<span>›</span><button type="button" data-open-hub="${esc(parent.id)}">${esc(parent.name)}</button>`:""}
     ${hub?`<span>›</span><b>${esc(hub.name)}</b>`:""}
   </nav>`;
@@ -224,7 +224,7 @@ function renderTrackerContext(){
     tracker.prepend(breadcrumb);
   }
   const parent = hub.parent ? hubById(hub.parent) : null;
-  breadcrumb.innerHTML = `<button type="button" data-tracker-home>Marvel Archive</button><span>›</span>${parent?`<button type="button" data-tracker-parent="${esc(parent.id)}">${esc(parent.name)}</button><span>›</span>`:""}<button type="button" data-tracker-hub="${esc(hub.id)}">${esc(hub.name)}</button><span>›</span><b>${esc(path.name)}</b>`;
+  breadcrumb.innerHTML = `<button type="button" class="hubHomeLevelsBtn" data-tracker-home aria-label="Torna alla home dei livelli">← Home livelli</button><span>›</span>${parent?`<button type="button" data-tracker-parent="${esc(parent.id)}">${esc(parent.name)}</button><span>›</span>`:""}<button type="button" data-tracker-hub="${esc(hub.id)}">${esc(hub.name)}</button><span>›</span><b>${esc(path.name)}</b>`;
   breadcrumb.querySelector("[data-tracker-home]").onclick=()=>goToExplorer(null);
   breadcrumb.querySelector("[data-tracker-parent]")?.addEventListener("click",event=>goToExplorer(event.currentTarget.dataset.trackerParent));
   breadcrumb.querySelector("[data-tracker-hub]").onclick=()=>goToExplorer(hub.id);
@@ -283,7 +283,7 @@ async function initHubUi(){
     });
   },{capture:true}));
   const exploreButton=byId("homeExplore");
-  if(exploreButton) exploreButton.onclick=()=>goToExplorer(null);
+  if(exploreButton) exploreButton.addEventListener("click",()=>goToExplorer(null));
 
     const legacyGrid=byId("homeCharacterGrid");
     if(legacyGrid){
