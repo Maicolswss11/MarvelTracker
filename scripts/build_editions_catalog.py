@@ -3,8 +3,8 @@
 
 Metadata is imported from ComicsBox series indexes. Route coverage is inferred only
 when a collected edition points to a first Italian publication already present in
-MarvelTracker AND the edition title identifies the same reading path. Existing
-manually curated coverage always wins.
+MarvelTracker AND the edition title/series identifies the same reading path.
+Existing manually curated coverage always wins.
 """
 from __future__ import annotations
 
@@ -21,7 +21,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-USER_AGENT = "MarvelTracker collected-editions maintenance/1.0"
+USER_AGENT = "MarvelTracker collected-editions maintenance/1.1"
 
 SERIES = {
     "MVNWCOL_P": {"name": "Marvel Collection II", "publisher": "Panini Comics", "format": "Cartonato"},
@@ -29,6 +29,11 @@ SERIES = {
     "MARVDELUXE": {"name": "Marvel Deluxe", "publisher": "Panini Comics", "format": "Cartonato"},
     "MAROMNIB": {"name": "Marvel Omnibus", "publisher": "Panini Comics", "format": "Omnibus cartonato"},
     "MCOLL_M": {"name": "Marvel Collection I", "publisher": "Panini Comics", "format": "Brossurato"},
+    "MINTGRDDEV": {"name": "Marvel Integrale: Daredevil", "publisher": "Panini Comics", "format": "Integrale"},
+    "MINTGRXMEN": {"name": "Marvel Integrale: Gli Incredibili X-Men", "publisher": "Panini Comics", "format": "Integrale"},
+    "MISMJMDM": {"name": "Marvel Integrale: Spider-Man di J.M. DeMatteis", "publisher": "Panini Comics", "format": "Integrale"},
+    "MARVINTSM": {"name": "Marvel Integrale: Spider-Man di Todd McFarlane", "publisher": "Panini Comics", "format": "Integrale"},
+    "MARINTTH": {"name": "Marvel Integrale: Thor di Jason Aaron", "publisher": "Panini Comics", "format": "Integrale"},
 }
 
 PATH_ALIASES = {
@@ -57,7 +62,7 @@ PATH_ALIASES = {
     "ultimate-ironman": ["ultimate iron man"],
     "ultimate-wolverine": ["ultimate wolverine"],
     "ultimate-new-spiderman": ["ultimate spider-man", "ultimate spiderman"],
-    "ultimate-new-black-panther": ["ultimate black panther", "ultimate pantera nera"],
+    "ultimate-new-blackpanther": ["ultimate black panther", "ultimate pantera nera"],
     "ultimate-new-xmen": ["ultimate x-men", "ultimate x men"],
     "ultimate-new-ultimates": ["ultimates"],
     "ultimate-new-wolverine": ["ultimate wolverine"],
@@ -139,7 +144,6 @@ def album_code(href: str) -> str:
 
 
 def edition_id(code: str) -> str:
-    # Preserve existing stable IDs such as MVNWCOL_P:12.
     match = re.match(r"^(.+)_([0-9]+[A-Za-z]?)$", code)
     if not match:
         return code
@@ -238,11 +242,15 @@ def main() -> None:
                 "url": f"https://www.comicsbox.it/albo/{row['code']}",
                 "contents": old.get("contents", []),
                 "coverage": old.get("coverage", []),
+                **({"coverageSource": old["coverageSource"]} if old.get("coverageSource") else {}),
                 "source": "ComicsBox",
                 "sourceCode": row["code"],
             })
 
-    to_scan = [item for item in imported if not item.get("coverage") and should_fetch_detail(item["name"])]
+    to_scan = [
+        item for item in imported
+        if not item.get("coverage") and should_fetch_detail(f"{item['series']} {item['name']}")
+    ]
     print(f"Schede da analizzare per copertura: {len(to_scan)}")
 
     def scan(item: dict) -> tuple[str, list[str]]:
@@ -262,19 +270,18 @@ def main() -> None:
             if index % 50 == 0:
                 print(f"Analizzate {index}/{len(to_scan)} schede")
 
-    auto_covered = 0
     for item in imported:
         if item.get("coverage"):
             continue
         codes = scanned.get(item["id"], [])
         if not codes:
             continue
-        candidates = candidates_for_title(item["name"])
+        identity = f"{item['series']} {item['name']}"
+        candidates = candidates_for_title(identity)
         matched = [code_to_issue[code] for code in codes if code in code_to_issue]
         if not matched:
             continue
 
-        # Safe fallback: if all matched route entries belong to one path, that path is unambiguous.
         route_union = {path for issue in matched for path in issue.get("paths", [])}
         if not candidates and len(route_union) == 1:
             candidates = set(route_union)
@@ -291,15 +298,14 @@ def main() -> None:
         ]
         if item["coverage"]:
             item["coverageSource"] = "auto:first-italian-publication"
-            auto_covered += 1
 
-    # Preserve any curated/special entry that is not part of the imported series.
     imported_ids = {item["id"] for item in imported}
     for eid, item in existing.items():
         if eid not in imported_ids:
             imported.append(item)
 
     imported.sort(key=lambda item: (norm(item.get("series", "")), natural_number(item.get("number")), norm(item.get("name", ""))))
+    auto_covered = sum(1 for item in imported if item.get("coverageSource") == "auto:first-italian-publication")
     payload = {
         "version": 2,
         "generatedFrom": "ComicsBox collected-edition indexes",
