@@ -73,7 +73,8 @@ html.motionFallback body.motionEntering{animation:marvelViewNew .5s var(--marvel
 .js-motion .motionReveal.is-visible{opacity:1;transform:none;filter:none}
 .motionIssueIn{animation:marvelIssueIn .62s var(--marvel-ease) both;animation-delay:calc(var(--issue-index,0) * 38ms)}
 .motionRipple{position:absolute;z-index:30;width:12px;height:12px;border-radius:50%;pointer-events:none;background:currentColor;opacity:.2;transform:translate(-50%,-50%) scale(0);animation:marvelRipple .62s ease-out forwards}
-.motionClick{position:relative!important;overflow:hidden!important}
+.motionClick{isolation:isolate}
+.motionClickHost{position:relative}
 .motionBurst{position:absolute;z-index:31;inset:50% auto auto 50%;width:1px;height:1px;pointer-events:none}
 .motionBurst i{position:absolute;width:4px;height:4px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor;animation:marvelSpark .56s var(--marvel-ease) forwards}
 .motionBurst i:nth-child(1){--spark-x:30px;--spark-y:0px}.motionBurst i:nth-child(2){--spark-x:21px;--spark-y:21px}.motionBurst i:nth-child(3){--spark-x:0px;--spark-y:30px}.motionBurst i:nth-child(4){--spark-x:-21px;--spark-y:21px}.motionBurst i:nth-child(5){--spark-x:-30px;--spark-y:0px}.motionBurst i:nth-child(6){--spark-x:-21px;--spark-y:-21px}.motionBurst i:nth-child(7){--spark-x:0px;--spark-y:-30px}.motionBurst i:nth-child(8){--spark-x:21px;--spark-y:-21px}
@@ -211,7 +212,9 @@ body.homeActive .sidebar{display:none!important}
 .issue.read::before{background:var(--ok);opacity:.9;box-shadow:0 0 16px rgba(79,224,160,.45)}
 .cover{border-color:rgba(132,162,192,.22)!important;box-shadow:0 16px 30px rgba(0,0,0,.35);transition:transform .42s var(--marvel-ease),box-shadow .35s ease}
 .issue:hover .cover{transform:translateY(-3px) rotate(-1deg) scale(1.03);box-shadow:0 22px 38px rgba(0,0,0,.46)}
+.status,.status.collectionFormats{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch}
 .status button,.collectionFormats button{position:relative;overflow:hidden;transition:transform .2s var(--marvel-snap),border-color .2s ease,background .2s ease,color .2s ease,box-shadow .25s ease!important}
+.status button{width:100%;min-width:0;justify-content:center;white-space:nowrap}
 .status button:hover,.collectionFormats button:hover{transform:translateY(-2px)}
 .status button.on,.collectionFormats button.on{box-shadow:0 0 25px color-mix(in srgb,currentColor 12%,transparent),inset 0 1px rgba(255,255,255,.05)}
 .bulkToolbar{border-color:rgba(128,158,188,.2)!important;background:rgba(7,12,18,.9)!important;box-shadow:0 20px 50px rgba(0,0,0,.25)!important}
@@ -377,11 +380,20 @@ body.profileActive .main{display:block!important;width:100%!important;min-width:
   .profileTabs{border-radius:13px}
 }
 
-@media(hover:none){
+@media(max-width:390px){
+  .status,.status.collectionFormats{grid-template-columns:1fr!important}
+}
+
+@media(hover:none),(pointer:coarse){
   .motionSpotlightLayer{display:none}
-  .motionTilt{transform:none!important}
+  .motionTilt{transform:none!important;transform-style:flat!important;will-change:auto!important}
   .motionMagnetic{translate:0 0!important}
   .hubCard:hover,.hubPathCard:hover,.issue:hover,.profileIssueCard:hover{transform:none!important}
+  .js-motion .hubCard.motionReveal,.js-motion .hubPathCard.motionReveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+  .hubCardArt{transform:none!important;transition:opacity .25s ease!important}
+  .hubCardArt img{filter:none!important}
+  .hubCardGlow{filter:none!important;background:radial-gradient(circle,color-mix(in srgb,var(--hub-accent) 24%,transparent),transparent 70%)!important}
+  .hubStatus{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(7,12,18,.86)!important}
 }
 
 @media(prefers-reduced-motion:reduce){

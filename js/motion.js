@@ -82,6 +82,10 @@
     for(const element of elements){
       if(element.dataset.motionReveal === "1") continue;
       element.dataset.motionReveal = "1";
+      if(!finePointerQuery.matches && element.matches(".hubCard,.hubPathCard")){
+        element.classList.add("is-visible");
+        continue;
+      }
       element.classList.add("motionReveal");
       element.style.setProperty("--reveal-index",String(index++ % 10));
       if(isReduced() || !revealObserver){
@@ -131,6 +135,12 @@
   function bindSurface(element){
     const alreadyBound = element.dataset.motionSurface === "1";
     element.classList.add("motionSurface");
+    const interactive = finePointerQuery.matches && !isReduced();
+    element.classList.toggle("motionTilt",interactive && element.matches(tiltSelector));
+    if(!interactive){
+      element.querySelector(":scope > .motionSpotlightLayer")?.remove();
+      return;
+    }
     if(!element.querySelector(":scope > .motionSpotlightLayer")){
       const light = document.createElement("span");
       light.className = "motionSpotlightLayer";
@@ -139,7 +149,6 @@
     }
     if(alreadyBound) return;
     element.dataset.motionSurface = "1";
-    if(!finePointerQuery.matches) return;
     element.addEventListener("pointermove",event => {
       const rect = element.getBoundingClientRect();
       const x = Math.max(0,Math.min(rect.width,event.clientX-rect.left));
@@ -160,7 +169,6 @@
 
   function bindSurfaces(scope=document){
     for(const element of scope.querySelectorAll?.(surfaceSelector) || []){
-      if(element.matches(tiltSelector)) element.classList.add("motionTilt");
       bindSurface(element);
     }
   }
@@ -270,6 +278,7 @@
     const button = event.target.closest?.("button,.sideActions label");
     if(!button || button.disabled) return;
     button.classList.add("motionClick");
+    if(getComputedStyle(button).position === "static") button.classList.add("motionClickHost");
     const rect = button.getBoundingClientRect();
     const ripple = document.createElement("span");
     ripple.className = "motionRipple";
@@ -277,7 +286,10 @@
     ripple.style.top = `${event.clientY-rect.top}px`;
     ripple.setAttribute("aria-hidden","true");
     button.append(ripple);
-    ripple.addEventListener("animationend",() => ripple.remove(),{once:true});
+    ripple.addEventListener("animationend",() => {
+      ripple.remove();
+      if(!button.querySelector(":scope > .motionRipple")) button.classList.remove("motionClick","motionClickHost");
+    },{once:true});
   }
 
   function addBurst(event){
