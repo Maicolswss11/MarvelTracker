@@ -1,0 +1,80 @@
+name: Audit second event wave Italian editions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/audit-events-wave2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit event ranges and collections
+        run: |
+          python - <<'PY'
+          import re, urllib.request
+          from html.parser import HTMLParser
+
+          UA='MarvelTracker event wave2 audit/1.0'
+          class P(HTMLParser):
+              def __init__(self): super().__init__(convert_charrefs=True); self.rows=[]; self.intr=False; self.intd=False; self.cells=[]; self.buf=[]; self.href=''
+              def handle_starttag(self,t,a):
+                  a=dict(a)
+                  if t=='tr': self.intr=True; self.cells=[]; self.href=''
+                  elif t=='td' and self.intr: self.intd=True; self.buf=[]
+                  elif t=='a' and self.intd and not self.href:
+                      h=a.get('href') or ''
+                      if 'albo/' in h: self.href=h
+              def handle_data(self,d):
+                  if self.intd: self.buf.append(d)
+              def handle_endtag(self,t):
+                  if t=='td' and self.intd:
+                      self.cells.append(' '.join(''.join(self.buf).split())); self.intd=False
+                  elif t=='tr' and self.intr:
+                      self.intr=False
+                      if self.href and len(self.cells)>=4: self.rows.append((*self.cells[:4],self.href))
+          def fetch(url):
+              req=urllib.request.Request(url,headers={'User-Agent':UA,'Accept-Language':'it-IT,it;q=0.9'})
+              with urllib.request.urlopen(req,timeout=45) as r: return r.read().decode('utf-8','replace')
+          def rows(series,maxoff=350):
+              seen=set(); out=[]
+              for off in range(0,maxoff+1,50):
+                  p=P(); p.feed(fetch(f'https://www.comicsbox.it/serie.php?limite={off}&serie={series}'))
+                  fresh=0
+                  for row in p.rows:
+                      if row[-1] in seen: continue
+                      seen.add(row[-1]); fresh+=1; out.append(row)
+                  if fresh==0: break
+              return out
+          wanted=set(range(145,151))|set(range(164,173))|set(range(175,184))|set(range(188,200))|set(range(222,226))|set(range(227,232))|set(range(236,241))|set(range(244,247))
+          print('## MMMI ranges')
+          for row in rows('MMMI'):
+              try:n=int(row[0])
+              except:continue
+              if n in wanted: print(' | '.join(row))
+          print('\n## Special Events 109-111')
+          for series in ('SPCLEVENT','SPECIALEVENTS','MARSPEC'):
+              try:
+                  for row in rows(series,200):
+                      try:n=int(row[0])
+                      except:continue
+                      if 109<=n<=111: print(series,'|',' | '.join(row))
+              except Exception as e: print('series',series,'ERR',e)
+          print('\n## Collections')
+          keys=('infinity','secret wars','civil war ii','secret empire','war of the realms','absolute carnage','empyre','king in black','blood hunt','guanto dell\'infinito','secret wars')
+          for series in ('MARVELMUST','MAROMNIB','MARVDELUXE','MVNWCOL_P','MARHIST_P','MARLEGEND','MARLEGENDARY'):
+              try:
+                  for row in rows(series,1000):
+                      text=' '.join(row[:-1]).casefold()
+                      if any(k in text for k in keys): print(series,'|',' | '.join(row))
+              except Exception as e: print('series',series,'ERR',e)
+          PY
