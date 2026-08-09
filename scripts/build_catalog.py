@@ -52,7 +52,6 @@ def fill_missing(target: dict[str, Any], issue: dict[str, Any]) -> None:
             target[key] = value
 
 
-
 def _norm(value: Any) -> str:
     return " ".join(str(value or "").casefold().replace("–", "-").split())
 
@@ -90,7 +89,8 @@ def write_ui_art(manifest: dict[str, Any], issues: list[dict[str, Any]]) -> None
         "xmen": ["xmen"],
         "spider": ["spiderman"],
         "fantastic-four": ["fantastic-four"],
-        "mystic": ["scarletwitch"],
+        "mystic": ["doctor-strange", "scarletwitch"],
+        "cosmic": ["ultimates-616"],
     }
 
     hubs_manifest = read_json(DATA / "hubs.json")
