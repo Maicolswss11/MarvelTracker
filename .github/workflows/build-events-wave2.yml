@@ -1,0 +1,70 @@
+name: Build second Marvel event wave
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build_event_wave2.py'
+      - '.github/workflows/build-events-wave2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate builder syntax
+        run: python -m py_compile scripts/build_event_wave2.py
+      - name: Build event paths
+        run: |
+          python scripts/build_event_wave2.py
+          python scripts/build_catalog.py
+          node scripts/verify-data.mjs
+      - name: Validate event hub and collected editions
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('.')
+          m=json.loads((root/'data/characters.json').read_text(encoding='utf-8'))
+          assert m['version']==16
+          ids={x['id'] for x in m['characters']}
+          wave=['secret-wars-1984','infinity-gauntlet','infinity','secret-wars-2015','civil-war-ii','secret-empire','war-of-the-realms','absolute-carnage','empyre','king-in-black','blood-hunt']
+          assert all(x in ids for x in wave)
+          hubs=json.loads((root/'data/hubs.json').read_text(encoding='utf-8'))
+          eh=next(x for x in hubs['hubs'] if x['id']=='events')
+          flat=[p for g in eh['groups'] for p in g['paths']]
+          assert all(x in flat for x in wave+['judgment-day'])
+          emp=json.loads((root/'data/characters/empyre.json').read_text(encoding='utf-8'))
+          assert emp['totalRequired']==4 and len(emp['issues'])==6
+          assert emp['issues'][0]['required'] is False and emp['issues'][-1]['required'] is False
+          bh=json.loads((root/'data/characters/blood-hunt.json').read_text(encoding='utf-8'))
+          assert bh['totalRequired']==3
+          ig=json.loads((root/'data/characters/infinity-gauntlet.json').read_text(encoding='utf-8'))
+          assert ig['totalRequired']==5 and any(x['id']=='MCP_M:4/5' for x in ig['issues'])
+          cur=json.loads((root/'data/curated-editions.json').read_text(encoding='utf-8'))
+          by={x['id']:x for x in cur['editions']}
+          checks={'MAROMNIB:168':'empyre','MVNWCOL_P:458':'empyre','MVNWCOL_P:740':'blood-hunt','MARVELMUST:72':'secret-wars-1984','MARVELMUST:12':'infinity-gauntlet','MVNWCOL_P:336':'absolute-carnage','MVNWCOL_P:394':'king-in-black'}
+          for eid,path in checks.items():
+              assert eid in by, eid
+              assert any(c['path']==path for c in by[eid].get('coverage',[])), (eid,path)
+          print('Second event wave and collected-edition coverage — OK')
+          PY
+      - name: Commit generated event archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data assets/heroes scripts/build_editions_catalog.py scripts/verify-data.mjs
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git commit -m "Add second Marvel event wave"
+          git pull --rebase origin main
+          git push origin HEAD:main
