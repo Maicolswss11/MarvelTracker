@@ -58,6 +58,12 @@ PATH_ALIASES = {
     "shehulk": ["she-hulk", "she hulk"],
     "fantastic-four": ["fantastici quattro", "fantastic four"],
     "doctor-strange": ["doctor strange", "dottor strange", "dr. strange", "dr strange"],
+    "house-of-m": ["house of m"],
+    "civil-war": ["civil war"],
+    "secret-invasion": ["secret invasion"],
+    "siege": ["assedio", "siege"],
+    "fear-itself": ["fear itself"],
+    "avengers-vs-xmen": ["avengers vs x-men", "avengers vs. x-men", "avx"],
     "judgment-day": ["a.x.e. judgment day", "a.x.e.", "judgment day"],
     "ultimate-spiderman-classic": ["ultimate spider-man", "ultimate spiderman"],
     "ultimate-xmen": ["ultimate x-men", "ultimate x men"],
@@ -199,6 +205,8 @@ def first_italian_codes(source: str) -> list[str]:
 def candidates_for_title(title: str) -> set[str]:
     text = norm(title)
     candidates = {path for path, aliases in PATH_ALIASES.items() if any(alias in text for alias in aliases)}
+    if "civil war ii" in text or "civil war 2" in text:
+        candidates.discard("civil-war")
     if "ultimate" in text:
         candidates = {path for path in candidates if path.startswith("ultimate") or path == "ultimates"}
     else:
