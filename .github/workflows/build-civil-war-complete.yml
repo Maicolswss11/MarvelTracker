@@ -1,0 +1,88 @@
+name: Build complete Civil War event
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build_civil_war_complete.py'
+      - '.github/workflows/build-civil-war-complete.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build complete Civil War route
+        run: |
+          python -m py_compile scripts/build_civil_war_complete.py
+          python scripts/build_civil_war_complete.py
+          python scripts/build_catalog.py
+          node --check js/app.js
+          node scripts/verify-data.mjs
+
+      - name: Validate complete event mapping
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          manifest = json.loads((root/'data/characters.json').read_text(encoding='utf-8'))
+          assert manifest['version'] == 17
+          meta = next(x for x in manifest['characters'] if x['id'] == 'civil-war')
+          assert meta['totalRequired'] == 23
+          assert 'evento completo' in meta['subtitle']
+
+          civil = json.loads((root/'data/characters/civil-war.json').read_text(encoding='utf-8'))
+          assert civil['eventScope'] == 'complete'
+          assert len(civil['readingOrder']) == 98
+          assert civil['totalRequired'] == 23
+          assert civil['availableTotal'] == 23
+          assert len(civil['issues']) == 23
+          ids = {x['id'] for x in civil['issues']}
+          expected = {
+              'MMMI:76','MMMI:77','MMMI:78','MMMI:79','MMMI:80','MMMI:81','MMMI:82',
+              'MAROMNIB:54','MAROMNIB:55','MAROMNIB:56','MAROMNIB:57',
+              'MAR_MIX:66','MAR_MIX:67','MAR_MIX:68','MARMONED:9','F4_SM:270',
+              'THORVE_M:99','THORVE_M:100','THORVE_M:101','IM_VEN:88','IM_VEN2:1',
+              'F4_SM:280','MA_MEG:44'
+          }
+          assert ids == expected, (ids ^ expected)
+
+          hubs = json.loads((root/'data/hubs.json').read_text(encoding='utf-8'))
+          event_hub = next(x for x in hubs['hubs'] if x['id'] == 'events')
+          groups = {x['id']: x for x in event_hub['groups']}
+          assert 'civil-war' not in groups['modern-core-1']['paths']
+          assert 'civil-war' in groups['complete']['paths']
+
+          catalog = json.loads((root/'data/catalog.json').read_text(encoding='utf-8'))
+          catalog_ids = {x['id'] for x in catalog['issues']}
+          assert expected <= catalog_ids
+
+          app = (root/'js/app.js').read_text(encoding='utf-8')
+          index = (root/'index.html').read_text(encoding='utf-8')
+          assert 'const editionPhysical=!!window.MarvelEditions?.get(id)' in app
+          assert 'js/app.js?v=15' in index
+          print('Civil War complete route — 98 US chapters / 23 Italian publications — OK')
+          PY
+
+      - name: Commit generated archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/characters/civil-war.json data/characters.json data/hubs.json data/catalog.json scripts/verify-data.mjs js/app.js index.html
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git commit -m "Upgrade Civil War to complete event path"
+          git pull --rebase origin main
+          git push origin HEAD:main
