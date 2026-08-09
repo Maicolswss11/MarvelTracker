@@ -62,7 +62,7 @@ PATH_ALIASES = {
     "ultimate-ironman": ["ultimate iron man"],
     "ultimate-wolverine": ["ultimate wolverine"],
     "ultimate-new-spiderman": ["ultimate spider-man", "ultimate spiderman"],
-    "ultimate-new-blackpanther": ["ultimate black panther", "ultimate pantera nera"],
+    "ultimate-new-black-panther": ["ultimate black panther", "ultimate pantera nera"],
     "ultimate-new-xmen": ["ultimate x-men", "ultimate x men"],
     "ultimate-new-ultimates": ["ultimates"],
     "ultimate-new-wolverine": ["ultimate wolverine"],
