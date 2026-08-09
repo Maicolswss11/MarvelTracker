@@ -34,10 +34,11 @@ jobs:
           from pathlib import Path
           js = Path('js/hub-ui.js').read_text(encoding='utf-8')
           css = Path('css/hub-ui.css').read_text(encoding='utf-8')
-          assert '← Home livelli' in js
+          assert js.count('← Home livelli') >= 2
           assert 'class="hubHomeLevelsBtn"' in js
-          assert 'homeExplore.addEventListener("click",()=>goToExplorer(null))' in js
+          assert 'exploreButton.addEventListener("click",()=>goToExplorer(null))' in js
           assert '.hubBreadcrumb .hubHomeLevelsBtn' in css
+          assert '.trackerHubBreadcrumb .hubHomeLevelsBtn' in css
           print('Home livelli navigation — OK')
           PY
 
