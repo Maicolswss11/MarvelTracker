@@ -78,11 +78,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/characters/civil-war.json data/characters.json data/hubs.json data/catalog.json scripts/verify-data.mjs js/app.js index.html
+          git add -A
+          git status --short
           if git diff --cached --quiet; then
             echo "No generated changes"
             exit 0
           fi
           git commit -m "Upgrade Civil War to complete event path"
-          git pull --rebase origin main
           git push origin HEAD:main
