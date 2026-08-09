@@ -1,9 +1,26 @@
 (() => {
   let manifest = {version:1,editions:[]};
   let byId = new Map();
+  let coverageIndex = new Map();
   let loadPromise = null;
 
   const esc = value => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const coverageKey = (pathId,issueId) => `${pathId}\u0000${issueId}`;
+
+  function rebuildIndexes(){
+    byId = new Map((manifest.editions || []).map(item => [item.id,item]));
+    coverageIndex = new Map();
+    for(const edition of manifest.editions || []){
+      for(const coverage of edition.coverage || []){
+        for(const issueId of coverage.issueIds || []){
+          const key = coverageKey(coverage.path,issueId);
+          const entries = coverageIndex.get(key) || [];
+          entries.push({...edition,coverage});
+          coverageIndex.set(key,entries);
+        }
+      }
+    }
+  }
 
   async function load(version=1){
     if(loadPromise) return loadPromise;
@@ -15,13 +32,13 @@
       .then(data => {
         if(!Array.isArray(data.editions)) throw new Error("Manifest edizioni alternative non valido");
         manifest = data;
-        byId = new Map(data.editions.map(item => [item.id,item]));
+        rebuildIndexes();
         return manifest;
       })
       .catch(error => {
         console.error("Edizioni alternative non disponibili", error);
         manifest = {version:1,editions:[]};
-        byId = new Map();
+        rebuildIndexes();
         return manifest;
       })
       .finally(() => { loadPromise = null; });
@@ -59,16 +76,7 @@
   }
 
   function optionsFor(pathId,issueId){
-    const result = [];
-    for(const edition of all()){
-      for(const coverage of edition.coverage || []){
-        if(coverage.path === pathId && (coverage.issueIds || []).includes(issueId)){
-          result.push({...edition,coverage});
-          break;
-        }
-      }
-    }
-    return result;
+    return coverageIndex.get(coverageKey(pathId,issueId)) || [];
   }
 
   function coverageStatus(state,pathId,issueId){
