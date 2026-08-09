@@ -1,0 +1,421 @@
+/* Marvel Archive — cinematic motion and interface system */
+:root{
+  --marvel-red:#ed1d24;
+  --marvel-red-hot:#ff3b42;
+  --marvel-ink:#05080c;
+  --marvel-surface:rgba(12,19,27,.88);
+  --marvel-surface-strong:rgba(8,13,19,.96);
+  --marvel-stroke:rgba(151,181,211,.16);
+  --marvel-glow:color-mix(in srgb,var(--accent,#ed1d24) 35%,transparent);
+  --marvel-ease:cubic-bezier(.16,1,.3,1);
+  --marvel-snap:cubic-bezier(.2,.9,.25,1.18);
+  --ambient-x:0px;
+  --ambient-y:0px;
+}
+
+html{background:var(--marvel-ink);scroll-padding-top:86px}
+body{position:relative;min-width:320px;overflow-x:hidden;background:#05080c;color:#eef4f8}
+body::selection{background:color-mix(in srgb,var(--accent,#ed1d24) 78%,#fff);color:#05080c}
+.app{position:relative;z-index:1;isolation:isolate}
+.main{position:relative}
+button{-webkit-tap-highlight-color:transparent}
+button:not(:disabled){touch-action:manipulation}
+button:disabled{cursor:not-allowed}
+
+*{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--accent,#ed1d24) 55%,#273544) #080d13}
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-track{background:#080d13}
+*::-webkit-scrollbar-thumb{border:3px solid #080d13;border-radius:999px;background:color-mix(in srgb,var(--accent,#ed1d24) 52%,#273544)}
+
+/* Opening title sequence */
+.marvelBoot{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:#05070a;isolation:isolate}
+.marvelBootCurtain{position:absolute;inset:0;width:51%;background:linear-gradient(135deg,#8d1015,#ed1d24 48%,#9e1016);box-shadow:0 0 80px rgba(237,29,36,.34);z-index:1}
+.marvelBootCurtain::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at center,rgba(255,255,255,.13) 0 1px,transparent 1.5px);background-size:8px 8px;opacity:.2}
+.marvelBootCurtainLeft{right:auto;clip-path:polygon(0 0,100% 0,91% 100%,0 100%)}
+.marvelBootCurtainRight{left:auto;clip-path:polygon(9% 0,100% 0,100% 100%,0 100%)}
+.marvelBootContent{position:relative;z-index:3;width:min(420px,78vw);display:grid;justify-items:center;text-align:center;color:#fff;filter:drop-shadow(0 16px 34px rgba(0,0,0,.42))}
+.marvelBootContent img{width:min(270px,62vw);height:auto;box-shadow:0 20px 50px rgba(0,0,0,.32);animation:marvelBootLogo 1.4s var(--marvel-ease) both}
+.marvelBootContent strong{margin-top:12px;font-family:Impact,"Arial Black",sans-serif;font-size:clamp(28px,5vw,50px);font-weight:900;letter-spacing:.42em;text-indent:.42em;line-height:1}
+.marvelBootOverline,.marvelBootContent small{font-size:9px;font-weight:900;letter-spacing:.22em;text-transform:uppercase}
+.marvelBootOverline{margin-bottom:16px;color:rgba(255,255,255,.72)}
+.marvelBootContent small{margin-top:12px;color:rgba(255,255,255,.7)}
+.marvelBootLine{width:100%;height:3px;margin-top:24px;overflow:hidden;border-radius:99px;background:rgba(255,255,255,.2)}
+.marvelBootLine i{display:block;width:100%;height:100%;border-radius:inherit;background:#fff;transform-origin:left;animation:marvelBootLine 1.6s var(--marvel-ease) infinite}
+html.appLoaded .marvelBoot{pointer-events:none;animation:marvelBootFade .82s .18s var(--marvel-ease) forwards}
+html.appLoaded .marvelBootContent{animation:marvelBootContentOut .52s .12s ease forwards}
+html.appLoaded .marvelBootCurtainLeft{animation:marvelCurtainLeft .85s .16s var(--marvel-ease) forwards}
+html.appLoaded .marvelBootCurtainRight{animation:marvelCurtainRight .85s .16s var(--marvel-ease) forwards}
+
+/* Ambient comic-book field */
+.marvelAtmosphere{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#05080c}
+.marvelAtmosphereOrb{position:absolute;width:720px;height:720px;border-radius:50%;filter:blur(100px);will-change:transform;transition:background .45s ease;transform:translate3d(var(--ambient-x),var(--ambient-y),0)}
+.marvelAtmosphereOrbRed{right:-330px;top:-350px;background:rgba(237,29,36,.13);animation:marvelOrbDrift 18s ease-in-out infinite alternate}
+.marvelAtmosphereOrbAccent{left:-370px;top:38%;background:var(--marvel-glow);opacity:.6;animation:marvelOrbDrift 22s -8s ease-in-out infinite alternate-reverse}
+.marvelAtmosphereGrid{position:absolute;inset:-15%;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:70px 70px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 72%);transform:perspective(900px) rotateX(62deg) translateY(28%);transform-origin:center bottom;opacity:.45;animation:marvelGridDrift 28s linear infinite}
+.marvelAtmosphereGrain{position:absolute;inset:0;opacity:.055;background-image:radial-gradient(circle at 10% 20%,#fff 0 .55px,transparent .75px),radial-gradient(circle at 80% 30%,#fff 0 .5px,transparent .7px),radial-gradient(circle at 40% 90%,#fff 0 .45px,transparent .7px);background-size:7px 7px,11px 11px,13px 13px;mix-blend-mode:soft-light;animation:marvelGrain .26s steps(2) infinite}
+.marvelScrollProgress{position:fixed;inset:0 0 auto;z-index:500;height:3px;pointer-events:none;background:rgba(255,255,255,.025)}
+.marvelScrollProgress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--marvel-red),var(--accent,#ffb000),#fff);box-shadow:0 0 15px var(--marvel-glow);transform:scaleX(0);transform-origin:left;will-change:transform}
+
+/* Native and fallback page transitions */
+::view-transition-old(root){animation:marvelViewOld .34s ease both}
+::view-transition-new(root){animation:marvelViewNew .62s var(--marvel-ease) both}
+html.motionFallback body{transition:opacity .15s ease,transform .28s var(--marvel-ease)}
+html.motionFallback body.motionLeaving{opacity:.16;transform:scale(.992)}
+html.motionFallback body.motionEntering{animation:marvelViewNew .5s var(--marvel-ease) both}
+
+/* Shared depth, light and entrance choreography */
+.motionSurface{position:relative;isolation:isolate;overflow:hidden}
+.motionSpotlightLayer{position:absolute;inset:-1px;z-index:12;border-radius:inherit;pointer-events:none;opacity:0;background:radial-gradient(380px circle at var(--spot-x,50%) var(--spot-y,50%),color-mix(in srgb,var(--surface-accent,var(--accent,#ed1d24)) 18%,transparent),transparent 58%);mix-blend-mode:screen;transition:opacity .35s ease}
+.motionSurface:hover>.motionSpotlightLayer{opacity:.72}
+.motionTilt{--tilt-x:0deg;--tilt-y:0deg;--lift:0px;transform:perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translate3d(0,var(--lift),0)!important;transform-style:preserve-3d;will-change:transform;transition:transform .34s var(--marvel-ease),border-color .25s ease,box-shadow .34s ease!important}
+.motionTilt:hover{--lift:-6px}
+.js-motion .motionReveal{opacity:0;transform:translate3d(0,30px,0) scale(.985);filter:blur(4px);transition:opacity .72s var(--marvel-ease),transform .72s var(--marvel-ease),filter .72s ease;transition-delay:calc(var(--reveal-index,0) * 42ms)}
+.js-motion .motionReveal.is-visible{opacity:1;transform:none;filter:none}
+.motionIssueIn{animation:marvelIssueIn .62s var(--marvel-ease) both;animation-delay:calc(var(--issue-index,0) * 38ms)}
+.motionRipple{position:absolute;z-index:30;width:12px;height:12px;border-radius:50%;pointer-events:none;background:currentColor;opacity:.2;transform:translate(-50%,-50%) scale(0);animation:marvelRipple .62s ease-out forwards}
+.motionClick{position:relative!important;overflow:hidden!important}
+.motionBurst{position:absolute;z-index:31;inset:50% auto auto 50%;width:1px;height:1px;pointer-events:none}
+.motionBurst i{position:absolute;width:4px;height:4px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor;animation:marvelSpark .56s var(--marvel-ease) forwards}
+.motionBurst i:nth-child(1){--spark-x:30px;--spark-y:0px}.motionBurst i:nth-child(2){--spark-x:21px;--spark-y:21px}.motionBurst i:nth-child(3){--spark-x:0px;--spark-y:30px}.motionBurst i:nth-child(4){--spark-x:-21px;--spark-y:21px}.motionBurst i:nth-child(5){--spark-x:-30px;--spark-y:0px}.motionBurst i:nth-child(6){--spark-x:-21px;--spark-y:-21px}.motionBurst i:nth-child(7){--spark-x:0px;--spark-y:-30px}.motionBurst i:nth-child(8){--spark-x:21px;--spark-y:-21px}
+.motionMagnetic{translate:var(--mag-x,0) var(--mag-y,0);transition:translate .28s var(--marvel-ease),border-color .2s ease,background .2s ease,box-shadow .25s ease}
+.motionPaused .marvelAtmosphereOrb,.motionPaused .marvelAtmosphereGrid,.motionPaused .marvelAtmosphereGrain{animation-play-state:paused!important}
+
+/* Home: remove the duplicated flat sidebar and turn the dashboard into a cover */
+body.homeActive .app{grid-template-columns:minmax(0,1fr)}
+body.homeActive .sidebar{display:none!important}
+.homeView{position:relative;background:transparent!important}
+.homeTopbar{min-height:76px!important;padding:12px clamp(18px,3vw,46px)!important;border-bottom-color:rgba(255,255,255,.09)!important;background:rgba(5,8,12,.72)!important;box-shadow:0 12px 40px rgba(0,0,0,.18);backdrop-filter:blur(24px) saturate(140%)!important}
+.homeTopBrand img{width:88px!important;filter:drop-shadow(0 9px 18px rgba(237,29,36,.22))}
+.homeTopBrand b{font-size:12px!important;letter-spacing:.18em!important}
+.homeTopAction,.accountButton{border-color:rgba(139,169,199,.22)!important;background:rgba(10,17,24,.78)!important;box-shadow:inset 0 1px rgba(255,255,255,.035),0 10px 30px rgba(0,0,0,.12)}
+.homeTopAction:hover,.accountButton:hover{border-color:color-mix(in srgb,var(--marvel-red) 50%,#536a83)!important;box-shadow:0 0 0 1px rgba(237,29,36,.08),0 12px 28px rgba(0,0,0,.24)}
+.homeContent{width:min(1660px,100%)!important;padding:clamp(18px,3vw,42px) clamp(14px,3.3vw,52px) 100px!important}
+.homeDashboardHero{--surface-accent:var(--marvel-red);min-height:520px!important;border:1px solid transparent!important;border-radius:32px!important;background:linear-gradient(128deg,rgba(17,28,40,.98),rgba(7,12,18,.97) 58%,rgba(37,9,14,.96)) padding-box,linear-gradient(120deg,rgba(255,255,255,.24),rgba(237,29,36,.58),rgba(255,176,0,.3)) border-box!important;box-shadow:0 42px 110px rgba(0,0,0,.48),0 0 90px rgba(237,29,36,.08),inset 0 1px rgba(255,255,255,.06)!important;isolation:isolate}
+.homeDashboardHero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(112deg,transparent 0 44%,rgba(255,255,255,.035) 44.1% 44.35%,transparent 44.5%),radial-gradient(circle at 18% 25%,rgba(237,29,36,.12),transparent 29%),radial-gradient(circle at 75% 115%,rgba(255,176,0,.07),transparent 35%);background-size:100% 100%;opacity:.95}
+.homeDashboardHero::after{width:600px!important;height:600px!important;left:-240px!important;bottom:-430px!important;filter:blur(110px)!important;opacity:.2!important;animation:marvelHeroGlow 7s ease-in-out infinite alternate}
+.homeIntro{padding:clamp(44px,6vw,94px)!important}
+.homeIntro::before{top:11%!important;right:4%!important;font-family:Impact,"Arial Black",sans-serif;font-size:clamp(96px,14vw,210px)!important;color:rgba(255,255,255,.022)!important;letter-spacing:.01em!important;transform:rotate(-5deg);text-shadow:0 0 50px rgba(237,29,36,.06)}
+.homeIntro h1{max-width:800px;font-size:clamp(58px,7vw,108px)!important;line-height:.82!important;letter-spacing:-.072em!important;text-wrap:balance;text-shadow:0 20px 50px rgba(0,0,0,.32)}
+.homeIntro h1 span{position:relative;display:inline-block;color:#ff252d!important;text-shadow:0 0 40px rgba(237,29,36,.24)}
+.homeIntro h1 span::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:4px;border-radius:99px;background:linear-gradient(90deg,var(--marvel-red),transparent);transform-origin:left;animation:marvelLineDraw 1.1s .55s var(--marvel-ease) both}
+.homeIntro>p{max-width:660px!important;color:#afbdc9!important;font-size:14px!important;line-height:1.8!important}
+.homeEyebrow{color:#ff6c73!important;text-shadow:0 0 22px rgba(237,29,36,.28)}
+.homeHeroActions{margin-top:34px!important}
+.homePrimary{position:relative;overflow:hidden;padding:13px 18px!important;border-color:#ff3038!important;background:linear-gradient(135deg,#ff333a,#d71017)!important;box-shadow:0 16px 36px rgba(237,29,36,.3),inset 0 1px rgba(255,255,255,.22)!important}
+.homePrimary::before{content:"";position:absolute;inset:-80% auto -80% -40%;width:28%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.48),transparent);transform:skewX(-18deg);animation:marvelButtonSheen 4.8s 1.5s ease-in-out infinite}
+.homeSecondary{padding:13px 18px!important;background:rgba(10,17,24,.62)!important;backdrop-filter:blur(10px)}
+.homeContinue{--surface-accent:#ffb000;margin:22px!important;border-color:rgba(129,163,196,.3)!important;border-radius:24px!important;background:linear-gradient(155deg,rgba(17,28,39,.93),rgba(5,10,15,.98))!important;box-shadow:0 35px 70px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.045)!important;backdrop-filter:blur(14px)}
+.homeContinue::before{height:4px!important;background:linear-gradient(90deg,#ed1d24,#ffb000,#ed1d24)!important;background-size:200% 100%!important;animation:marvelGradientRun 4s linear infinite}
+.homeContinueBody{padding:24px!important;gap:25px!important}
+.homeContinueCover{border-color:rgba(255,176,0,.38)!important;border-radius:17px!important;box-shadow:0 30px 54px rgba(0,0,0,.5),0 0 0 1px rgba(255,176,0,.08)!important;transform-origin:center;animation:marvelCoverFloat 5.5s ease-in-out infinite}
+.homeContinueCover::after,.nextCover::after{content:"";position:absolute;inset:-60% -100%;z-index:4;pointer-events:none;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.2) 50%,transparent 58%);transform:translateX(-35%);animation:marvelCoverSheen 6s 2s ease-in-out infinite}
+.homeContinueMeta h2{font-size:clamp(23px,2.5vw,37px)!important}
+.homeContinueMeta button{box-shadow:0 12px 26px rgba(237,29,36,.22)}
+.homeStats{gap:13px!important;margin:18px 0 56px!important}
+.homeStat{--surface-accent:var(--stat-color);min-height:126px!important;padding:20px 22px!important;border-color:rgba(131,162,193,.18)!important;border-radius:20px!important;background:linear-gradient(145deg,rgba(14,23,33,.92),rgba(8,14,20,.92))!important;box-shadow:inset 0 1px rgba(255,255,255,.035),0 20px 42px rgba(0,0,0,.15)}
+.homeStat::before{content:"";position:absolute;left:0;top:18%;bottom:18%;width:3px;border-radius:0 99px 99px 0;background:var(--stat-color);box-shadow:0 0 18px var(--stat-color)}
+.homeStat::after{right:-38px!important;bottom:-55px!important;width:150px!important;height:150px!important;opacity:.1!important;filter:blur(2px);transition:transform .55s var(--marvel-ease),opacity .35s ease}
+.homeStat:hover::after{opacity:.18!important;transform:scale(1.18)}
+.homeStat>b{font-size:34px!important;letter-spacing:-.055em!important}
+.homeSectionHead h2,.hubExplorerHeading h2{font-size:clamp(34px,4vw,56px)!important;line-height:.95;letter-spacing:-.055em!important}
+
+/* Hubs: editorial artwork becomes layered, reactive and dimensional */
+.hubExplorer{gap:44px!important;margin-top:32px!important}
+.hubExplorerRoot{gap:50px!important}
+.hubExplorerHeading{position:relative;padding:0 4px 18px!important}
+.hubExplorerHeading::after{content:"";position:absolute;left:3px;bottom:0;width:min(230px,42vw);height:3px;border-radius:99px;background:linear-gradient(90deg,var(--marvel-red),transparent);box-shadow:0 0 20px rgba(237,29,36,.2)}
+.hubExplorerHeading p{font-size:15px!important;color:#92a2b3!important}
+.hubShelf{gap:18px!important}
+.hubShelfHead{padding:0 4px!important}
+.hubShelfHead>div>span{color:#9aa9b9!important}
+.hubShelfHead h3{font-size:22px!important;letter-spacing:-.035em!important}
+.hubGrid{gap:15px!important}
+.hubCard{--surface-accent:var(--hub-accent);min-height:230px!important;padding:21px!important;border-color:rgba(122,153,184,.2)!important;border-radius:22px!important;background:linear-gradient(145deg,rgba(16,25,36,.96),rgba(5,10,15,.98))!important;box-shadow:0 24px 50px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.04)}
+.hubCard.compact{min-height:195px!important}
+.hubCard::before{content:"";position:absolute;z-index:4;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,var(--hub-accent),transparent);opacity:.7;transform:scaleX(.35);transition:transform .5s var(--marvel-ease),opacity .3s ease}
+.hubCard:hover::before{opacity:1;transform:scaleX(1)}
+.hubCard:hover{border-color:color-mix(in srgb,var(--hub-accent) 62%,#42556a)!important;box-shadow:0 30px 65px rgba(0,0,0,.4),0 0 44px color-mix(in srgb,var(--hub-accent) 12%,transparent)!important}
+.hubCardArt{opacity:.58!important;transform:scale(1.03);transition:transform .8s var(--marvel-ease),opacity .4s ease!important}
+.hubCard:hover .hubCardArt{opacity:.72!important;transform:scale(1.1)}
+.hubCardArt img{filter:saturate(1.06) contrast(1.12)!important;transition:filter .5s ease}
+.hubCard:hover .hubCardArt img{filter:saturate(1.25) contrast(1.06)!important}
+.hubCardShade{background:linear-gradient(90deg,rgba(4,8,13,.97),rgba(4,8,13,.7) 52%,rgba(4,8,13,.42)),linear-gradient(180deg,rgba(4,8,12,.05),rgba(4,8,12,.88))!important}
+.hubCardGlow{width:230px!important;height:230px!important;opacity:.17!important;filter:blur(65px)!important;transition:opacity .4s ease,transform .65s var(--marvel-ease)}
+.hubCard:hover .hubCardGlow{opacity:.3!important;transform:scale(1.25)}
+.hubCardBody b{font-size:clamp(20px,2vw,26px)!important;text-shadow:0 5px 25px rgba(0,0,0,.75)}
+.hubCardBody span{font-size:11px!important}
+.hubStatus{backdrop-filter:blur(10px);box-shadow:inset 0 1px rgba(255,255,255,.05)}
+.hubCardBottom>span{transition:transform .35s var(--marvel-snap)}
+.hubCard:hover .hubCardBottom>span{transform:translateX(6px)}
+.hubDetailHero{--surface-accent:var(--hub-accent);min-height:270px!important;padding:38px 42px!important;border-color:rgba(132,162,192,.22)!important;border-radius:27px!important;background:linear-gradient(120deg,color-mix(in srgb,var(--hub-accent) 16%,#0c131b),rgba(6,11,17,.98) 65%)!important;box-shadow:0 32px 80px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.045)}
+.hubDetailHero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle at 74% 50%,color-mix(in srgb,var(--hub-accent) 12%,transparent) 0 1px,transparent 1.6px);background-size:10px 10px;mask-image:linear-gradient(90deg,transparent 35%,#000)}
+.hubDetailHero h2{font-size:clamp(48px,7vw,92px)!important}
+.hubDetailStats{padding:18px 20px!important;border-color:rgba(255,255,255,.13)!important;border-radius:17px!important;box-shadow:0 18px 35px rgba(0,0,0,.25)}
+.hubDetailStats b{font-size:28px!important}
+.hubPathGrid{gap:13px!important}
+.hubPathCard{--surface-accent:var(--path-accent);min-height:88px;padding:16px 17px!important;border-color:rgba(121,153,184,.18)!important;border-radius:17px!important;background:linear-gradient(135deg,rgba(12,20,29,.94),rgba(7,12,18,.98))!important;box-shadow:inset 0 1px rgba(255,255,255,.025)}
+.hubPathCard:hover{border-color:color-mix(in srgb,var(--path-accent) 62%,#3c5065)!important;background:linear-gradient(135deg,color-mix(in srgb,var(--path-accent) 8%,#101923),#080e14)!important;box-shadow:0 18px 38px rgba(0,0,0,.27),0 0 30px color-mix(in srgb,var(--path-accent) 8%,transparent)!important}
+.hubPathLogo{width:56px!important;height:56px!important;border-radius:14px!important;box-shadow:0 12px 24px rgba(0,0,0,.28)}
+.hubPathMain b{font-size:15px!important}
+.hubPathArrow{transition:transform .35s var(--marvel-snap)}
+.hubPathCard:hover .hubPathArrow{transform:translateX(5px)}
+.hubBreadcrumb{margin-bottom:-4px!important}
+.hubBreadcrumb .hubHomeLevelsBtn,.trackerHubBreadcrumb .hubHomeLevelsBtn{border-color:rgba(255,255,255,.16)!important;background:linear-gradient(135deg,#fff,#dce4eb)!important;color:#11151b!important;box-shadow:0 10px 24px rgba(0,0,0,.25)!important}
+
+/* Tracker shell */
+.sidebar{background:linear-gradient(180deg,rgba(6,10,15,.98),rgba(5,8,12,.95))!important;border-right-color:rgba(125,155,185,.16)!important;box-shadow:18px 0 60px rgba(0,0,0,.18);backdrop-filter:blur(26px) saturate(130%)!important}
+.sidebar::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--marvel-red),var(--accent,#ffb000),transparent);box-shadow:0 0 22px var(--marvel-glow)}
+.logoMark{filter:drop-shadow(0 8px 16px rgba(237,29,36,.2))!important}
+.hubSideHead{border-color:color-mix(in srgb,var(--hub-accent) 35%,#263443)!important;background:linear-gradient(135deg,color-mix(in srgb,var(--hub-accent) 12%,#0b121a),#091018)!important;box-shadow:inset 0 1px rgba(255,255,255,.04)}
+.hubSidePath{position:relative;border-radius:12px!important;transition:transform .28s var(--marvel-ease),background .22s ease,border-color .22s ease!important}
+.hubSidePath:hover{transform:translateX(4px)}
+.hubSidePath.active{box-shadow:inset 3px 0 var(--path-accent),0 10px 24px rgba(0,0,0,.16)}
+.hubSidePath.active::after{content:"";position:absolute;right:9px;width:5px;height:5px;border-radius:50%;background:var(--path-accent);box-shadow:0 0 12px var(--path-accent)}
+.card,.seriesNav button,.sideActions button,.sideActions label{border-color:rgba(125,155,185,.15)!important;background:rgba(9,15,22,.76)!important;box-shadow:inset 0 1px rgba(255,255,255,.025)}
+.progressTrack span,.homeCharTrack span,.profileProgressTrack i{position:relative;overflow:hidden;transition:width .8s var(--marvel-ease)}
+.progressTrack span::after,.homeCharTrack span::after,.profileProgressTrack i::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.52),transparent);transform:translateX(-100%);animation:marvelProgressSheen 2.6s ease-in-out infinite}
+.trackerHubBreadcrumb{min-height:46px;padding:9px 28px!important;border-bottom-color:rgba(126,156,185,.13)!important;background:rgba(5,9,14,.92)!important;backdrop-filter:blur(20px);box-shadow:0 10px 30px rgba(0,0,0,.13)}
+.topbar{min-height:72px!important;padding:13px 30px!important;border-bottom-color:rgba(129,159,188,.14)!important;background:rgba(5,9,14,.78)!important;backdrop-filter:blur(24px) saturate(140%)!important;box-shadow:0 14px 42px rgba(0,0,0,.12)}
+#trackerView:has(#trackerHubBreadcrumb) .topbar{top:46px}
+.search input{border-color:rgba(127,158,189,.2)!important;background:rgba(7,13,19,.85)!important;box-shadow:inset 0 1px 3px rgba(0,0,0,.2)}
+.search input:focus{border-color:var(--accent)!important;box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 11%,transparent),0 12px 30px rgba(0,0,0,.15)!important}
+.trackerHomeBtn,.compactBtn,.trackerAccountBtn{border-color:rgba(127,158,189,.19)!important;background:rgba(9,16,23,.82)!important}
+.content{position:relative;z-index:1}
+.hero{gap:20px!important}
+.heroPanel,.nextPanel{--surface-accent:var(--accent);border:1px solid transparent!important;border-radius:25px!important;background:linear-gradient(138deg,rgba(14,24,34,.97),rgba(7,13,19,.97)) padding-box,linear-gradient(120deg,color-mix(in srgb,var(--accent) 48%,rgba(255,255,255,.17)),rgba(123,153,183,.12)) border-box!important;box-shadow:0 30px 76px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.045)!important}
+.heroPanel{position:relative;overflow:hidden}
+.heroPanel::before{content:"";position:absolute;right:-80px;bottom:-170px;width:340px;height:340px;border-radius:50%;background:var(--accent);filter:blur(100px);opacity:.12;pointer-events:none}
+.heroPanel::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle at 80% 20%,rgba(255,255,255,.09) 0 1px,transparent 1.4px);background-size:9px 9px;mask-image:linear-gradient(90deg,transparent 45%,#000)}
+.hero h1{position:relative;z-index:1;text-shadow:0 18px 45px rgba(0,0,0,.35)}
+.hero h1 span{text-shadow:0 0 30px var(--marvel-glow)}
+.nextPanel{overflow:hidden}
+.nextCover{border-color:color-mix(in srgb,var(--accent) 48%,#33465b)!important;box-shadow:0 24px 45px rgba(0,0,0,.45);transform:rotate(-1.5deg);transition:transform .45s var(--marvel-ease)}
+.nextPanel:hover .nextCover{transform:rotate(0) translateY(-4px) scale(1.025)}
+.route{gap:11px!important}
+.routeCard{position:relative;overflow:hidden;border-color:rgba(126,157,188,.18)!important;border-left:0!important;border-radius:16px!important;background:linear-gradient(135deg,rgba(13,22,31,.9),rgba(8,14,20,.94))!important;box-shadow:inset 4px 0 var(--accent),inset 0 1px rgba(255,255,255,.025);transition:transform .3s var(--marvel-ease),border-color .2s ease}
+.routeCard:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 45%,#314357)!important}
+.routeCard.archive{box-shadow:inset 4px 0 #78899d,inset 0 1px rgba(255,255,255,.025)}
+.notice{border-color:color-mix(in srgb,var(--accent) 44%,rgba(128,158,187,.17))!important;background:linear-gradient(110deg,color-mix(in srgb,var(--accent) 7%,rgba(11,18,25,.95)),rgba(8,14,20,.92))!important;box-shadow:inset 0 1px rgba(255,255,255,.025)}
+.filterBar{border-color:rgba(126,156,186,.18)!important;border-radius:18px!important;background:rgba(8,14,20,.82)!important;box-shadow:0 20px 44px rgba(0,0,0,.13),inset 0 1px rgba(255,255,255,.03);backdrop-filter:blur(16px)}
+.chip{transition:transform .22s var(--marvel-ease),border-color .2s ease,color .2s ease,background .2s ease!important}
+.chip:hover{transform:translateY(-2px);color:#fff;border-color:color-mix(in srgb,var(--accent) 38%,#42556a)}
+.chip.active{box-shadow:0 0 22px color-mix(in srgb,var(--accent) 10%,transparent),inset 0 0 0 1px color-mix(in srgb,var(--accent) 20%,transparent)}
+.seriesHead{position:relative;padding:0 5px 12px!important;border-bottom:1px solid rgba(127,157,188,.11)}
+.seriesHead::after{content:"";position:absolute;left:4px;bottom:-1px;width:120px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);box-shadow:0 0 16px var(--marvel-glow)}
+.issueList{gap:13px!important}
+.issue{--surface-accent:var(--accent);position:relative;overflow:hidden;border-color:rgba(125,156,186,.16)!important;border-radius:18px!important;background:linear-gradient(112deg,rgba(13,22,31,.94),rgba(7,13,19,.94))!important;box-shadow:inset 0 1px rgba(255,255,255,.028);transition:transform .32s var(--marvel-ease),border-color .24s ease,background .24s ease,box-shadow .32s ease!important}
+.issue::before{content:"";position:absolute;inset:12% auto 12% 0;width:3px;border-radius:0 99px 99px 0;background:var(--accent);opacity:.28;box-shadow:0 0 15px var(--marvel-glow);transition:opacity .25s ease,transform .35s var(--marvel-ease)}
+.issue:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 36%,#3b4e62)!important;background:linear-gradient(112deg,color-mix(in srgb,var(--accent) 5%,#111b25),#080e15)!important;box-shadow:0 24px 48px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.04)!important}
+.issue:hover::before{opacity:1;transform:scaleY(1.22)}
+.issue.read{border-color:rgba(79,224,160,.38)!important;background:linear-gradient(112deg,rgba(28,72,56,.2),rgba(7,15,18,.96))!important;box-shadow:inset 3px 0 rgba(79,224,160,.72),0 0 34px rgba(79,224,160,.035)}
+.issue.read::before{background:var(--ok);opacity:.9;box-shadow:0 0 16px rgba(79,224,160,.45)}
+.cover{border-color:rgba(132,162,192,.22)!important;box-shadow:0 16px 30px rgba(0,0,0,.35);transition:transform .42s var(--marvel-ease),box-shadow .35s ease}
+.issue:hover .cover{transform:translateY(-3px) rotate(-1deg) scale(1.03);box-shadow:0 22px 38px rgba(0,0,0,.46)}
+.status button,.collectionFormats button{position:relative;overflow:hidden;transition:transform .2s var(--marvel-snap),border-color .2s ease,background .2s ease,color .2s ease,box-shadow .25s ease!important}
+.status button:hover,.collectionFormats button:hover{transform:translateY(-2px)}
+.status button.on,.collectionFormats button.on{box-shadow:0 0 25px color-mix(in srgb,currentColor 12%,transparent),inset 0 1px rgba(255,255,255,.05)}
+.bulkToolbar{border-color:rgba(128,158,188,.2)!important;background:rgba(7,12,18,.9)!important;box-shadow:0 20px 50px rgba(0,0,0,.25)!important}
+.loading{position:relative;overflow:hidden;background:rgba(10,17,24,.9)!important}
+.loading::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.035),transparent 70%);transform:translateX(-100%);animation:marvelLoadingSweep 1.8s ease-in-out infinite}
+
+/* Profile: fix the one-column desktop bug and give the collection equal visual weight */
+body.profileActive .app{display:block!important;grid-template-columns:minmax(0,1fr)!important}
+body.profileActive .sidebar{display:none!important}
+body.profileActive .main{display:block!important;width:100%!important;min-width:0}
+.profileView{position:relative;background:transparent!important}
+.profileTopbar{min-height:76px!important;padding:0 clamp(18px,3vw,46px)!important;border-bottom-color:rgba(128,158,188,.15)!important;background:rgba(5,9,14,.78)!important;backdrop-filter:blur(24px) saturate(140%)!important;box-shadow:0 14px 40px rgba(0,0,0,.13)}
+.profileContent{width:min(1660px,100%);max-width:none!important;padding:clamp(28px,4vw,58px) clamp(16px,3.5vw,56px) 100px!important}
+.profileHero{--surface-accent:#ffb000;position:relative;overflow:hidden;min-height:250px;align-items:center!important;margin-bottom:28px!important;padding:clamp(28px,4vw,54px);border:1px solid rgba(135,164,193,.2);border-radius:27px;background:linear-gradient(125deg,rgba(17,27,38,.96),rgba(7,12,18,.98) 64%,rgba(31,24,8,.92));box-shadow:0 32px 85px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.04)}
+.profileHero::before{content:"COLLECTION";position:absolute;right:-1%;top:10%;font-family:Impact,"Arial Black",sans-serif;font-size:clamp(70px,12vw,190px);letter-spacing:.03em;color:rgba(255,255,255,.018);transform:rotate(-4deg);pointer-events:none}
+.profileHero::after{content:"";position:absolute;right:-160px;bottom:-240px;width:460px;height:460px;border-radius:50%;background:#ffb000;filter:blur(110px);opacity:.11;pointer-events:none}
+.profileHero>div:first-child{position:relative;z-index:1}
+.profileHero h1{font-size:clamp(48px,6vw,88px)!important;letter-spacing:-.065em;text-shadow:0 18px 44px rgba(0,0,0,.33)}
+.profileHero p{font-size:14px!important;color:#9eafbf!important}
+.profileHeroMark{position:relative;z-index:1;width:92px!important;height:92px!important;border-color:rgba(255,176,0,.25)!important;border-radius:26px!important;background:linear-gradient(145deg,rgba(26,31,38,.96),rgba(9,14,20,.98))!important;font-size:40px!important;box-shadow:0 25px 50px rgba(0,0,0,.35),0 0 40px rgba(255,176,0,.08);animation:marvelMarkFloat 5s ease-in-out infinite}
+.profileStats{gap:13px!important;margin-bottom:28px!important}
+.profileStats article{--surface-accent:#ffb000;position:relative;overflow:hidden;min-height:130px!important;padding:20px!important;border-color:rgba(126,157,188,.17)!important;border-radius:18px!important;background:linear-gradient(145deg,rgba(13,22,31,.94),rgba(7,13,19,.96))!important;box-shadow:inset 0 1px rgba(255,255,255,.03)}
+.profileStats article::after{content:"";position:absolute;right:-40px;bottom:-55px;width:120px;height:120px;border-radius:50%;background:#ffb000;filter:blur(2px);opacity:.055;transition:transform .45s var(--marvel-ease),opacity .3s ease}
+.profileStats article:hover::after{opacity:.11;transform:scale(1.2)}
+.profileStats b{font-size:34px!important;letter-spacing:-.05em}
+.profileTabs{position:sticky;top:76px;z-index:25;padding:10px!important;border:1px solid rgba(126,157,188,.17)!important;border-radius:16px;background:rgba(6,11,17,.88);box-shadow:0 20px 45px rgba(0,0,0,.18);backdrop-filter:blur(20px)}
+.profileTab{border-radius:11px!important;transition:transform .22s var(--marvel-ease),border-color .2s ease,background .2s ease!important}
+.profileTab:hover{transform:translateY(-2px)}
+.profileTab.active{box-shadow:0 0 25px rgba(255,176,0,.07),inset 0 1px rgba(255,255,255,.04)}
+.profileOverviewGrid{gap:16px!important}
+.profileOverviewCard{--surface-accent:#ffb000;position:relative;overflow:hidden;padding:24px!important;border-color:rgba(126,157,188,.16)!important;border-radius:20px!important;background:linear-gradient(145deg,rgba(13,22,31,.94),rgba(7,13,19,.96))!important;box-shadow:0 22px 48px rgba(0,0,0,.12),inset 0 1px rgba(255,255,255,.028)}
+.profileOverviewCard:hover{border-color:rgba(255,176,0,.3)!important}
+.profileMegaNumber{font-size:50px!important;letter-spacing:-.06em}
+.profileProgressRow{border-color:rgba(126,157,188,.14)!important;background:rgba(6,12,18,.84)!important;transition:transform .25s var(--marvel-ease),border-color .2s ease!important}
+.profileProgressRow:hover{transform:translateX(4px);border-color:rgba(255,176,0,.3)!important}
+.profileIssueGrid{gap:13px!important}
+.profileIssueCard{--surface-accent:#ffb000;position:relative;border-color:rgba(126,157,188,.15)!important;border-radius:18px!important;background:linear-gradient(135deg,rgba(12,20,29,.95),rgba(7,12,18,.98))!important;box-shadow:inset 0 1px rgba(255,255,255,.025);transition:transform .3s var(--marvel-ease),border-color .24s ease,box-shadow .3s ease}
+.profileIssueCard:hover{transform:translateY(-3px);border-color:rgba(255,176,0,.3)!important;box-shadow:0 22px 44px rgba(0,0,0,.22)}
+.profileIssueCover{box-shadow:0 16px 30px rgba(0,0,0,.35)}
+.profileToolbar{padding:12px 0}
+.profileSearch input{background:rgba(7,13,19,.88)!important;border-color:rgba(126,157,188,.18)!important}
+.profileFormatFilters button,.profileNewList{transition:transform .22s var(--marvel-ease),border-color .2s ease!important}
+.profileFormatFilters button:hover,.profileNewList:hover{transform:translateY(-2px)}
+
+/* Dialogs */
+.accountDialog,.editionDialog{border-color:rgba(135,166,197,.3)!important;background:linear-gradient(145deg,rgba(12,20,29,.98),rgba(5,10,15,.99))!important;box-shadow:0 45px 130px rgba(0,0,0,.75),0 0 70px var(--marvel-glow)!important}
+.accountDialog[open],.editionDialog[open]{animation:marvelDialogIn .48s var(--marvel-snap) both}
+.accountDialog::backdrop,.editionDialog::backdrop{background:rgba(1,4,7,.78)!important;backdrop-filter:blur(15px) saturate(80%)!important;animation:marvelBackdropIn .35s ease both}
+
+/* Mobile path drawer */
+.mobileNavToggle{display:none;align-items:center;justify-content:center;gap:7px;min-height:38px;padding:8px 10px;border:1px solid rgba(128,158,188,.2);border-radius:10px;background:rgba(9,16,23,.86);color:#eef4f8;font-size:9px;font-weight:900}
+.mobileNavToggle svg{width:16px;height:16px}
+.mobileNavClose{display:none;position:absolute;right:14px;top:14px;z-index:3;width:38px;height:38px;padding:0;border:1px solid rgba(128,158,188,.25);border-radius:11px;background:rgba(10,17,24,.92);color:#eef4f8;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.24)}
+.mobileNavClose svg{width:18px;height:18px}
+.mobileNavScrim{position:fixed;inset:0;z-index:118;border:0;background:rgba(1,4,7,.72);opacity:0;pointer-events:none;backdrop-filter:blur(6px);transition:opacity .32s ease}
+
+@media(max-width:1280px){
+  .homeDashboardHero{min-height:480px!important}
+  .homeIntro{padding:55px!important}
+  .hubCard{min-height:210px!important}
+}
+
+@media(max-width:1120px){
+  body:not(.homeActive):not(.profileActive) .app{display:block!important}
+  body:not(.homeActive):not(.profileActive) .sidebar{position:fixed!important;inset:0 auto 0 0!important;z-index:125!important;width:min(370px,88vw)!important;height:100dvh!important;padding:23px 18px!important;border:0!important;border-right:1px solid rgba(132,162,192,.22)!important;display:flex!important;grid-template-columns:none!important;flex-direction:column!important;overflow:auto!important;transform:translate3d(-105%,0,0);visibility:hidden;transition:transform .45s var(--marvel-ease),visibility 0s .45s!important;box-shadow:35px 0 90px rgba(0,0,0,.55)!important}
+  body.mobileNavOpen:not(.homeActive):not(.profileActive) .sidebar{transform:none;visibility:visible;transition:transform .45s var(--marvel-ease),visibility 0s!important}
+  body.mobileNavOpen{overflow:hidden}
+  body.mobileNavOpen .mobileNavScrim{opacity:1;pointer-events:auto}
+  .mobileNavToggle{display:inline-flex}
+  .mobileNavClose{display:grid}
+  .trackerTopActions .mobileNavToggle{order:-1}
+  .trackerSidebar{display:flex!important;grid-column:auto!important}
+  .topbar{top:0!important}
+  #trackerView:has(#trackerHubBreadcrumb) .topbar{top:0}
+  .trackerHubBreadcrumb{position:static!important}
+  .homeDashboardHero{grid-template-columns:1fr!important}
+  .homeIntro{padding:50px clamp(28px,7vw,70px)!important}
+  .homeContinue{min-height:410px!important}
+  .profileTabs{top:72px}
+}
+
+@media(max-width:820px){
+  .homeTopbar{min-height:66px!important}
+  .homeContent{padding:16px 12px 70px!important}
+  .homeDashboardHero{border-radius:24px!important}
+  .homeIntro{padding:39px 26px 34px!important}
+  .homeIntro h1{font-size:clamp(52px,14vw,72px)!important}
+  .homeIntro>p{font-size:12px!important;line-height:1.7!important}
+  .homeContinue{margin:11px!important;border-radius:20px!important}
+  .homeStats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;margin-bottom:42px!important}
+  .homeStat{min-height:108px!important;padding:16px!important}
+  .homeStat>b{font-size:27px!important}
+  .hubExplorer{gap:34px!important}
+  .hubExplorerRoot{gap:38px!important}
+  .hubExplorerHeading h2{font-size:38px!important}
+  .hubExplorerHeading p{font-size:12px!important}
+  .hubCard,.hubCard.compact{min-height:160px!important}
+  .hubDetailHero{min-height:0!important;padding:28px!important}
+  .hubDetailHero h2{font-size:46px!important}
+  .profileContent{padding:24px 14px 70px!important}
+  .profileHero{min-height:0;padding:28px 22px;border-radius:22px}
+  .profileHero h1{font-size:48px!important}
+  .profileHero p{font-size:12px!important}
+  .profileStats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .profileStats article{min-height:106px!important;padding:15px!important}
+  .profileStats b{font-size:27px!important}
+  .profileTabs{top:66px;margin-inline:-2px}
+}
+
+@media(max-width:720px){
+  .marvelAtmosphereOrb{width:500px;height:500px;filter:blur(82px)}
+  .marvelAtmosphereGrid{opacity:.28}
+  .marvelAtmosphereGrain{opacity:.035;animation-duration:.65s}
+  .homeTopBrand img{width:68px!important}
+  .homeTopAction{width:40px;height:40px;padding:0!important}
+  .homeDashboardHero{min-height:0!important}
+  .homeIntro::before{font-size:88px!important;top:8%!important}
+  .homeContinueBody{padding:15px!important;gap:14px!important}
+  .homeContinueCover{animation:none}
+  .hubGrid,.hubGrid.familyGrid{gap:10px!important}
+  .hubCard,.hubCard.compact{padding:17px!important;border-radius:18px!important}
+  .hubCardBody b{font-size:20px!important}
+  .hubPathCard{min-height:76px;padding:12px!important}
+  .topbar{grid-template-columns:auto minmax(0,1fr) auto!important;padding:10px 12px!important;gap:8px!important}
+  .trackerTopActions{min-width:0}
+  .mobileNavToggle{width:38px;height:38px;padding:0;font-size:0}
+  .mobileNavToggle svg{width:17px;height:17px}
+  .heroPanel,.nextPanel{border-radius:20px!important}
+  .issue{border-radius:15px!important}
+  .issue:hover{transform:none}
+  .profileTopbar{padding:0 12px!important}
+  .profileHero h1{font-size:44px!important}
+}
+
+@media(max-width:520px){
+  .homeTopBrand small{display:none}
+  .homeTopBrand b{font-size:8px!important}
+  .homeIntro h1{font-size:50px!important}
+  .homeHeroActions{width:100%;display:grid!important;grid-template-columns:1fr 1fr}
+  .homePrimary,.homeSecondary{min-width:0;padding:12px 9px!important;font-size:8px!important}
+  .homeContinueBody{grid-template-columns:92px minmax(0,1fr)!important;min-height:288px!important}
+  .homeContinueMeta h2{font-size:17px!important}
+  .homeContinueMeta p{font-size:8px!important}
+  .homeContinueMeta button{padding:9px!important;font-size:7px!important}
+  .homeStat small{line-height:1.35}
+  .hubExplorerHeading h2{font-size:34px!important}
+  .hubShelfHead h3{font-size:19px!important}
+  .hubCard,.hubCard.compact{min-height:145px!important}
+  .topbarTitle{display:none}
+  .topbar{grid-template-columns:auto minmax(0,1fr)!important}
+  .trackerHomeBtn{grid-column:1;grid-row:1}
+  .trackerTopActions{grid-column:2;grid-row:1;justify-self:end}
+  .search{grid-column:1/-1!important;grid-row:2!important}
+  #trackerProfileBtn{font-size:0;width:38px;height:38px;padding:0;position:relative}
+  #trackerProfileBtn::after{content:"◆";font-size:12px;color:var(--accent)}
+  .content{padding:16px 10px 48px!important}
+  .profileHomeButton{font-size:0;width:40px;height:40px;padding:0}
+  .profileHomeButton::before{content:"←";font-size:16px}
+  .profileBrand b{font-size:11px}
+  .profileHero{padding:25px 18px}
+  .profileHero h1{font-size:39px!important}
+  .profileStats article span{font-size:8px}
+  .profileTabs{border-radius:13px}
+}
+
+@media(hover:none){
+  .motionSpotlightLayer{display:none}
+  .motionTilt{transform:none!important}
+  .motionMagnetic{translate:0 0!important}
+  .hubCard:hover,.hubPathCard:hover,.issue:hover,.profileIssueCard:hover{transform:none!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0ms!important}
+  .marvelBoot{display:none!important}
+  .marvelAtmosphereGrain,.marvelAtmosphereGrid{animation:none!important}
+  .js-motion .motionReveal{opacity:1!important;transform:none!important;filter:none!important}
+  .motionTilt{transform:none!important}
+  .motionRipple,.motionBurst{display:none!important}
+}
+
+@keyframes marvelBootLogo{from{opacity:0;transform:scale(.72);filter:blur(14px)}65%{opacity:1;transform:scale(1.04);filter:blur(0)}to{transform:scale(1)}}
+@keyframes marvelBootLine{0%{transform:scaleX(0)}55%{transform:scaleX(.72)}100%{transform:scaleX(1)}}
+@keyframes marvelBootFade{to{visibility:hidden;background:transparent}}
+@keyframes marvelBootContentOut{to{opacity:0;transform:scale(1.12);filter:blur(8px)}}
+@keyframes marvelCurtainLeft{to{transform:translate3d(-110%,0,0) skewX(-4deg)}}
+@keyframes marvelCurtainRight{to{transform:translate3d(110%,0,0) skewX(4deg)}}
+@keyframes marvelOrbDrift{from{translate:-3% -2%;scale:.92}to{translate:5% 5%;scale:1.08}}
+@keyframes marvelGridDrift{to{background-position:70px 70px}}
+@keyframes marvelGrain{0%{translate:0 0}25%{translate:-1% 1%}50%{translate:1% -1%}75%{translate:1% 1%}100%{translate:-1% -1%}}
+@keyframes marvelViewOld{to{opacity:0;transform:scale(1.012);filter:blur(5px)}}
+@keyframes marvelViewNew{from{opacity:0;transform:translateY(14px) scale(.99);filter:blur(7px)}to{opacity:1;transform:none;filter:none}}
+@keyframes marvelRipple{to{opacity:0;transform:translate(-50%,-50%) scale(18)}}
+@keyframes marvelIssueIn{from{opacity:0;transform:translate3d(20px,18px,0) scale(.985);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@keyframes marvelSpark{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--spark-x),var(--spark-y)) scale(0)}}
+@keyframes marvelHeroGlow{from{transform:scale(.82)}to{transform:scale(1.18)}}
+@keyframes marvelLineDraw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes marvelButtonSheen{0%,72%{transform:translateX(-180%) skewX(-18deg)}90%,100%{transform:translateX(650%) skewX(-18deg)}}
+@keyframes marvelGradientRun{to{background-position:200% 0}}
+@keyframes marvelCoverFloat{0%,100%{transform:translateY(0) rotate(-.7deg)}50%{transform:translateY(-8px) rotate(.7deg)}}
+@keyframes marvelCoverSheen{0%,70%{transform:translateX(-55%)}88%,100%{transform:translateX(55%)}}
+@keyframes marvelProgressSheen{0%,45%{transform:translateX(-110%)}75%,100%{transform:translateX(110%)}}
+@keyframes marvelLoadingSweep{to{transform:translateX(100%)}}
+@keyframes marvelMarkFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@keyframes marvelDialogIn{from{opacity:0;transform:translateY(25px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes marvelBackdropIn{from{opacity:0}to{opacity:1}}

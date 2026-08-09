@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#070a0e">
+  <meta name="color-scheme" content="dark">
   <meta name="description" content="Marvel Archive: tracker personale delle edizioni italiane Marvel.">
   <title>Marvel Archive</title>
   <!-- PWA: launcher identity -->
@@ -22,8 +23,27 @@
   <link rel="stylesheet" href="css/collection-formats.css?v=1">
   <link rel="stylesheet" href="css/profile.css?v=1">
   <link rel="stylesheet" href="css/editions.css?v=3">
+  <link rel="stylesheet" href="css/cinematic.css?v=1">
 </head>
 <body>
+<div class="marvelBoot" id="marvelBoot" role="status" aria-label="Caricamento Marvel Archive">
+  <div class="marvelBootCurtain marvelBootCurtainLeft"></div>
+  <div class="marvelBootCurtain marvelBootCurtainRight"></div>
+  <div class="marvelBootContent">
+    <span class="marvelBootOverline">Personal reading system</span>
+    <img src="assets/brand/marvel.png?v=3" alt="Marvel">
+    <strong>ARCHIVE</strong>
+    <span class="marvelBootLine"><i></i></span>
+    <small>Assemblaggio dell'universo in corso</small>
+  </div>
+</div>
+<div class="marvelAtmosphere" aria-hidden="true">
+  <span class="marvelAtmosphereOrb marvelAtmosphereOrbRed"></span>
+  <span class="marvelAtmosphereOrb marvelAtmosphereOrbAccent"></span>
+  <span class="marvelAtmosphereGrid"></span>
+  <span class="marvelAtmosphereGrain"></span>
+</div>
+<div class="marvelScrollProgress" aria-hidden="true"><span id="marvelScrollProgressBar"></span></div>
 <div class="app">
   <aside class="sidebar">
     <button type="button" class="logo" id="homeBtn" aria-label="Vai alla home"><img class="logoMark" src="assets/brand/marvel.png?v=3" alt="Marvel"><span><strong>MARVEL ARCHIVE</strong><small id="logoSub">Reading tracker</small></span></button>
@@ -44,7 +64,7 @@
       <div class="homeContent">
         <section class="homeDashboardHero">
           <div class="homeIntro"><div class="homeEyebrow">Personal reading system · Edizioni italiane</div><h1>Bentornato,<br><span id="homeGreetingName">lettore.</span></h1><p>La tua collezione Marvel in un solo posto: riprendi dal prossimo albo, controlla i progressi e passa da un percorso all'altro senza perdere il filo.</p><div class="homeHeroActions"><button type="button" class="homePrimary" id="homeResume">Riprendi</button><button type="button" class="homeSecondary" id="homeExplore">Tutti i percorsi</button></div><div class="homeHeroIcons" id="homeHeroIcons" aria-label="Percorsi disponibili"></div></div>
-          <aside class="homeContinue" id="homeContinue"><div class="homeContinueLoading"><span></span><div><b>Prepariamo il prossimo albo…</b><small>Caricamento del percorso</small></div></div></aside>
+          <div class="homeContinue" id="homeContinue"><div class="homeContinueLoading"><span></span><div><b>Prepariamo il prossimo albo…</b><small>Caricamento del percorso</small></div></div></div>
         </section>
         <section class="homeStats" id="homeStats" aria-label="Riepilogo progressi"></section>
         <section class="homeSection" id="homeCharactersSection"><div class="homeSectionHead"><div><span class="homeKicker">I tuoi percorsi</span><h2>Scegli il prossimo percorso</h2></div><p>Fisico e Digitale sono condivisi nella collezione globale; la lettura resta separata per ogni percorso.</p></div><div class="homeCharacterGrid" id="homeCharacterGrid"></div></section>
@@ -66,7 +86,7 @@
     <div id="trackerView">
       <header class="topbar"><button type="button" class="trackerHomeBtn" id="trackerHomeBtn" aria-label="Torna alla home"><span id="trackerHomeIcon"></span><b>Home</b></button><div class="topbarTitle"><strong id="topTitle">Marvel Archive</strong><span id="topSub">Caricamento…</span></div><div class="search"><input id="search" type="search" placeholder="Cerca numero, titolo, evento, anno…"></div><div class="trackerTopActions"><button class="compactBtn" id="trackerProfileBtn">Collezione</button><button class="compactBtn" id="compactBtn">Vista compatta</button><button type="button" class="trackerAccountBtn" id="trackerAccountBtn" aria-label="Apri profilo" aria-haspopup="dialog"><span class="accountAvatar" data-account-avatar>M</span></button></div></header>
       <div class="content">
-        <section class="hero"><article class="heroPanel"><div class="label" id="heroLabel">Percorso attivo</div><h1 id="heroTitle">Marvel Archive</h1><p id="heroDesc">Caricamento dati…</p></article><aside class="nextPanel" id="nextPanel"><div class="loading">Caricamento…</div></aside></section>
+        <section class="hero"><article class="heroPanel"><div class="label" id="heroLabel">Percorso attivo</div><h1 id="heroTitle">Marvel Archive</h1><p id="heroDesc">Caricamento dati…</p></article><div class="nextPanel" id="nextPanel"><div class="loading">Caricamento…</div></div></section>
         <div class="route" id="route"></div>
         <div id="noticeWrap"></div>
         <div class="filterBar" id="filterBar"></div>
@@ -90,7 +110,8 @@
 </dialog>
 <script src="js/editions.js?v=6"></script>
 <script src="js/profile-ui.js?v=2"></script>
-<script type="module" src="js/app.js?v=17"></script>
-  <script type="module" src="js/hub-ui.js?v=8"></script>
+<script src="js/motion.js?v=1"></script>
+<script type="module" src="js/app.js?v=18"></script>
+<script type="module" src="js/hub-ui.js?v=9"></script>
 </body>
 </html>

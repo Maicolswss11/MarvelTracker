@@ -175,16 +175,18 @@ function bindHubControls(root){
   root.querySelectorAll("[data-hub-path]").forEach(button=>button.onclick=()=>openPath(button.dataset.hubPath,button.dataset.fromHub));
 }
 
-function openHub(id){
+function openHub(id,{animate=true,scroll=true}={}){
   const root = byId("hubExplorer");
   if(!root) return;
+  if(animate&&window.MarvelMotion?.sectionTransition)return window.MarvelMotion.sectionTransition(root,()=>openHub(id,{animate:false,scroll}));
   activeHubId = id || null;
-  if(!id){ renderRootExplorer(root); return; }
+  if(!id){ renderRootExplorer(root); document.dispatchEvent(new CustomEvent("marvel:render",{detail:{view:"hub"}})); return; }
   const hub = hubById(id);
-  if(!hub){ renderRootExplorer(root); return; }
+  if(!hub){ renderRootExplorer(root); document.dispatchEvent(new CustomEvent("marvel:render",{detail:{view:"hub"}})); return; }
   setLastHub(id);
   if(id === "main") renderMainUniverse(root,hub); else renderHubDetail(root,hub);
-  root.scrollIntoView({behavior:"smooth",block:"start"});
+  if(scroll)root.scrollIntoView({behavior:"smooth",block:"start"});
+  document.dispatchEvent(new CustomEvent("marvel:render",{detail:{view:"hub"}}));
 }
 
 function ensureHomeExplorer(){
@@ -257,7 +259,7 @@ function refresh(){
   collectProgress();
   if(location.hash === "#/home" || !location.hash){
     hideTrackerContextOnHome();
-    if(activeHubId && byId("hubExplorer")) openHub(activeHubId);
+    if(activeHubId && byId("hubExplorer")) openHub(activeHubId,{animate:false,scroll:false});
   } else renderTrackerContext();
 }
 
@@ -289,7 +291,7 @@ async function initHubUi(){
     if(legacyGrid){
       new MutationObserver(()=>{
         collectProgress();
-        if(location.hash === "#/home" && byId("hubExplorer")) openHub(activeHubId);
+        if(location.hash === "#/home" && byId("hubExplorer")) openHub(activeHubId,{animate:false,scroll:false});
       }).observe(legacyGrid,{childList:true,subtree:true,characterData:true});
     }
     window.addEventListener("hashchange",()=>setTimeout(refresh,0));

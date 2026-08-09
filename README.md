@@ -2,13 +2,16 @@
 
 Marvel Archive è un tracker web delle edizioni italiane Marvel.
 
-La home `#/home` riunisce il prossimo albo, il riepilogo globale, il pulsante per riprendere l'ultimo percorso e le schede dei cinque personaggi. Le pagine `#/{personaggio}` aprono il tracker completo del singolo eroe e includono un tasto Home esplicito.
+La home `#/home` riunisce il prossimo albo, il riepilogo globale e un explorer gerarchico per universi, famiglie ed eventi. Le pagine `#/{percorso}` aprono il tracker narrativo completo del percorso selezionato; `#/profile` raccoglie collezione, letture, wishlist e liste personali.
 
 ## Architettura
 
 - `index.html` — shell leggera
 - `css/app.css` — stile
+- `css/cinematic.css` — sistema visivo, layout responsive e motion design
 - `js/app.js` — logica dell'app
+- `js/hub-ui.js` — navigazione per universi, famiglie ed eventi
+- `js/motion.js` — transizioni, reveal, micro-interazioni e menu mobile
 - `data/characters.json` — manifest dei personaggi
 - `data/characters/*.json` — metadati leggeri per personaggio
 - `data/encoded/*.json` — manifest dei dataset compressi
@@ -17,13 +20,13 @@ La home `#/home` riunisce il prossimo albo, il riepilogo globale, il pulsante pe
 
 La vecchia `const DATA` monolitica non esiste più nell'HTML. I dati vengono caricati e decompressi solo quando selezioni il personaggio.
 
-## Personaggi attuali
+## Percorsi attuali
 
-- Iron Man
-- Thor
-- Capitan America
-- Hulk
-- Spider-Man
+Il manifest comprende personaggi, squadre, universi completi ed eventi. La tassonomia in `data/hubs.json` organizza i percorsi tra Terra-616, Ultimate classico, Nuovo Ultimate, famiglie narrative ed eventi senza duplicare la collezione globale.
+
+## Interfaccia
+
+Il sistema visivo include una sequenza di apertura, transizioni tra viste, entrate progressive, contatori animati, illuminazione reattiva e feedback sui comandi. Su mobile la navigazione dei percorsi usa un pannello laterale dedicato. `prefers-reduced-motion` disattiva le animazioni non essenziali e mantiene immediatamente visibili tutti i contenuti.
 
 ## Progressi
 
@@ -51,7 +54,7 @@ Le copertine sono remote. Per Spider-Man vengono usati URL puntuali ComicsBox `U
 
 ## Loghi
 
-Il repository include cinque emblemi PNG locali per il selettore dei personaggi e il wordmark Marvel dell'intestazione. Gli asset possono essere rigenerati con `python scripts/generate_logos.py`.
+Il repository include emblemi locali per personaggi, squadre, universi ed eventi, oltre al wordmark Marvel dell'intestazione.
 
 ## Verifica dati
 

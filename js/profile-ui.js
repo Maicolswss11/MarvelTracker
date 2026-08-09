@@ -335,6 +335,7 @@
     if(activeTab === "overview") renderOverview();
     else if(activeTab === "lists") renderLists();
     else renderItemTab();
+    document.dispatchEvent(new CustomEvent("marvel:render",{detail:{view:"profile"}}));
   }
 
   function decorateTrackerWishlist(){
@@ -359,7 +360,8 @@
     });
   }
 
-  async function show({updateHash=true}={}){
+  async function show({updateHash=true,animate=true}={}){
+    if(animate&&window.MarvelMotion?.transition)return window.MarvelMotion.transition(()=>show({updateHash,animate:false}));
     if(!api) return;
     document.body.classList.remove("homeActive","bulkSelectMode");
     document.body.classList.add("profileActive");
