@@ -276,6 +276,26 @@ body.profileActive .main{display:block!important;width:100%!important;min-width:
 .mobileNavClose svg{width:18px;height:18px}
 .mobileNavScrim{position:fixed;inset:0;z-index:118;border:0;background:rgba(1,4,7,.72);opacity:0;pointer-events:none;backdrop-filter:blur(6px);transition:opacity .32s ease}
 
+/* Desktop full-page layout: use the viewport instead of centering capped canvases. */
+@media(min-width:1121px){
+  .homeContent,
+  .profileContent,
+  .content{
+    width:100%!important;
+    max-width:none!important;
+    margin-inline:0!important;
+  }
+
+  .homeContent,
+  .profileContent{
+    padding-inline:clamp(24px,1.8vw,42px)!important;
+  }
+
+  .content{
+    padding-inline:clamp(24px,1.8vw,38px)!important;
+  }
+}
+
 @media(max-width:1280px){
   .homeDashboardHero{min-height:480px!important}
   .homeIntro{padding:55px!important}
