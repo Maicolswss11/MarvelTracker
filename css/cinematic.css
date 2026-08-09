@@ -154,7 +154,7 @@ body.homeActive .sidebar{display:none!important}
 .hubDetailStats{padding:18px 20px!important;border-color:rgba(255,255,255,.13)!important;border-radius:17px!important;box-shadow:0 18px 35px rgba(0,0,0,.25)}
 .hubDetailStats b{font-size:28px!important}
 .hubPathGrid{gap:13px!important}
-.hubPathCard{--surface-accent:var(--path-accent);min-height:88px;padding:16px 17px!important;border-color:rgba(121,153,184,.18)!important;border-radius:17px!important;background:linear-gradient(135deg,rgba(12,20,29,.94),rgba(7,12,18,.98))!important;box-shadow:inset 0 1px rgba(255,255,255,.025)}
+.hubPathCard{--surface-accent:var(--path-accent);grid-template-columns:56px minmax(0,1fr) auto 24px!important;min-height:88px;padding:16px 17px!important;border-color:rgba(121,153,184,.18)!important;border-radius:17px!important;background:linear-gradient(135deg,rgba(12,20,29,.94),rgba(7,12,18,.98))!important;box-shadow:inset 0 1px rgba(255,255,255,.025)}
 .hubPathCard:hover{border-color:color-mix(in srgb,var(--path-accent) 62%,#3c5065)!important;background:linear-gradient(135deg,color-mix(in srgb,var(--path-accent) 8%,#101923),#080e14)!important;box-shadow:0 18px 38px rgba(0,0,0,.27),0 0 30px color-mix(in srgb,var(--path-accent) 8%,transparent)!important}
 .hubPathLogo{width:56px!important;height:56px!important;border-radius:14px!important;box-shadow:0 12px 24px rgba(0,0,0,.28)}
 .hubPathMain b{font-size:15px!important}
@@ -162,6 +162,11 @@ body.homeActive .sidebar{display:none!important}
 .hubPathCard:hover .hubPathArrow{transform:translateX(5px)}
 .hubBreadcrumb{margin-bottom:-4px!important}
 .hubBreadcrumb .hubHomeLevelsBtn,.trackerHubBreadcrumb .hubHomeLevelsBtn{border-color:rgba(255,255,255,.16)!important;background:linear-gradient(135deg,#fff,#dce4eb)!important;color:#11151b!important;box-shadow:0 10px 24px rgba(0,0,0,.25)!important}
+
+/* Keep every mobile path card's grid in sync with the cinematic 56px cover. */
+@media(max-width:520px){
+  .hubPathCard{grid-template-columns:56px minmax(0,1fr)!important;gap:12px!important}
+}
 
 /* Tracker shell */
 .sidebar{background:linear-gradient(180deg,rgba(6,10,15,.98),rgba(5,8,12,.95))!important;border-right-color:rgba(125,155,185,.16)!important;box-shadow:18px 0 60px rgba(0,0,0,.18);backdrop-filter:blur(26px) saturate(130%)!important}
