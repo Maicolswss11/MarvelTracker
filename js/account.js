@@ -111,6 +111,26 @@ export async function signOut(){
   await applySession(null);
 }
 
+export async function updateProfile({displayName,avatarColor}={}){
+  const supabase=await ensureClient();
+  if(!supabase||!currentUser)throw new Error("Devi accedere prima di modificare il profilo cloud.");
+  const changes={};
+  const cleanName=String(displayName||"").trim().slice(0,40);
+  if(cleanName)changes.display_name=cleanName;
+  if(/^#[0-9a-f]{6}$/i.test(String(avatarColor||"")))changes.avatar_color=avatarColor;
+  if(!Object.keys(changes).length)return currentProfile;
+  const {data,error}=await supabase.from("profiles").update(changes).eq("id",currentUser.id).select("display_name,avatar_color,updated_at").single();
+  if(error)throw error;
+  currentProfile=data;
+  if(cleanName&&currentUser.user_metadata?.display_name!==cleanName){
+    const {data:authData,error:authError}=await supabase.auth.updateUser({data:{display_name:cleanName}});
+    if(authError)console.warn("Metadati del profilo non aggiornati",authError);
+    else if(authData?.user)currentUser=authData.user;
+  }
+  notify();
+  return currentProfile;
+}
+
 export async function fetchCloudState(){
   if(!client||!currentUser)return null;
   const {data,error}=await client.from("tracker_states").select("state,updated_at").eq("user_id",currentUser.id).maybeSingle();

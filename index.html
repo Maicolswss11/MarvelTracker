@@ -21,9 +21,10 @@
   <link rel="stylesheet" href="css/hub-ui.css?v=7">
   <link rel="stylesheet" href="css/bulk-actions.css?v=1">
   <link rel="stylesheet" href="css/collection-formats.css?v=1">
-  <link rel="stylesheet" href="css/profile.css?v=1">
+  <link rel="stylesheet" href="css/profile.css?v=2">
   <link rel="stylesheet" href="css/editions.css?v=3">
   <link rel="stylesheet" href="css/cinematic.css?v=3">
+  <link rel="stylesheet" href="css/profile-account.css?v=1">
 </head>
 <body>
 <div class="marvelBoot" id="marvelBoot" role="status" aria-label="Caricamento Marvel Archive">
@@ -59,7 +60,7 @@
     <section class="homeView" id="homeView" hidden>
       <header class="homeTopbar">
         <div class="homeTopBrand"><img src="assets/brand/marvel.png?v=3" alt="Marvel"><span><b>MARVEL ARCHIVE</b><small>Il tuo archivio personale</small></span></div>
-        <div class="homeTopActions"><button type="button" class="homeTopAction" id="homeTopResume">Riprendi percorso</button><button type="button" class="homeTopAction" id="homeProfileBtn" aria-label="Apri la collezione"><svg class="homeTopActionIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8v12h16V8"/><path d="M2.5 4h19v4h-19z"/><path d="M9 12h6"/></svg><span class="homeTopActionLabel">Collezione</span></button><button type="button" class="accountButton" id="homeAccountBtn" aria-haspopup="dialog"><span class="accountAvatar" data-account-avatar>M</span><span class="accountButtonText"><b data-account-name>Profilo locale</b><small data-account-status>Accedi per sincronizzare</small></span></button></div>
+        <div class="homeTopActions"><button type="button" class="homeTopAction" id="homeTopResume">Riprendi percorso</button><button type="button" class="homeTopAction" id="homeProfileBtn" aria-label="Apri la collezione"><svg class="homeTopActionIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8v12h16V8"/><path d="M2.5 4h19v4h-19z"/><path d="M9 12h6"/></svg><span class="homeTopActionLabel">Collezione</span></button><button type="button" class="accountButton" id="homeAccountBtn" aria-label="Apri il tuo profilo"><span class="accountAvatar" data-account-avatar>M</span><span class="accountButtonText"><b data-account-name>Profilo locale</b><small data-account-status>Accedi per sincronizzare</small></span></button></div>
       </header>
       <div class="homeContent">
         <section class="homeDashboardHero">
@@ -76,7 +77,13 @@
         <div class="profileTopbarRight"><button type="button" class="profileAccountButton" id="profileAccountBtn"><span class="accountAvatar" data-account-avatar>M</span><span data-account-name>Profilo locale</span></button></div>
       </header>
       <div class="profileContent">
-        <section class="profileHero"><div><div class="eyebrow">Il tuo archivio personale</div><h1>Profilo & Collezione</h1><p>Un catalogo unico per copie fisiche, digitali, letture, wishlist e liste personali. Lo stesso albo compare una sola volta anche quando appartiene a più percorsi.</p></div><div class="profileHeroMark">M</div></section>
+        <section class="profileHero profileIdentityHero" id="profileIdentityHero">
+          <div class="profileHeroIdentity">
+            <button type="button" class="profileHeroAvatarButton" id="profileHeroAvatarButton" aria-label="Cambia avatar"><span class="profileHeroAvatarVisual" id="profileHeroAvatarVisual">M</span><small>Cambia avatar</small></button>
+            <div class="profileHeroCopy"><div class="eyebrow" id="profileHeroEyebrow">Il tuo archivio personale</div><h1 id="profileHeroName">Profilo locale</h1><p id="profileHeroBio">Costruisci la tua identità Marvel e porta collezione, letture e wishlist sempre con te.</p><div class="profileHeroChips"><span id="profileHeroCloud">Salvato su questo dispositivo</span><span id="profileHeroFavorite">Nessun percorso preferito</span></div></div>
+          </div>
+          <button type="button" class="profileHeroEdit" id="profileHeroEdit">Personalizza profilo <span aria-hidden="true">→</span></button>
+        </section>
         <section class="profileStats" id="profileStats"></section>
         <nav class="profileTabs" id="profileTabs" aria-label="Sezioni profilo"></nav>
         <div class="profileToolbar" id="profileToolbar"></div>
@@ -84,7 +91,7 @@
       </div>
     </section>
     <div id="trackerView">
-      <header class="topbar"><button type="button" class="trackerHomeBtn" id="trackerHomeBtn" aria-label="Torna alla home"><span id="trackerHomeIcon"></span><b>Home</b></button><div class="topbarTitle"><strong id="topTitle">Marvel Archive</strong><span id="topSub">Caricamento…</span></div><div class="search"><input id="search" type="search" placeholder="Cerca numero, titolo, evento, anno…"></div><div class="trackerTopActions"><button class="compactBtn" id="trackerProfileBtn">Collezione</button><button class="compactBtn" id="compactBtn">Vista compatta</button><button type="button" class="trackerAccountBtn" id="trackerAccountBtn" aria-label="Apri profilo" aria-haspopup="dialog"><span class="accountAvatar" data-account-avatar>M</span></button></div></header>
+      <header class="topbar"><button type="button" class="trackerHomeBtn" id="trackerHomeBtn" aria-label="Torna alla home"><span id="trackerHomeIcon"></span><b>Home</b></button><div class="topbarTitle"><strong id="topTitle">Marvel Archive</strong><span id="topSub">Caricamento…</span></div><div class="search"><input id="search" type="search" placeholder="Cerca numero, titolo, evento, anno…"></div><div class="trackerTopActions"><button class="compactBtn" id="trackerProfileBtn">Collezione</button><button class="compactBtn" id="compactBtn">Vista compatta</button><button type="button" class="trackerAccountBtn" id="trackerAccountBtn" aria-label="Apri il tuo profilo"><span class="accountAvatar" data-account-avatar>M</span></button></div></header>
       <div class="content">
         <section class="hero"><article class="heroPanel"><div class="label" id="heroLabel">Percorso attivo</div><h1 id="heroTitle">Marvel Archive</h1><p id="heroDesc">Caricamento dati…</p></article><div class="nextPanel" id="nextPanel"><div class="loading">Caricamento…</div></div></section>
         <div class="route" id="route"></div>
@@ -95,23 +102,10 @@
     </div>
   </main>
 </div>
-<dialog class="accountDialog" id="accountDialog" aria-labelledby="accountDialogTitle">
-  <div class="accountDialogShell">
-    <form method="dialog"><button class="accountDialogClose" aria-label="Chiudi profilo">×</button></form>
-    <header><span class="homeKicker">Marvel Archive Cloud</span><h2 id="accountDialogTitle">Il tuo profilo</h2><p>Sincronizza collezione e letture su tutti i tuoi dispositivi.</p></header>
-    <div class="accountLoading" id="accountLoading">Caricamento profilo…</div>
-    <section class="accountSetup" id="accountSetup" hidden><div class="accountSetupIcon">↗</div><h3>Sincronizzazione pronta</h3><p>L'interfaccia è completa. Per attivare login e salvataggio cloud collega il progetto Supabase nelle impostazioni del sito.</p></section>
-    <section class="accountAuth" id="accountAuth" hidden>
-      <div class="accountTabs" role="tablist"><button type="button" class="active" id="loginTab" role="tab" aria-selected="true">Accedi</button><button type="button" id="registerTab" role="tab" aria-selected="false">Crea account</button></div>
-      <form id="authForm"><label id="displayNameField" hidden>Nome profilo<input id="authDisplayName" autocomplete="name" maxlength="40" placeholder="Come vuoi essere chiamato"></label><label>Email<input id="authEmail" type="email" autocomplete="email" required placeholder="nome@email.it"></label><label>Password<input id="authPassword" type="password" autocomplete="current-password" minlength="8" required placeholder="Almeno 8 caratteri"></label><button type="submit" class="accountSubmit" id="authSubmit">Accedi e sincronizza</button><p class="accountMessage" id="authMessage" role="status"></p></form>
-    </section>
-    <section class="accountSigned" id="accountSigned" hidden><div class="accountIdentity"><span class="accountAvatar accountAvatarLarge" data-account-avatar>M</span><div><b id="accountProfileName">Lettore Marvel</b><span id="accountEmail"></span></div></div><div class="accountSyncCard"><span id="accountSyncIcon"></span><div><b id="accountSyncTitle">Sincronizzato</b><small id="accountSyncDetail">Progressi salvati nel cloud</small></div></div><div class="accountSignedActions"><button type="button" id="syncNowBtn">Sincronizza ora</button><button type="button" class="danger" id="signOutBtn">Esci dal profilo</button></div></section>
-  </div>
-</dialog>
 <script src="js/editions.js?v=6"></script>
-<script src="js/profile-ui.js?v=2"></script>
+<script src="js/profile-ui.js?v=3"></script>
 <script src="js/motion.js?v=2"></script>
-<script type="module" src="js/app.js?v=18"></script>
+<script type="module" src="js/app.js?v=19"></script>
 <script type="module" src="js/hub-ui.js?v=9"></script>
 </body>
 </html>

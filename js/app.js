@@ -1,4 +1,4 @@
-import { fetchCloudState, flushCloudState, hasUnsyncedState, initAccount, queueCloudState, signIn, signOut, signUp } from "./account.js";
+import { fetchCloudState, flushCloudState, hasUnsyncedState, initAccount, queueCloudState, signIn, signOut, signUp, updateProfile } from "./account.js";
 
 const STORAGE_KEY = "marvel_archive_characters_v12";
 let activeStorageKey = STORAGE_KEY;
@@ -17,7 +17,6 @@ let homeContinueRequest = 0;
 let accountActivationRequest = 0;
 let activatedAccountId = null;
 let accountView = {configured:false,user:null,displayName:"Lettore Marvel",syncStatus:"local",phase:"loading"};
-let authMode = "login";
 let state = loadState();
 
 const $ = (id) => document.getElementById(id);
@@ -26,7 +25,7 @@ const els = {
   seriesNav: $("seriesNav"), jumpNext: $("jumpNext"), showOptional: $("showOptional"), exportBtn: $("exportBtn"), importFile: $("importFile"), resetBtn: $("resetBtn"),
   footerNote: $("footerNote"), logoSub: $("logoSub"), topTitle: $("topTitle"), topSub: $("topSub"), search: $("search"), compactBtn: $("compactBtn"), heroLabel: $("heroLabel"), heroTitle: $("heroTitle"), heroDesc: $("heroDesc"), nextPanel: $("nextPanel"), route: $("route"), noticeWrap: $("noticeWrap"), filterBar: $("filterBar"), seriesBlocks: $("seriesBlocks"),
   homeView: $("homeView"), trackerView: $("trackerView"), homeBtn: $("homeBtn"), trackerHomeBtn: $("trackerHomeBtn"), trackerHomeIcon: $("trackerHomeIcon"), homeTopResume: $("homeTopResume"), homeResume: $("homeResume"), homeExplore: $("homeExplore"), homeHeroIcons: $("homeHeroIcons"), homeStats: $("homeStats"), homeCharacterGrid: $("homeCharacterGrid"), homeCharactersSection: $("homeCharactersSection"), homeContinue: $("homeContinue"), homeGreetingName: $("homeGreetingName"),
-  homeAccountBtn: $("homeAccountBtn"), trackerAccountBtn: $("trackerAccountBtn"), accountDialog: $("accountDialog"), accountLoading: $("accountLoading"), accountSetup: $("accountSetup"), accountAuth: $("accountAuth"), accountSigned: $("accountSigned"), loginTab: $("loginTab"), registerTab: $("registerTab"), authForm: $("authForm"), displayNameField: $("displayNameField"), authDisplayName: $("authDisplayName"), authEmail: $("authEmail"), authPassword: $("authPassword"), authSubmit: $("authSubmit"), authMessage: $("authMessage"), accountProfileName: $("accountProfileName"), accountEmail: $("accountEmail"), accountSyncIcon: $("accountSyncIcon"), accountSyncTitle: $("accountSyncTitle"), accountSyncDetail: $("accountSyncDetail"), syncNowBtn: $("syncNowBtn"), signOutBtn: $("signOutBtn")
+  homeAccountBtn: $("homeAccountBtn"), trackerAccountBtn: $("trackerAccountBtn")
 };
 
 const ICONS = {
@@ -46,7 +45,7 @@ function announceRender(view){document.dispatchEvent(new CustomEvent("marvel:ren
 
 function esc(x){return String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function normalizeState(x){
-  x ??= {}; x.characters ??= {}; x.collection ??= {}; x.wishlist ??= {}; x.lists ??= {}; x.editions ??= {}; x.profileSchema ??= 1; x=window.MarvelEditions?.normalizeState(x)||x;
+  x ??= {}; x.characters ??= {}; x.collection ??= {}; x.wishlist ??= {}; x.lists ??= {}; x.editions ??= {}; x.userProfile=typeof x.userProfile==="object"&&x.userProfile?x.userProfile:{}; x.userProfile.displayName=String(x.userProfile.displayName||"").trim().slice(0,40); x.userProfile.bio=String(x.userProfile.bio||"").trim().slice(0,180); x.userProfile.favoritePath=String(x.userProfile.favoritePath||"").slice(0,80); x.userProfile.avatar=typeof x.userProfile.avatar==="object"&&x.userProfile.avatar?x.userProfile.avatar:{kind:"initial"}; x.userProfile.createdAt=x.userProfile.createdAt||new Date().toISOString(); x.profileSchema=2; x=window.MarvelEditions?.normalizeState(x)||x;
   if(manifest){ for(const c of manifest.characters){ x.characters[c.id] ??= {issues:{}}; x.characters[c.id].issues ??= {}; } }
   // Migrazione v2: ogni vecchio `Recuperato` viene considerato DIGITALE.
   for(const c of Object.values(x.characters||{})){
@@ -230,7 +229,7 @@ async function loadCharacter(id){
   c.issues.sort((a,b)=>(a.seq??Number.MAX_SAFE_INTEGER)-(b.seq??Number.MAX_SAFE_INTEGER)||a.n-b.n);
   characterCache.set(id,c); return c;
 }
-function parseHash(){const p=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean);if(!p.length||p[0]==="home")return {view:"home",character:null,issue:null};if(p[0]==="profile")return {view:"profile",character:null,issue:null};return {view:"character",character:p[0],issue:p[1]||null}}
+function parseHash(){const p=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean);if(!p.length||p[0]==="home")return {view:"home",character:null,issue:null};if(p[0]==="profile")return {view:"profile",tab:p[1]||"overview",character:null,issue:null};return {view:"character",character:p[0],issue:p[1]||null}}
 function routeIssueToken(i){return currentCharacter?.timelineMode&&Number.isInteger(i.seq)?`p${i.seq}`:String(i.n)}
 function resolveIssueToken(character,token){if(!character||token===null||token===undefined||token==="")return null;const value=String(token);if(value.startsWith("p")){const seq=Number(value.slice(1));return character.issues.find(i=>i.seq===seq)||null}const n=Number(value);return Number.isFinite(n)?character.issues.find(i=>i.n===n)||null:null}
 async function switchCharacter(id,{updateHash=true,issue=null,animate=true}={}){
@@ -265,27 +264,15 @@ function renderCharacters(){const home=document.body.classList.contains("homeAct
 function readCountFor(id){return Object.values(state.characters?.[id]?.issues||{}).filter(x=>x?.read).length}
 function accountStorageKey(id){return `${STORAGE_KEY}:user:${id}`}
 function refreshCurrentView(){if(!manifest)return;if(document.body.classList.contains("profileActive")){void window.MarvelProfile?.render();return}if(document.body.classList.contains("homeActive")||!currentCharacter)showHome({updateHash:false});else if(currentCharacter.id!==activeCharacter)void switchCharacter(activeCharacter);else renderAll()}
+function accountDisplayName(){return state.userProfile?.displayName?.trim()||(accountView.user?accountView.displayName:"Profilo locale")}
 function renderAccountUi(){
-  const signed=!!accountView.user,name=signed?accountView.displayName:"Profilo locale",initial=(name||"M").trim().charAt(0).toUpperCase()||"M";
+  const signed=!!accountView.user,name=accountDisplayName();
   const statusText=signed?({synced:"Sincronizzato",syncing:"Sincronizzazione…",offline:"Offline · copia locale",error:"Sync da riprovare",ready:"Cloud collegato"}[accountView.syncStatus]||"Cloud collegato"):(accountView.configured?"Accedi per sincronizzare":"Cloud da collegare");
-  document.querySelectorAll("[data-account-avatar]").forEach(x=>x.textContent=initial);
+  document.querySelectorAll("[data-account-avatar]").forEach(x=>window.MarvelProfile?.applyAvatar?.(x,{name,avatar:state.userProfile?.avatar})||x.replaceChildren(document.createTextNode((name||"M").charAt(0).toUpperCase())));
   document.querySelectorAll("[data-account-name]").forEach(x=>x.textContent=name);
   document.querySelectorAll("[data-account-status]").forEach(x=>x.textContent=statusText);
-  if(els.homeGreetingName)els.homeGreetingName.textContent=signed?`${accountView.displayName}.`:"lettore.";
-  els.accountLoading.hidden=accountView.phase!=="loading";
-  els.accountSetup.hidden=accountView.configured||accountView.phase==="loading";
-  els.accountAuth.hidden=!accountView.configured||signed||accountView.phase==="loading";
-  els.accountSigned.hidden=!signed;
-  if(signed){
-    const copy={synced:["Sincronizzato","Progressi salvati nel cloud","cloud"],syncing:["Sincronizzazione…","Stiamo salvando le ultime modifiche","sync"],offline:["Modalità offline","Le modifiche saranno inviate alla riconnessione","offline"],error:["Sincronizzazione sospesa","Premi “Sincronizza ora” per riprovare","offline"],ready:["Cloud collegato","I progressi sono pronti per la sincronizzazione","cloud"]}[accountView.syncStatus]||["Cloud collegato","Progressi protetti dal tuo profilo","cloud"];
-    els.accountProfileName.textContent=accountView.displayName;
-    els.accountEmail.textContent=accountView.user.email||"";
-    els.accountSyncTitle.textContent=copy[0];els.accountSyncDetail.textContent=copy[1];els.accountSyncIcon.innerHTML=icon(copy[2]);
-  }
-  const busy=accountView.phase==="authenticating";
-  els.authSubmit.disabled=busy;
-  if(busy)els.authSubmit.textContent="Accesso in corso…";else els.authSubmit.textContent=authMode==="register"?"Crea account":"Accedi e sincronizza";
-  if(accountView.phase==="error"&&accountView.error&&!els.authMessage.textContent)els.authMessage.textContent=`Connessione al profilo non riuscita: ${accountView.error}`;
+  if(els.homeGreetingName)els.homeGreetingName.textContent=name&&name!=="Profilo locale"?`${name}.`:"lettore.";
+  window.MarvelProfile?.accountChanged?.();
 }
 async function handleAccountChange(next){
   accountView=next;renderAccountUi();
@@ -302,11 +289,11 @@ async function handleAccountChange(next){
     activeCharacter=manifest?.characters.some(c=>c.id===state.activeCharacter)?state.activeCharacter:(manifest?.defaultCharacter||activeCharacter);
     saveState({sync:false});
     if(remoteLoaded&&(!remote||hasUnsyncedState()||needsCollectionMigration))await flushCloudState(state).catch(error=>console.error("Prima sincronizzazione non riuscita",error));
-    refreshCurrentView();
+    renderAccountUi();refreshCurrentView();
   }else if(!nextId&&activatedAccountId){
     accountActivationRequest++;activatedAccountId=null;activeStorageKey=STORAGE_KEY;state=loadState();
     activeCharacter=manifest?.characters.some(c=>c.id===state.activeCharacter)?state.activeCharacter:(manifest?.defaultCharacter||activeCharacter);
-    refreshCurrentView();
+    renderAccountUi();refreshCurrentView();
   }
 }
 async function renderHomeContinue(meta){
@@ -332,7 +319,8 @@ function renderHome(){
   const completed=manifest.characters.filter(c=>readCountFor(c.id)>=(c.totalRequired||0)).length;
   const globalPct=Math.min(100,Math.round(readTotal/(totalMapped||1)*100));
   const fmt=n=>new Intl.NumberFormat("it-IT").format(n);
-  els.homeGreetingName.textContent=accountView.user?`${accountView.displayName}.`:"lettore.";
+  const greetingName=accountDisplayName();
+  els.homeGreetingName.textContent=greetingName&&greetingName!=="Profilo locale"?`${greetingName}.`:"lettore.";
   els.homeHeroIcons.innerHTML=manifest.characters.map(c=>`<button type="button" class="homeHeroIcon" style="--hero-accent:${esc(c.accent)}" title="Apri ${esc(c.name)}" data-hero-shortcut="${esc(c.id)}"><img src="${esc(versioned(c.logo))}" alt="${esc(c.name)}" onerror="this.parentElement.style.display='none'"></button>`).join("");
   els.homeHeroIcons.querySelectorAll("[data-hero-shortcut]").forEach(b=>b.onclick=()=>void switchCharacter(b.dataset.heroShortcut));
   els.homeStats.innerHTML=`<article class="homeStat" style="--stat-color:#ed1d24"><div class="homeStatLabel">${icon("paths")}<span>Percorsi</span></div><b>${manifest.characters.length}</b><small>${completed} completati</small></article><article class="homeStat" style="--stat-color:#64b9ff"><div class="homeStatLabel">${icon("book")}<span>Albi mappati</span></div><b>${fmt(totalMapped)}</b><small>Edizioni italiane in ordine di lettura</small></article><article class="homeStat" style="--stat-color:#ffb000"><div class="homeStatLabel">${icon("archive")}<span>Recuperati</span></div><b>${fmt(ownedTotal)}</b><small>${fmt(physicalTotal)} fisici · ${fmt(digitalTotal)} digitali</small></article><article class="homeStat" style="--stat-color:#4fe0a0"><div class="homeStatLabel">${icon("chart")}<span>Avanzamento</span></div><b>${globalPct}%</b><small>${fmt(readTotal)} albi letti in tutti i percorsi</small></article>`;
@@ -360,19 +348,10 @@ function showHome({updateHash=true,animate=true}={}){
   renderHome();
   if(updateHash)history.replaceState(null,"","#/home");
 }
-function setAuthMode(mode){
-  authMode=mode;const register=mode==="register";
-  els.loginTab.classList.toggle("active",!register);els.loginTab.setAttribute("aria-selected",String(!register));
-  els.registerTab.classList.toggle("active",register);els.registerTab.setAttribute("aria-selected",String(register));
-  els.displayNameField.hidden=!register;els.authDisplayName.required=register;
-  els.authPassword.autocomplete=register?"new-password":"current-password";
-  els.authMessage.textContent="";renderAccountUi();
-}
-function openAccountDialog(){
-  renderAccountUi();
-  if(typeof els.accountDialog.showModal==="function")els.accountDialog.showModal();else els.accountDialog.setAttribute("open","");
-}
 function friendlyAuthError(error){const message=String(error?.message||error||"Operazione non riuscita.");if(/invalid login credentials/i.test(message))return"Email o password non corretti.";if(/already registered/i.test(message))return"Esiste già un account con questa email.";if(/password/i.test(message)&&/least/i.test(message))return"La password deve contenere almeno 8 caratteri.";return message}
+function exportProgress(){const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="marvel_archive_progressi.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),600)}
+function importProgress(file){return new Promise((resolve,reject)=>{if(!file){reject(new Error("Seleziona un file di backup."));return}const reader=new FileReader();reader.onload=()=>{try{state=normalizeState(JSON.parse(reader.result));saveState();refreshCurrentView();renderAccountUi();resolve(true)}catch{reject(new Error("Backup non valido."))}};reader.onerror=()=>reject(new Error("Impossibile leggere il backup."));reader.readAsText(file)})}
+async function authenticate({mode,email,password,displayName}){try{return mode==="register"?await signUp(email,password,displayName):await signIn(email,password)}catch(error){throw new Error(friendlyAuthError(error))}}
 function renderStats(){const req=requiredIssues(),r=req.filter(i=>status(i.id).read).length,o=req.filter(i=>status(i.id).owned).length,ph=req.filter(i=>status(i.id).physicalCovered).length,dg=req.filter(i=>status(i.id).digital).length,p=Math.round(r/(req.length||1)*100);els.doneCount.textContent=r;els.totalCount.textContent=req.length;els.ownedCount.textContent=o;els.physicalCount.textContent=ph;els.digitalCount.textContent=dg;els.pct.textContent=p+"%";els.progressBar.style.width=p+"%"}
 function renderHero(){document.documentElement.style.setProperty("--accent",currentCharacter.accent||currentMeta.accent);els.logoSub.textContent=currentCharacter.subtitle||currentMeta.subtitle;els.heroLabel.textContent="Percorso attivo";els.heroTitle.innerHTML=`${esc(currentCharacter.name)}<br><span>${esc(currentCharacter.start)}</span>`;els.heroDesc.textContent=currentCharacter.description;els.topTitle.textContent=`${currentCharacter.name} Reading System`;els.topSub.textContent=`${currentCharacter.start} → ${currentCharacter.end}`;els.footerNote.innerHTML=`<b>${esc(currentCharacter.name)}</b><br>${esc(currentCharacter.start)}<br>→ ${esc(currentCharacter.end)}`}
 function renderNext(){const i=nextIssue();if(!i){els.nextPanel.innerHTML=`<div class="nextMeta" style="grid-column:1/-1"><div class="label">Percorso completato</div><h2>Sei in pari con ${esc(currentCharacter.name)}.</h2><p>${esc(currentCharacter.end)}</p></div>`;return}const st=status(i.id);els.nextPanel.innerHTML=`<div class="nextCover"><div class="fallback">${esc(i.name)}</div>${coverImg(i,false)}</div><div class="nextMeta"><div class="label">Leggi adesso · ${i.seq}/${currentCharacter.totalRequired}</div><h2>${esc(i.name)}</h2><p>${esc(i.date)} · ${esc(i.era)}<br>${esc(i.title)}</p><div class="nextBtns"><button type="button" class="btn formatPhysical ${st.physical?"primary":""}" id="nextPhysical">${icon(st.physical?"check":"archive")}<span>Fisico</span></button><button type="button" class="btn formatDigital ${st.digital?"primary":""}" id="nextDigital">${icon(st.digital?"check":"cloud")}<span>Digitale</span></button><button type="button" class="btn done" id="nextRead">${icon(st.read?"check":"book")}<span>${st.read?"Letto":"Segna letto"}</span></button><button type="button" class="btn" id="nextJump"><span>Mostra</span>${icon("arrow")}</button></div></div>`;$("nextPhysical").onclick=()=>setStatus(i.id,{physical:!st.physical});$("nextDigital").onclick=()=>setStatus(i.id,{digital:!st.digital});$("nextRead").onclick=()=>setStatus(i.id,{read:!st.read});$("nextJump").onclick=()=>jumpToIssue(i)}
@@ -425,27 +404,13 @@ els.search.addEventListener("input",()=>renderAll());
 els.homeBtn.onclick=()=>{if(manifest)showHome()};
 els.trackerHomeIcon.innerHTML=icon("home");
 els.trackerHomeBtn.onclick=()=>{if(manifest)showHome()};
-els.homeAccountBtn.onclick=els.trackerAccountBtn.onclick=openAccountDialog;
-els.loginTab.onclick=()=>setAuthMode("login");
-els.registerTab.onclick=()=>setAuthMode("register");
-els.accountDialog.addEventListener("click",event=>{if(event.target===els.accountDialog)els.accountDialog.close()});
-els.authForm.onsubmit=async event=>{
-  event.preventDefault();els.authMessage.textContent="";
-  try{
-    if(authMode==="register"){
-      const result=await signUp(els.authEmail.value.trim(),els.authPassword.value,els.authDisplayName.value.trim());
-      if(result.confirmationRequired)els.authMessage.textContent="Account creato. Controlla l'email per confermare l'accesso.";
-    }else await signIn(els.authEmail.value.trim(),els.authPassword.value);
-  }catch(error){els.authMessage.textContent=friendlyAuthError(error)}
-};
-els.syncNowBtn.onclick=async()=>{try{await flushCloudState(state)}catch(error){console.error(error)}};
-els.signOutBtn.onclick=async()=>{try{await signOut();els.accountDialog.close()}catch(error){els.accountSyncDetail.textContent=friendlyAuthError(error)}};
+els.homeAccountBtn.onclick=els.trackerAccountBtn.onclick=()=>void window.MarvelProfile?.show({tab:"account"});
 els.jumpNext.onclick=()=>{const i=nextIssue();if(i)jumpToIssue(i)};
 els.showOptional.onclick=()=>{optionalVisible=!optionalVisible;renderAll()};
 els.compactBtn.onclick=()=>{document.body.classList.toggle("compact");els.compactBtn.textContent=document.body.classList.contains("compact")?"Vista completa":"Vista compatta"};
 els.resetBtn.onclick=()=>{if(confirm(`Azzerare solo lo stato LETTO di ${currentCharacter.name}? Gli stati Fisico/Digitale resteranno nella collezione globale.`)){state.characters[activeCharacter]={issues:{}};saveState();renderAll()}};
-els.exportBtn.onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="marvel_archive_progressi.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),600)};
-els.importFile.onchange=e=>{const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{state=normalizeState(JSON.parse(r.result));saveState();document.body.classList.contains("homeActive")?renderHome():renderAll()}catch{alert("Backup non valido.")}};r.readAsText(f);e.target.value=""};
-window.addEventListener("hashchange",async()=>{if(!manifest)return;const h=parseHash();if(h.view==="home"){showHome({updateHash:false});return}if(h.view==="profile"){await window.MarvelProfile?.show({updateHash:false});return}if(els.trackerView.hidden||!currentCharacter||h.character!==activeCharacter)await switchCharacter(h.character,{updateHash:false,issue:h.issue});else if(h.issue){const i=resolveIssueToken(currentCharacter,h.issue);if(i)jumpToIssue(i)}});
+els.exportBtn.onclick=exportProgress;
+els.importFile.onchange=e=>{const file=e.target.files?.[0];if(file)void importProgress(file).catch(error=>alert(error.message));e.target.value=""};
+window.addEventListener("hashchange",async()=>{if(!manifest)return;const h=parseHash();if(h.view==="home"){showHome({updateHash:false});return}if(h.view==="profile"){await window.MarvelProfile?.show({updateHash:false,tab:h.tab});return}if(els.trackerView.hidden||!currentCharacter||h.character!==activeCharacter)await switchCharacter(h.character,{updateHash:false,issue:h.issue});else if(h.issue){const i=resolveIssueToken(currentCharacter,h.issue);if(i)jumpToIssue(i)}});
 
-(async()=>{try{await loadManifest();window.MarvelProfile?.init({getState:()=>state,getManifest:()=>manifest,saveState:()=>saveState(),showHome:()=>showHome(),openCharacter:id=>switchCharacter(id),openAccount:openAccountDialog});const h=parseHash();if(h.view==="home"){await showHome({updateHash:false});if(!location.hash)history.replaceState(null,"","#/home")}else if(h.view==="profile")await window.MarvelProfile?.show({updateHash:false});else await switchCharacter(h.character,{updateHash:false,issue:h.issue});renderAccountUi();void initAccount(handleAccountChange)}catch(e){console.error(e);els.seriesBlocks.innerHTML=`<div class="loading error"><b>Errore di caricamento</b><br>${esc(e.message)}<br><br>Apri il sito tramite GitHub Pages o un server HTTP: i JSON non possono essere caricati correttamente con alcuni browser da file://.</div>`}finally{document.documentElement.classList.add("appLoaded");document.dispatchEvent(new Event("marvel:ready"))}})();
+(async()=>{try{await loadManifest();window.MarvelProfile?.init({getState:()=>state,getManifest:()=>manifest,getAccount:()=>accountView,saveState:()=>saveState(),refreshAccountUi:renderAccountUi,showHome:()=>showHome(),openCharacter:id=>switchCharacter(id),authenticate,syncNow:()=>flushCloudState(state),signOut:()=>signOut(),updateCloudProfile:profile=>updateProfile(profile),exportState:exportProgress,importState:importProgress});const h=parseHash();if(h.view==="home"){await showHome({updateHash:false});if(!location.hash)history.replaceState(null,"","#/home")}else if(h.view==="profile")await window.MarvelProfile?.show({updateHash:false,tab:h.tab});else await switchCharacter(h.character,{updateHash:false,issue:h.issue});renderAccountUi();void initAccount(handleAccountChange)}catch(e){console.error(e);els.seriesBlocks.innerHTML=`<div class="loading error"><b>Errore di caricamento</b><br>${esc(e.message)}<br><br>Apri il sito tramite GitHub Pages o un server HTTP: i JSON non possono essere caricati correttamente con alcuni browser da file://.</div>`}finally{document.documentElement.classList.add("appLoaded");document.dispatchEvent(new Event("marvel:ready"))}})();
