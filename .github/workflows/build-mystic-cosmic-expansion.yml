@@ -1,0 +1,55 @@
+name: Build mystic and cosmic expansion
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-mystic-cosmic-expansion.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - name: Build Doctor Strange and Ultimates 616
+        run: python scripts/build_doctor_strange_and_cosmic.py
+      - name: Rebuild physical catalog
+        run: python scripts/build_catalog.py
+      - name: Rebuild collected editions and coverage
+        run: python scripts/build_editions_catalog.py
+      - name: Validate all paths
+        run: |
+          node scripts/verify-data.mjs
+          python - <<'PY'
+          import json
+          chars=json.load(open('data/characters.json',encoding='utf-8'))
+          assert chars['version']==13
+          ids={x['id'] for x in chars['characters']}
+          assert {'doctor-strange','ultimates-616'} <= ids
+          ds=json.load(open('data/characters/doctor-strange.json',encoding='utf-8'))
+          assert len(ds['issues']) >= 80
+          assert any(x['id']=='MVNWCOL_P:391' for x in ds['issues'])
+          ult=json.load(open('data/characters/ultimates-616.json',encoding='utf-8'))
+          assert [x['id'] for x in ult['issues']]==['MARVDELUXE:2','MARVDELUXE:10']
+          curated=json.load(open('data/curated-editions.json',encoding='utf-8'))
+          fantastico=next(x for x in curated['editions'] if x['id']=='ULF4D_M:1')
+          assert fantastico['coverage'][0]['issueIds']==['ULF4_M:1','ULF4_M:2','ULF4_M:3']
+          editions=json.load(open('data/editions.json',encoding='utf-8'))
+          assert 'DSTRANGEORO' in editions['series']
+          assert 'ULF4D_M' in editions['series']
+          assert editions['total'] >= 1525
+          print('paths',len(chars['characters']),'doctor-strange',len(ds['issues']),'editions',editions['total'],'covered',editions['autoCovered'])
+          PY
+      - name: Commit expansion
+        run: |
+          rm -f .github/workflows/build-mystic-cosmic-expansion.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "Add Doctor Strange and Earth-616 Ultimates paths"
+          git push
