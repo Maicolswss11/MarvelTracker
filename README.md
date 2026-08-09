@@ -2,7 +2,7 @@
 
 Marvel Archive è un tracker web delle edizioni italiane Marvel.
 
-La home `#/home` riunisce il prossimo albo, il riepilogo globale e un explorer gerarchico per universi, famiglie ed eventi. Le pagine `#/{percorso}` aprono il tracker narrativo completo del percorso selezionato; `#/profile` raccoglie collezione, letture, wishlist e liste personali.
+La home `#/home` riunisce il prossimo albo, il riepilogo globale e un explorer gerarchico per universi, famiglie ed eventi. Le pagine `#/{percorso}` aprono il tracker narrativo completo del percorso selezionato; `#/profile` raccoglie identità, carriera, collezione, letture, wishlist e liste personali.
 
 ## Architettura
 
@@ -10,6 +10,8 @@ La home `#/home` riunisce il prossimo albo, il riepilogo globale e un explorer g
 - `css/app.css` — stile
 - `css/cinematic.css` — sistema visivo, layout responsive e motion design
 - `js/app.js` — logica dell'app
+- `js/profile-ui.js` — profilo, collezione globale e interfaccia della carriera
+- `js/achievements.js` — catalogo e motore dei 90 traguardi derivati dai progressi
 - `js/hub-ui.js` — navigazione per universi, famiglie ed eventi
 - `js/motion.js` — transizioni, reveal, micro-interazioni e menu mobile
 - `data/characters.json` — manifest dei personaggi
@@ -44,6 +46,10 @@ Per attivare il cloud:
 
 La Publishable key può essere esposta nel browser; la protezione dei dati dipende dalle policy RLS incluse nello schema. Non inserire mai una `service_role` key nel repository.
 
+## Traguardi e carriera
+
+La pagina `#/profile/achievements` comprende 90 traguardi in sei categorie, dieci livelli di carriera, XP, rarità, sfide speciali, obiettivi segreti e suggerimenti sui prossimi sblocchi. Tutto viene calcolato dallo stato già sincronizzato: non esistono contatori separati che possano divergere da letture e collezione.
+
 ## GitHub Pages
 
 Il workflow `.github/workflows/pages.yml` pubblica automaticamente `main` su GitHub Pages.
@@ -58,4 +64,4 @@ Il repository include emblemi locali per personaggi, squadre, universi ed eventi
 
 ## Verifica dati
 
-Eseguire `node scripts/verify-data.mjs` per controllare integrità gzip, schema, duplicati e conteggi di tutti gli archivi. `scripts/rebuild_character_data.py` ricostruisce gli indici danneggiati dai dati pubblici ComicsBox.
+Eseguire `node scripts/verify-data.mjs` per controllare integrità gzip, schema, duplicati e conteggi di tutti gli archivi. `node scripts/verify-achievements.mjs` verifica catalogo, ID, categorie e condizioni limite della carriera. `scripts/rebuild_character_data.py` ricostruisce gli indici danneggiati dai dati pubblici ComicsBox.
