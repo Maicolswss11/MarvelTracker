@@ -1,0 +1,50 @@
+name: Install alternative editions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/install-alternative-editions.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install feature
+        run: python scripts/install_alternative_editions.py
+      - name: Validate JSON
+        run: python -m json.tool data/editions.json >/dev/null
+      - name: Validate JavaScript
+        run: |
+          node --check js/editions.js
+          node --check js/profile-ui.js
+          node --input-type=module --check < js/app.js
+      - name: Validate tracker data
+        run: node scripts/verify-data.mjs
+      - name: Validate Credere coverage
+        run: |
+          python - <<'PY'
+          import json
+          data=json.load(open('data/editions.json',encoding='utf-8'))
+          ed=data['editions'][0]
+          assert ed['id']=='MVNWCOL_P:12'
+          coverage=ed['coverage'][0]
+          assert coverage['path']=='ironman'
+          assert coverage['issueIds']==['IRONM3_P:1','IRONM3_P:2','IRONM3_P:3']
+          print('Credere coverage OK')
+          PY
+      - name: Commit production changes and clean one-time files
+        run: |
+          rm -f .github/workflows/install-alternative-editions.yml
+          rm -f .github/workflows/inspect-credere.yml
+          rm -f scripts/install_alternative_editions.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "Add alternative physical editions support"
+          git push
