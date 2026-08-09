@@ -76,7 +76,9 @@ function loadState(key=activeStorageKey){
 function saveState({sync=true}={}){state.activeCharacter=activeCharacter;localStorage.setItem(activeStorageKey,JSON.stringify(state));if(sync&&accountView.user)queueCloudState(state)}
 function bucket(){state.characters[activeCharacter]??={issues:{}};state.characters[activeCharacter].issues??={};return state.characters[activeCharacter].issues}
 function status(id){
-  const item=state.collection?.[id]||{},physical=!!item.physical,digital=!!item.digital;
+  const item=state.collection?.[id]||{};
+  const editionPhysical=!!window.MarvelEditions?.get(id)&&!!window.MarvelEditions?.isOwned(state,id);
+  const physical=!!item.physical||editionPhysical,digital=!!item.digital;
   const coverage=window.MarvelEditions?.coverageStatus(state,activeCharacter,id)||{options:[],owned:[]};
   const alternativePhysical=coverage.owned.length>0,physicalCovered=physical||alternativePhysical;
   return {physical,digital,physicalCovered,alternativePhysical,owned:physicalCovered||digital,read:!!bucket()[id]?.read,editionOptions:coverage.options,ownedEditions:coverage.owned};
