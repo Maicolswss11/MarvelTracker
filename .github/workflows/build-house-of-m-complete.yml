@@ -1,0 +1,85 @@
+name: Build complete House of M path
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build_house_of_m_complete.py'
+      - '.github/workflows/build-house-of-m-complete.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build House of M complete route
+        run: |
+          python -m py_compile scripts/build_house_of_m_complete.py
+          python scripts/build_house_of_m_complete.py
+          python scripts/build_catalog.py
+          node scripts/verify-data.mjs
+
+      - name: Audit House of M invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          route = json.loads(Path('data/characters/house-of-m.json').read_text(encoding='utf-8'))
+          manifest = json.loads(Path('data/characters.json').read_text(encoding='utf-8'))
+          hubs = json.loads(Path('data/hubs.json').read_text(encoding='utf-8'))
+          catalog = json.loads(Path('data/catalog.json').read_text(encoding='utf-8'))
+
+          assert manifest['version'] == 19
+          assert route['eventScope'] == 'complete'
+          assert len(route['readingOrder']) == 47
+          assert route['italianCoverage'] == {
+              'officialChapters': 47,
+              'mappedChapters': 42,
+              'unmappedChapters': 5,
+              'physicalPublications': 22,
+          }
+          assert len(route['italianGaps']) == 5
+          assert len(route['issues']) == 22
+          assert len({row['id'] for row in route['issues']}) == 22
+          assert route['totalRequired'] == route['availableTotal'] == 22
+          assert sum(len(row['readingOrderPositions']) for row in route['issues']) == 42
+
+          expected_gaps = {
+              'Mutopia X (2005) #1', 'Mutopia X (2005) #2',
+              'Mutopia X (2005) #3', 'Mutopia X (2005) #4',
+              'New Thunderbolts (2005) #11',
+          }
+          assert {row['chapter'] for row in route['italianGaps']} == expected_gaps
+
+          events = next(row for row in hubs['hubs'] if row['id'] == 'events')
+          complete = next(row for row in events['groups'] if row['id'] == 'complete')['paths']
+          assert complete[:4] == ['house-of-m', 'civil-war', 'secret-invasion', 'judgment-day']
+          assert all('house-of-m' not in row.get('paths', []) for row in events['groups'] if row['id'] != 'complete')
+
+          meta = next(row for row in manifest['characters'] if row['id'] == 'house-of-m')
+          assert meta['totalRequired'] == 22 and meta['eventScope'] == 'complete'
+          assert catalog['manifestVersion'] == 19
+          assert all('house-of-m' in next(row for row in catalog['issues'] if row['id'] == issue['id'])['paths'] for issue in route['issues'])
+          print(f"House of M: 22/22 OK | 47 USA | 42 IT mapped | 5 explicit gaps | catalog {catalog['total']}")
+          PY
+
+      - name: Commit generated event data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/characters/house-of-m.json data/characters.json data/hubs.json data/catalog.json data/ui-art.json scripts/verify-data.mjs
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git commit -m "Upgrade House of M to complete event path"
+          git push origin HEAD:main
