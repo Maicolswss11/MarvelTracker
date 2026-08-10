@@ -51,6 +51,28 @@ def fill_missing(target: dict[str, Any], issue: dict[str, Any]) -> None:
         if target.get(key) in (None, "", []) and value not in (None, "", []):
             target[key] = value
 
+    contents = issue.get("contents")
+    if isinstance(contents, list):
+        merged = {item.get("id"): item for item in target.get("contents", []) if item.get("id")}
+        order = [item.get("id") for item in target.get("contents", []) if item.get("id")]
+        for content in contents:
+            content_id = content.get("id")
+            if not content_id:
+                continue
+            if content_id not in merged:
+                merged[content_id] = content
+                order.append(content_id)
+            else:
+                current = merged[content_id]
+                for key, value in content.items():
+                    if current.get(key) in (None, "", []) and value not in (None, "", []):
+                        current[key] = value
+        target["contents"] = [merged[content_id] for content_id in order]
+        rank = {"unavailable": 0, "path-scoped": 1, "complete": 2}
+        incoming = issue.get("contentsStatus", "path-scoped")
+        if rank.get(incoming, 0) > rank.get(target.get("contentsStatus", "unavailable"), 0):
+            target["contentsStatus"] = incoming
+
 
 def _norm(value: Any) -> str:
     return " ".join(str(value or "").casefold().replace("–", "-").split())
@@ -86,9 +108,10 @@ def write_ui_art(manifest: dict[str, Any], issues: list[dict[str, Any]]) -> None
         "ultimate-classic": ["ultimate-spiderman-classic", "ultimate-xmen", "ultimates", "ultimate-fantastic-four"],
         "ultimate-new": ["ultimate-new-spiderman", "ultimate-new-black-panther", "ultimate-new-xmen", "ultimate-new-ultimates", "ultimate-new-wolverine"],
         "avengers": ["ironman", "thor", "cap", "hulk"],
-        "xmen": ["xmen"],
-        "spider": ["spiderman"],
-        "fantastic-four": ["fantastic-four"],
+        "xmen": ["xmen", "wolverine-616"],
+        "spider": ["spiderman", "venom"],
+        "fantastic-four": ["fantastic-four", "doctor-doom"],
+        "street": ["daredevil"],
         "mystic": ["doctor-strange", "ghost-rider", "blade", "moon-knight"],
         "cosmic": ["silver-surfer", "guardians-of-the-galaxy", "nova", "thanos"],
     }

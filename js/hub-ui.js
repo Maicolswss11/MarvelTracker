@@ -12,7 +12,7 @@ const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp
 function hubById(id){ return hubManifest?.hubs?.find(hub => hub.id === id) || null; }
 function pathById(id){ return pathManifest?.characters?.find(path => path.id === id) || null; }
 function pathTypeLabel(path){
-  const labels={team:"Squadra",character:"Personaggio",universe:"Percorso universo",event:"Evento",collection:"Percorso"};
+  const labels={team:"Squadra",character:"Personaggio",universe:"Percorso universo",event:"Evento",collection:"Percorso",archive:"Archivio storico"};
   return labels[path?.type] || "Percorso";
 }
 function pathHubIds(path){ return Array.isArray(path?.hubs) ? path.hubs : path?.primaryHub ? [path.primaryHub] : []; }

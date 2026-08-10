@@ -39,6 +39,11 @@ body.compact .cover{display:none}body.compact .issue{grid-template-columns:54px 
 .timelineBlock>.seriesHead{padding:0 3px 5px}.issueBadges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:5px}.publicationBadge{display:inline-flex;padding:3px 7px;border-radius:999px;border:1px solid var(--line2);background:#0a1118;color:var(--muted);font-size:7px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}.timelineBlock .era{scroll-margin-top:92px}@media(min-width:1121px){.publicationBadge{font-size:8px;padding:4px 8px}.timelineBlock>.seriesHead h2{font-size:30px}}
 /* /Avengers timeline support */
 
+/* Physical issue -> USA contents -> reading step */
+.contentBadge{display:inline-flex;padding:3px 7px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 60%,var(--line));background:color-mix(in srgb,var(--accent) 8%,#0a1118);color:var(--accent);font-size:7px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}.contentMap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 8px;margin-top:9px;padding:8px 10px;border-left:2px solid var(--accent);border-radius:0 8px 8px 0;background:color-mix(in srgb,var(--accent) 6%,#0a1118);font-size:8px;line-height:1.4}.contentMap>b{color:var(--accent);text-transform:uppercase;letter-spacing:.07em}.contentMapTitles{color:#c5d1db}.contentMap>span:last-child{grid-column:2;color:#718196}@media(min-width:1121px){.contentBadge{font-size:8px}.contentMap{font-size:9px;padding:9px 11px}}@media(max-width:720px){.contentMap{grid-template-columns:1fr}.contentMap>span:last-child{grid-column:1}}
+.routeCard.relation{display:block;color:inherit;text-decoration:none;border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}.routeCard.relation:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--panel))}.routeCard.relation span{color:var(--accent)}
+/* /Physical issue -> USA contents -> reading step */
+
 /* Avengers character paths v1 */
 .homeHeroIcons{flex-wrap:wrap;row-gap:8px}.homeIntro .homeHeroIcons{max-width:620px}.homeCharacterGrid{grid-template-columns:repeat(auto-fit,minmax(185px,1fr))}
 

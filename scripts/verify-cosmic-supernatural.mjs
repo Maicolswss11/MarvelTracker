@@ -35,7 +35,7 @@ async function loadCharacter(id){
   return JSON.parse(gunzipSync(Buffer.from(encoded,"base64")).toString("utf8"));
 }
 
-assert.equal(manifest.version,22,"versione manifest inattesa");
+assert.equal(manifest.version,23,"versione manifest inattesa");
 assert.equal(audit.manifestVersion,22,"versione audit inattesa");
 assert.deepEqual(audit.pathOrder,expected,"Cosmic Ghost Rider deve essere costruito per ultimo");
 assert.deepEqual(Object.keys(audit.albumErrors),[],"restano errori sui metadati italiani");
