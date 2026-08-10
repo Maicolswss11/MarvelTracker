@@ -10,20 +10,25 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch legacy character chronology
+      - name: Test crawler-rendered chronology
         shell: python
         run: |
           import re
           from urllib.request import Request, urlopen
 
-          for slug in ["quicksillver", "spiderwoman", "sentry2"]:
-              url = f"https://www.comicsbox.it/personaggio.php?limite=0&name={slug}"
-              req = Request(url, headers={"User-Agent": "Mozilla/5.0 MarvelTracker/5.0"})
+          uas = {
+              "googlebot": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+              "bingbot": "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)",
+              "desktop": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36",
+          }
+          for label, ua in uas.items():
+              url = "https://www.comicsbox.it/personaggio/quicksillver"
+              req = Request(url, headers={"User-Agent": ua, "Accept-Language":"it-IT,it;q=0.9"})
               source = urlopen(req, timeout=45).read().decode("utf-8", errors="replace")
-              print("\n=====", slug, "bytes", len(source), "=====")
+              print("\n=====", label, "bytes", len(source), "=====")
               for needle in ["Prima pubblicazione", "Pubblicazione italiana", "fa solo una comparsa", "/albo/"]:
                   positions = [m.start() for m in re.finditer(re.escape(needle), source, re.I)]
                   print(needle, len(positions), positions[:5])
               pos = source.lower().find("prima pubblicazione")
               if pos >= 0:
-                  print(re.sub(r"\s+", " ", source[max(0,pos-1500):pos+4500])[:6000])
+                  print(re.sub(r"\s+", " ", source[max(0,pos-1000):pos+3000])[:4000])
