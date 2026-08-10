@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "manifestVersion": 25,
   "editorialModel": "physical-issue/usa-contents/reading-step@1",
   "source": "ComicsBox USA series indexes, ComicsBox issue character credits, and existing MarvelTracker paths",
@@ -24,7 +24,7 @@
       "relatedPaths": ["spiderman", "doctor-doom"],
       "insertAfter": "venom",
       "reusePaths": ["spiderman"],
-      "sources": ["FHBLCA", "ASM_BC", "SMBC_EVM", "BLACKCAT", "BLACKCAT2", "MJBLCATBEY", "MJBLCAT", "IRONCAT", "BLACKCAT3"]
+      "sources": ["FHBLCA", "ASM_BC", "SMBC_EVM", "BLACKCAT", "BCATANN", "BLACKCAT4", "BLCANN2021", "GSBLCATIS", "MJBLCATBEY", "MJANDBC", "IRONCAT", "BLACKCAT3"]
     },
     {
       "id": "quicksilver",
@@ -39,7 +39,7 @@
       "relatedPaths": ["avengers", "xmen", "scarletwitch"],
       "insertAfter": "scarletwitch",
       "reusePaths": ["xmen", "avengers"],
-      "sources": ["QUICKSIL", "SONOFM", "XFAC_QD", "AVO_SWQ", "SCRLTQSLVR"]
+      "sources": ["QUICKSIL", "SONOFM", "XFAC_QD", "AVO_SWQ", "SCRLTQSLVR", "HEHIQUK98"]
     },
     {
       "id": "falcon",
@@ -51,10 +51,10 @@
       "accent": "#d35252",
       "description": "Percorso Terra-616 di Sam Wilson dalle storie come Falcon al periodo come Captain America, incluse le serie dedicate moderne.",
       "aliases": ["falcon", "sam wilson", "captain america (sam wilson)"],
-      "relatedPaths": ["cap", "avengers"],
+      "relatedPaths": ["cap", "avengers", "winter-soldier"],
       "insertAfter": "cap",
       "reusePaths": ["cap", "avengers"],
-      "sources": ["FALCON1", "CAP_FALC", "ALNWCAP", "CAPAMSWLS", "FALCON2", "CAPSYMBOL1", "SAMWLSNCAP"]
+      "sources": ["FALC", "CAP_FALC", "ALNWCAP", "CAPAMSWLS", "FALCON2", "CAPSYMBOL1", "SAMWLSNCAP", "FALCOWINT1"]
     },
     {
       "id": "winter-soldier",
@@ -66,10 +66,10 @@
       "accent": "#778a9c",
       "description": "Percorso Terra-616 di Bucky Barnes dal ritorno come Soldato d'Inverno alle missioni soliste e alla sua storia condivisa con Capitan America.",
       "aliases": ["winter soldier", "bucky barnes", "bucky"],
-      "relatedPaths": ["cap", "avengers", "blackwidow"],
+      "relatedPaths": ["cap", "avengers", "blackwidow", "falcon"],
       "insertAfter": "falcon",
       "reusePaths": ["cap", "avengers"],
-      "sources": ["WINTSOL", "WINSOLBM", "BBWINSOL", "TALESUSP3"]
+      "sources": ["WINTSOL", "WINSOLBM", "BBWINSOL", "TOS3", "FALCOWINT1"]
     },
     {
       "id": "war-machine",
@@ -84,7 +84,7 @@
       "relatedPaths": ["ironman", "avengers"],
       "insertAfter": "ironman",
       "reusePaths": ["ironman", "avengers"],
-      "sources": ["WARMAC1", "WARMAC2", "IM_2.0", "IRONPATR"]
+      "sources": ["WARMAC", "WARMAC2", "IM_2.0", "IRONPATR"]
     },
     {
       "id": "hercules",
@@ -99,7 +99,7 @@
       "relatedPaths": ["thor", "avengers", "hulk"],
       "insertAfter": "thor",
       "reusePaths": ["thor", "avengers", "hulk"],
-      "sources": ["HER1", "HER2", "INC_HER", "HER_FOA", "HERC", "HERCULES2015"]
+      "sources": ["HER1", "HER2", "INC_HER", "HER_FOA", "HERC", "HER3", "HERCUL4", "HER_HOC", "HER_TWGD", "HLK_HRC", "WOHR_MMM"]
     },
     {
       "id": "spider-woman",
@@ -114,7 +114,7 @@
       "relatedPaths": ["avengers", "spiderman"],
       "insertAfter": "blackwidow",
       "reusePaths": ["avengers", "spiderman"],
-      "sources": ["SW1", "GS_SW", "SW_OR", "SW4", "SW5", "SW6", "SW7"]
+      "sources": ["SW1", "GSSPWO", "SW_ORIGN", "SW4", "SW5", "SW6", "SPIDERWOM7", "SPDRWOMAN8", "SISL_SW"]
     },
     {
       "id": "sentry",
@@ -129,7 +129,7 @@
       "relatedPaths": ["avengers", "hulk"],
       "insertAfter": "wonderman",
       "reusePaths": ["avengers", "hulk"],
-      "sources": ["SENTRY1", "SENTRY_XM", "SENTRY_VOID", "SENTRY_SM", "SENTRY_HULK", "SENTRY_F4", "SENTRY2", "SENTRY_FS", "SENTRY3", "SENTRY4"]
+      "sources": ["SENTRY1", "SNRY_XM", "SNRY_V", "SNRY_SM", "SNRY_H", "SNRY_F4", "SENTRY2", "AGESTRY", "SNTRY_FS", "SENTRY3", "SENTRY4", "SENTRY5"]
     }
   ]
 }
