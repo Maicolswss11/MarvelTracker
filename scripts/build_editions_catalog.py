@@ -98,6 +98,11 @@ PATH_ALIASES = {
     "hercules": ['hercules', 'ercole'],
     "spider-woman": ['spider-woman', 'spider woman', 'donna ragno', 'jessica drew'],
     "sentry": ['sentry', 'robert reynolds'],
+    "luke-cage": ['luke cage', 'power man'],
+    "iron-fist": ['iron fist', "pugno d'acciaio"],
+    "jessica-jones": ['jessica jones', 'alias'],
+    "punisher": ['punisher', 'punitore', 'frank castle'],
+    "moon-knight": ['moon knight', 'cavaliere della luna', 'marc spector'],
 }
 
 DETAIL_HINTS = tuple(sorted({alias for values in PATH_ALIASES.values() for alias in values} | {
