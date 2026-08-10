@@ -10,31 +10,20 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch sample character page
+      - name: Fetch legacy character chronology
         shell: python
         run: |
           import re
           from urllib.request import Request, urlopen
 
-          url = "https://www.comicsbox.it/personaggio/quicksillver"
-          req = Request(url, headers={"User-Agent": "MarvelTracker data maintenance/5.0"})
-          source = urlopen(req, timeout=45).read().decode("utf-8", errors="replace")
-          print("bytes", len(source))
-
-          print("\nSCRIPT SRCS")
-          for src in re.findall(r'<script[^>]+src=["\']([^"\']+)', source, re.I):
-              print(src)
-
-          print("\nINLINE SCRIPT HITS")
-          scripts = re.findall(r'<script[^>]*>(.*?)</script>', source, re.I | re.S)
-          for idx, script in enumerate(scripts):
-              if re.search(r'pagearticle|cronol|person|ajax|load|quicks|scheda', script, re.I):
-                  print("--- script", idx, "---")
-                  print(re.sub(r"\s+", " ", script)[:8000])
-
-          print("\nSOURCE HITS")
-          for needle in ["pagearticle", "content-wrapper", "id_person", "idperson", "pg=", "pagina", "load(", "get(", "post("]:
-              positions = [m.start() for m in re.finditer(re.escape(needle), source, re.I)]
-              print("===", needle, positions[:12], "===")
-              for pos in positions[:3]:
-                  print(re.sub(r"\s+", " ", source[max(0,pos-600):pos+1800])[:2500])
+          for slug in ["quicksillver", "spiderwoman", "sentry2"]:
+              url = f"https://www.comicsbox.it/personaggio.php?limite=0&name={slug}"
+              req = Request(url, headers={"User-Agent": "Mozilla/5.0 MarvelTracker/5.0"})
+              source = urlopen(req, timeout=45).read().decode("utf-8", errors="replace")
+              print("\n=====", slug, "bytes", len(source), "=====")
+              for needle in ["Prima pubblicazione", "Pubblicazione italiana", "fa solo una comparsa", "/albo/"]:
+                  positions = [m.start() for m in re.finditer(re.escape(needle), source, re.I)]
+                  print(needle, len(positions), positions[:5])
+              pos = source.lower().find("prima pubblicazione")
+              if pos >= 0:
+                  print(re.sub(r"\s+", " ", source[max(0,pos-1500):pos+4500])[:6000])
