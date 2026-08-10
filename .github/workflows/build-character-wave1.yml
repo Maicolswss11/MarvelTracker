@@ -1,0 +1,139 @@
+name: Build first missing-character wave
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/build-character-wave1.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Syntax check
+        run: python -m py_compile scripts/build_character_wave1.py
+
+      - name: Build eight character paths
+        env:
+          MARVELTRACKER_WORKERS: "14"
+        run: python scripts/build_character_wave1.py --workers 14
+
+      - name: Rebuild global physical catalog
+        run: python scripts/build_catalog.py
+
+      - name: Extend and make alternative-edition coverage regenerative
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("scripts/build_editions_catalog.py")
+          text = path.read_text(encoding="utf-8")
+
+          aliases = {
+              "black-cat": ["black cat", "gatta nera", "felicia hardy"],
+              "quicksilver": ["quicksilver", "pietro maximoff"],
+              "falcon": ["falcon", "sam wilson"],
+              "winter-soldier": ["winter soldier", "soldato d'inverno", "bucky barnes"],
+              "war-machine": ["war machine", "macchina da guerra", "james rhodes", "rhodey"],
+              "hercules": ["hercules", "ercole"],
+              "spider-woman": ["spider-woman", "spider woman", "donna ragno", "jessica drew"],
+              "sentry": ["sentry", "robert reynolds"],
+          }
+          start = text.index("PATH_ALIASES = {")
+          end = text.index("\n}\n\nDETAIL_HINTS", start)
+          block = text[start:end]
+          additions = []
+          for path_id, values in aliases.items():
+              if f'"{path_id}":' in block:
+                  continue
+              rendered = ", ".join(repr(value) for value in values)
+              additions.append(f'    "{path_id}": [{rendered}],')
+          if additions:
+              text = text[:end] + "\n" + "\n".join(additions) + text[end:]
+
+          old = '''            old = existing.get(eid, {})
+            imported.append({
+'''
+          new = '''            old = existing.get(eid, {})
+            auto_generated = old.get("coverageSource") == "auto:first-italian-publication"
+            preserved_coverage = [] if auto_generated else old.get("coverage", [])
+            preserved_source = "" if auto_generated else old.get("coverageSource", "")
+            imported.append({
+'''
+          if old in text:
+              text = text.replace(old, new, 1)
+
+          text = text.replace(
+              '''                "coverage": old.get("coverage", []),
+                **({"coverageSource": old["coverageSource"]} if old.get("coverageSource") else {}),
+''',
+              '''                "coverage": preserved_coverage,
+                **({"coverageSource": preserved_source} if preserved_source else {}),
+''',
+              1,
+          )
+          path.write_text(text, encoding="utf-8")
+
+      - name: Regenerate alternative editions
+        run: python scripts/build_editions_catalog.py
+
+      - name: Verify existing alternative-edition regression test
+        run: python scripts/check_alternative_coverage.py
+
+      - name: Report new alternative-edition coverage
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path("data/editions.json").read_text(encoding="utf-8"))
+          editions = payload.get("editions", [])
+          required = ["black-cat", "quicksilver", "falcon", "winter-soldier", "spider-woman", "sentry"]
+          failures = []
+          for path_id in required + ["war-machine", "hercules"]:
+              matched = []
+              physical = set()
+              for edition in editions:
+                  hits = [coverage for coverage in edition.get("coverage", []) if coverage.get("path") == path_id]
+                  if hits:
+                      matched.append(edition)
+                      for coverage in hits:
+                          physical.update(coverage.get("issueIds", []))
+              print(f"{path_id}: {len(matched)} alternative editions, {len(physical)} covered physical issues")
+              if path_id in required and not matched:
+                  failures.append(path_id)
+          if failures:
+              raise SystemExit("Expected alternative coverage missing for: " + ", ".join(failures))
+
+      - name: Verify new paths
+        run: node scripts/verify-character-wave1.mjs
+
+      - name: Verify global dataset
+        run: node scripts/verify-data.mjs
+
+      - name: Commit generated wave
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/characters.json data/hubs.json data/catalog.json data/editions.json \
+            data/character-wave1-audit.json data/characters/ \
+            assets/heroes/ scripts/build_editions_catalog.py
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit"
+            exit 0
+          fi
+          git commit -m "Add Black Cat and seven missing character paths"
+          git push
