@@ -66,7 +66,8 @@ jobs:
           from pathlib import Path
 
           ROOT = Path(__file__).resolve().parents[1]
-          editions = json.loads((ROOT / "data" / "editions.json").read_text(encoding="utf-8"))
+          payload = json.loads((ROOT / "data" / "editions.json").read_text(encoding="utf-8"))
+          editions = payload.get("editions", [])
 
           required = {
               "daredevil": "Daredevil",
@@ -75,20 +76,25 @@ jobs:
 
           failures = []
           for path_id, label in required.items():
-              matches = [
-                  edition for edition in editions
-                  if edition.get("source") == "ComicsBox"
-                  and edition.get("coverage", {}).get(path_id)
-              ]
-              covered_steps = {
-                  step
-                  for edition in matches
-                  for step in edition.get("coverage", {}).get(path_id, [])
-              }
-              if not matches or not covered_steps:
+              matches = []
+              covered_issue_ids = set()
+              for edition in editions:
+                  if edition.get("source") != "ComicsBox":
+                      continue
+                  path_coverages = [
+                      coverage for coverage in edition.get("coverage", [])
+                      if coverage.get("path") == path_id and coverage.get("issueIds")
+                  ]
+                  if not path_coverages:
+                      continue
+                  matches.append(edition)
+                  for coverage in path_coverages:
+                      covered_issue_ids.update(coverage.get("issueIds", []))
+
+              if not matches or not covered_issue_ids:
                   failures.append(f"{label}: zero alternative ComicsBox coverage")
               else:
-                  print(f"{label}: {len(matches)} alternative editions, {len(covered_steps)} covered path steps")
+                  print(f"{label}: {len(matches)} alternative editions, {len(covered_issue_ids)} covered physical issues")
 
           if failures:
               raise SystemExit("Alternative-edition coverage regression: " + "; ".join(failures))
