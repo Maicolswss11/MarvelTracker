@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "manifestVersion": 26,
   "editorialModel": "physical-issue/usa-contents/reading-step@1",
   "source": "ComicsBox USA series indexes, ComicsBox issue character credits, and existing MarvelTracker paths",
@@ -48,7 +48,7 @@
       "sources": [
         {"code": "BLWIDOW1"}, {"code": "BLWIDOW2"}, {"code": "BLWIDOW4"}, {"code": "BLWIDOW5"},
         {"code": "BLKWI_DO"}, {"code": "BLWIDOW6"}, {"code": "BLWIDOW7"}, {"code": "BLWIDOW8"},
-        {"code": "BLACKWIDO8"}, {"code": "BWDHWKEYE"}
+        {"code": "BLACKWIDO7"}, {"code": "BLACKWIDO8"}, {"code": "BWDHWKEYE"}, {"code": "BWVENOMOUS"}
       ]
     },
     {
@@ -65,7 +65,8 @@
       "insertAfter": "blackwidow",
       "reusePaths": ["avengers", "daredevil", "spiderman"],
       "sources": [
-        {"code": "LUKC"}, {"code": "PMIF"}, {"code": "CAGE1"}, {"code": "HEROHIRE1"}, {"code": "NA_LUKEC"}
+        {"code": "LUKC"}, {"code": "PMIF"}, {"code": "CAGE1"}, {"code": "HEROHIRE1"},
+        {"code": "NA_LUKEC"}, {"code": "PWMIRFIST3"}
       ]
     },
     {
@@ -83,7 +84,9 @@
       "reusePaths": ["daredevil", "avengers", "spiderman"],
       "sources": [
         {"code": "MP1", "include": ["15-25"], "era": "Origini su Marvel Premiere"},
-        {"code": "IF1"}, {"code": "PMIF"}, {"code": "IMM_IF"}, {"code": "IMIF_ODR"}, {"code": "IF_DRAGON"}
+        {"code": "IF1"}, {"code": "IF2"}, {"code": "IF3"}, {"code": "IF4"},
+        {"code": "PMIF"}, {"code": "IMM_IF"}, {"code": "IRFISTLW"}, {"code": "PWMIRFIST3"},
+        {"code": "IRONFIST5"}, {"code": "IMIF_ODR"}, {"code": "IF_DRAGON"}
       ]
     },
     {
@@ -100,7 +103,7 @@
       "insertAfter": "iron-fist",
       "reusePaths": ["avengers", "daredevil", "spiderman"],
       "sources": [
-        {"code": "ALIAS"}, {"code": "PULSE"}, {"code": "JESJONMDOB"}, {"code": "VARIANTS"}
+        {"code": "ALIAS"}, {"code": "PULSE"}, {"code": "JESSJONES"}, {"code": "JESJONMDOB"}, {"code": "VARIANTS"}
       ]
     },
     {
@@ -117,9 +120,10 @@
       "insertAfter": "jessica-jones",
       "reusePaths": ["spiderman", "daredevil", "cap", "wolverine-616", "war-machine"],
       "sources": [
-        {"code": "PUN1"}, {"code": "PUN2"}, {"code": "PWJ1"}, {"code": "PUN3"},
+        {"code": "PUN1"}, {"code": "PUN2"}, {"code": "PWZ1"}, {"code": "PUN3"},
         {"code": "PUN5"}, {"code": "PUN6"}, {"code": "PWZ2"}, {"code": "PUN8"},
-        {"code": "PUN9"}, {"code": "PUN10"}, {"code": "PUNI10"}
+        {"code": "PUN9"}, {"code": "PUNWZ3"}, {"code": "PUN10"}, {"code": "PUNI10"},
+        {"code": "PUNI11"}, {"code": "PUNISHER13"}, {"code": "PUNWJBLITZ"}
       ]
     },
     {
@@ -130,14 +134,16 @@
       "primaryHub": "street",
       "hubs": ["street", "mystic"],
       "accent": "#d7dbe0",
-      "description": "Percorso Terra-616 di Marc Spector dalle serie classiche a Mr. Knight e alle incarnazioni contemporanee, collegato sia allo street level sia al soprannaturale.",
+      "description": "Percorso Terra-616 di Marc Spector dalle origini in Werewolf by Night alle serie classiche, Mr. Knight e alle incarnazioni contemporanee, collegato sia allo street level sia al soprannaturale.",
       "aliases": ["moon knight", "marc spector", "mr. knight", "mister knight", "cavaliere della luna"],
       "relatedPaths": ["daredevil", "punisher", "ghost-rider", "avengers"],
       "insertAfter": "punisher",
       "reusePaths": ["avengers", "daredevil", "spiderman", "ghost-rider"],
       "sources": [
+        {"code": "WBN1", "include": ["32-33"], "era": "Origini"},
+        {"code": "MSP1", "include": ["28-29"], "era": "Prime avventure"},
         {"code": "MK1"}, {"code": "MK3"}, {"code": "MK6"}, {"code": "VMK"}, {"code": "MK7"},
-        {"code": "MOONKNIG7"}, {"code": "MONKNIGH7"}, {"code": "MOONKNIG8"}
+        {"code": "MOONKNIG7"}, {"code": "MONKNIGH7"}, {"code": "MOONKNIG8"}, {"code": "MKFISTK"}
       ]
     }
   ]
