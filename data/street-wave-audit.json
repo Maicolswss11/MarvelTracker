@@ -2,7 +2,7 @@
   "version": 1,
   "manifestVersion": 26,
   "editorialModel": "physical-issue/usa-contents/reading-step@1",
-  "generatedAt": "2026-08-10T22:50:06.499282+00:00",
+  "generatedAt": "2026-08-10T23:06:58.823856+00:00",
   "source": "ComicsBox USA series indexes, ComicsBox issue character credits, and existing MarvelTracker paths",
   "rules": [
     "Dedicated and co-billed series are followed issue by issue using their first verified Italian publication.",
@@ -15,18 +15,16 @@
   ],
   "summary": {
     "paths": 7,
-    "candidateDedicatedSeries": 54,
-    "validDedicatedSeries": 53,
-    "sourceErrors": 1,
-    "sharedUsStoriesScanned": 7415,
+    "candidateDedicatedSeries": 70,
+    "validDedicatedSeries": 70,
+    "sourceErrors": 0,
+    "sharedUsStoriesScanned": 7498,
     "sharedUsStoryErrors": 0,
-    "uniqueItalianAlbums": 607,
-    "reusedExistingAlbums": 409,
-    "newItalianAlbums": 198
+    "uniqueItalianAlbums": 669,
+    "reusedExistingAlbums": 627,
+    "newItalianAlbums": 42
   },
-  "sourceErrors": {
-    "PWJ1": "PWJ1: serie vuota o codice non valido"
-  },
+  "sourceErrors": {},
   "reuseAlbumErrors": {},
   "roleScanErrors": {},
   "albumErrors": {},
@@ -35,8 +33,8 @@
       "id": "hawkeye",
       "name": "Occhio di Falco",
       "dedicatedChapters": 74,
-      "sharedProtagonistChapters": 131,
-      "deduplicatedChapters": 205,
+      "sharedProtagonistChapters": 141,
+      "deduplicatedChapters": 215,
       "sourceSeries": [
         {
           "code": "HAWK1",
@@ -160,14 +158,41 @@
         }
       ],
       "sharedScan": {
-        "scannedContents": 2625,
-        "includedProtagonistContents": 131,
+        "scannedContents": 2896,
+        "includedProtagonistContents": 141,
         "issuesWithoutContents": 0
       },
-      "mappedChapters": 188,
+      "mappedChapters": 198,
       "missingItalianPublications": 17,
-      "physicalItalianIssues": 132,
+      "physicalItalianIssues": 141,
       "mappings": [
+        {
+          "kind": "chapter",
+          "sourceCode": "reuse:blackwidow",
+          "usaCode": "TOS1_057",
+          "usa": "Tales Of Suspense Vol 1 # 57",
+          "usaDate": "1964-09",
+          "italianAlbum": "ID1_041",
+          "physicalId": "ID1:41"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "reuse:blackwidow",
+          "usaCode": "TOS1_060",
+          "usa": "Tales Of Suspense Vol 1 # 60",
+          "usaDate": "1964-12",
+          "italianAlbum": "ID1_044",
+          "physicalId": "ID1:44"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "reuse:blackwidow",
+          "usaCode": "TOS1_064",
+          "usa": "Tales Of Suspense Vol 1 # 64",
+          "usaDate": "1965-04",
+          "italianAlbum": "ID1_048",
+          "physicalId": "ID1:48"
+        },
         {
           "kind": "chapter",
           "sourceCode": "HAWK1",
@@ -710,12 +735,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "reuse:blackwidow",
+          "usaCode": "BLKWI_DO_002",
+          "usa": "Black Widow: Deadly Origin # 2",
+          "usaDate": "2010-02",
+          "italianAlbum": "CAP_M_006",
+          "physicalId": "CAP_M:6"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:avengers",
           "usaCode": "MIGH_AV_033",
           "usa": "The Mighty Avengers Vol 1 # 33",
           "usaDate": "2010-03",
           "italianAlbum": "IM_VEN2_031",
           "physicalId": "IM_VEN2:31"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "reuse:blackwidow",
+          "usaCode": "BLKWI_DO_003",
+          "usa": "Black Widow: Deadly Origin # 3",
+          "usaDate": "2010-03",
+          "italianAlbum": "CAP_M_007",
+          "physicalId": "CAP_M:7"
         },
         {
           "kind": "chapter",
@@ -788,6 +831,15 @@
           "usaDate": "2010-07",
           "italianAlbum": "IM_VEN2_034",
           "physicalId": "IM_VEN2:34"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "reuse:blackwidow",
+          "usaCode": "BLWIDOW6_002",
+          "usa": "Black Widow vol 4 # 2",
+          "usaDate": "2010-07",
+          "italianAlbum": "100M_116",
+          "physicalId": "100M:116"
         },
         {
           "kind": "chapter",
@@ -1907,6 +1959,24 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "reuse:blackwidow",
+          "usaCode": "TOS3_102",
+          "usa": "Tales of Suspense vol 3 # 102",
+          "usaDate": "2018-04",
+          "italianAlbum": "CAP_M_101",
+          "physicalId": "CAP_M:101"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "reuse:blackwidow",
+          "usaCode": "TOS3_103",
+          "usa": "Tales of Suspense vol 3 # 103",
+          "usaDate": "2018-05",
+          "italianAlbum": "CAP_M_102",
+          "physicalId": "CAP_M:102"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:avengers",
           "usaCode": "AVN7_689",
           "usa": "Avengers vol 7 # 689",
@@ -1922,6 +1992,24 @@
           "usaDate": "2018-06",
           "italianAlbum": "AVENGERS_M_104",
           "physicalId": "AVENGERS_M:104"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "reuse:blackwidow",
+          "usaCode": "TOS3_104",
+          "usa": "Tales of Suspense vol 3 # 104",
+          "usaDate": "2018-06",
+          "italianAlbum": "CAP_M_103",
+          "physicalId": "CAP_M:103"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "reuse:blackwidow",
+          "usaCode": "CAP8_703",
+          "usa": "Captain America vol 8 # 703",
+          "usaDate": "2018-08",
+          "italianAlbum": "CAP_M_103",
+          "physicalId": "CAP_M:103"
         },
         {
           "kind": "chapter",
@@ -2018,9 +2106,9 @@
     {
       "id": "blackwidow",
       "name": "Vedova Nera",
-      "dedicatedChapters": 81,
+      "dedicatedChapters": 87,
       "sharedProtagonistChapters": 118,
-      "deduplicatedChapters": 199,
+      "deduplicatedChapters": 205,
       "sourceSeries": [
         {
           "code": "BLWIDOW1",
@@ -2103,6 +2191,16 @@
           "unmapped": 0
         },
         {
+          "code": "BLACKWIDO7",
+          "name": "BLACKWIDO7",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 5,
+          "mapped": 5,
+          "unmapped": 0
+        },
+        {
           "code": "BLACKWIDO8",
           "name": "BLACKWIDO8",
           "selectors": [
@@ -2121,16 +2219,26 @@
           "chapters": 4,
           "mapped": 4,
           "unmapped": 0
+        },
+        {
+          "code": "BWVENOMOUS",
+          "name": "BWVENOMOUS",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 1,
+          "mapped": 1,
+          "unmapped": 0
         }
       ],
       "sharedScan": {
-        "scannedContents": 4578,
+        "scannedContents": 4808,
         "includedProtagonistContents": 118,
         "issuesWithoutContents": 0
       },
-      "mappedChapters": 196,
+      "mappedChapters": 202,
       "missingItalianPublications": 3,
-      "physicalItalianIssues": 135,
+      "physicalItalianIssues": 137,
       "mappings": [
         {
           "kind": "chapter",
@@ -3718,6 +3826,51 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "BLACKWIDO7",
+          "usaCode": "BLACKWIDO7_001",
+          "usa": "BLACKWIDO7 #1 — (untitled)",
+          "usaDate": "Mar 2019",
+          "italianAlbum": "MVNWCOL_P_248",
+          "physicalId": "MVNWCOL_P:248"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "BLACKWIDO7",
+          "usaCode": "BLACKWIDO7_002",
+          "usa": "BLACKWIDO7 #2 — (untitled)",
+          "usaDate": "Apr 2019",
+          "italianAlbum": "MVNWCOL_P_248",
+          "physicalId": "MVNWCOL_P:248"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "BLACKWIDO7",
+          "usaCode": "BLACKWIDO7_003",
+          "usa": "BLACKWIDO7 #3 — (untitled)",
+          "usaDate": "May 2019",
+          "italianAlbum": "MVNWCOL_P_248",
+          "physicalId": "MVNWCOL_P:248"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "BLACKWIDO7",
+          "usaCode": "BLACKWIDO7_004",
+          "usa": "BLACKWIDO7 #4 — (untitled)",
+          "usaDate": "Jun 2019",
+          "italianAlbum": "MVNWCOL_P_248",
+          "physicalId": "MVNWCOL_P:248"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "BLACKWIDO7",
+          "usaCode": "BLACKWIDO7_005",
+          "usa": "BLACKWIDO7 #5 — (untitled)",
+          "usaDate": "Jul 2019",
+          "italianAlbum": "MVNWCOL_P_248",
+          "physicalId": "MVNWCOL_P:248"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:avengers",
           "usaCode": "AVN8_027",
           "usa": "Avengers vol 8 # 27",
@@ -3922,15 +4075,24 @@
           "usaDate": "Aug 2024",
           "italianAlbum": "MVNWCOL_P_601",
           "physicalId": "MVNWCOL_P:601"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "BWVENOMOUS",
+          "usaCode": "BWVENOMOUS_001",
+          "usa": "BWVENOMOUS #1 — (Untitled)",
+          "usaDate": "Sep 2024",
+          "italianAlbum": "VENWARSPCL_001",
+          "physicalId": "VENWARSPCL:1"
         }
       ]
     },
     {
       "id": "luke-cage",
       "name": "Luke Cage",
-      "dedicatedChapters": 167,
+      "dedicatedChapters": 182,
       "sharedProtagonistChapters": 126,
-      "deduplicatedChapters": 293,
+      "deduplicatedChapters": 308,
       "sourceSeries": [
         {
           "code": "LUKC",
@@ -3981,6 +4143,16 @@
           "chapters": 3,
           "mapped": 3,
           "unmapped": 0
+        },
+        {
+          "code": "PWMIRFIST3",
+          "name": "PWMIRFIST3",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 15,
+          "mapped": 15,
+          "unmapped": 0
         }
       ],
       "sharedScan": {
@@ -3988,9 +4160,9 @@
         "includedProtagonistContents": 126,
         "issuesWithoutContents": 0
       },
-      "mappedChapters": 213,
+      "mappedChapters": 228,
       "missingItalianPublications": 80,
-      "physicalItalianIssues": 171,
+      "physicalItalianIssues": 186,
       "mappings": [
         {
           "kind": "chapter",
@@ -6523,6 +6695,15 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_001",
+          "usa": "PWMIRFIST3 #1 — The Boys Are Back",
+          "usaDate": "Apr 2016",
+          "italianAlbum": "DEVIL_M_054",
+          "physicalId": "DEVIL_M:54"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:avengers",
           "usaCode": "NEWAVG4_006",
           "usa": "The New Avengers Vol 4 # 6",
@@ -6541,12 +6722,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_002",
+          "usa": "PWMIRFIST3 #2 — The boys are back - part two",
+          "usaDate": "May 2016",
+          "italianAlbum": "DEVIL_M_055",
+          "physicalId": "DEVIL_M:55"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:avengers",
           "usaCode": "NEWAVG4_008",
           "usa": "The New Avengers Vol 4 # 8",
           "usaDate": "2016-05",
           "italianAlbum": "AVENGERS_M_061",
           "physicalId": "AVENGERS_M:61"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_003",
+          "usa": "PWMIRFIST3 #3 — The boys are back - part three",
+          "usaDate": "Jun 2016",
+          "italianAlbum": "DEVIL_M_056",
+          "physicalId": "DEVIL_M:56"
         },
         {
           "kind": "chapter",
@@ -6568,6 +6767,33 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_004",
+          "usa": "PWMIRFIST3 #4 — The boys are back - part four",
+          "usaDate": "Jul 2016",
+          "italianAlbum": "DEVIL_M_057",
+          "physicalId": "DEVIL_M:57"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_005",
+          "usa": "PWMIRFIST3 #5 — On air",
+          "usaDate": "Aug 2016",
+          "italianAlbum": "DEVIL_M_058",
+          "physicalId": "DEVIL_M:58"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_006",
+          "usa": "PWMIRFIST3 #6 — Civil War II - part one",
+          "usaDate": "Sep 2016",
+          "italianAlbum": "DEVIL_M_059",
+          "physicalId": "DEVIL_M:59"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:avengers",
           "usaCode": "NEWAVG4_013",
           "usa": "The New Avengers Vol 4 # 13",
@@ -6586,12 +6812,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_007",
+          "usa": "PWMIRFIST3 #7 — Civil War II - part two",
+          "usaDate": "Oct 2016",
+          "italianAlbum": "DEVIL_M_060",
+          "physicalId": "DEVIL_M:60"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:avengers",
           "usaCode": "NEWAVG4_015",
           "usa": "The New Avengers Vol 4 # 15",
           "usaDate": "2016-10",
           "italianAlbum": "AVENGERS_M_071",
           "physicalId": "AVENGERS_M:71"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_008",
+          "usa": "PWMIRFIST3 #8 — Civil War II - part three",
+          "usaDate": "Nov 2016",
+          "italianAlbum": "DEVIL_M_061",
+          "physicalId": "DEVIL_M:61"
         },
         {
           "kind": "chapter",
@@ -6604,6 +6848,15 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_009",
+          "usa": "PWMIRFIST3 #9 — Civil War II - part four",
+          "usaDate": "Dec 2016",
+          "italianAlbum": "DEVIL_M_062",
+          "physicalId": "DEVIL_M:62"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:avengers",
           "usaCode": "NEWAVG4_017",
           "usa": "The New Avengers Vol 4 # 17",
@@ -6613,12 +6866,66 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_010",
+          "usa": "PWMIRFIST3 #10 — Harlem burns - part one",
+          "usaDate": "Jan 2017",
+          "italianAlbum": "DEVIL_M_063",
+          "physicalId": "DEVIL_M:63"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:avengers",
           "usaCode": "NEWAVG4_018",
           "usa": "The New Avengers Vol 4 # 18",
           "usaDate": "2017-01",
           "italianAlbum": "AVENGERS_M_075",
           "physicalId": "AVENGERS_M:75"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_011",
+          "usa": "PWMIRFIST3 #11 — (untitled)",
+          "usaDate": "Feb 2017",
+          "italianAlbum": "DEVIL_M_064",
+          "physicalId": "DEVIL_M:64"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_012",
+          "usa": "PWMIRFIST3 #12 — (untitled)",
+          "usaDate": "Mar 2017",
+          "italianAlbum": "DEVIL_M_065",
+          "physicalId": "DEVIL_M:65"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_013",
+          "usa": "PWMIRFIST3 #13 — (untitled)",
+          "usaDate": "Apr 2017",
+          "italianAlbum": "DEVIL_M_066",
+          "physicalId": "DEVIL_M:66"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_014",
+          "usa": "PWMIRFIST3 #14 — (untitled)",
+          "usaDate": "May 2017",
+          "italianAlbum": "DEVIL_M_067",
+          "physicalId": "DEVIL_M:67"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_015",
+          "usa": "PWMIRFIST3 #15 — (untitled)",
+          "usaDate": "Jun 2017",
+          "italianAlbum": "DEVIL_M_068",
+          "physicalId": "DEVIL_M:68"
         },
         {
           "kind": "chapter",
@@ -6634,9 +6941,9 @@
     {
       "id": "iron-fist",
       "name": "Iron Fist",
-      "dedicatedChapters": 136,
+      "dedicatedChapters": 189,
       "sharedProtagonistChapters": 75,
-      "deduplicatedChapters": 211,
+      "deduplicatedChapters": 264,
       "sourceSeries": [
         {
           "code": "MP1",
@@ -6659,6 +6966,36 @@
           "unmapped": 0
         },
         {
+          "code": "IF2",
+          "name": "IF2",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 2,
+          "mapped": 2,
+          "unmapped": 0
+        },
+        {
+          "code": "IF3",
+          "name": "IF3",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 3,
+          "mapped": 0,
+          "unmapped": 3
+        },
+        {
+          "code": "IF4",
+          "name": "IF4",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 6,
+          "mapped": 0,
+          "unmapped": 6
+        },
+        {
           "code": "PMIF",
           "name": "PMIF",
           "selectors": [
@@ -6676,6 +7013,36 @@
           ],
           "chapters": 27,
           "mapped": 27,
+          "unmapped": 0
+        },
+        {
+          "code": "IRFISTLW",
+          "name": "IRFISTLW",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 12,
+          "mapped": 12,
+          "unmapped": 0
+        },
+        {
+          "code": "PWMIRFIST3",
+          "name": "PWMIRFIST3",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 15,
+          "mapped": 15,
+          "unmapped": 0
+        },
+        {
+          "code": "IRONFIST5",
+          "name": "IRONFIST5",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 15,
+          "mapped": 15,
           "unmapped": 0
         },
         {
@@ -6704,9 +7071,9 @@
         "includedProtagonistContents": 75,
         "issuesWithoutContents": 0
       },
-      "mappedChapters": 159,
-      "missingItalianPublications": 52,
-      "physicalItalianIssues": 107,
+      "mappedChapters": 203,
+      "missingItalianPublications": 61,
+      "physicalItalianIssues": 143,
       "mappings": [
         {
           "kind": "chapter",
@@ -7646,6 +8013,51 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "IF2",
+          "usaCode": "IF2_001",
+          "usa": "IF2 #1 — The Descent",
+          "usaDate": "Sep 1996",
+          "italianAlbum": "URDX_M_026",
+          "physicalId": "URDX_M:26"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IF2",
+          "usaCode": "IF2_002",
+          "usa": "IF2 #2 — The Ascension",
+          "usaDate": "Oct 1996",
+          "italianAlbum": "URDX_M_027",
+          "physicalId": "URDX_M:27"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IF3",
+          "usaCode": "IF3_001",
+          "usa": "IF3 #1 — In The Fold, Part 1",
+          "usaDate": "Jul 1998",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IF3",
+          "usaCode": "IF3_002",
+          "usa": "IF3 #2 — In The Fold, Part 2",
+          "usaDate": "Aug 1998",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IF3",
+          "usaCode": "IF3_003",
+          "usa": "IF3 #3 — In The Fold, Part 3",
+          "usaDate": "Sep 1998",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:daredevil",
           "usaCode": "DD2_038",
           "usa": "Daredevil vol 2 # 38",
@@ -7655,12 +8067,66 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "IF4",
+          "usaCode": "IF4_001",
+          "usa": "IF4 #1 — Breathless, Part 1",
+          "usaDate": "May 2004",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IF4",
+          "usaCode": "IF4_002",
+          "usa": "IF4 #2 — Breathless, Part 2",
+          "usaDate": "Jun 2004",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IF4",
+          "usaCode": "IF4_003",
+          "usa": "IF4 #3 — Breathless, Part 3",
+          "usaDate": "Jul 2004",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:daredevil",
           "usaCode": "DD2_060",
           "usa": "Daredevil vol 2 # 60",
           "usaDate": "2004-07",
           "italianAlbum": "DEH_M_108",
           "physicalId": "DEH_M:108"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IF4",
+          "usaCode": "IF4_004",
+          "usa": "IF4 #4 — Breathless, Part 4",
+          "usaDate": "Aug 2004",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IF4",
+          "usaCode": "IF4_005",
+          "usa": "IF4 #5 — Breathless, Part 5",
+          "usaDate": "Sep 2004",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IF4",
+          "usaCode": "IF4_006",
+          "usa": "IF4 #6 — Breathless, Part 6",
+          "usaDate": "Oct 2004",
+          "italianAlbum": null,
+          "physicalId": null
         },
         {
           "kind": "chapter",
@@ -8528,12 +8994,390 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_001",
+          "usa": "IRFISTLW #1 — Rage, Part 1",
+          "usaDate": "Jun 2014",
+          "italianAlbum": "MARVTS_M_012",
+          "physicalId": "MARVTS_M:12"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_002",
+          "usa": "IRFISTLW #2 — Rage, Part 2",
+          "usaDate": "Jul 2014",
+          "italianAlbum": "MARVTS_M_012",
+          "physicalId": "MARVTS_M:12"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_003",
+          "usa": "IRFISTLW #3 — Rage, Part 3",
+          "usaDate": "Aug 2014",
+          "italianAlbum": "MARVTS_M_013",
+          "physicalId": "MARVTS_M:13"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_004",
+          "usa": "IRFISTLW #4 — Rage, Part 4",
+          "usaDate": "Sep 2014",
+          "italianAlbum": "MARVTS_M_013",
+          "physicalId": "MARVTS_M:13"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_005",
+          "usa": "IRFISTLW #5 — Rage, part 5",
+          "usaDate": "Oct 2014",
+          "italianAlbum": "MARVTS_M_014",
+          "physicalId": "MARVTS_M:14"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_006",
+          "usa": "IRFISTLW #6 — Rage, Part 6",
+          "usaDate": "Nov 2014",
+          "italianAlbum": "MARVTS_M_014",
+          "physicalId": "MARVTS_M:14"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_007",
+          "usa": "IRFISTLW #7 — Redemption, part 1",
+          "usaDate": "Jan 2015",
+          "italianAlbum": "MARVTS_M_015",
+          "physicalId": "MARVTS_M:15"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_008",
+          "usa": "IRFISTLW #8 — Redemption, Part 2",
+          "usaDate": "Mar 2015",
+          "italianAlbum": "MARVTS_M_015",
+          "physicalId": "MARVTS_M:15"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_009",
+          "usa": "IRFISTLW #9 — Redemption, Part 3",
+          "usaDate": "Apr 2015",
+          "italianAlbum": "MARVTS_M_016",
+          "physicalId": "MARVTS_M:16"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_010",
+          "usa": "IRFISTLW #10 — Redemption, Part 4",
+          "usaDate": "May 2015",
+          "italianAlbum": "MARVTS_M_016",
+          "physicalId": "MARVTS_M:16"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_011",
+          "usa": "IRFISTLW #11 — Redemption, Part 5",
+          "usaDate": "Jun 2015",
+          "italianAlbum": "MARVTS_M_017",
+          "physicalId": "MARVTS_M:17"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRFISTLW",
+          "usaCode": "IRFISTLW_012",
+          "usa": "IRFISTLW #12 — Redemption, part 6",
+          "usaDate": "Jul 2015",
+          "italianAlbum": "MARVTS_M_017",
+          "physicalId": "MARVTS_M:17"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:avengers",
           "usaCode": "ILLUMINATI_001",
           "usa": "Illuminati # 1",
           "usaDate": "2016-01",
           "italianAlbum": "AVENGERS_M_052",
           "physicalId": "AVENGERS_M:52"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_001",
+          "usa": "PWMIRFIST3 #1 — The Boys Are Back",
+          "usaDate": "Apr 2016",
+          "italianAlbum": "DEVIL_M_054",
+          "physicalId": "DEVIL_M:54"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_002",
+          "usa": "PWMIRFIST3 #2 — The boys are back - part two",
+          "usaDate": "May 2016",
+          "italianAlbum": "DEVIL_M_055",
+          "physicalId": "DEVIL_M:55"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_003",
+          "usa": "PWMIRFIST3 #3 — The boys are back - part three",
+          "usaDate": "Jun 2016",
+          "italianAlbum": "DEVIL_M_056",
+          "physicalId": "DEVIL_M:56"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_004",
+          "usa": "PWMIRFIST3 #4 — The boys are back - part four",
+          "usaDate": "Jul 2016",
+          "italianAlbum": "DEVIL_M_057",
+          "physicalId": "DEVIL_M:57"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_005",
+          "usa": "PWMIRFIST3 #5 — On air",
+          "usaDate": "Aug 2016",
+          "italianAlbum": "DEVIL_M_058",
+          "physicalId": "DEVIL_M:58"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_006",
+          "usa": "PWMIRFIST3 #6 — Civil War II - part one",
+          "usaDate": "Sep 2016",
+          "italianAlbum": "DEVIL_M_059",
+          "physicalId": "DEVIL_M:59"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_007",
+          "usa": "PWMIRFIST3 #7 — Civil War II - part two",
+          "usaDate": "Oct 2016",
+          "italianAlbum": "DEVIL_M_060",
+          "physicalId": "DEVIL_M:60"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_008",
+          "usa": "PWMIRFIST3 #8 — Civil War II - part three",
+          "usaDate": "Nov 2016",
+          "italianAlbum": "DEVIL_M_061",
+          "physicalId": "DEVIL_M:61"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_009",
+          "usa": "PWMIRFIST3 #9 — Civil War II - part four",
+          "usaDate": "Dec 2016",
+          "italianAlbum": "DEVIL_M_062",
+          "physicalId": "DEVIL_M:62"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_010",
+          "usa": "PWMIRFIST3 #10 — Harlem burns - part one",
+          "usaDate": "Jan 2017",
+          "italianAlbum": "DEVIL_M_063",
+          "physicalId": "DEVIL_M:63"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_011",
+          "usa": "PWMIRFIST3 #11 — (untitled)",
+          "usaDate": "Feb 2017",
+          "italianAlbum": "DEVIL_M_064",
+          "physicalId": "DEVIL_M:64"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_012",
+          "usa": "PWMIRFIST3 #12 — (untitled)",
+          "usaDate": "Mar 2017",
+          "italianAlbum": "DEVIL_M_065",
+          "physicalId": "DEVIL_M:65"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_013",
+          "usa": "PWMIRFIST3 #13 — (untitled)",
+          "usaDate": "Apr 2017",
+          "italianAlbum": "DEVIL_M_066",
+          "physicalId": "DEVIL_M:66"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_014",
+          "usa": "PWMIRFIST3 #14 — (untitled)",
+          "usaDate": "May 2017",
+          "italianAlbum": "DEVIL_M_067",
+          "physicalId": "DEVIL_M:67"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_001",
+          "usa": "IRONFIST5 #1 — The Trial of the Seven Masters, Part 1",
+          "usaDate": "May 2017",
+          "italianAlbum": "DEVIL_M_069",
+          "physicalId": "DEVIL_M:69"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWMIRFIST3",
+          "usaCode": "PWMIRFIST3_015",
+          "usa": "PWMIRFIST3 #15 — (untitled)",
+          "usaDate": "Jun 2017",
+          "italianAlbum": "DEVIL_M_068",
+          "physicalId": "DEVIL_M:68"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_002",
+          "usa": "IRONFIST5 #2 — The Trial of the Seven Masters, Part 2",
+          "usaDate": "Jun 2017",
+          "italianAlbum": "DEVIL_M_070",
+          "physicalId": "DEVIL_M:70"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_003",
+          "usa": "IRONFIST5 #3 — The Trial of the Seven Masters, Part 3",
+          "usaDate": "Jul 2017",
+          "italianAlbum": "DEVIL_M_071",
+          "physicalId": "DEVIL_M:71"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_004",
+          "usa": "IRONFIST5 #4 — The Trial of the Seven Masters, Part 4",
+          "usaDate": "Jul 2017",
+          "italianAlbum": "DEVIL_M_072",
+          "physicalId": "DEVIL_M:72"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_005",
+          "usa": "IRONFIST5 #5 — The Trial of the Seven Masters, Conclusion",
+          "usaDate": "Sep 2017",
+          "italianAlbum": "DEVIL_M_073",
+          "physicalId": "DEVIL_M:73"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_006",
+          "usa": "IRONFIST5 #6 — Masters of Kung Fu - part one",
+          "usaDate": "Oct 2017",
+          "italianAlbum": "DEVIL_M_074",
+          "physicalId": "DEVIL_M:74"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_007",
+          "usa": "IRONFIST5 #7 — Masters of Kung Fu - part two",
+          "usaDate": "Nov 2017",
+          "italianAlbum": "DEVIL_M_075",
+          "physicalId": "DEVIL_M:75"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_073",
+          "usa": "IRONFIST5 #73 — Sabretooth: Round Two, Part 1",
+          "usaDate": "Dec 2017",
+          "italianAlbum": "DEVIL_M_081",
+          "physicalId": "DEVIL_M:81"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_074",
+          "usa": "IRONFIST5 #74 — Sabretooth: Round Two, Part 2",
+          "usaDate": "Jan 2018",
+          "italianAlbum": "DEVIL_M_081",
+          "physicalId": "DEVIL_M:81"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_075",
+          "usa": "IRONFIST5 #75 — Sabretooth: Round Two, Part 3",
+          "usaDate": "Feb 2018",
+          "italianAlbum": "DEVIL_M_082",
+          "physicalId": "DEVIL_M:82"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_076",
+          "usa": "IRONFIST5 #76 — Sabretooth: Round Two, Part 4",
+          "usaDate": "Mar 2018",
+          "italianAlbum": "DEVIL_M_083",
+          "physicalId": "DEVIL_M:83"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_077",
+          "usa": "IRONFIST5 #77 — Sabretooth: Round Two, Part 5",
+          "usaDate": "Apr 2018",
+          "italianAlbum": "DEVIL_M_083",
+          "physicalId": "DEVIL_M:83"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_078",
+          "usa": "IRONFIST5 #78 — Damnation - part one",
+          "usaDate": "May 2018",
+          "italianAlbum": "DEVIL_M_084",
+          "physicalId": "DEVIL_M:84"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_079",
+          "usa": "IRONFIST5 #79 — (untitled)",
+          "usaDate": "Jun 2018",
+          "italianAlbum": "DEVIL_M_085",
+          "physicalId": "DEVIL_M:85"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "IRONFIST5",
+          "usaCode": "IRONFIST5_080",
+          "usa": "IRONFIST5 #80 — (untitled)",
+          "usaDate": "Jun 2018",
+          "italianAlbum": "DEVIL_M_086",
+          "physicalId": "DEVIL_M:86"
         },
         {
           "kind": "chapter",
@@ -8612,9 +9456,9 @@
     {
       "id": "jessica-jones",
       "name": "Jessica Jones",
-      "dedicatedChapters": 50,
+      "dedicatedChapters": 68,
       "sharedProtagonistChapters": 53,
-      "deduplicatedChapters": 103,
+      "deduplicatedChapters": 121,
       "sourceSeries": [
         {
           "code": "ALIAS",
@@ -8634,6 +9478,16 @@
           ],
           "chapters": 14,
           "mapped": 14,
+          "unmapped": 0
+        },
+        {
+          "code": "JESSJONES",
+          "name": "JESSJONES",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 18,
+          "mapped": 18,
           "unmapped": 0
         },
         {
@@ -8662,9 +9516,9 @@
         "includedProtagonistContents": 53,
         "issuesWithoutContents": 0
       },
-      "mappedChapters": 103,
+      "mappedChapters": 121,
       "missingItalianPublications": 0,
-      "physicalItalianIssues": 66,
+      "physicalItalianIssues": 69,
       "mappings": [
         {
           "kind": "chapter",
@@ -9505,12 +10359,174 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_001",
+          "usa": "JESSJONES #1 — (untitled)",
+          "usaDate": "Dec 2016",
+          "italianAlbum": "MVNWCOL_P_114",
+          "physicalId": "MVNWCOL_P:114"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_002",
+          "usa": "JESSJONES #2 — (untitled)",
+          "usaDate": "Jan 2017",
+          "italianAlbum": "MVNWCOL_P_114",
+          "physicalId": "MVNWCOL_P:114"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_003",
+          "usa": "JESSJONES #3 — (untitled)",
+          "usaDate": "Feb 2017",
+          "italianAlbum": "MVNWCOL_P_114",
+          "physicalId": "MVNWCOL_P:114"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_004",
+          "usa": "JESSJONES #4 — (untitled)",
+          "usaDate": "Mar 2017",
+          "italianAlbum": "MVNWCOL_P_114",
+          "physicalId": "MVNWCOL_P:114"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_005",
+          "usa": "JESSJONES #5 — (untitled)",
+          "usaDate": "Apr 2017",
+          "italianAlbum": "MVNWCOL_P_114",
+          "physicalId": "MVNWCOL_P:114"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_006",
+          "usa": "JESSJONES #6 — (untitled)",
+          "usaDate": "May 2017",
+          "italianAlbum": "MVNWCOL_P_114",
+          "physicalId": "MVNWCOL_P:114"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_007",
+          "usa": "JESSJONES #7 — (untitled)",
+          "usaDate": "Jun 2017",
+          "italianAlbum": "MVNWCOL_P_150",
+          "physicalId": "MVNWCOL_P:150"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_008",
+          "usa": "JESSJONES #8 — (untitled)",
+          "usaDate": "Jul 2017",
+          "italianAlbum": "MVNWCOL_P_150",
+          "physicalId": "MVNWCOL_P:150"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_009",
+          "usa": "JESSJONES #9 — (untitled)",
+          "usaDate": "Aug 2017",
+          "italianAlbum": "MVNWCOL_P_150",
+          "physicalId": "MVNWCOL_P:150"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_010",
+          "usa": "JESSJONES #10 — (untitled)",
+          "usaDate": "Sep 2017",
+          "italianAlbum": "MVNWCOL_P_150",
+          "physicalId": "MVNWCOL_P:150"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_011",
+          "usa": "JESSJONES #11 — (untitled)",
+          "usaDate": "Oct 2017",
+          "italianAlbum": "MVNWCOL_P_150",
+          "physicalId": "MVNWCOL_P:150"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_012",
+          "usa": "JESSJONES #12 — (untitled)",
+          "usaDate": "Nov 2017",
+          "italianAlbum": "MVNWCOL_P_150",
+          "physicalId": "MVNWCOL_P:150"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:avengers",
           "usaCode": "MGHYCAPMV_009",
           "usa": "The Mighty Captain Marvel # 9",
           "usaDate": "2017-11",
           "italianAlbum": "AVENGERS_M_096",
           "physicalId": "AVENGERS_M:96"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_013",
+          "usa": "JESSJONES #13 — Return of the Purple Man, Part 1",
+          "usaDate": "Dec 2017",
+          "italianAlbum": "MVNWCOL_P_178",
+          "physicalId": "MVNWCOL_P:178"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_014",
+          "usa": "JESSJONES #14 — (untitled)",
+          "usaDate": "Jan 2018",
+          "italianAlbum": "MVNWCOL_P_178",
+          "physicalId": "MVNWCOL_P:178"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_015",
+          "usa": "JESSJONES #15 — Return of the Purple Man, Part 3",
+          "usaDate": "Feb 2018",
+          "italianAlbum": "MVNWCOL_P_178",
+          "physicalId": "MVNWCOL_P:178"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_016",
+          "usa": "JESSJONES #16 — Return of the Purple Man, Part 4",
+          "usaDate": "Mar 2018",
+          "italianAlbum": "MVNWCOL_P_178",
+          "physicalId": "MVNWCOL_P:178"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_017",
+          "usa": "JESSJONES #17 — Return of the Purple Man, Part 5",
+          "usaDate": "Apr 2018",
+          "italianAlbum": "MVNWCOL_P_178",
+          "physicalId": "MVNWCOL_P:178"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "JESSJONES",
+          "usaCode": "JESSJONES_018",
+          "usa": "JESSJONES #18 — (untitled)",
+          "usaDate": "May 2018",
+          "italianAlbum": "MVNWCOL_P_178",
+          "physicalId": "MVNWCOL_P:178"
         },
         {
           "kind": "chapter",
@@ -9598,9 +10614,9 @@
     {
       "id": "punisher",
       "name": "Punisher",
-      "dedicatedChapters": 287,
+      "dedicatedChapters": 401,
       "sharedProtagonistChapters": 51,
-      "deduplicatedChapters": 322,
+      "deduplicatedChapters": 431,
       "sourceSeries": [
         {
           "code": "PUN1",
@@ -9623,15 +10639,14 @@
           "unmapped": 36
         },
         {
-          "code": "PWJ1",
-          "name": "PWJ1",
+          "code": "PWZ1",
+          "name": "PWZ1",
           "selectors": [
             "all"
           ],
-          "chapters": 0,
-          "mapped": 0,
-          "unmapped": 0,
-          "error": "PWJ1: serie vuota o codice non valido"
+          "chapters": 80,
+          "mapped": 41,
+          "unmapped": 39
         },
         {
           "code": "PUN3",
@@ -9694,6 +10709,16 @@
           "unmapped": 0
         },
         {
+          "code": "PUNWZ3",
+          "name": "PUNWZ3",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 5,
+          "mapped": 5,
+          "unmapped": 0
+        },
+        {
           "code": "PUN10",
           "name": "PUN10",
           "selectors": [
@@ -9712,6 +10737,36 @@
           "chapters": 28,
           "mapped": 28,
           "unmapped": 0
+        },
+        {
+          "code": "PUNI11",
+          "name": "PUNI11",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 16,
+          "mapped": 16,
+          "unmapped": 0
+        },
+        {
+          "code": "PUNISHER13",
+          "name": "PUNISHER13",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 12,
+          "mapped": 12,
+          "unmapped": 0
+        },
+        {
+          "code": "PUNWJBLITZ",
+          "name": "PUNWJBLITZ",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 1,
+          "mapped": 1,
+          "unmapped": 0
         }
       ],
       "sharedScan": {
@@ -9719,9 +10774,9 @@
         "includedProtagonistContents": 51,
         "issuesWithoutContents": 0
       },
-      "mappedChapters": 264,
-      "missingItalianPublications": 58,
-      "physicalItalianIssues": 148,
+      "mappedChapters": 334,
+      "missingItalianPublications": 97,
+      "physicalItalianIssues": 182,
       "mappings": [
         {
           "kind": "chapter",
@@ -9959,12 +11014,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_001",
+          "usa": "PWZ1 #1 — An Eye For An Eye, Chapter 1 : Sunday In The Park",
+          "usaDate": "Nov 1988",
+          "italianAlbum": "PUN1_S_004",
+          "physicalId": "PUN1_S:4"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_014",
           "usa": "PUN2 #14 — Social Studies",
           "usaDate": "Dec 1988",
           "italianAlbum": "PUN1_S_008",
           "physicalId": "PUN1_S:8"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_002",
+          "usa": "PWZ1 #2 — An Eye For An Eye, Chapter Two : Tie A Yellow Ribbon",
+          "usaDate": "Dec 1988",
+          "italianAlbum": "PUN1_S_005",
+          "physicalId": "PUN1_S:5"
         },
         {
           "kind": "chapter",
@@ -9986,6 +11059,15 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_003",
+          "usa": "PWZ1 #3 — An Eye For An Eye, Chapter Three : A Dish Best Served Cold",
+          "usaDate": "Feb 1989",
+          "italianAlbum": "PUN1_S_006",
+          "physicalId": "PUN1_S:6"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_017",
           "usa": "PUN2 #17 — Computer War",
@@ -9995,12 +11077,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_004",
+          "usa": "PWZ1 #4 — Sniper",
+          "usaDate": "Mar 1989",
+          "italianAlbum": "PUN1_S_007",
+          "physicalId": "PUN1_S:7"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_018",
           "usa": "PUN2 #18 — Face Off",
           "usaDate": "Apr 1989",
           "italianAlbum": "PUN1_S_009",
           "physicalId": "PUN1_S:9"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_005",
+          "usa": "PWZ1 #5 — Crucible",
+          "usaDate": "Apr 1989",
+          "italianAlbum": "PUN1_S_007",
+          "physicalId": "PUN1_S:7"
         },
         {
           "kind": "chapter",
@@ -10022,12 +11122,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_006",
+          "usa": "PWZ1 #6 — On The Track Of Unknown Animals",
+          "usaDate": "Jun 1989",
+          "italianAlbum": "PUN1_S_010",
+          "physicalId": "PUN1_S:10"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_021",
           "usa": "PUN2 #21 — The Boxer",
           "usaDate": "Jul 1989",
           "italianAlbum": "PUN1_S_013",
           "physicalId": "PUN1_S:13"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_007",
+          "usa": "PWZ1 #7 — Endangered Species",
+          "usaDate": "Jul 1989",
+          "italianAlbum": "PUN1_S_010",
+          "physicalId": "PUN1_S:10"
         },
         {
           "kind": "chapter",
@@ -10049,12 +11167,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_008",
+          "usa": "PWZ1 #8 — Damage",
+          "usaDate": "Sep 1989",
+          "italianAlbum": "PUN1_S_011",
+          "physicalId": "PUN1_S:11"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_024",
           "usa": "PUN2 #24 — Land Of The Eternal Sun",
           "usaDate": "Oct 1989",
           "italianAlbum": "PUN1_S_014",
           "physicalId": "PUN1_S:14"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_009",
+          "usa": "PWZ1 #9 — Guilt Trip",
+          "usaDate": "Oct 1989",
+          "italianAlbum": "PUN1_S_011",
+          "physicalId": "PUN1_S:11"
         },
         {
           "kind": "chapter",
@@ -10076,6 +11212,24 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_010",
+          "usa": "PWZ1 #10 — Second Shot",
+          "usaDate": "Nov 1989",
+          "italianAlbum": "PUN1_S_016",
+          "physicalId": "PUN1_S:16"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_011",
+          "usa": "PWZ1 #11 — Shock Treatment",
+          "usaDate": "Nov 1989",
+          "italianAlbum": "PUN1_S_016",
+          "physicalId": "PUN1_S:16"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_027",
           "usa": "PUN2 #27 — Your Tax Dollar$ At Work",
@@ -10094,12 +11248,39 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_012",
+          "usa": "PWZ1 #12 — Acts Of Vengeance : Contrast In Sin",
+          "usaDate": "Dec 1989",
+          "italianAlbum": "PUN1_S_018",
+          "physicalId": "PUN1_S:18"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_013",
+          "usa": "PWZ1 #13 — Acts Of Vengeance : Confession",
+          "usaDate": "Dec 1989",
+          "italianAlbum": "PUN1_S_018",
+          "physicalId": "PUN1_S:18"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_029",
           "usa": "PUN2 #29 — Acts Of Vengeance! : Too Many Doom",
           "usaDate": "Jan 1990",
           "italianAlbum": "PUN1_S_017",
           "physicalId": "PUN1_S:17"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_014",
+          "usa": "PWZ1 #14 — Blind Faith",
+          "usaDate": "Jan 1990",
+          "italianAlbum": "PUN1_S_019",
+          "physicalId": "PUN1_S:19"
         },
         {
           "kind": "chapter",
@@ -10112,12 +11293,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_015",
+          "usa": "PWZ1 #15 — Headlines!",
+          "usaDate": "Feb 1990",
+          "italianAlbum": "PUN1_S_019",
+          "physicalId": "PUN1_S:19"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_031",
           "usa": "PUN2 #31 — Crankin'",
           "usaDate": "Mar 1990",
           "italianAlbum": "PUN1_S_021",
           "physicalId": "PUN1_S:21"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_016",
+          "usa": "PWZ1 #16 — Panhandle",
+          "usaDate": "Mar 1990",
+          "italianAlbum": "PUN1_S_020",
+          "physicalId": "PUN1_S:20"
         },
         {
           "kind": "chapter",
@@ -10130,12 +11329,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_017",
+          "usa": "PWZ1 #17 — Tropical Trouble",
+          "usaDate": "Apr 1990",
+          "italianAlbum": "PUN1_S_022",
+          "physicalId": "PUN1_S:22"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_033",
           "usa": "PUN2 #33 — Reaver Fever",
           "usaDate": "May 1990",
           "italianAlbum": "PUN1_S_025",
           "physicalId": "PUN1_S:25"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_018",
+          "usa": "PWZ1 #18 — Kahuna",
+          "usaDate": "May 1990",
+          "italianAlbum": "PUN1_S_023",
+          "physicalId": "PUN1_S:23"
         },
         {
           "kind": "chapter",
@@ -10148,12 +11365,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_019",
+          "usa": "PWZ1 #19 — Trauma In Paradise!",
+          "usaDate": "Jun 1990",
+          "italianAlbum": "PUN1_S_024",
+          "physicalId": "PUN1_S:24"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_035",
           "usa": "PUN2 #35 — Jigsaw Puzzle, Part 1",
           "usaDate": "Jul 1990",
           "italianAlbum": "PUN1_S_028",
           "physicalId": "PUN1_S:28"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_020",
+          "usa": "PWZ1 #20 — The Debt",
+          "usaDate": "Jul 1990",
+          "italianAlbum": null,
+          "physicalId": null
         },
         {
           "kind": "chapter",
@@ -10175,6 +11410,15 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_021",
+          "usa": "PWZ1 #21 — Deep Water",
+          "usaDate": "Aug 1990",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_038",
           "usa": "PUN2 #38 — Jigsaw Puzzle, Part 4: Basuco",
@@ -10190,6 +11434,15 @@
           "usaDate": "Sep 1990",
           "italianAlbum": "PUN1_S_030",
           "physicalId": "PUN1_S:30"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_022",
+          "usa": "PWZ1 #22 — Snowstorm",
+          "usaDate": "Sep 1990",
+          "italianAlbum": null,
+          "physicalId": null
         },
         {
           "kind": "chapter",
@@ -10211,12 +11464,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_023",
+          "usa": "PWZ1 #23 — Firepower Among The Ruins, Part 1",
+          "usaDate": "Oct 1990",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_042",
           "usa": "PUN2 #42 — St. Paradine's",
           "usaDate": "Nov 1990",
           "italianAlbum": "PUN1_S_037",
           "physicalId": "PUN1_S:37"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_024",
+          "usa": "PWZ1 #24 — Firepower Among The Ruins, Part 2",
+          "usaDate": "Nov 1990",
+          "italianAlbum": null,
+          "physicalId": null
         },
         {
           "kind": "chapter",
@@ -10229,12 +11500,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_025",
+          "usa": "PWZ1 #25 — The Sicilian Saga, Part 1 : Get Out Of Town",
+          "usaDate": "Dec 1990",
+          "italianAlbum": "PUN1_S_038",
+          "physicalId": "PUN1_S:38"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_044",
           "usa": "PUN2 #44 — Flag Burner",
           "usaDate": "Jan 1991",
           "italianAlbum": "PUN1_S_037",
           "physicalId": "PUN1_S:37"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_026",
+          "usa": "PWZ1 #26 — The Sicilian Saga, Part 2 : Cry Uncle",
+          "usaDate": "Jan 1991",
+          "italianAlbum": "PUN1_S_038",
+          "physicalId": "PUN1_S:38"
         },
         {
           "kind": "chapter",
@@ -10247,12 +11536,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_027",
+          "usa": "PWZ1 #27 — The Sicilian Saga, Part 3 : Saracen With The Clock !",
+          "usaDate": "Feb 1991",
+          "italianAlbum": "PUN1_S_038",
+          "physicalId": "PUN1_S:38"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_046",
           "usa": "PUN2 #46 — Cold Cache",
           "usaDate": "Mar 1991",
           "italianAlbum": null,
           "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_028",
+          "usa": "PWZ1 #28 — Meat",
+          "usaDate": "Mar 1991",
+          "italianAlbum": "PUN1_S_039",
+          "physicalId": "PUN1_S:39"
         },
         {
           "kind": "chapter",
@@ -10265,12 +11572,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_029",
+          "usa": "PWZ1 #29 — Crash And Burn",
+          "usaDate": "Apr 1991",
+          "italianAlbum": "PUN1_S_043",
+          "physicalId": "PUN1_S:43"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_048",
           "usa": "PUN2 #48 — The Brattle Gun, Part Two",
           "usaDate": "May 1991",
           "italianAlbum": "PUN1_S_032",
           "physicalId": "PUN1_S:32"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_030",
+          "usa": "PWZ1 #30 — Spin Cycle",
+          "usaDate": "May 1991",
+          "italianAlbum": "PUN1_S_043",
+          "physicalId": "PUN1_S:43"
         },
         {
           "kind": "chapter",
@@ -10283,12 +11608,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_031",
+          "usa": "PWZ1 #31 — The Kamchatkan Konspiracy, Part 1 : Pipe Line",
+          "usaDate": "Jun 1991",
+          "italianAlbum": "PUN1_S_050",
+          "physicalId": "PUN1_S:50"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_050",
           "usa": "PUN2 #50 — Yo Yo",
           "usaDate": "Jul 1991",
           "italianAlbum": null,
           "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_032",
+          "usa": "PWZ1 #32 — The Kamchatkan Konspiracy, Part 2 : Blow Out",
+          "usaDate": "Jul 1991",
+          "italianAlbum": "PUN1_S_050",
+          "physicalId": "PUN1_S:50"
         },
         {
           "kind": "chapter",
@@ -10301,6 +11644,15 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_033",
+          "usa": "PWZ1 #33 — The Kamchatkan Konspiracy, Part 3 : Fire In The Hole",
+          "usaDate": "Aug 1991",
+          "italianAlbum": "PUN1_S_050",
+          "physicalId": "PUN1_S:50"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_052",
           "usa": "PUN2 #52 — Lupe",
@@ -10310,9 +11662,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_034",
+          "usa": "PWZ1 #34 — Blackout",
+          "usaDate": "Sep 1991",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_053",
           "usa": "PUN2 #53 — The Final Days, Part One : The Finger",
+          "usaDate": "Oct 1991",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_035",
+          "usa": "PWZ1 #35 — Motivation",
           "usaDate": "Oct 1991",
           "italianAlbum": null,
           "physicalId": null
@@ -10337,6 +11707,15 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_036",
+          "usa": "PWZ1 #36 — Let Them Eat Cake",
+          "usaDate": "Nov 1991",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_056",
           "usa": "PUN2 #56 — The Final Days, Part Four : The Jailhouse Rock",
@@ -10349,6 +11728,15 @@
           "sourceCode": "PUN2",
           "usaCode": "PUN2_057",
           "usa": "PUN2 #57 — The Final Days, Part Five : America's Most Wanted",
+          "usaDate": "Dec 1991",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_037",
+          "usa": "PWZ1 #37 — Controversy",
           "usaDate": "Dec 1991",
           "italianAlbum": null,
           "physicalId": null
@@ -10373,9 +11761,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_038",
+          "usa": "PWZ1 #38 — Terminal Velocity",
+          "usaDate": "Jan 1992",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_060",
           "usa": "PUN2 #60 — Escape From New York",
+          "usaDate": "Feb 1992",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_039",
+          "usa": "PWZ1 #39 — Slay Ride",
           "usaDate": "Feb 1992",
           "italianAlbum": null,
           "physicalId": null
@@ -10391,9 +11797,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_040",
+          "usa": "PWZ1 #40 — Good Money After Bad",
+          "usaDate": "Mar 1992",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_062",
           "usa": "PUN2 #62 — Fade... To White",
+          "usaDate": "Apr 1992",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_041",
+          "usa": "PWZ1 #41 — Armageddon Express",
           "usaDate": "Apr 1992",
           "italianAlbum": null,
           "physicalId": null
@@ -10409,9 +11833,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_042",
+          "usa": "PWZ1 #42 — Ten-To-One",
+          "usaDate": "May 1992",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_064",
           "usa": "PUN2 #64 — Eurohit, Part 1: Arrivals",
+          "usaDate": "Jun 1992",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_043",
+          "usa": "PWZ1 #43 — Adirondack Haunts",
           "usaDate": "Jun 1992",
           "italianAlbum": null,
           "physicalId": null
@@ -10436,6 +11878,15 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_044",
+          "usa": "PWZ1 #44 — Barbarians",
+          "usaDate": "Jul 1992",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_067",
           "usa": "PUN2 #67 — Eurohit, Part 4: Swiss Timing",
@@ -10451,6 +11902,15 @@
           "usaDate": "Aug 1992",
           "italianAlbum": null,
           "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_045",
+          "usa": "PWZ1 #45 — Dead Man's Hand, Part 3 : The Vegas Idea",
+          "usaDate": "Aug 1992",
+          "italianAlbum": "MMMI_008",
+          "physicalId": "MMMI:8"
         },
         {
           "kind": "chapter",
@@ -10472,12 +11932,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_046",
+          "usa": "PWZ1 #46 — Dead Man's Hand, Part 6 : Hot Chrome And Cold Blood",
+          "usaDate": "Sep 1992",
+          "italianAlbum": "MMMI_009",
+          "physicalId": "MMMI:9"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_071",
           "usa": "PUN2 #71 — Loose Ends",
           "usaDate": "Oct 1992",
           "italianAlbum": "SUPACT_R_001",
           "physicalId": "SUPACT_R:1"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_047",
+          "usa": "PWZ1 #47 — Dead Man's Hand, Part 9 : Say Goodbye To Vegas",
+          "usaDate": "Oct 1992",
+          "italianAlbum": "MMMI_010",
+          "physicalId": "MMMI:10"
         },
         {
           "kind": "chapter",
@@ -10490,12 +11968,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_048",
+          "usa": "PWZ1 #48 — Walk Through Fire, Part One : Backs To The Wall",
+          "usaDate": "Nov 1992",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_073",
           "usa": "PUN2 #73 — Police Action, Part 1",
           "usaDate": "Dec 1992",
           "italianAlbum": "SUPACT_R_003",
           "physicalId": "SUPACT_R:3"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_049",
+          "usa": "PWZ1 #49 — Walk Through Fire, Part Two : A Gunfight",
+          "usaDate": "Dec 1992",
+          "italianAlbum": null,
+          "physicalId": null
         },
         {
           "kind": "chapter",
@@ -10508,12 +12004,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_050",
+          "usa": "PWZ1 #50 — The Unfriendly Skies",
+          "usaDate": "Jan 1993",
+          "italianAlbum": "PUN1_S_046",
+          "physicalId": "PUN1_S:46"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_075",
           "usa": "PUN2 #75 — Police Action, Part 3",
           "usaDate": "Feb 1993",
           "italianAlbum": "SUPACT_R_005",
           "physicalId": "SUPACT_R:5"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_051",
+          "usa": "PWZ1 #51 — Walk Through Fire, Part Three : Sidewinder",
+          "usaDate": "Feb 1993",
+          "italianAlbum": null,
+          "physicalId": null
         },
         {
           "kind": "chapter",
@@ -10526,9 +12040,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_052",
+          "usa": "PWZ1 #52 — Heart Of Ice",
+          "usaDate": "Mar 1993",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_077",
           "usa": "PUN2 #77 — Survival, Part 1",
+          "usaDate": "Apr 1993",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_053",
+          "usa": "PWZ1 #53 — Heart Of Stone",
           "usaDate": "Apr 1993",
           "italianAlbum": null,
           "physicalId": null
@@ -10544,9 +12076,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_054",
+          "usa": "PWZ1 #54 — Surface Thrill",
+          "usaDate": "May 1993",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_079",
           "usa": "PUN2 #79 — Survival, Part 3",
+          "usaDate": "Jun 1993",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_055",
+          "usa": "PWZ1 #55 — Bad Boyz",
           "usaDate": "Jun 1993",
           "italianAlbum": null,
           "physicalId": null
@@ -10562,12 +12112,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_056",
+          "usa": "PWZ1 #56 — 24 Hours Of Power!",
+          "usaDate": "Jul 1993",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_081",
           "usa": "PUN2 #81 — Bodies Of Evidence",
           "usaDate": "Aug 1993",
           "italianAlbum": "SUPACT_R_009",
           "physicalId": "SUPACT_R:9"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_057",
+          "usa": "PWZ1 #57 — Blood Money",
+          "usaDate": "Aug 1993",
+          "italianAlbum": null,
+          "physicalId": null
         },
         {
           "kind": "chapter",
@@ -10580,12 +12148,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_058",
+          "usa": "PWZ1 #58 — Blood Red Moon",
+          "usaDate": "Sep 1993",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_083",
           "usa": "PUN2 #83 — Fire Fight, Part 2",
           "usaDate": "Oct 1993",
           "italianAlbum": "SUPACT_R_011",
           "physicalId": "SUPACT_R:11"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_059",
+          "usa": "PWZ1 #59 — The House That Hate Built",
+          "usaDate": "Oct 1993",
+          "italianAlbum": null,
+          "physicalId": null
         },
         {
           "kind": "chapter",
@@ -10598,9 +12184,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_060",
+          "usa": "PWZ1 #60 — Dogged",
+          "usaDate": "Nov 1993",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_085",
           "usa": "PUN2 #85 — Suicide Run, Part 0 : Smoke & Fire",
+          "usaDate": "Dec 1993",
+          "italianAlbum": "PUN2_M_001",
+          "physicalId": "PUN2_M:1"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_061",
+          "usa": "PWZ1 #61 — Suicide Run, Part 1 : Terminal Objectives",
           "usaDate": "Dec 1993",
           "italianAlbum": "PUN2_M_001",
           "physicalId": "PUN2_M:1"
@@ -10616,9 +12220,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_062",
+          "usa": "PWZ1 #62 — Suicide Run, Part 4 : Standing In The Shadows",
+          "usaDate": "Jan 1994",
+          "italianAlbum": "PUN2_M_003",
+          "physicalId": "PUN2_M:3"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_087",
           "usa": "PUN2 #87 — Suicide Run, Part 6 : False Moves",
+          "usaDate": "Feb 1994",
+          "italianAlbum": "PUN2_M_004",
+          "physicalId": "PUN2_M:4"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_063",
+          "usa": "PWZ1 #63 — Suicide Run, Part 7 : Known Associates",
           "usaDate": "Feb 1994",
           "italianAlbum": "PUN2_M_004",
           "physicalId": "PUN2_M:4"
@@ -10634,12 +12256,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_064",
+          "usa": "PWZ1 #64 — Suicide Run, Part 10 : Everything Changes",
+          "usaDate": "Mar 1994",
+          "italianAlbum": "PUN2_M_006",
+          "physicalId": "PUN2_M:6"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_089",
           "usa": "PUN2 #89 — Fortress: Miami, Part 1",
           "usaDate": "Apr 1994",
           "italianAlbum": "FRKCAST_M_001",
           "physicalId": "FRKCAST_M:1"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_065",
+          "usa": "PWZ1 #65 — Pariah !, Part One",
+          "usaDate": "Apr 1994",
+          "italianAlbum": "PUN3_M_001",
+          "physicalId": "PUN3_M:1"
         },
         {
           "kind": "chapter",
@@ -10652,12 +12292,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_066",
+          "usa": "PWZ1 #66 — Pariah, Part Two : Last Exit",
+          "usaDate": "May 1994",
+          "italianAlbum": "PUN3_M_001",
+          "physicalId": "PUN3_M:1"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_091",
           "usa": "PUN2 #91 — Fortress: Miami, Part 3 : The Silk Noose",
           "usaDate": "Jun 1994",
           "italianAlbum": "FRKCAST_M_001",
           "physicalId": "FRKCAST_M:1"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_067",
+          "usa": "PWZ1 #67 — Pariah, Part Three : Nailed",
+          "usaDate": "Jun 1994",
+          "italianAlbum": "PUN3_M_002",
+          "physicalId": "PUN3_M:2"
         },
         {
           "kind": "chapter",
@@ -10670,12 +12328,30 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_068",
+          "usa": "PWZ1 #68 — Pariah, Part Four : Bad Turn",
+          "usaDate": "Jul 1994",
+          "italianAlbum": "PUN3_M_002",
+          "physicalId": "PUN3_M:2"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_093",
           "usa": "PUN2 #93 — Killing Streets",
           "usaDate": "Aug 1994",
           "italianAlbum": "SUPACT_R_013",
           "physicalId": "SUPACT_R:13"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_069",
+          "usa": "PWZ1 #69 — Pariah, Part Five : Strict Time!",
+          "usaDate": "Aug 1994",
+          "italianAlbum": "PUN3_M_002",
+          "physicalId": "PUN3_M:2"
         },
         {
           "kind": "chapter",
@@ -10688,6 +12364,15 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_070",
+          "usa": "PWZ1 #70 — Last Entry, Prelude : Warm Bodies",
+          "usaDate": "Sep 1994",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_095",
           "usa": "PUN2 #95 — No Rules, Part 2 : No Mercy",
@@ -10697,9 +12382,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_071",
+          "usa": "PWZ1 #71 — Last Entry, Part One : Road To Death!",
+          "usaDate": "Oct 1994",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_096",
           "usa": "PUN2 #96 — Hollywood Examiner",
+          "usaDate": "Nov 1994",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_072",
+          "usa": "PWZ1 #72 — Last Entry, Part Two : Truck Stop Women!",
           "usaDate": "Nov 1994",
           "italianAlbum": null,
           "physicalId": null
@@ -10715,9 +12418,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_073",
+          "usa": "PWZ1 #73 — Last Entry, Part Three: A Journal Of The Plague Years !",
+          "usaDate": "Dec 1994",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_098",
           "usa": "PUN2 #98 — Armies Of The Night",
+          "usaDate": "Jan 1995",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_074",
+          "usa": "PWZ1 #74 — Last Entry, Part Four : Dead Stop !",
           "usaDate": "Jan 1995",
           "italianAlbum": null,
           "physicalId": null
@@ -10733,9 +12454,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_075",
+          "usa": "PWZ1 #75 — Final Entry, Conclusion !",
+          "usaDate": "Feb 1995",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_100",
           "usa": "PUN2 #100 — The Cage",
+          "usaDate": "Mar 1995",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_076",
+          "usa": "PWZ1 #76 — Stone Dead",
           "usaDate": "Mar 1995",
           "italianAlbum": null,
           "physicalId": null
@@ -10751,9 +12490,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_077",
+          "usa": "PWZ1 #77 — Bound By Blood",
+          "usaDate": "Apr 1995",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_102",
           "usa": "PUN2 #102 — Under The Gun",
+          "usaDate": "May 1995",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_078",
+          "usa": "PWZ1 #78 — One Wicked Day",
           "usaDate": "May 1995",
           "italianAlbum": null,
           "physicalId": null
@@ -10769,9 +12526,27 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_079",
+          "usa": "PWZ1 #79 — Countdown : 3 : House Of The Dead",
+          "usaDate": "Jun 1995",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "PUN2",
           "usaCode": "PUN2_104",
           "usa": "PUN2 #104 — Countdown : 1 : The Murder Men",
+          "usaDate": "Jul 1995",
+          "italianAlbum": null,
+          "physicalId": null
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PWZ1",
+          "usaCode": "PWZ1_080",
+          "usa": "PWZ1 #80 — Countdown : 0 : The Last Bad Man",
           "usaDate": "Jul 1995",
           "italianAlbum": null,
           "physicalId": null
@@ -12110,46 +13885,46 @@
         },
         {
           "kind": "chapter",
-          "sourceCode": "reuse:daredevil",
+          "sourceCode": "PUNWZ3",
           "usaCode": "PUNWZ3_001",
-          "usa": "Punisher War Zone Vol 3 # 1",
-          "usaDate": "2012-12",
+          "usa": "PUNWZ3 #1 — Punisher Manhunt Continues",
+          "usaDate": "Dec 2012",
           "italianAlbum": "DEVIL_M_017",
           "physicalId": "DEVIL_M:17"
         },
         {
           "kind": "chapter",
-          "sourceCode": "reuse:daredevil",
+          "sourceCode": "PUNWZ3",
           "usaCode": "PUNWZ3_002",
-          "usa": "Punisher War Zone Vol 3 # 2",
-          "usaDate": "2013-02",
+          "usa": "PUNWZ3 #2 — Punisher Accomplice Refuses Not-Guilty Plea",
+          "usaDate": "Feb 2013",
           "italianAlbum": "DEVIL_M_018",
           "physicalId": "DEVIL_M:18"
         },
         {
           "kind": "chapter",
-          "sourceCode": "reuse:daredevil",
+          "sourceCode": "PUNWZ3",
           "usaCode": "PUNWZ3_003",
-          "usa": "Punisher War Zone Vol 3 # 3",
-          "usaDate": "2013-03",
+          "usa": "PUNWZ3 #3 — \"Punisher Proxy\" Trial Ends, Now to Jury",
+          "usaDate": "Mar 2013",
           "italianAlbum": "DEVIL_M_019",
           "physicalId": "DEVIL_M:19"
         },
         {
           "kind": "chapter",
-          "sourceCode": "reuse:daredevil",
+          "sourceCode": "PUNWZ3",
           "usaCode": "PUNWZ3_004",
-          "usa": "Punisher War Zone Vol 3 # 4",
-          "usaDate": "2013-03",
+          "usa": "PUNWZ3 #4 — Guilty!",
+          "usaDate": "Mar 2013",
           "italianAlbum": "DEVIL_M_020",
           "physicalId": "DEVIL_M:20"
         },
         {
           "kind": "chapter",
-          "sourceCode": "reuse:daredevil",
+          "sourceCode": "PUNWZ3",
           "usaCode": "PUNWZ3_005",
-          "usa": "Punisher War Zone Vol 3 # 5",
-          "usaDate": "2013-04",
+          "usa": "PUNWZ3 #5 — Escape!",
+          "usaDate": "Apr 2013",
           "italianAlbum": "DEVIL_M_021",
           "physicalId": "DEVIL_M:21"
         },
@@ -12587,12 +14362,273 @@
         },
         {
           "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_001",
+          "usa": "PUNI11 #1 — World War Frank, Part 1",
+          "usaDate": "Oct 2018",
+          "italianAlbum": "MVNWCOL_P_237",
+          "physicalId": "MVNWCOL_P:237"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_002",
+          "usa": "PUNI11 #2 — World War Frank, Part 2",
+          "usaDate": "Nov 2018",
+          "italianAlbum": "MVNWCOL_P_237",
+          "physicalId": "MVNWCOL_P:237"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_003",
+          "usa": "PUNI11 #3 — World War Frank, Part 3",
+          "usaDate": "Dec 2018",
+          "italianAlbum": "MVNWCOL_P_237",
+          "physicalId": "MVNWCOL_P:237"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_004",
+          "usa": "PUNI11 #4 — World War Frank, Part 4",
+          "usaDate": "Jan 2019",
+          "italianAlbum": "MVNWCOL_P_237",
+          "physicalId": "MVNWCOL_P:237"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_005",
+          "usa": "PUNI11 #5 — World War Frank, Part 5",
+          "usaDate": "Feb 2019",
+          "italianAlbum": "MVNWCOL_P_237",
+          "physicalId": "MVNWCOL_P:237"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_006",
+          "usa": "PUNI11 #6 — War In Bagalia, Part 1",
+          "usaDate": "Mar 2019",
+          "italianAlbum": "MVNWCOL_P_266",
+          "physicalId": "MVNWCOL_P:266"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_007",
+          "usa": "PUNI11 #7 — War In Bagalia, Part 2",
+          "usaDate": "Mar 2019",
+          "italianAlbum": "MVNWCOL_P_266",
+          "physicalId": "MVNWCOL_P:266"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_008",
+          "usa": "PUNI11 #8 — War In Bagalia, Part 3",
+          "usaDate": "Apr 2019",
+          "italianAlbum": "MVNWCOL_P_266",
+          "physicalId": "MVNWCOL_P:266"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_009",
+          "usa": "PUNI11 #9 — War In Bagalia, Part 4",
+          "usaDate": "May 2019",
+          "italianAlbum": "MVNWCOL_P_266",
+          "physicalId": "MVNWCOL_P:266"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_010",
+          "usa": "PUNI11 #10 — War In Bagalia, Part 5",
+          "usaDate": "Jun 2019",
+          "italianAlbum": "MVNWCOL_P_266",
+          "physicalId": "MVNWCOL_P:266"
+        },
+        {
+          "kind": "chapter",
           "sourceCode": "reuse:daredevil",
           "usaCode": "DD6_004",
           "usa": "Daredevil Vol 6 # 4",
           "usaDate": "2019-06",
           "italianAlbum": "DEVIL_M_097",
           "physicalId": "DEVIL_M:97"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_011",
+          "usa": "PUNI11 #11 — War In Bagalia, Part 6",
+          "usaDate": "Jul 2019",
+          "italianAlbum": "MVNWCOL_P_266",
+          "physicalId": "MVNWCOL_P:266"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_012",
+          "usa": "PUNI11 #12 — War On the Streets, Part 1",
+          "usaDate": "Aug 2019",
+          "italianAlbum": "MVNWCOL_P_289",
+          "physicalId": "MVNWCOL_P:289"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_013",
+          "usa": "PUNI11 #13 — War On the Streets, Part 2",
+          "usaDate": "Sep 2019",
+          "italianAlbum": "MVNWCOL_P_289",
+          "physicalId": "MVNWCOL_P:289"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_014",
+          "usa": "PUNI11 #14 — War On the Streets, Part 3",
+          "usaDate": "Oct 2019",
+          "italianAlbum": "MVNWCOL_P_289",
+          "physicalId": "MVNWCOL_P:289"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_015",
+          "usa": "PUNI11 #15 — War On the Streets, Part 4",
+          "usaDate": "Nov 2019",
+          "italianAlbum": "MVNWCOL_P_289",
+          "physicalId": "MVNWCOL_P:289"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNI11",
+          "usaCode": "PUNI11_016",
+          "usa": "PUNI11 #16 — War On the Streets, Part 5",
+          "usaDate": "Dec 2019",
+          "italianAlbum": "MVNWCOL_P_289",
+          "physicalId": "MVNWCOL_P:289"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_001",
+          "usa": "PUNISHER13 #1 — The King Of Killers Book One - Chapter One: The Blessings Of War",
+          "usaDate": "May 2022",
+          "italianAlbum": "PUNI2022_001",
+          "physicalId": "PUNI2022:1"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_002",
+          "usa": "PUNISHER13 #2 — The King Of Killers Book One - Chapter Two: A Hand Without A Fist",
+          "usaDate": "Jun 2022",
+          "italianAlbum": "PUNI2022_002",
+          "physicalId": "PUNI2022:2"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_003",
+          "usa": "PUNISHER13 #3 — The King Of Killers Book One - Chapter Three: Frank's First Sacrament",
+          "usaDate": "Jul 2022",
+          "italianAlbum": "PUNI2022_003",
+          "physicalId": "PUNI2022:3"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNWJBLITZ",
+          "usaCode": "PUNWJBLITZ_001",
+          "usa": "PUNWJBLITZ #1 — (Untitled)",
+          "usaDate": "Aug 2022",
+          "italianAlbum": "PUNI2022_004",
+          "physicalId": "PUNI2022:4"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_004",
+          "usa": "PUNISHER13 #4 — The King Of Killers Book One - Chapter Four: The Way Of The Punisher",
+          "usaDate": "Sep 2022",
+          "italianAlbum": "PUNI2022_005",
+          "physicalId": "PUNI2022:5"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_005",
+          "usa": "PUNISHER13 #5 — The King Of Killers Book One - Chapter Five: God Bless The Beast",
+          "usaDate": "Oct 2022",
+          "italianAlbum": "PUNI2022_006",
+          "physicalId": "PUNI2022:6"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_006",
+          "usa": "PUNISHER13 #6 — The King Of Killers Book One - Chapter Six: The War Of The Gods Of War",
+          "usaDate": "Nov 2022",
+          "italianAlbum": "PUNI2022_007",
+          "physicalId": "PUNI2022:7"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_007",
+          "usa": "PUNISHER13 #7 — The King Of Killers Book Two - Chapter One: The Man And The Devil",
+          "usaDate": "Jan 2023",
+          "italianAlbum": "PUNI2022_009",
+          "physicalId": "PUNI2022:9"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_008",
+          "usa": "PUNISHER13 #8 — The King Of Killers Book Two - Chapter Two: The Bullets Of The Beast",
+          "usaDate": "Feb 2023",
+          "italianAlbum": "PUNI2022_010",
+          "physicalId": "PUNI2022:10"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_009",
+          "usa": "PUNISHER13 #9 — The King Of Killers Book Two - Chapter Three: If It Be The Will Of The Beast",
+          "usaDate": "Mar 2023",
+          "italianAlbum": "PUNI2022_011",
+          "physicalId": "PUNI2022:11"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_010",
+          "usa": "PUNISHER13 #10 — The King Of Killers Book Two - Chapter Four: Bride Of The Punisher",
+          "usaDate": "May 2023",
+          "italianAlbum": "PUNI2022_013",
+          "physicalId": "PUNI2022:13"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_011",
+          "usa": "PUNISHER13 #11 — The King Of Killers Book Two - Chapter Five: A Day In The Park",
+          "usaDate": "Jun 2023",
+          "italianAlbum": "PUNI2022_014",
+          "physicalId": "PUNI2022:14"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "PUNISHER13",
+          "usaCode": "PUNISHER13_012",
+          "usa": "PUNISHER13 #12 — The King Of Killers Epilogue: Punisher No More",
+          "usaDate": "Jul 2023",
+          "italianAlbum": "PUNI2022_015",
+          "physicalId": "PUNI2022:15"
         },
         {
           "kind": "chapter",
@@ -12626,10 +14662,30 @@
     {
       "id": "moon-knight",
       "name": "Moon Knight",
-      "dedicatedChapters": 224,
+      "dedicatedChapters": 244,
       "sharedProtagonistChapters": 11,
-      "deduplicatedChapters": 235,
+      "deduplicatedChapters": 255,
       "sourceSeries": [
+        {
+          "code": "WBN1",
+          "name": "WBN1",
+          "selectors": [
+            "32-33"
+          ],
+          "chapters": 2,
+          "mapped": 2,
+          "unmapped": 0
+        },
+        {
+          "code": "MSP1",
+          "name": "MSP1",
+          "selectors": [
+            "28-29"
+          ],
+          "chapters": 2,
+          "mapped": 2,
+          "unmapped": 0
+        },
         {
           "code": "MK1",
           "name": "MK1",
@@ -12709,6 +14765,16 @@
           "chapters": 30,
           "mapped": 30,
           "unmapped": 0
+        },
+        {
+          "code": "MKFISTK",
+          "name": "MKFISTK",
+          "selectors": [
+            "all"
+          ],
+          "chapters": 16,
+          "mapped": 16,
+          "unmapped": 0
         }
       ],
       "sharedScan": {
@@ -12716,10 +14782,46 @@
         "includedProtagonistContents": 11,
         "issuesWithoutContents": 0
       },
-      "mappedChapters": 193,
+      "mappedChapters": 213,
       "missingItalianPublications": 42,
-      "physicalItalianIssues": 64,
+      "physicalItalianIssues": 70,
       "mappings": [
+        {
+          "kind": "chapter",
+          "sourceCode": "WBN1",
+          "usaCode": "WBN1_032",
+          "usa": "WBN1 #32 — The Stalker Called Moon Knight",
+          "usaDate": "Aug 1975",
+          "italianAlbum": "MAROMNIB_127",
+          "physicalId": "MAROMNIB:127"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "WBN1",
+          "usaCode": "WBN1_033",
+          "usa": "WBN1 #33 — Wolf-Beast Vs. Moon Knight",
+          "usaDate": "Sep 1975",
+          "italianAlbum": "MAROMNIB_127",
+          "physicalId": "MAROMNIB:127"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MSP1",
+          "usaCode": "MSP1_028",
+          "usa": "MSP1 #28 — Moon Knight: The Crushing Conquer-Lord!",
+          "usaDate": "Jun 1976",
+          "italianAlbum": "ETER_021",
+          "physicalId": "ETER:21"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MSP1",
+          "usaCode": "MSP1_029",
+          "usa": "MSP1 #29 — Moon Knight: The Deadly Gambit Of Conquer-Lord!",
+          "usaDate": "Aug 1976",
+          "italianAlbum": "ETER_022",
+          "physicalId": "ETER:22"
+        },
         {
           "kind": "chapter",
           "sourceCode": "reuse:daredevil",
@@ -14816,6 +16918,150 @@
           "usaDate": "Feb 2024",
           "italianAlbum": "MVNWCOL_P_559",
           "physicalId": "MVNWCOL_P:559"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_000",
+          "usa": "MKFISTK #0 — Khonshu: Strikefile",
+          "usaDate": "Sep 2024",
+          "italianAlbum": "MVNWCOL_P_662",
+          "physicalId": "MVNWCOL_P:662"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_001",
+          "usa": "MKFISTK #1 — New Moon",
+          "usaDate": "Dec 2024",
+          "italianAlbum": "MVNWCOL_P_662",
+          "physicalId": "MVNWCOL_P:662"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_002",
+          "usa": "MKFISTK #2 — Reborn",
+          "usaDate": "Jan 2025",
+          "italianAlbum": "MVNWCOL_P_662",
+          "physicalId": "MVNWCOL_P:662"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_003",
+          "usa": "MKFISTK #3 — Pathfinder",
+          "usaDate": "Feb 2025",
+          "italianAlbum": "MVNWCOL_P_662",
+          "physicalId": "MVNWCOL_P:662"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_004",
+          "usa": "MKFISTK #4 — Rats",
+          "usaDate": "Mar 2025",
+          "italianAlbum": "MVNWCOL_P_662",
+          "physicalId": "MVNWCOL_P:662"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_005",
+          "usa": "MKFISTK #5 — Scars",
+          "usaDate": "Apr 2025",
+          "italianAlbum": "MVNWCOL_P_662",
+          "physicalId": "MVNWCOL_P:662"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_006",
+          "usa": "MKFISTK #6 — Shame",
+          "usaDate": "May 2025",
+          "italianAlbum": "MVNWCOL_P_714",
+          "physicalId": "MVNWCOL_P:714"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_007",
+          "usa": "MKFISTK #7 — Pool Party",
+          "usaDate": "Jun 2025",
+          "italianAlbum": "MVNWCOL_P_714",
+          "physicalId": "MVNWCOL_P:714"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_008",
+          "usa": "MKFISTK #8 — Dragonslayer",
+          "usaDate": "Jul 2025",
+          "italianAlbum": "MVNWCOL_P_714",
+          "physicalId": "MVNWCOL_P:714"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_009",
+          "usa": "MKFISTK #9 — Clinical Trial",
+          "usaDate": "Aug 2025",
+          "italianAlbum": "MVNWCOL_P_714",
+          "physicalId": "MVNWCOL_P:714"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_010",
+          "usa": "MKFISTK #10 — God Of Gangsters",
+          "usaDate": "Sep 2025",
+          "italianAlbum": "MVNWCOL_P_714",
+          "physicalId": "MVNWCOL_P:714"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_011",
+          "usa": "MKFISTK #11 — Birthday",
+          "usaDate": "Oct 2025",
+          "italianAlbum": "MVNWCOL_P_754",
+          "physicalId": "MVNWCOL_P:754"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_012",
+          "usa": "MKFISTK #12 — The Haunting Of The Wrecker Part One",
+          "usaDate": "Nov 2025",
+          "italianAlbum": "MVNWCOL_P_754",
+          "physicalId": "MVNWCOL_P:754"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_013",
+          "usa": "MKFISTK #13 — The Haunting of the Wrecker Part Two",
+          "usaDate": "Dec 2025",
+          "italianAlbum": "MVNWCOL_P_754",
+          "physicalId": "MVNWCOL_P:754"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_014",
+          "usa": "MKFISTK #14 — The Haunting of the Wrecker Part Three",
+          "usaDate": "Jan 2026",
+          "italianAlbum": "MVNWCOL_P_754",
+          "physicalId": "MVNWCOL_P:754"
+        },
+        {
+          "kind": "chapter",
+          "sourceCode": "MKFISTK",
+          "usaCode": "MKFISTK_015",
+          "usa": "MKFISTK #15 — The Haunting of the Wrecker Finale",
+          "usaDate": "Feb 2026",
+          "italianAlbum": "MVNWCOL_P_754",
+          "physicalId": "MVNWCOL_P:754"
         },
         {
           "kind": "chapter",
