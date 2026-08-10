@@ -1,0 +1,122 @@
+name: Regenerate alternative edition coverage
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/regenerate-alternative-coverages.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Register the five new paths in the edition matcher
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("scripts/build_editions_catalog.py")
+          text = path.read_text(encoding="utf-8")
+          start = text.index("PATH_ALIASES = {")
+          end = text.index("\n}\n\nDETAIL_HINTS", start)
+          block = text[start:end]
+
+          additions = {
+              "hulk-classic-corno": ["hulk", "incredible hulk"],
+              "daredevil": ["daredevil", "devil"],
+              "wolverine-616": ["wolverine"],
+              "venom": ["venom"],
+              "doctor-doom": ["doctor doom", "dottor destino", "doom", "destino"],
+          }
+
+          lines = []
+          for path_id, aliases in additions.items():
+              if f'"{path_id}":' in block:
+                  continue
+              rendered = ", ".join(repr(alias) for alias in aliases)
+              lines.append(f'    "{path_id}": [{rendered}],')
+
+          if lines:
+              insertion = "\n" + "\n".join(lines)
+              text = text[:end] + insertion + text[end:]
+              path.write_text(text, encoding="utf-8")
+
+      - name: Regenerate ComicsBox editions
+        run: python scripts/build_editions_catalog.py
+
+      - name: Add anti-regression coverage check
+        shell: python
+        run: |
+          from pathlib import Path
+
+          Path("scripts/check_alternative_coverage.py").write_text('''#!/usr/bin/env python3
+          import json
+          from pathlib import Path
+
+          ROOT = Path(__file__).resolve().parents[1]
+          editions = json.loads((ROOT / "data" / "editions.json").read_text(encoding="utf-8"))
+
+          required = {
+              "daredevil": "Daredevil",
+              "wolverine-616": "Wolverine 616",
+          }
+
+          failures = []
+          for path_id, label in required.items():
+              matches = [
+                  edition for edition in editions
+                  if edition.get("source") == "ComicsBox"
+                  and edition.get("coverage", {}).get(path_id)
+              ]
+              covered_steps = {
+                  step
+                  for edition in matches
+                  for step in edition.get("coverage", {}).get(path_id, [])
+              }
+              if not matches or not covered_steps:
+                  failures.append(f"{label}: zero alternative ComicsBox coverage")
+              else:
+                  print(f"{label}: {len(matches)} alternative editions, {len(covered_steps)} covered path steps")
+
+          if failures:
+              raise SystemExit("Alternative-edition coverage regression: " + "; ".join(failures))
+          ''', encoding="utf-8")
+
+      - name: Verify alternative coverage
+        run: python scripts/check_alternative_coverage.py
+
+      - name: Bump dataset version to 24
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          path = Path("data/characters.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+          if int(data.get("version", 0)) < 24:
+              data["version"] = 24
+          path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+
+      - name: Commit regenerated data and regression test
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/build_editions_catalog.py scripts/check_alternative_coverage.py data/editions.json data/characters.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Fix alternative edition coverage for new character paths"
+          git push
