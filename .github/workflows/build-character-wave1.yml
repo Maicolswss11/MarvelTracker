@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - ".github/workflows/build-character-wave1.yml"
+      - "scripts/verify-data.mjs"
 
 permissions:
   contents: write
