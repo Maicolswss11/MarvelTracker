@@ -63,27 +63,27 @@ jobs:
           if additions:
               text = text[:end] + "\n" + "\n".join(additions) + text[end:]
 
-          old = '''            old = existing.get(eid, {})
-            imported.append({
-'''
-          new = '''            old = existing.get(eid, {})
-            auto_generated = old.get("coverageSource") == "auto:first-italian-publication"
-            preserved_coverage = [] if auto_generated else old.get("coverage", [])
-            preserved_source = "" if auto_generated else old.get("coverageSource", "")
-            imported.append({
-'''
+          old = "            old = existing.get(eid, {})\n            imported.append({\n"
+          new = (
+              "            old = existing.get(eid, {})\n"
+              "            auto_generated = old.get(\"coverageSource\") == \"auto:first-italian-publication\"\n"
+              "            preserved_coverage = [] if auto_generated else old.get(\"coverage\", [])\n"
+              "            preserved_source = \"\" if auto_generated else old.get(\"coverageSource\", \"\")\n"
+              "            imported.append({\n"
+          )
           if old in text:
               text = text.replace(old, new, 1)
 
-          text = text.replace(
-              '''                "coverage": old.get("coverage", []),
-                **({"coverageSource": old["coverageSource"]} if old.get("coverageSource") else {}),
-''',
-              '''                "coverage": preserved_coverage,
-                **({"coverageSource": preserved_source} if preserved_source else {}),
-''',
-              1,
+          old_coverage = (
+              "                \"coverage\": old.get(\"coverage\", []),\n"
+              "                **({\"coverageSource\": old[\"coverageSource\"]} if old.get(\"coverageSource\") else {}),\n"
           )
+          new_coverage = (
+              "                \"coverage\": preserved_coverage,\n"
+              "                **({\"coverageSource\": preserved_source} if preserved_source else {}),\n"
+          )
+          if old_coverage in text:
+              text = text.replace(old_coverage, new_coverage, 1)
           path.write_text(text, encoding="utf-8")
 
       - name: Regenerate alternative editions
@@ -100,9 +100,9 @@ jobs:
 
           payload = json.loads(Path("data/editions.json").read_text(encoding="utf-8"))
           editions = payload.get("editions", [])
-          required = ["black-cat", "quicksilver", "falcon", "winter-soldier", "spider-woman", "sentry"]
+          expected = ["black-cat", "quicksilver", "falcon", "winter-soldier", "spider-woman", "sentry"]
           failures = []
-          for path_id in required + ["war-machine", "hercules"]:
+          for path_id in expected + ["war-machine", "hercules"]:
               matched = []
               physical = set()
               for edition in editions:
@@ -112,7 +112,7 @@ jobs:
                       for coverage in hits:
                           physical.update(coverage.get("issueIds", []))
               print(f"{path_id}: {len(matched)} alternative editions, {len(physical)} covered physical issues")
-              if path_id in required and not matched:
+              if path_id in expected and not matched:
                   failures.append(path_id)
           if failures:
               raise SystemExit("Expected alternative coverage missing for: " + ", ".join(failures))
