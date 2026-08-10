@@ -85,6 +85,11 @@ PATH_ALIASES = {
     "ultimate-new-xmen": ["ultimate x-men", "ultimate x men"],
     "ultimate-new-ultimates": ["ultimates"],
     "ultimate-new-wolverine": ["ultimate wolverine"],
+    "hulk-classic-corno": ['hulk', 'incredible hulk'],
+    "daredevil": ['daredevil', 'devil'],
+    "wolverine-616": ['wolverine'],
+    "venom": ['venom'],
+    "doctor-doom": ['doctor doom', 'dottor destino', 'doom', 'destino'],
 }
 
 DETAIL_HINTS = tuple(sorted({alias for values in PATH_ALIASES.values() for alias in values} | {
