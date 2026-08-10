@@ -10,25 +10,35 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Test crawler-rendered chronology
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Audit candidate series codes
         shell: python
         run: |
-          import re
-          from urllib.request import Request, urlopen
+          import json
+          import sys
+          from pathlib import Path
+          from concurrent.futures import ThreadPoolExecutor, as_completed
 
-          uas = {
-              "googlebot": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
-              "bingbot": "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)",
-              "desktop": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140 Safari/537.36",
-          }
-          for label, ua in uas.items():
-              url = "https://www.comicsbox.it/personaggio/quicksillver"
-              req = Request(url, headers={"User-Agent": ua, "Accept-Language":"it-IT,it;q=0.9"})
-              source = urlopen(req, timeout=45).read().decode("utf-8", errors="replace")
-              print("\n=====", label, "bytes", len(source), "=====")
-              for needle in ["Prima pubblicazione", "Pubblicazione italiana", "fa solo una comparsa", "/albo/"]:
-                  positions = [m.start() for m in re.finditer(re.escape(needle), source, re.I)]
-                  print(needle, len(positions), positions[:5])
-              pos = source.lower().find("prima pubblicazione")
-              if pos >= 0:
-                  print(re.sub(r"\s+", " ", source[max(0,pos-1000):pos+3000])[:4000])
+          sys.path.insert(0, str(Path("scripts").resolve()))
+          import build_cosmic_supernatural_expansion as legacy
+
+          config = json.loads(Path("data/character-wave1-sources.json").read_text(encoding="utf-8"))
+          owner = {}
+          for path in config["paths"]:
+              for code in path.get("sources", []):
+                  owner.setdefault(code, []).append(path["id"])
+          results = {}
+          with ThreadPoolExecutor(max_workers=14) as pool:
+              futures = {pool.submit(legacy.load_foreign_series, code): code for code in sorted(owner)}
+              for future in as_completed(futures):
+                  code = futures[future]
+                  try:
+                      item = future.result()
+                      results[code] = ("OK", item.get("name", ""), len(item.get("rows", [])))
+                  except Exception as error:
+                      results[code] = ("ERR", str(error), 0)
+          for code in sorted(results):
+              status, detail, count = results[code]
+              print(f"{','.join(owner[code]):18} | {code:16} | {status:3} | {count:3} | {detail}")
