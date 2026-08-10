@@ -17,12 +17,11 @@ jobs:
           import re
           import urllib.request
 
-          pages = {letter: f"https://www.comicsbox.it/comicsusa?l={letter}" for letter in ["A","C","G","H","L","W"]}
+          pages = {letter: f"https://www.comicsbox.it/comicsusa?l={letter}" for letter in ["B","P"]}
           needles = [
-              "GIANT-SIZE POWER MAN", "LUKE CAGE - POWER MAN ANNUAL",
-              "HEROES FOR HIRE / QUICKSILVER ANNUAL 1998",
-              "AVENGERS ORIGINS: LUKE CAGE", "CAGE VOL 3", "LUKE CAGE VOL 2",
-              "WEB OF BLACK WIDOW",
+              "BLACK WIDOW: WIDOW'S STING",
+              "PUNISHER WAR JOURNAL: BASE",
+              "PUNISHER WAR JOURNAL: BROTHER",
           ]
           for label, url in pages.items():
               req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0", "Accept-Language":"it-IT,it;q=0.9"})
@@ -31,6 +30,5 @@ jobs:
               for href, body in re.findall(r'<a[^>]+href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', text, re.I|re.S):
                   title = re.sub(r'<[^>]+>', ' ', body)
                   title = html.unescape(re.sub(r'\s+', ' ', title)).strip()
-                  upper = title.upper()
-                  if any(n == upper for n in needles):
+                  if title.upper() in needles:
                       print(f"MATCH\t{title}\t{html.unescape(href)}")
