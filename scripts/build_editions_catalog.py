@@ -90,6 +90,14 @@ PATH_ALIASES = {
     "wolverine-616": ['wolverine'],
     "venom": ['venom'],
     "doctor-doom": ['doctor doom', 'dottor destino', 'doom', 'destino'],
+    "black-cat": ['black cat', 'gatta nera', 'felicia hardy'],
+    "quicksilver": ['quicksilver', 'pietro maximoff'],
+    "falcon": ['falcon', 'sam wilson'],
+    "winter-soldier": ['winter soldier', "soldato d'inverno", 'bucky barnes'],
+    "war-machine": ['war machine', 'macchina da guerra', 'james rhodes', 'rhodey'],
+    "hercules": ['hercules', 'ercole'],
+    "spider-woman": ['spider-woman', 'spider woman', 'donna ragno', 'jessica drew'],
+    "sentry": ['sentry', 'robert reynolds'],
 }
 
 DETAIL_HINTS = tuple(sorted({alias for values in PATH_ALIASES.values() for alias in values} | {
@@ -258,6 +266,9 @@ def main() -> None:
         for row in rows:
             eid = edition_id(row["code"])
             old = existing.get(eid, {})
+            auto_generated = old.get("coverageSource") == "auto:first-italian-publication"
+            preserved_coverage = [] if auto_generated else old.get("coverage", [])
+            preserved_source = "" if auto_generated else old.get("coverageSource", "")
             imported.append({
                 "id": eid,
                 "name": row["title"] or row["label"] or f"{meta['name']} #{row['number']}",
@@ -269,8 +280,8 @@ def main() -> None:
                 "cover": cover_url(row["code"]),
                 "url": f"https://www.comicsbox.it/albo/{row['code']}",
                 "contents": old.get("contents", []),
-                "coverage": old.get("coverage", []),
-                **({"coverageSource": old["coverageSource"]} if old.get("coverageSource") else {}),
+                "coverage": preserved_coverage,
+                **({"coverageSource": preserved_source} if preserved_source else {}),
                 "source": "ComicsBox",
                 "sourceCode": row["code"],
             })

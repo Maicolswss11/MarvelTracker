@@ -162,8 +162,9 @@ def load_config_sources(config: dict[str, Any], workers: int) -> tuple[dict[str,
     for path in config["paths"]:
         for code in path.get("sources", []):
             item = loaded.get(code)
-            if item and not source_valid_for_path(path["id"], item.get("name", code)):
-                rejected[path["id"]].append(f"{code}: {item.get('name', code)}")
+            reported_name = item.get("name", code) if item else code
+            if item and reported_name != code and not source_valid_for_path(path["id"], reported_name):
+                rejected[path["id"]].append(f"{code}: {reported_name}")
     return loaded, errors, rejected
 
 
