@@ -10,35 +10,26 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-
-      - name: Audit candidate series codes
+      - name: Resolve relevant series codes from ComicsBox indexes
         shell: python
         run: |
-          import json
-          import sys
-          from pathlib import Path
-          from concurrent.futures import ThreadPoolExecutor, as_completed
+          import html
+          import re
+          from urllib.request import Request, urlopen
 
-          sys.path.insert(0, str(Path("scripts").resolve()))
-          import build_cosmic_supernatural_expansion as legacy
-
-          config = json.loads(Path("data/character-wave1-sources.json").read_text(encoding="utf-8"))
-          owner = {}
-          for path in config["paths"]:
-              for code in path.get("sources", []):
-                  owner.setdefault(code, []).append(path["id"])
-          results = {}
-          with ThreadPoolExecutor(max_workers=14) as pool:
-              futures = {pool.submit(legacy.load_foreign_series, code): code for code in sorted(owner)}
-              for future in as_completed(futures):
-                  code = futures[future]
-                  try:
-                      item = future.result()
-                      results[code] = ("OK", item.get("name", ""), len(item.get("rows", [])))
-                  except Exception as error:
-                      results[code] = ("ERR", str(error), 0)
-          for code in sorted(results):
-              status, detail, count = results[code]
-              print(f"{','.join(owner[code]):18} | {code:16} | {status:3} | {count:3} | {detail}")
+          needles = [
+              "BLACK CAT", "MARY JANE & BLACK CAT", "FALCON", "WAR MACHINE",
+              "SPIDER-WOMAN", "SPIDER WOMAN", "HERCULES", "TALES OF SUSPENSE",
+              "SENTRY", "QUICKSILVER",
+          ]
+          for letter in "BFGHMQSTW":
+              url = f"https://www.comicsbox.it/comicsusa?l={letter}"
+              request = Request(url, headers={"User-Agent": "MarvelTracker data maintenance/5.0"})
+              source = urlopen(request, timeout=45).read().decode("utf-8", errors="replace")
+              for match in re.finditer(r'href=["\'](?:https?://www\.comicsbox\.it)?/?serie/([^"\'?&]+)[^"\']*["\'][^>]*>(.*?)</a>', source, re.I | re.S):
+                  code = html.unescape(match.group(1))
+                  title = re.sub(r"<[^>]+>", "", match.group(2))
+                  title = " ".join(html.unescape(title).split())
+                  upper = title.upper()
+                  if any(needle in upper for needle in needles):
+                      print(f"{title:60} | {code}")
