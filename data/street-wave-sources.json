@@ -1,0 +1,144 @@
+{
+  "version": 1,
+  "manifestVersion": 26,
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "source": "ComicsBox USA series indexes, ComicsBox issue character credits, and existing MarvelTracker paths",
+  "rules": [
+    "Dedicated and co-billed series are followed issue by issue using their first verified Italian publication.",
+    "Configured issue selectors are used for anthology or mantle-sharing series; unselected issues are excluded.",
+    "Shared history is reused only when the character is credited among the protagonists of a USA story already represented by an existing MarvelTracker path.",
+    "Simple appearances/cameos are excluded from shared-history reuse.",
+    "A physical Italian issue keeps its existing global ownership ID; reading progress remains path-local through readingStep.contentIds.",
+    "Missing or invalid source series are audited and never replaced with invented Italian editions.",
+    "Punisher MAX, Noir and other non-616 continuities are excluded from the Frank Castle Terra-616 path."
+  ],
+  "paths": [
+    {
+      "id": "hawkeye",
+      "name": "Occhio di Falco",
+      "subtitle": "Clint Barton · Hawkeye",
+      "type": "character",
+      "primaryHub": "avengers",
+      "hubs": ["avengers", "street"],
+      "accent": "#a875d6",
+      "description": "Percorso Terra-616 di Clint Barton dalle prime serie soliste alle fasi West Coast Avengers, Ronin e Hawkeye moderne, con riuso protagonista-only delle storie condivise.",
+      "aliases": ["hawkeye", "clint barton", "occhio di falco"],
+      "relatedPaths": ["avengers", "blackwidow", "cap"],
+      "insertAfter": "wonderman",
+      "reusePaths": ["avengers", "cap", "ironman", "blackwidow"],
+      "sources": [
+        {"code": "HAWK1"}, {"code": "HAWK2"}, {"code": "HAWK3"}, {"code": "HAWK_EMM"},
+        {"code": "NEWA_RE"}, {"code": "HWKMKBD"}, {"code": "HKW_BLST"}, {"code": "HAWKEYE"},
+        {"code": "ALNHAWKY"}, {"code": "ALNHAWKY2"}, {"code": "HAWKEYEFF"}, {"code": "BWDHWKEYE"}
+      ]
+    },
+    {
+      "id": "blackwidow",
+      "name": "Vedova Nera",
+      "subtitle": "Natasha Romanoff · Black Widow",
+      "type": "character",
+      "primaryHub": "avengers",
+      "hubs": ["avengers", "street"],
+      "accent": "#d95058",
+      "description": "Percorso Terra-616 di Natasha Romanoff tra spionaggio, Vendicatori, missioni soliste e storie condivise in cui è protagonista.",
+      "aliases": ["black widow", "natasha romanoff", "natasha romanova", "vedova nera"],
+      "relatedPaths": ["avengers", "hawkeye", "winter-soldier", "daredevil"],
+      "insertAfter": "hawkeye",
+      "reusePaths": ["avengers", "daredevil", "cap", "ironman", "winter-soldier", "hawkeye"],
+      "sources": [
+        {"code": "BLWIDOW1"}, {"code": "BLWIDOW2"}, {"code": "BLWIDOW4"}, {"code": "BLWIDOW5"},
+        {"code": "BLKWI_DO"}, {"code": "BLWIDOW6"}, {"code": "BLWIDOW7"}, {"code": "BLWIDOW8"},
+        {"code": "BLACKWIDO8"}, {"code": "BWDHWKEYE"}
+      ]
+    },
+    {
+      "id": "luke-cage",
+      "name": "Luke Cage",
+      "subtitle": "Carl Lucas · Power Man",
+      "type": "character",
+      "primaryHub": "street",
+      "hubs": ["street", "avengers"],
+      "accent": "#d9b447",
+      "description": "Percorso Terra-616 di Luke Cage da Hero for Hire e Power Man fino agli Heroes for Hire e ai Nuovi Vendicatori.",
+      "aliases": ["luke cage", "carl lucas", "power man"],
+      "relatedPaths": ["iron-fist", "jessica-jones", "daredevil", "avengers"],
+      "insertAfter": "blackwidow",
+      "reusePaths": ["avengers", "daredevil", "spiderman"],
+      "sources": [
+        {"code": "LUKC"}, {"code": "PMIF"}, {"code": "CAGE1"}, {"code": "HEROHIRE1"}, {"code": "NA_LUKEC"}
+      ]
+    },
+    {
+      "id": "iron-fist",
+      "name": "Iron Fist",
+      "subtitle": "Danny Rand · Pugno d'Acciaio",
+      "type": "character",
+      "primaryHub": "street",
+      "hubs": ["street"],
+      "accent": "#e6c84f",
+      "description": "Percorso Terra-616 di Danny Rand dalle origini su Marvel Premiere alle serie Iron Fist, Power Man and Iron Fist e Immortal Iron Fist.",
+      "aliases": ["iron fist", "danny rand", "daniel rand", "pugno d'acciaio"],
+      "relatedPaths": ["luke-cage", "daredevil"],
+      "insertAfter": "luke-cage",
+      "reusePaths": ["daredevil", "avengers", "spiderman"],
+      "sources": [
+        {"code": "MP1", "include": ["15-25"], "era": "Origini su Marvel Premiere"},
+        {"code": "IF1"}, {"code": "PMIF"}, {"code": "IMM_IF"}, {"code": "IMIF_ODR"}, {"code": "IF_DRAGON"}
+      ]
+    },
+    {
+      "id": "jessica-jones",
+      "name": "Jessica Jones",
+      "subtitle": "Jessica Jones · Alias",
+      "type": "character",
+      "primaryHub": "street",
+      "hubs": ["street", "avengers"],
+      "accent": "#6f7dc9",
+      "description": "Percorso Terra-616 di Jessica Jones da Alias e The Pulse alle serie moderne, con le storie condivise selezionate solo quando Jessica è protagonista.",
+      "aliases": ["jessica jones", "jewel", "knightress"],
+      "relatedPaths": ["luke-cage", "daredevil", "avengers"],
+      "insertAfter": "iron-fist",
+      "reusePaths": ["avengers", "daredevil", "spiderman"],
+      "sources": [
+        {"code": "ALIAS"}, {"code": "PULSE"}, {"code": "JESJONMDOB"}, {"code": "VARIANTS"}
+      ]
+    },
+    {
+      "id": "punisher",
+      "name": "Punisher",
+      "subtitle": "Frank Castle · Il Punitore",
+      "type": "character",
+      "primaryHub": "street",
+      "hubs": ["street"],
+      "accent": "#b7bcc2",
+      "description": "Percorso Terra-616 di Frank Castle dalle serie classiche alle incarnazioni Marvel Knights e moderne; le linee MAX e le realtà alternative sono escluse.",
+      "aliases": ["punisher", "frank castle", "francis castiglione", "punitore"],
+      "relatedPaths": ["daredevil", "spiderman", "wolverine-616", "war-machine"],
+      "insertAfter": "jessica-jones",
+      "reusePaths": ["spiderman", "daredevil", "cap", "wolverine-616", "war-machine"],
+      "sources": [
+        {"code": "PUN1"}, {"code": "PUN2"}, {"code": "PWJ1"}, {"code": "PUN3"},
+        {"code": "PUN5"}, {"code": "PUN6"}, {"code": "PWZ2"}, {"code": "PUN8"},
+        {"code": "PUN9"}, {"code": "PUN10"}, {"code": "PUNI10"}
+      ]
+    },
+    {
+      "id": "moon-knight",
+      "name": "Moon Knight",
+      "subtitle": "Marc Spector · Cavaliere della Luna",
+      "type": "character",
+      "primaryHub": "street",
+      "hubs": ["street", "mystic"],
+      "accent": "#d7dbe0",
+      "description": "Percorso Terra-616 di Marc Spector dalle serie classiche a Mr. Knight e alle incarnazioni contemporanee, collegato sia allo street level sia al soprannaturale.",
+      "aliases": ["moon knight", "marc spector", "mr. knight", "mister knight", "cavaliere della luna"],
+      "relatedPaths": ["daredevil", "punisher", "ghost-rider", "avengers"],
+      "insertAfter": "punisher",
+      "reusePaths": ["avengers", "daredevil", "spiderman", "ghost-rider"],
+      "sources": [
+        {"code": "MK1"}, {"code": "MK3"}, {"code": "MK6"}, {"code": "VMK"}, {"code": "MK7"},
+        {"code": "MOONKNIG7"}, {"code": "MONKNIGH7"}, {"code": "MOONKNIG8"}
+      ]
+    }
+  ]
+}
