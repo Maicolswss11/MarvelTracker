@@ -27,6 +27,8 @@ La vecchia `const DATA` monolitica non esiste più nell'HTML. I dati vengono car
 
 Il manifest comprende personaggi, squadre, universi completi ed eventi. La tassonomia in `data/hubs.json` organizza i percorsi tra Terra-616, Ultimate classico, Nuovo Ultimate, famiglie narrative ed eventi senza duplicare la collezione globale.
 
+L'espansione cosmica e soprannaturale aggiunge dodici percorsi intrecciati: Ghost Rider, Blade, Moon Knight, Midnight Sons, Morbius, Silver Surfer, Nova, Guardiani della Galassia, Adam Warlock, Thanos, Galactus e gli Araldi e, come percorso ibrido finale, Cosmic Ghost Rider. La configurazione editoriale è in `data/cosmic-supernatural-sources.json`; l'audit USA → prima pubblicazione italiana, comprese le lacune dichiarate, è in `data/cosmic-supernatural-audit.json`.
+
 ## Interfaccia
 
 Il sistema visivo include una sequenza di apertura, transizioni tra viste, entrate progressive, contatori animati, illuminazione reattiva e feedback sui comandi. Su mobile la navigazione dei percorsi usa un pannello laterale dedicato. `prefers-reduced-motion` disattiva le animazioni non essenziali e mantiene immediatamente visibili tutti i contenuti.
@@ -65,4 +67,4 @@ Il repository include emblemi locali per personaggi, squadre, universi ed eventi
 
 ## Verifica dati
 
-Eseguire `node scripts/verify-data.mjs` per controllare integrità gzip, schema, duplicati e conteggi di tutti gli archivi. `node scripts/verify-achievements.mjs` verifica catalogo, ID, categorie, condizioni limite e corrispondenza esatta dei 90 PNG. `scripts/rebuild_character_data.py` ricostruisce gli indici danneggiati dai dati pubblici ComicsBox.
+Eseguire `node scripts/verify-data.mjs` per controllare integrità gzip, schema, duplicati e conteggi di tutti gli archivi. `node scripts/verify-cosmic-supernatural.mjs` verifica i dodici nuovi percorsi, gli overlap fisici, gli hub e la matrice editoriale. `node scripts/verify-achievements.mjs` verifica catalogo, ID, categorie, condizioni limite e corrispondenza esatta dei 90 PNG. `scripts/rebuild_character_data.py` ricostruisce gli indici danneggiati dai dati pubblici ComicsBox; `scripts/build_cosmic_supernatural_expansion.py` rigenera l'espansione dalla configurazione e dalla prima pubblicazione italiana esposta da ComicsBox.

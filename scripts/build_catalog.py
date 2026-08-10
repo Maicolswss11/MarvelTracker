@@ -89,8 +89,8 @@ def write_ui_art(manifest: dict[str, Any], issues: list[dict[str, Any]]) -> None
         "xmen": ["xmen"],
         "spider": ["spiderman"],
         "fantastic-four": ["fantastic-four"],
-        "mystic": ["doctor-strange", "scarletwitch"],
-        "cosmic": ["ultimates-616"],
+        "mystic": ["doctor-strange", "ghost-rider", "blade", "moon-knight"],
+        "cosmic": ["silver-surfer", "guardians-of-the-galaxy", "nova", "thanos"],
     }
 
     hubs_manifest = read_json(DATA / "hubs.json")
