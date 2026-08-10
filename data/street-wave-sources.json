@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "manifestVersion": 26,
   "editorialModel": "physical-issue/usa-contents/reading-step@1",
   "source": "ComicsBox USA series indexes, ComicsBox issue character credits, and existing MarvelTracker paths",
@@ -27,9 +27,10 @@
       "insertAfter": "wonderman",
       "reusePaths": ["avengers", "cap", "ironman", "blackwidow"],
       "sources": [
-        {"code": "HAWK1"}, {"code": "HAWK2"}, {"code": "HAWK3"}, {"code": "HAWK_EMM"},
-        {"code": "NEWA_RE"}, {"code": "HWKMKBD"}, {"code": "HKW_BLST"}, {"code": "HAWKEYE"},
-        {"code": "ALNHAWKY"}, {"code": "ALNHAWKY2"}, {"code": "HAWKEYEFF"}, {"code": "BWDHWKEYE"}
+        {"code": "HAWK1"}, {"code": "ASPOT", "include": ["21-34", "36"], "era": "Avengers Spotlight"},
+        {"code": "HAWK2"}, {"code": "HAWK3"}, {"code": "HAWK_EMM"}, {"code": "NEWA_RE"},
+        {"code": "HWKMKBD"}, {"code": "HKW_BLST"}, {"code": "HAWKEYE"}, {"code": "ALNHAWKY"},
+        {"code": "ALNHAWKY2"}, {"code": "HAWKEYEFF"}, {"code": "BWDHWKEYE"}
       ]
     },
     {
@@ -80,7 +81,7 @@
       "primaryHub": "street",
       "hubs": ["street"],
       "accent": "#e6c84f",
-      "description": "Percorso Terra-616 di Danny Rand dalle origini su Marvel Premiere alle serie Iron Fist, Power Man and Iron Fist e Immortal Iron Fist.",
+      "description": "Percorso Terra-616 di Danny Rand dalle origini su Marvel Premiere alle serie Iron Fist, Power Man and Iron Fist, Immortal Iron Fist e al ritorno moderno.",
       "aliases": ["iron fist", "danny rand", "daniel rand", "pugno d'acciaio"],
       "relatedPaths": ["luke-cage", "daredevil"],
       "insertAfter": "luke-cage",
@@ -89,7 +90,8 @@
         {"code": "MP1", "include": ["15-25"], "era": "Origini su Marvel Premiere"},
         {"code": "IF1"}, {"code": "IF2"}, {"code": "IF3"}, {"code": "IF4"},
         {"code": "PMIF"}, {"code": "IMM_IF"}, {"code": "IRFISTLW"}, {"code": "PWMIRFIST3"},
-        {"code": "IRONFIST5"}, {"code": "IMIF_ODR"}, {"code": "IF_DRAGON"}
+        {"code": "IRONFIST5"}, {"code": "IMIF_ODR"}, {"code": "IF_DRAGON"},
+        {"code": "IF50ANNSPC", "era": "50° anniversario"}, {"code": "UNDDIRNFST", "era": "Il ritorno di Danny Rand"}
       ]
     },
     {
@@ -117,17 +119,19 @@
       "primaryHub": "street",
       "hubs": ["street"],
       "accent": "#b7bcc2",
-      "description": "Percorso Terra-616 di Frank Castle dalle serie classiche alle incarnazioni Marvel Knights e moderne; le linee MAX e le realtà alternative sono escluse.",
+      "description": "Percorso Terra-616 di Frank Castle dalle serie classiche alle incarnazioni Marvel Knights e moderne, aggiornato al ritorno del 2025-2026; le linee MAX e le realtà alternative sono escluse.",
       "aliases": ["punisher", "frank castle", "francis castiglione", "punitore"],
-      "relatedPaths": ["daredevil", "spiderman", "wolverine-616", "war-machine"],
+      "relatedPaths": ["daredevil", "spiderman", "wolverine-616", "war-machine", "ghost-rider"],
       "insertAfter": "jessica-jones",
-      "reusePaths": ["spiderman", "daredevil", "cap", "wolverine-616", "war-machine"],
+      "reusePaths": ["spiderman", "daredevil", "cap", "wolverine-616", "war-machine", "ghost-rider"],
       "sources": [
-        {"code": "PUN1"}, {"code": "PUN2"}, {"code": "PWZ1"}, {"code": "PUN3"},
-        {"code": "PUN5"}, {"code": "PUN6"}, {"code": "PWZ2"}, {"code": "PUN8"},
-        {"code": "PUN9"}, {"code": "PUNWZ3"}, {"code": "PUN10"}, {"code": "PUNI10"},
-        {"code": "PUNI11"}, {"code": "PUNISHER13"}, {"code": "PUNWJBLITZ"}, {"code": "PWJBROTHER"},
-        {"code": "PUNWJBASE"}
+        {"code": "PUN1"}, {"code": "PUN2"}, {"code": "PUN2A", "era": "Annual classici"},
+        {"code": "PWZ1"}, {"code": "PUNWZ", "era": "Punisher War Zone"}, {"code": "PUN_YONE", "era": "Year One"},
+        {"code": "PUN3"}, {"code": "PUN5"}, {"code": "PUN6"}, {"code": "PWZ2"},
+        {"code": "PUNWZ2"}, {"code": "PUNBLOOD"}, {"code": "PUN8"}, {"code": "PUN9"},
+        {"code": "PUNWZ3"}, {"code": "PUN10"}, {"code": "PUNI10"}, {"code": "PUNI11"},
+        {"code": "PUNISHER13"}, {"code": "PUNWJBLITZ"}, {"code": "PWJBROTHER"}, {"code": "PUNWJBASE"},
+        {"code": "PUNSHRREDB", "era": "Il ritorno di Frank Castle"}, {"code": "PUNISHER15", "era": "Punisher 2026"}
       ]
     },
     {
@@ -138,7 +142,7 @@
       "primaryHub": "street",
       "hubs": ["street", "mystic"],
       "accent": "#d7dbe0",
-      "description": "Percorso Terra-616 di Marc Spector dalle origini in Werewolf by Night alle serie classiche, Mr. Knight e alle incarnazioni contemporanee, collegato sia allo street level sia al soprannaturale.",
+      "description": "Percorso Terra-616 di Marc Spector dalle origini in Werewolf by Night alle serie classiche, Mr. Knight e alle incarnazioni contemporanee, aggiornato al 2026.",
       "aliases": ["moon knight", "marc spector", "mr. knight", "mister knight", "cavaliere della luna"],
       "relatedPaths": ["daredevil", "punisher", "ghost-rider", "avengers"],
       "insertAfter": "punisher",
@@ -147,7 +151,9 @@
         {"code": "WBN1", "include": ["32-33"], "era": "Origini"},
         {"code": "MSP1", "include": ["28-29"], "era": "Prime avventure"},
         {"code": "MK1"}, {"code": "MK3"}, {"code": "MK6"}, {"code": "VMK"}, {"code": "MK7"},
-        {"code": "MOONKNIG7"}, {"code": "MONKNIGH7"}, {"code": "MOONKNIG8"}, {"code": "MKFISTK"}
+        {"code": "MOONKNIG7"}, {"code": "MONKNIGH7"}, {"code": "MOONKNIG8"},
+        {"code": "VMK2", "include": ["5-9"], "era": "Ritorno di Marc Spector"},
+        {"code": "MKFISTK"}, {"code": "MSMNKNGHT2", "era": "Marc Spector: Moon Knight 2026"}
       ]
     }
   ]
