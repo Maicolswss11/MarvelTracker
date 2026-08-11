@@ -1,4 +1,4 @@
-name: Discover Elektra Deadpool Cable Magik sources
+name: Inspect mutant-street wave state
 
 on:
   push:
@@ -7,20 +7,38 @@ on:
       - ".github/workflows/discover-mutant-wave.yml"
 
 jobs:
-  discover:
+  inspect:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect Cable index links
-        shell: python
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Check current alternative coverage and configured sources
+        shell: bash
         run: |
-          import html
-          import re
-          from urllib.request import Request, urlopen
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          root = Path('.')
+          payload = json.loads((root/'data/editions.json').read_text(encoding='utf-8'))
+          for path_id in ('daredevil','wolverine-616'):
+              editions = []
+              issues = set()
+              for edition in payload.get('editions', []):
+                  covs = [c for c in edition.get('coverage', []) if c.get('path') == path_id and c.get('issueIds')]
+                  if covs:
+                      editions.append(edition.get('id'))
+                      for cov in covs: issues.update(cov.get('issueIds', []))
+              print(f'CURRENT {path_id}: {len(editions)} editions / {len(issues)} issues')
 
-          url = "https://www.comicsbox.it/comicsusa?l=C"
-          source = urlopen(Request(url, headers={"User-Agent": "MarvelTracker data maintenance/6.0"}), timeout=45).read().decode("utf-8", errors="replace")
-          for match in re.finditer(r'href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', source, re.I | re.S):
-              href = html.unescape(match.group(1))
-              title = " ".join(html.unescape(re.sub(r"<[^>]+>", "", match.group(2))).split())
-              if "CABLE" in title.upper():
-                  print(f"{title:72} | {href}")
+          sys.path.insert(0, str(root/'scripts'))
+          import build_street_wave as street
+          config = json.loads((root/'data/mutant-street-wave-sources.json').read_text(encoding='utf-8'))
+          loaded, errors = street.load_config_sources(config, 14)
+          print(f'SOURCES: {len(loaded)} loaded / {len(errors)} errors')
+          for code, error in sorted(errors.items()):
+              print(f'SOURCE_ERROR {code}: {error}')
+          if errors:
+              raise SystemExit(1)
+          PY
