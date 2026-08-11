@@ -103,6 +103,10 @@ PATH_ALIASES = {
     "jessica-jones": ['jessica jones', 'alias'],
     "punisher": ['punisher', 'punitore', 'frank castle'],
     "moon-knight": ['moon knight', 'cavaliere della luna', 'marc spector'],
+    "elektra": ['elektra', 'elektra natchios'],
+    "deadpool": ['deadpool', 'wade wilson'],
+    "cable": ['cable', 'nathan summers'],
+    "magik": ['magik', 'illyana rasputin', 'illyana'],
 }
 
 DETAIL_HINTS = tuple(sorted({alias for values in PATH_ALIASES.values() for alias in values} | {
@@ -272,8 +276,9 @@ def main() -> None:
             eid = edition_id(row["code"])
             old = existing.get(eid, {})
             auto_generated = old.get("coverageSource") == "auto:first-italian-publication"
-            preserved_coverage = [] if auto_generated else old.get("coverage", [])
-            preserved_source = "" if auto_generated else old.get("coverageSource", "")
+            # Preserve verified automatic coverage as a monotonic baseline.
+            preserved_coverage = old.get("coverage", [])
+            preserved_source = old.get("coverageSource", "")
             imported.append({
                 "id": eid,
                 "name": row["title"] or row["label"] or f"{meta['name']} #{row['number']}",
@@ -293,7 +298,8 @@ def main() -> None:
 
     to_scan = [
         item for item in imported
-        if not item.get("coverage") and should_fetch_detail(f"{item['series']} {item['name']}")
+        if (not item.get("coverage") or item.get("coverageSource") == "auto:first-italian-publication")
+        and should_fetch_detail(f"{item['series']} {item['name']}")
     ]
     print(f"Schede da analizzare per copertura: {len(to_scan)}")
 
@@ -315,8 +321,10 @@ def main() -> None:
                 print(f"Analizzate {index}/{len(to_scan)} schede")
 
     for item in imported:
-        if item.get("coverage"):
+        is_auto = item.get("coverageSource") == "auto:first-italian-publication"
+        if item.get("coverage") and not is_auto:
             continue
+        baseline = item.get("coverage", []) if is_auto else []
         codes = scanned.get(item["id"], [])
         if not codes:
             continue
@@ -331,16 +339,21 @@ def main() -> None:
             candidates = set(route_union)
 
         by_path: dict[str, list[str]] = {}
+        for coverage in baseline:
+            path_id = coverage.get("path")
+            if path_id and coverage.get("issueIds"):
+                by_path.setdefault(path_id, []).extend(coverage["issueIds"])
         for issue in matched:
-            for path in issue.get("paths", []):
-                if path in candidates:
-                    by_path.setdefault(path, []).append(issue["id"])
+            for path_id in issue.get("paths", []):
+                if path_id in candidates:
+                    by_path.setdefault(path_id, []).append(issue["id"])
 
-        item["coverage"] = [
-            {"path": path, "issueIds": list(dict.fromkeys(ids)), "label": item["name"]}
-            for path, ids in sorted(by_path.items()) if ids
+        merged_coverage = [
+            {"path": path_id, "issueIds": list(dict.fromkeys(ids)), "label": item["name"]}
+            for path_id, ids in sorted(by_path.items()) if ids
         ]
-        if item["coverage"]:
+        if merged_coverage:
+            item["coverage"] = merged_coverage
             item["coverageSource"] = "auto:first-italian-publication"
 
     imported_ids = {item["id"] for item in imported}
