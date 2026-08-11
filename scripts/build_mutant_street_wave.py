@@ -93,6 +93,27 @@ def filtered_source_roles(config: dict[str, Any], loaded: dict[str, dict[str, An
                 errors[code] = str(error)
             if index % 100 == 0 or index == len(futures):
                 log(f"Storie USA di squadra filtrate: {index}/{len(futures)}")
+
+    retry_delays = (3, 10, 30, 60)
+    for retry, delay in enumerate(retry_delays, 1):
+        if not errors:
+            break
+        failed_codes = sorted(errors)
+        log(
+            f"Retry storie team {retry}/{len(retry_delays)} tra {delay}s: "
+            + ", ".join(failed_codes)
+        )
+        __import__("time").sleep(delay)
+        for code in failed_codes:
+            try:
+                key, paths = inspect(code)
+                result[key] = paths
+                errors.pop(code, None)
+            except Exception as error:
+                errors[code] = str(error)
+    if errors:
+        details = "; ".join(f"{code}: {error}" for code, error in sorted(errors.items()))
+        raise RuntimeError(f"ComicsBox filtered team scan failed after retries: {details}")
     return result, errors
 
 
@@ -250,12 +271,62 @@ def main() -> None:
     manifest_before = read_json(DATA / "characters.json")
     catalog_before = read_json(DATA / "catalog.json")
 
-    loaded, source_errors = street.load_config_sources(config, workers)
-    filtered_roles, filtered_role_errors = filtered_source_roles(config, loaded, workers)
+    # Keep source-index traffic conservative: ComicsBox throttles large bursts.
+    source_workers = min(workers, 8)
+    loaded, source_errors = street.load_config_sources(config, source_workers)
+    retry_delays = (5, 15, 30, 60)
+    for retry, delay in enumerate(retry_delays, 1):
+        if not source_errors:
+            break
+        failed_codes = ", ".join(sorted(source_errors))
+        log(f"Retry sorgenti ComicsBox {retry}/{len(retry_delays)} tra {delay}s: {failed_codes}")
+        __import__("time").sleep(delay)
+        for code in list(source_errors):
+            try:
+                loaded[code] = legacy.load_foreign_series(code)
+                source_errors.pop(code, None)
+            except Exception as error:
+                source_errors[code] = str(error)
+    if source_errors:
+        details = "; ".join(f"{code}: {error}" for code, error in sorted(source_errors.items()))
+        raise RuntimeError(f"ComicsBox source load failed after retries: {details}")
+    log(f"Sorgenti ComicsBox complete: {len(loaded)}/77")
+    filtered_roles, filtered_role_errors = filtered_source_roles(config, loaded, min(workers, 16))
 
     per_base, _ = wave1.load_reuse_issues(config, manifest_before)
     reuse_contents, reuse_metadata, reuse_album_errors = wave1.enrich_reuse_contents(per_base, workers)
     role_map, role_errors = wave1.scan_content_roles(reuse_contents, config, workers)
+    aliases_by_path = {path["id"]: path["aliases"] for path in config["paths"]}
+    retry_delays = (3, 10, 30, 60)
+    for retry, delay in enumerate(retry_delays, 1):
+        if not role_errors:
+            break
+        failed_codes = sorted(role_errors)
+        log(
+            f"Retry storie condivise {retry}/{len(retry_delays)} tra {delay}s: "
+            + ", ".join(failed_codes)
+        )
+        __import__("time").sleep(delay)
+        for code in failed_codes:
+            try:
+                source = legacy.fetch_text(f"https://www.comicsbox.it/albo/{code}")
+                date_label, date_key = wave1.source_date(source)
+                protagonists = [
+                    path_id
+                    for path_id, aliases in aliases_by_path.items()
+                    if wave1.credited_as_protagonist(source, aliases)
+                ]
+                role_map[code] = {
+                    "protagonistPaths": protagonists,
+                    "date": date_label,
+                    "dateKey": list(date_key),
+                }
+                role_errors.pop(code, None)
+            except Exception as error:
+                role_errors[code] = str(error)
+    if role_errors:
+        details = "; ".join(f"{code}: {error}" for code, error in sorted(role_errors.items()))
+        raise RuntimeError(f"ComicsBox shared story scan failed after retries: {details}")
 
     chapters_by_path: dict[str, list[dict[str, Any]]] = {}
     audits: list[dict[str, Any]] = []
