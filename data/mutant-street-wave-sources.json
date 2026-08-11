@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "manifestVersion": 27,
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "source": "ComicsBox USA series indexes, ComicsBox issue protagonist credits, and existing MarvelTracker paths",
+  "rules": [
+    "Dedicated series are followed issue by issue using the first verified Italian publication.",
+    "Team/co-billed sources marked protagonistOnly are filtered story by story using ComicsBox protagonist credits.",
+    "Shared history is reused only when the character is credited among the protagonists of a USA story already represented by MarvelTracker.",
+    "Simple appearances and cameos are excluded unless an exact historically important issue is explicitly selected in configuration.",
+    "A physical Italian issue keeps its global ownership identity; reading progress remains path-local through readingStep.contentIds.",
+    "Ultimate, MAX, What If and explicit alternate/cross-company continuities are excluded from the Earth-616-focused character paths.",
+    "Missing Italian first publications remain explicit audit gaps and are never replaced with invented editions."
+  ],
+  "paths": [
+    {
+      "id": "elektra",
+      "name": "Elektra",
+      "subtitle": "Elektra Natchios · Assassina della Mano",
+      "type": "character",
+      "primaryHub": "street",
+      "hubs": ["street"],
+      "accent": "#d13b4f",
+      "description": "Percorso principale di Elektra Natchios dalle storie con Daredevil alle serie soliste, alla Mano e alle incarnazioni moderne; Ultimate e crossover intercompany sono esclusi.",
+      "aliases": ["elektra", "elektra natchios"],
+      "relatedPaths": ["daredevil", "punisher", "wolverine-616"],
+      "insertAfter": "daredevil",
+      "reusePaths": ["daredevil", "punisher", "wolverine-616", "spiderman"],
+      "sources": [
+        {"code": "ELEK_ASS"}, {"code": "ELEK_ROE"}, {"code": "ELEKTR1"},
+        {"code": "PPSMEL98"}, {"code": "ELEKTR2"}, {"code": "ELEK_GAE"},
+        {"code": "ELEKWO_RE"}, {"code": "ELEK_HAN"}, {"code": "DR_ELEKT"},
+        {"code": "SHL_EK"}, {"code": "ELEKTR3"}, {"code": "ELEKTR4"},
+        {"code": "ELEKTRA100"}
+      ]
+    },
+    {
+      "id": "deadpool",
+      "name": "Deadpool",
+      "subtitle": "Wade Wilson · Mercenario Chiacchierone",
+      "type": "character",
+      "primaryHub": "xmen",
+      "hubs": ["xmen", "street"],
+      "accent": "#d12f3f",
+      "description": "Percorso Earth-616 di Wade Wilson dalle prime miniserie alle serie regolari, Cable & Deadpool e i principali team-up canonici; MAX, Kills the Marvel Universe, Pulp, What If e altre realtà alternative sono esclusi.",
+      "aliases": ["deadpool", "wade wilson"],
+      "relatedPaths": ["xmen", "wolverine-616", "cable", "spiderman", "punisher"],
+      "insertAfter": "wolverine-616",
+      "reusePaths": ["xmen", "wolverine-616", "spiderman", "punisher", "avengers", "cap"],
+      "sources": [
+        {"code": "NM1", "include": ["98"], "era": "Prima apparizione"},
+        {"code": "DEDPL1"}, {"code": "DEDPL2"}, {"code": "DEDPL3"},
+        {"code": "DEDPL4"}, {"code": "DEDPL4A"}, {"code": "DEDPL5"},
+        {"code": "DEDPL5A"}, {"code": "DEDPL6"}, {"code": "DEDPL6A"},
+        {"code": "DEADPOOL5"}, {"code": "DEVOL62019"}, {"code": "DEAN2019"},
+        {"code": "DEADPOOL9"}, {"code": "DEADPOOL10"},
+        {"code": "CAB_DDP", "protagonistOnly": true}, {"code": "CABDEADANN", "protagonistOnly": true},
+        {"code": "DEDPLTU"}, {"code": "DEDPLTU2"}, {"code": "DEDPLTU3"},
+        {"code": "DEDPL_MM"}, {"code": "DEDPL_SK"}, {"code": "DDPDRAG"},
+        {"code": "DDPVSCARN"}, {"code": "DDPTHSSW"}, {"code": "DDPPUN"},
+        {"code": "DDPXFOR"}, {"code": "HAWKDDP"}, {"code": "SPIDMDDP", "protagonistOnly": true},
+        {"code": "DEDPLCO", "protagonistOnly": true}, {"code": "PRDEAPOC", "protagonistOnly": true},
+        {"code": "DDPASSASS"}, {"code": "DEADPBADBL"}, {"code": "DPBADDERBL"},
+        {"code": "VENWARDPL"}, {"code": "DEADPWOLV", "protagonistOnly": true},
+        {"code": "DPWLVWWIII", "protagonistOnly": true}
+      ]
+    },
+    {
+      "id": "cable",
+      "name": "Cable",
+      "subtitle": "Nathan Summers · Soldato del futuro",
+      "type": "character",
+      "primaryHub": "xmen",
+      "hubs": ["xmen"],
+      "accent": "#7fa0bd",
+      "description": "Percorso Terra-616 di Nathan Summers dalle origini con i Nuovi Mutanti e X-Force alle serie Cable, Cable & Deadpool e alle incarnazioni moderne.",
+      "aliases": ["cable", "nathan summers", "nathan christopher summers", "askani'son"],
+      "relatedPaths": ["xmen", "deadpool", "wolverine-616"],
+      "insertAfter": "deadpool",
+      "reusePaths": ["xmen", "wolverine-616", "deadpool", "avengers-vs-xmen"],
+      "sources": [
+        {"code": "NM1", "protagonistOnly": true}, {"code": "XFO1", "protagonistOnly": true},
+        {"code": "CAB_BM"}, {"code": "ASKSON"}, {"code": "CAB2"}, {"code": "CAB99"},
+        {"code": "CABMAM98"}, {"code": "CAB3"},
+        {"code": "CAB_DDP", "protagonistOnly": true}, {"code": "CABDEADANN", "protagonistOnly": true},
+        {"code": "CABXFOR", "protagonistOnly": true}, {"code": "CABLE4"},
+        {"code": "CABLEVOL4"}, {"code": "CABLE5"}, {"code": "CABLEREL"},
+        {"code": "CABLELVCH"}, {"code": "DDPCBSPSC", "protagonistOnly": true},
+        {"code": "WOLCABL", "protagonistOnly": true}, {"code": "XFC_MSSW", "protagonistOnly": true}
+      ]
+    },
+    {
+      "id": "magik",
+      "name": "Magik",
+      "subtitle": "Illyana Rasputin · Regina del Limbo",
+      "type": "character",
+      "primaryHub": "xmen",
+      "hubs": ["xmen", "mystic"],
+      "accent": "#9f63d8",
+      "description": "Percorso ibrido mutante/mistico di Illyana Rasputin: Magik, Nuovi Mutanti, Limbo, X-Men e storie magiche soliste, con selezione protagonista-only delle testate di squadra.",
+      "aliases": ["magik", "illyana rasputin", "illyana rasputina", "illyana"],
+      "relatedPaths": ["xmen", "doctor-strange", "scarletwitch", "cable"],
+      "insertAfter": "cable",
+      "reusePaths": ["xmen", "doctor-strange", "scarletwitch", "wolverine-616"],
+      "sources": [
+        {"code": "MAGK1"}, {"code": "NM1", "protagonistOnly": true},
+        {"code": "MYAR_MK"}, {"code": "XINFERN", "protagonistOnly": true},
+        {"code": "NM3", "protagonistOnly": true}, {"code": "NEWMUTS4", "protagonistOnly": true},
+        {"code": "NM_WC", "protagonistOnly": true}, {"code": "NEWMUTLET", "protagonistOnly": true},
+        {"code": "MGKCLSSS", "protagonistOnly": true}, {"code": "XMBHMAGIK"},
+        {"code": "MAGK2"}, {"code": "MAGIK3"}
+      ]
+    }
+  ]
+}
