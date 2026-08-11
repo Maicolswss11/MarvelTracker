@@ -13,11 +13,14 @@ import json
 import re
 import time
 import unicodedata
+from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote
 from urllib.request import Request, urlopen
+
+import build_cosmic_supernatural_expansion as legacy
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -219,17 +222,42 @@ def load_series(code: str) -> list[dict[str, str]]:
     return rows
 
 
-def first_italian_codes(source: str) -> list[str]:
+def _linked_album_codes(fragment: str) -> list[str]:
     result: list[str] = []
+    for match in re.finditer(
+        r'href=["\'][^"\']*?(?:/|^)albo/([^"\'?#/]+)',
+        fragment,
+        flags=re.I,
+    ):
+        code = unquote(html.unescape(match.group(1)))
+        if code not in result:
+            result.append(code)
+    return result
+
+
+def first_italian_pairs(source: str) -> list[tuple[str, str]]:
+    """Return (USA story code, first Italian physical issue code) pairs.
+
+    ComicsBox collection pages place the source-USA issue immediately before
+    each ``Prima pubblicazione in Italia`` marker.  Keeping that identity is
+    essential: one Italian physical issue can contain several USA stories that
+    belong to different MarvelTracker reading paths.
+    """
+    result: list[tuple[str, str]] = []
+    seen: set[tuple[str, str]] = set()
     for marker in re.finditer(r"Prima\s+pubblicazione\s+in\s+Italia", source, flags=re.I):
-        snippet = source[marker.start(): marker.start() + 1800]
-        match = re.search(r"href=[\"'][^\"']*?(?:/|^)albo/([^\"'?#/]+)", snippet, flags=re.I)
-        if not match:
-            match = re.search(r"href=[\"'](?:https?://[^\"']+)?/?albo/([^\"'?#/]+)", snippet, flags=re.I)
-        if match:
-            code = unquote(html.unescape(match.group(1)))
-            if code not in result:
-                result.append(code)
+        before = source[max(0, marker.start() - 5000):marker.start()]
+        after = source[marker.start(): marker.start() + 1800]
+        before_codes = _linked_album_codes(before)
+        after_codes = _linked_album_codes(after)
+        if not after_codes:
+            continue
+        usa_code = before_codes[-1] if before_codes else ""
+        italian_code = after_codes[0]
+        pair = (usa_code, italian_code)
+        if pair not in seen:
+            seen.add(pair)
+            result.append(pair)
     return result
 
 
@@ -257,6 +285,41 @@ def natural_number(value: object) -> tuple[int, str]:
     return (int(match.group(1)), match.group(2)) if match else (10**9, str(value or ""))
 
 
+def exact_reading_routes() -> tuple[dict[tuple[str, str], set[tuple[str, str]]], set[str]]:
+    """Index (USA content, Italian album) -> (path, physical issue id).
+
+    This mirrors MarvelTracker's editorial invariant:
+        physical Italian issue -> USA contents -> path-local readingStep
+    """
+    manifest = json.loads((DATA / "characters.json").read_text(encoding="utf-8"))
+    routes: dict[tuple[str, str], set[tuple[str, str]]] = defaultdict(set)
+    exact_paths: set[str] = set()
+    for meta in manifest.get("characters", []):
+        path_id = meta.get("id", "")
+        data_path = meta.get("data", "")
+        if not path_id or not data_path:
+            continue
+        try:
+            character = legacy.unpack_character(path_id, data_path)
+        except Exception as error:
+            print(f"WARN reading-route {path_id}: {error}")
+            continue
+        for issue in character.get("issues", []):
+            step = issue.get("readingStep") if isinstance(issue.get("readingStep"), dict) else {}
+            if step.get("pathId") != path_id:
+                continue
+            physical_code = album_code(issue.get("url", ""))
+            content_ids = [code for code in step.get("contentIds", []) if code]
+            issue_id = issue.get("id", "")
+            if not physical_code or not content_ids or not issue_id:
+                continue
+            exact_paths.add(path_id)
+            for content_id in content_ids:
+                routes[(content_id, physical_code)].add((path_id, issue_id))
+    print(f"Routing esatto: {len(routes)} coppie contenuto/albo · {len(exact_paths)} percorsi")
+    return routes, exact_paths
+
+
 def main() -> None:
     catalog = json.loads((DATA / "catalog.json").read_text(encoding="utf-8"))
     existing_payload = json.loads((DATA / "editions.json").read_text(encoding="utf-8"))
@@ -267,6 +330,8 @@ def main() -> None:
         code = album_code(issue.get("url", ""))
         if code:
             code_to_issue[code] = issue
+
+    exact_routes, exact_paths = exact_reading_routes()
 
     imported: list[dict] = []
     for series_code, meta in SERIES.items():
@@ -296,18 +361,20 @@ def main() -> None:
                 "sourceCode": row["code"],
             })
 
+    # Content-level routing cannot depend on a collection title naming the
+    # character. Scan every non-manual imported edition; e.g. an X-Men omnibus
+    # may be a valid Magik/Cable/Wolverine alternative without saying so in its title.
     to_scan = [
         item for item in imported
-        if (not item.get("coverage") or item.get("coverageSource") == "auto:first-italian-publication")
-        and should_fetch_detail(f"{item['series']} {item['name']}")
+        if not item.get("coverage") or item.get("coverageSource") == "auto:first-italian-publication"
     ]
     print(f"Schede da analizzare per copertura: {len(to_scan)}")
 
-    def scan(item: dict) -> tuple[str, list[str]]:
+    def scan(item: dict) -> tuple[str, list[tuple[str, str]]]:
         source = fetch(item["url"])
-        return item["id"], first_italian_codes(source)
+        return item["id"], first_italian_pairs(source)
 
-    scanned: dict[str, list[str]] = {}
+    scanned: dict[str, list[tuple[str, str]]] = {}
     with ThreadPoolExecutor(max_workers=5) as pool:
         futures = {pool.submit(scan, item): item["id"] for item in to_scan}
         for index, future in enumerate(as_completed(futures), 1):
@@ -325,28 +392,45 @@ def main() -> None:
         if item.get("coverage") and not is_auto:
             continue
         baseline = item.get("coverage", []) if is_auto else []
-        codes = scanned.get(item["id"], [])
-        if not codes:
+        pairs = scanned.get(item["id"], [])
+        if not pairs:
             continue
+        codes = list(dict.fromkeys(italian_code for _, italian_code in pairs if italian_code))
         identity = f"{item['series']} {item['name']}"
         candidates = candidates_for_title(identity)
         matched = [code_to_issue[code] for code in codes if code in code_to_issue]
-        if not matched:
-            continue
-
-        route_union = {path for issue in matched for path in issue.get("paths", [])}
-        if not candidates and len(route_union) == 1:
-            candidates = set(route_union)
 
         by_path: dict[str, list[str]] = {}
         for coverage in baseline:
             path_id = coverage.get("path")
             if path_id and coverage.get("issueIds"):
                 by_path.setdefault(path_id, []).extend(coverage["issueIds"])
-        for issue in matched:
-            for path_id in issue.get("paths", []):
-                if path_id in candidates:
-                    by_path.setdefault(path_id, []).append(issue["id"])
+
+        # Exact route: the collected edition must contain the same USA story
+        # selected by that path's readingStep on the cited Italian physical issue.
+        for usa_code, italian_code in pairs:
+            if not usa_code or not italian_code:
+                continue
+            for path_id, issue_id in exact_routes.get((usa_code, italian_code), set()):
+                by_path.setdefault(path_id, []).append(issue_id)
+
+        # Backward-compatible fallback only for legacy paths that do not expose
+        # readingStep/contentIds yet. Never override exact paths with title inference.
+        if matched:
+            route_union = {
+                path_id
+                for issue in matched
+                for path_id in issue.get("paths", [])
+                if path_id not in exact_paths
+            }
+            if not candidates and len(route_union) == 1:
+                candidates = set(route_union)
+            for issue in matched:
+                for path_id in issue.get("paths", []):
+                    if path_id in exact_paths:
+                        continue
+                    if path_id in candidates:
+                        by_path.setdefault(path_id, []).append(issue["id"])
 
         merged_coverage = [
             {"path": path_id, "issueIds": list(dict.fromkeys(ids)), "label": item["name"]}
