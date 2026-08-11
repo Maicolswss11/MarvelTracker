@@ -1,0 +1,121 @@
+name: Build X-Men solo wave 1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-xmen-wave1.yml"
+      - "data/xmen-wave1-sources.json"
+      - "scripts/build_xmen_wave1.py"
+      - "scripts/verify-xmen-wave1.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-xmen-wave1
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Build Cyclops Jean Grey Storm Rogue Gambit
+        run: python scripts/build_xmen_wave1.py --workers 24
+
+      - name: Rebuild catalog
+        run: python scripts/build_catalog.py
+
+      - name: Verify character data
+        run: |
+          node scripts/verify-xmen-wave1.mjs
+          node scripts/verify-mutant-street-wave.mjs
+          node scripts/verify-data.mjs
+
+      - name: Commit character checkpoint
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/characters.json \
+            data/hubs.json \
+            data/catalog.json \
+            data/xmen-wave1-audit.json \
+            data/xmen-wave1-sources.json \
+            data/characters/cyclops.json \
+            data/characters/jean-grey.json \
+            data/characters/storm.json \
+            data/characters/rogue.json \
+            data/characters/gambit.json \
+            assets/heroes/cyclops.svg \
+            assets/heroes/jean-grey.svg \
+            assets/heroes/storm.svg \
+            assets/heroes/rogue.svg \
+            assets/heroes/gambit.svg
+          if git diff --cached --quiet; then
+            echo "No character changes to commit"
+          else
+            git commit -m "Add Cyclops Jean Grey Storm Rogue and Gambit reading paths"
+            git status --short
+            git pull --rebase --autostash origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Rebuild alternative editions
+        run: |
+          python scripts/build_editions_catalog.py
+          python scripts/check_alternative_coverage.py
+          python scripts/check_magik_alternatives.py
+
+      - name: Enforce alternative coverage baselines
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path("data/editions.json").read_text(encoding="utf-8"))
+          editions = payload.get("editions", [])
+          limits = {
+              "daredevil": (63, 340),
+              "wolverine-616": (34, 153),
+          }
+          for path_id, (min_editions, min_issues) in limits.items():
+              matched = []
+              issues = set()
+              for edition in editions:
+                  rows = [row for row in edition.get("coverage", []) if row.get("path") == path_id and row.get("issueIds")]
+                  if not rows:
+                      continue
+                  matched.append(edition["id"])
+                  for row in rows:
+                      issues.update(row["issueIds"])
+              print(f"{path_id}: {len(matched)} editions / {len(issues)} issues")
+              if len(matched) < min_editions or len(issues) < min_issues:
+                  raise SystemExit(f"{path_id} alternative coverage regressed below {min_editions}/{min_issues}")
+          PY
+
+      - name: Commit alternative editions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/editions.json
+          if git diff --cached --quiet; then
+            echo "No alternative-edition changes to commit"
+          else
+            git commit -m "Expand alternative editions for X-Men solo wave"
+            git status --short
+            git pull --rebase --autostash origin main
+            git push origin HEAD:main
+          fi
