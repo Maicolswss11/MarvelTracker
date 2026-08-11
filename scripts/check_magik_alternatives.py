@@ -6,7 +6,7 @@ from pathlib import Path
 payload = json.loads(Path("data/editions.json").read_text(encoding="utf-8"))
 by_id = {item.get("id"): item for item in payload.get("editions", [])}
 
-required = ("PUNX_M:20", "MAROMNIB:65")
+required = ("MINTGRXMEN:20", "MAROMNIB:65")
 for edition_id in required:
     item = by_id.get(edition_id)
     if not item:
@@ -21,4 +21,4 @@ for edition_id in required:
         raise SystemExit(f"{edition_id} must cover magik/PB_PP:3; got {sorted(issue_ids)}")
     print(f"OK {edition_id} -> magik/PB_PP:3")
 
-print("Magik Play Book #3 alternatives verified: Integrale #20 + Marvel Omnibus #65.")
+print("Magik Play Book #3 alternatives verified: Marvel Integrale X-Men #20 + Marvel Omnibus #65.")
