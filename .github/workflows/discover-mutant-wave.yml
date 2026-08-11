@@ -1,0 +1,48 @@
+name: Discover Elektra Deadpool Cable Magik sources
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/discover-mutant-wave.yml"
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scan ComicsBox USA indexes
+        shell: python
+        run: |
+          import html
+          import re
+          from concurrent.futures import ThreadPoolExecutor, as_completed
+          from urllib.request import Request, urlopen
+
+          needles = [
+              "ELEKTRA", "DEADPOOL", "CABLE", "MAGIK", "ILLYANA",
+              "NEW MUTANTS", "X-FORCE", "X INFERNUS", "X-INFERNUS",
+          ]
+
+          def scan(letter):
+              url = f"https://www.comicsbox.it/comicsusa?l={letter}"
+              request = Request(url, headers={"User-Agent": "MarvelTracker data maintenance/6.0"})
+              source = urlopen(request, timeout=45).read().decode("utf-8", errors="replace")
+              rows = []
+              pattern = r'href=["\'](?:https?://www\.comicsbox\.it)?/?serie/([^"\'?&]+)[^"\']*["\'][^>]*>(.*?)</a>'
+              for match in re.finditer(pattern, source, re.I | re.S):
+                  code = html.unescape(match.group(1))
+                  title = re.sub(r"<[^>]+>", "", match.group(2))
+                  title = " ".join(html.unescape(title).split())
+                  upper = title.upper()
+                  if any(needle in upper for needle in needles):
+                      rows.append((title, code))
+              return rows
+
+          found = set()
+          with ThreadPoolExecutor(max_workers=10) as pool:
+              futures = {pool.submit(scan, letter): letter for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"}
+              for future in as_completed(futures):
+                  for row in future.result():
+                      found.add(row)
+          for title, code in sorted(found):
+              print(f"{title:72} | {code}")
