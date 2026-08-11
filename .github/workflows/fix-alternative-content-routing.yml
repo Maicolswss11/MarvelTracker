@@ -5,6 +5,10 @@ on:
     branches: ["main"]
     paths:
       - ".github/workflows/fix-alternative-content-routing.yml"
+      - "scripts/check_magik_alternatives.py"
+      - "scripts/fix_magik_omnibus_65.py"
+      - "scripts/prepare_comicsbox_transient_fix.py"
+  workflow_dispatch:
 
 permissions:
   contents: write
