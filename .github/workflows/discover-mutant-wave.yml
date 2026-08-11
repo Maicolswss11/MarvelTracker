@@ -1,4 +1,4 @@
-name: Inspect mutant-street wave state
+name: Inspect ComicsBox character chronologies
 
 on:
   push:
@@ -10,35 +10,22 @@ jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
-        with:
-          python-version: '3.12'
-      - name: Check current alternative coverage and configured sources
-        shell: bash
+      - name: Inspect character endpoints
+        shell: python
         run: |
-          python - <<'PY'
-          import json, sys
-          from pathlib import Path
-          root = Path('.')
-          payload = json.loads((root/'data/editions.json').read_text(encoding='utf-8'))
-          for path_id in ('daredevil','wolverine-616'):
-              editions = []
-              issues = set()
-              for edition in payload.get('editions', []):
-                  covs = [c for c in edition.get('coverage', []) if c.get('path') == path_id and c.get('issueIds')]
-                  if covs:
-                      editions.append(edition.get('id'))
-                      for cov in covs: issues.update(cov.get('issueIds', []))
-              print(f'CURRENT {path_id}: {len(editions)} editions / {len(issues)} issues')
+          import re
+          from urllib.request import Request, urlopen
 
-          sys.path.insert(0, str(root/'scripts'))
-          import build_street_wave as street
-          config = json.loads((root/'data/mutant-street-wave-sources.json').read_text(encoding='utf-8'))
-          loaded, errors = street.load_config_sources(config, 14)
-          print(f'SOURCES: {len(loaded)} loaded / {len(errors)} errors')
-          for code, error in sorted(errors.items()):
-              print(f'SOURCE_ERROR {code}: {error}')
-          if errors:
-              raise SystemExit(1)
-          PY
+          for name in ("elektra", "deadpool", "cable", "magik"):
+              for url in (f"https://www.comicsbox.it/characters.php?name={name}", f"https://www.comicsbox.it/personaggio/{name}"):
+                  try:
+                      source = urlopen(Request(url, headers={"User-Agent":"MarvelTracker data maintenance/6.0"}), timeout=30).read().decode("utf-8", errors="replace")
+                      title = re.search(r"<title>(.*?)</title>", source, re.I | re.S)
+                      markers = len(re.findall(r"Prima\s+pubblicazione\s*:", source, re.I))
+                      cameos = len(re.findall(r"fa\s+solo\s+una\s+comparsa", source, re.I))
+                      albo_links = len(re.findall(r"(?:/albo/|albo/)[^\"'?#/<]+", source, re.I))
+                      clean_title = re.sub(r"<[^>]+>", "", title.group(1)).strip() if title else ""
+                      print(f"{name}: {url}")
+                      print(f"  title={clean_title!r} bytes={len(source)} chronology={markers} cameos={cameos} albo_links={albo_links}")
+                  except Exception as exc:
+                      print(f"{name}: {url} ERROR {exc!r}")
