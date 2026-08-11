@@ -57,7 +57,9 @@ jobs:
             scripts/build_mutant_street_wave.py
           if ! git diff --cached --quiet; then
             git commit -m "Add Elektra Deadpool Cable and Magik reading paths"
-            git pull --rebase origin main
+            echo "Working tree before checkpoint rebase:"
+            git status --short
+            git pull --rebase --autostash origin main
             git push origin HEAD:main
           fi
 
@@ -100,6 +102,8 @@ jobs:
           git add data/editions.json scripts/build_editions_catalog.py
           if ! git diff --cached --quiet; then
             git commit -m "Extend alternative editions for mutant street paths"
-            git pull --rebase origin main
+            echo "Working tree before editions rebase:"
+            git status --short
+            git pull --rebase --autostash origin main
             git push origin HEAD:main
           fi
