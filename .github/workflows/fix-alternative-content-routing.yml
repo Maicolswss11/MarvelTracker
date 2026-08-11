@@ -1,0 +1,108 @@
+name: Fix alternative editions by USA content
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/fix-alternative-content-routing.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Upgrade matcher
+        run: |
+          cp data/editions.json /tmp/editions-before.json
+          python -m py_compile scripts/prepare_content_routed_editions.py
+          python scripts/prepare_content_routed_editions.py
+          python -m py_compile scripts/build_editions_catalog.py
+
+      - name: Verify ComicsBox pair parser
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path.insert(0, 'scripts')
+          import build_editions_catalog as editions
+          source = editions.fetch('https://www.comicsbox.it/albo/MAROMNIB_065')
+          pairs = editions.first_italian_pairs(source)
+          required = ('MAGK1_001', 'PB_PP_003')
+          print('Omnibus #65 pair present:', required in pairs)
+          if required not in pairs:
+              raise SystemExit(f'missing exact ComicsBox pair {required}; sample tail={pairs[-12:]}')
+          PY
+
+      - name: Rebuild alternative editions
+        run: python scripts/build_editions_catalog.py
+
+      - name: Verify coverage and regression
+        run: |
+          python scripts/check_alternative_coverage.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          before = json.loads(Path('/tmp/editions-before.json').read_text(encoding='utf-8'))
+          after = json.loads(Path('data/editions.json').read_text(encoding='utf-8'))
+
+          def stats(payload, path_id):
+              editions = 0
+              issues = set()
+              for item in payload.get('editions', []):
+                  covs = [c for c in item.get('coverage', []) if c.get('path') == path_id and c.get('issueIds')]
+                  if covs:
+                      editions += 1
+                      for cov in covs:
+                          issues.update(cov.get('issueIds', []))
+              return editions, len(issues)
+
+          minimums = {'daredevil': (57, 332), 'wolverine-616': (22, 137)}
+          for path_id, minimum in minimums.items():
+              value = stats(after, path_id)
+              print(f'{path_id}: {value[0]} editions / {value[1]} issues')
+              if value[0] < minimum[0] or value[1] < minimum[1]:
+                  raise SystemExit(f'alternative coverage regression: {path_id} {value} < {minimum}')
+
+          omnibus = next((
+              item for item in after.get('editions', [])
+              if item.get('series') == 'Marvel Omnibus' and str(item.get('number')) == '65'
+          ), None)
+          if not omnibus:
+              raise SystemExit('Marvel Omnibus #65 not found')
+          magik_ids = {
+              issue_id
+              for coverage in omnibus.get('coverage', [])
+              if coverage.get('path') == 'magik'
+              for issue_id in coverage.get('issueIds', [])
+          }
+          print('Marvel Omnibus #65 Magik coverage:', sorted(magik_ids))
+          if 'PB_PP:3' not in magik_ids:
+              raise SystemExit('regression: Marvel Omnibus #65 must cover Magik PB_PP:3')
+
+          for path_id in ['magik', 'cable', 'deadpool', 'elektra', 'xmen', 'wolverine-616']:
+              old = stats(before, path_id)
+              new = stats(after, path_id)
+              print(f'DELTA {path_id}: {old[0]}/{old[1]} -> {new[0]}/{new[1]}')
+          PY
+
+      - name: Commit content-routed alternatives
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/build_editions_catalog.py data/editions.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Fix alternative editions with content-level routing"
+            git pull --rebase --autostash origin main
+            git push origin HEAD:main
+          fi
