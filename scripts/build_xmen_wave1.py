@@ -8,9 +8,11 @@ builder so the editorial invariant stays identical:
 
     physical Italian issue -> USA contents -> path-local readingStep
 
-The only extra layer is source discovery. ComicsBox character pages provide
-the dedicated publication list; curated team/co-billed titles are resolved
-from the USA alphabetical index and then filtered by protagonist credits.
+The only extra layer is source resolution. Dedicated series are pinned in the
+versioned config; curated team/co-billed titles are resolved from the USA
+alphabetical index and then filtered by protagonist credits. ComicsBox's
+``/personaggio`` endpoint is deliberately not used because it currently returns
+the same global publication table for unrelated slugs.
 """
 from __future__ import annotations
 
@@ -33,6 +35,13 @@ AUDIT_PATH = DATA / "xmen-wave1-audit.json"
 RESOLVED_PATH = DATA / ".xmen-wave1-resolved.json"
 MANIFEST_VERSION = 28
 USER_AGENT = "Mozilla/5.0 (compatible; MarvelTracker/1.0; +https://github.com/Maicolswss11/MarvelTracker)"
+MAX_SOURCE_SERIES_PER_PATH = 30
+EXCLUDED_SOURCE_MARKERS = (
+    "ultimate",
+    "what if",
+    "age of apocalypse",
+    "x ternals",
+)
 
 SVG_MARKS = {
     "cyclops": '<path d="M28 49h72v29H28Z" fill="none" stroke="currentColor" stroke-width="8"/><path d="M37 63h54" fill="none" stroke="#0b0f17" stroke-width="8"/><path d="M64 31v18M64 78v19" fill="none" stroke="currentColor" stroke-width="7"/>',
@@ -114,19 +123,6 @@ def series_links(source: str) -> list[dict[str, str]]:
     return rows
 
 
-def discover_person_series(slug: str) -> list[dict[str, str]]:
-    source = fetch_html(f"https://www.comicsbox.it/personaggio/{quote(slug)}")
-    folded = source.casefold()
-    start = folded.find("pubblicazioni originali")
-    end = folded.find("cronologia", start + 1) if start >= 0 else -1
-    if start >= 0 and end > start:
-        source = source[start:end]
-    rows = series_links(source)
-    if not rows:
-        raise RuntimeError(f"no ComicsBox publication series discovered for personaggio/{slug}")
-    return rows
-
-
 _letter_cache: dict[str, list[dict[str, str]]] = {}
 
 
@@ -158,29 +154,37 @@ def resolve_title(title: str) -> dict[str, str]:
 
 def resolve_config(config: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     resolved = deepcopy(config)
-    resolution: dict[str, Any] = {"paths": []}
+    resolution: dict[str, Any] = {
+        "strategy": "curated-explicit",
+        "paths": [],
+    }
     for path in resolved["paths"]:
         merged: list[dict[str, Any]] = []
         index_by_code: dict[str, int] = {}
-        person_rows: list[dict[str, str]] = []
-        if path.get("personSlug"):
-            person_rows = discover_person_series(path["personSlug"])
-            for row in person_rows:
-                index_by_code[row["code"]] = len(merged)
-                merged.append({"code": row["code"], "discoveredTitle": row["title"]})
-
         explicit_rows: list[dict[str, Any]] = []
         for raw in path.get("sources", []):
             spec = {"code": raw} if isinstance(raw, str) else deepcopy(raw)
+            if not spec.get("code") and not spec.get("title"):
+                raise ValueError(f"{path['id']}: source without code or title: {raw!r}")
             if not spec.get("code"):
                 match = resolve_title(spec["title"])
                 spec["code"] = match["code"]
                 spec["resolvedTitle"] = match["title"]
+            elif spec.get("title"):
+                spec["resolvedTitle"] = spec["title"]
+
             code = spec["code"]
+            display_title = spec.get("resolvedTitle", "")
+            normalized_title = norm_title(display_title)
+            if any(marker in normalized_title for marker in EXCLUDED_SOURCE_MARKERS):
+                raise RuntimeError(
+                    f"{path['id']}: excluded alternate-continuity source configured: "
+                    f"{display_title} ({code})"
+                )
             explicit_rows.append({
                 "requested": raw,
                 "resolvedCode": code,
-                "resolvedTitle": spec.get("resolvedTitle", ""),
+                "resolvedTitle": display_title,
             })
             if code in index_by_code:
                 merged[index_by_code[code]].update(spec)
@@ -188,12 +192,16 @@ def resolve_config(config: dict[str, Any]) -> tuple[dict[str, Any], dict[str, An
                 index_by_code[code] = len(merged)
                 merged.append(spec)
 
+        if len(merged) > MAX_SOURCE_SERIES_PER_PATH:
+            raise RuntimeError(
+                f"{path['id']}: {len(merged)} source series exceed the guarded maximum "
+                f"of {MAX_SOURCE_SERIES_PER_PATH}"
+            )
         path["sources"] = merged
         resolution["paths"].append({
             "id": path["id"],
-            "personSlug": path.get("personSlug", ""),
-            "personSeries": person_rows,
-            "explicitSources": explicit_rows,
+            "strategy": "curated-explicit",
+            "curatedSources": explicit_rows,
             "resolvedSeriesCount": len(merged),
         })
     return resolved, resolution

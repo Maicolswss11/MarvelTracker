@@ -307,10 +307,11 @@ class ItalianAlbumParser(HTMLParser):
             self.anchor = None
 
 
-def load_foreign_series(code: str, max_pages: int = 10) -> dict[str, Any]:
+def load_foreign_series(code: str, max_pages: int = 40) -> dict[str, Any]:
     rows: list[dict[str, Any]] = []
     seen: set[str] = set()
     name = ""
+    exhausted = False
     for offset in range(0, max_pages * 50, 50):
         url = f"https://www.comicsbox.it/serie.php?limite={offset}&serie={code}"
         parser = ForeignSeriesParser(code)
@@ -325,9 +326,12 @@ def load_foreign_series(code: str, max_pages: int = 10) -> dict[str, Any]:
             rows.append(row)
             fresh += 1
         if fresh == 0 or fresh < 50:
+            exhausted = True
             break
     if not rows:
         raise RuntimeError(f"{code}: serie vuota o codice non valido")
+    if not exhausted:
+        raise RuntimeError(f"{code}: pagination exceeded guarded limit of {max_pages * 50} rows")
     return {"code": code, "name": name or code, "rows": rows}
 
 

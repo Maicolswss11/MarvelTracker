@@ -290,7 +290,12 @@ def main() -> None:
     if source_errors:
         details = "; ".join(f"{code}: {error}" for code, error in sorted(source_errors.items()))
         raise RuntimeError(f"ComicsBox source load failed after retries: {details}")
-    log(f"Sorgenti ComicsBox complete: {len(loaded)}/77")
+    expected_sources = len({
+        street.source_spec(value)["code"]
+        for spec in config["paths"]
+        for value in spec.get("sources", [])
+    })
+    log(f"Sorgenti ComicsBox complete: {len(loaded)}/{expected_sources}")
     filtered_roles, filtered_role_errors = filtered_source_roles(config, loaded, min(workers, 16))
 
     per_base, _ = wave1.load_reuse_issues(config, manifest_before)

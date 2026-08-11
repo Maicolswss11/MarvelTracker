@@ -68,6 +68,16 @@ def source_spec(value: Any) -> dict[str, Any]:
 def load_config_sources(config: dict[str, Any], workers: int):
     specs = [source_spec(value) for path in config["paths"] for value in path.get("sources", [])]
     codes = sorted({spec["code"] for spec in specs})
+    display_names: dict[str, str] = {}
+    for spec in specs:
+        display_name = spec.get("resolvedTitle") or spec.get("title") or spec.get("discoveredTitle")
+        if display_name:
+            current = display_names.get(spec["code"])
+            if current and current != display_name:
+                raise RuntimeError(
+                    f"conflicting display names for {spec['code']}: {current!r} / {display_name!r}"
+                )
+            display_names[spec["code"]] = display_name
     loaded: dict[str, dict[str, Any]] = {}
     errors: dict[str, str] = {}
     log(f"Serie dedicate candidate: {len(codes)}")
@@ -77,6 +87,8 @@ def load_config_sources(config: dict[str, Any], workers: int):
             code = futures[future]
             try:
                 loaded[code] = future.result()
+                if display_names.get(code):
+                    loaded[code]["name"] = display_names[code]
             except Exception as error:
                 errors[code] = str(error)
             if index % 10 == 0 or index == len(futures):

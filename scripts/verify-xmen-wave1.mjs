@@ -7,11 +7,11 @@ const fail = (message) => { throw new Error(message); };
 const norm = (value) => String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 
 const expected = {
-  cyclops: { hubs: ['xmen'], requiredSource: 'cyclops vol 4' },
-  'jean-grey': { hubs: ['xmen'], requiredSource: 'phoenix' },
-  storm: { hubs: ['xmen'], requiredSource: 'storm earth s mightiest mutant' },
-  rogue: { hubs: ['xmen'], requiredSource: 'rogue the savage land' },
-  gambit: { hubs: ['xmen'], requiredSource: 'gambit vol 6' },
+  cyclops: { hubs: ['xmen'], requiredSource: 'cyclops vol 4', maxPhysicalIssues: 900 },
+  'jean-grey': { hubs: ['xmen'], requiredSource: 'phoenix', maxPhysicalIssues: 800 },
+  storm: { hubs: ['xmen'], requiredSource: 'storm earth s mightiest mutant', maxPhysicalIssues: 700 },
+  rogue: { hubs: ['xmen'], requiredSource: 'rogue the savage land', maxPhysicalIssues: 800 },
+  gambit: { hubs: ['xmen'], requiredSource: 'gambit vol 6', maxPhysicalIssues: 800 },
 };
 
 const manifest = read('data/characters.json');
@@ -54,11 +54,21 @@ if (audit.summary.sourceErrors !== 0) fail(`source errors: ${audit.summary.sourc
 if (audit.summary.filteredTeamStoryErrors !== 0) fail(`filtered team story errors: ${audit.summary.filteredTeamStoryErrors}`);
 if (audit.summary.sharedUsStoryErrors !== 0) fail(`shared role scan errors: ${audit.summary.sharedUsStoryErrors}`);
 if (!audit.sourceResolution || audit.sourceResolution.paths?.length !== 5) fail('source resolution audit missing');
+if (audit.sourceResolution.strategy !== 'curated-explicit') fail('unsafe source resolution strategy');
+if (audit.summary.candidateDedicatedSeries > 100) {
+  fail(`source explosion: ${audit.summary.candidateDedicatedSeries} candidate series`);
+}
 
 const auditById = new Map(audit.paths.map((row) => [row.id, row]));
 for (const [id, rule] of Object.entries(expected)) {
   const row = auditById.get(id);
   if (!row) fail(`${id}: missing audit row`);
+  if (row.physicalItalianIssues > rule.maxPhysicalIssues) {
+    fail(`${id}: implausible physical issue count ${row.physicalItalianIssues} > ${rule.maxPhysicalIssues}`);
+  }
+  const resolution = audit.sourceResolution.paths.find((item) => item.id === id);
+  if (!resolution || resolution.strategy !== 'curated-explicit') fail(`${id}: non-curated source resolution`);
+  if (resolution.resolvedSeriesCount > 30) fail(`${id}: source series count exceeds guard`);
   const names = (row.sourceSeries || []).map((source) => norm(source.name));
   if (!names.some((name) => name.includes('uncanny x men vol 1'))) {
     fail(`${id}: Uncanny X-Men vol 1 protagonist history missing`);
