@@ -1,0 +1,72 @@
+name: Build Elektra Deadpool Cable Magik wave
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/build-mutant-street-wave.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Validate builder syntax
+        run: python -m py_compile scripts/build_mutant_street_wave.py
+      - name: Build character paths
+        env:
+          MARVELTRACKER_WORKERS: "14"
+        run: python scripts/build_mutant_street_wave.py
+      - name: Rebuild global physical catalog
+        run: python scripts/build_catalog.py
+      - name: Register new paths in alternative-edition matcher
+        shell: python
+        run: |
+          from pathlib import Path
+          path = Path("scripts/build_editions_catalog.py")
+          text = path.read_text(encoding="utf-8")
+          if '"elektra": [\'elektra\'' not in text:
+              anchor = '    "moon-knight": [\'moon knight\', \'cavaliere della luna\', \'marc spector\'],\n'
+              insert = (
+                  '    "elektra": [\'elektra\', \'elektra natchios\'],\n'
+                  '    "deadpool": [\'deadpool\', \'wade wilson\'],\n'
+                  '    "cable": [\'cable\', \'nathan summers\'],\n'
+                  '    "magik": [\'magik\', \'illyana rasputin\', \'illyana\'],\n'
+              )
+              if anchor not in text:
+                  raise SystemExit("PATH_ALIASES anchor not found")
+              text = text.replace(anchor, anchor + insert, 1)
+              path.write_text(text, encoding="utf-8")
+      - name: Regenerate alternative editions
+        run: python scripts/build_editions_catalog.py
+      - name: Verify existing alternative coverage regression
+        run: python scripts/check_alternative_coverage.py
+      - name: Verify new paths
+        run: node scripts/verify-mutant-street-wave.mjs
+      - name: Verify previous street wave
+        run: node scripts/verify-street-wave.mjs
+      - name: Verify global data
+        run: node scripts/verify-data.mjs
+      - name: Commit generated data
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/characters.json data/hubs.json data/catalog.json data/editions.json data/mutant-street-wave-audit.json \
+            data/characters/elektra.json data/characters/deadpool.json data/characters/cable.json data/characters/magik.json \
+            assets/heroes/elektra.svg assets/heroes/deadpool.svg assets/heroes/cable.svg assets/heroes/magik.svg \
+            scripts/build_editions_catalog.py
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit"
+          else
+            git commit -m "Add Elektra Deadpool Cable and Magik reading paths"
+            git push origin HEAD:main
+          fi
