@@ -169,12 +169,23 @@ def norm(value: str) -> str:
     return " ".join(value.split())
 
 
-def fetch(url: str, attempts: int = 4) -> str:
+def fetch(url: str, attempts: int = 6) -> str:
     request = Request(url, headers={"User-Agent": USER_AGENT, "Accept-Language": "it-IT,it;q=0.9"})
+    transient_markers = (
+        "Connessione MySQL fallita",
+        "Lost connection to MySQL server",
+        "Too many connections",
+    )
     for attempt in range(1, attempts + 1):
         try:
             with urlopen(request, timeout=45) as response:
-                return response.read().decode("utf-8", errors="replace")
+                source = response.read().decode("utf-8", errors="replace")
+            # ComicsBox can answer HTTP 200 with a database-error page.  Treat
+            # that as a failed request; otherwise load_series() sees zero rows
+            # and incorrectly concludes that pagination has ended.
+            if any(marker.casefold() in source.casefold() for marker in transient_markers):
+                raise RuntimeError(f"transient ComicsBox database response: {url}")
+            return source
         except Exception:
             if attempt == attempts:
                 raise
