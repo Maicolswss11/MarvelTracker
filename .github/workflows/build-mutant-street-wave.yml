@@ -1,4 +1,3 @@
-# Rerun after verified Deadpool Team-Up source correction
 name: Build Elektra Deadpool Cable Magik wave
 
 on:
@@ -13,7 +12,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v6
         with:
@@ -21,23 +20,80 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - name: Correct verified source code
+
+      - name: Add transient source retry
         shell: python
         run: |
           from pathlib import Path
-          path = Path("data/mutant-street-wave-sources.json")
+          path = Path("scripts/build_mutant_street_wave.py")
           text = path.read_text(encoding="utf-8")
-          text = text.replace('"DEDPLTU3"', '"DETUP3"')
-          path.write_text(text, encoding="utf-8")
-      - name: Harden alternative-edition regeneration
+          old = '    loaded, source_errors = street.load_config_sources(config, workers)\n    filtered_roles, filtered_role_errors = filtered_source_roles(config, loaded, workers)\n'
+          new = '''    loaded, source_errors = street.load_config_sources(config, workers)\n    # ComicsBox occasionally drops a single series request. Retry only failed\n    # series before the expensive protagonist scan instead of discarding the run.\n    for retry in range(1, 4):\n        if not source_errors:\n            break\n        log(f"Retry sorgenti ComicsBox {retry}: {len(source_errors)}")\n        for code in list(source_errors):\n            try:\n                loaded[code] = legacy.load_foreign_series(code)\n                source_errors.pop(code, None)\n            except Exception as error:\n                source_errors[code] = str(error)\n    filtered_roles, filtered_role_errors = filtered_source_roles(config, loaded, workers)\n'''
+          if old not in text:
+              raise SystemExit("builder source-load anchor not found")
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+
+      - name: Validate builder
+        run: python -m py_compile scripts/build_mutant_street_wave.py
+
+      - name: Build four paths
+        env:
+          MARVELTRACKER_WORKERS: "32"
+        run: python scripts/build_mutant_street_wave.py --workers 32
+
+      - name: Rebuild global catalog
+        run: python scripts/build_catalog.py
+
+      - name: Verify character checkpoint
+        run: |
+          node scripts/verify-mutant-street-wave.mjs
+          node scripts/verify-street-wave.mjs
+          node scripts/verify-data.mjs
+
+      - name: Commit character checkpoint
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/characters.json data/hubs.json data/catalog.json \
+            data/mutant-street-wave-audit.json data/mutant-street-wave-sources.json \
+            data/characters/elektra.json data/characters/deadpool.json \
+            data/characters/cable.json data/characters/magik.json \
+            assets/heroes/elektra.svg assets/heroes/deadpool.svg \
+            assets/heroes/cable.svg assets/heroes/magik.svg \
+            scripts/build_mutant_street_wave.py
+          if ! git diff --cached --quiet; then
+            git commit -m "Add Elektra Deadpool Cable and Magik reading paths"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Harden and extend alternative-edition matcher
         shell: python
         run: |
           from pathlib import Path
           path = Path("scripts/build_editions_catalog.py")
           text = path.read_text(encoding="utf-8")
 
+          aliases = {
+              "elektra": ["elektra", "elektra natchios"],
+              "deadpool": ["deadpool", "wade wilson"],
+              "cable": ["cable", "nathan summers"],
+              "magik": ["magik", "illyana rasputin", "illyana"],
+          }
+          start = text.index("PATH_ALIASES = {")
+          end = text.index("\n}\n\nDETAIL_HINTS", start)
+          block = text[start:end]
+          additions = []
+          for path_id, values in aliases.items():
+              if f'"{path_id}":' not in block:
+                  additions.append(f'    "{path_id}": [{", ".join(repr(v) for v in values)}],')
+          if additions:
+              text = text[:end] + "\n" + "\n".join(additions) + text[end:]
+
           old = '''            auto_generated = old.get("coverageSource") == "auto:first-italian-publication"\n            preserved_coverage = [] if auto_generated else old.get("coverage", [])\n            preserved_source = "" if auto_generated else old.get("coverageSource", "")\n'''
-          new = '''            auto_generated = old.get("coverageSource") == "auto:first-italian-publication"\n            # Automatic coverage is a verified baseline. A fresh network scan may\n            # extend it, but transient ComicsBox failures must never erase it.\n            preserved_coverage = old.get("coverage", [])\n            preserved_source = old.get("coverageSource", "")\n'''
+          new = '''            auto_generated = old.get("coverageSource") == "auto:first-italian-publication"\n            # Keep verified automatic coverage as a monotonic baseline: transient\n            # ComicsBox failures may prevent extensions, but can never erase it.\n            preserved_coverage = old.get("coverage", [])\n            preserved_source = old.get("coverageSource", "")\n'''
           if old in text:
               text = text.replace(old, new, 1)
 
@@ -48,81 +104,43 @@ jobs:
 
           old = '''    for item in imported:\n        if item.get("coverage"):\n            continue\n        codes = scanned.get(item["id"], [])\n        if not codes:\n            continue\n        identity = f"{item['series']} {item['name']}"\n        candidates = candidates_for_title(identity)\n        matched = [code_to_issue[code] for code in codes if code in code_to_issue]\n        if not matched:\n            continue\n\n        route_union = {path for issue in matched for path in issue.get("paths", [])}\n        if not candidates and len(route_union) == 1:\n            candidates = set(route_union)\n\n        by_path: dict[str, list[str]] = {}\n        for issue in matched:\n            for path in issue.get("paths", []):\n                if path in candidates:\n                    by_path.setdefault(path, []).append(issue["id"])\n\n        item["coverage"] = [\n            {"path": path, "issueIds": list(dict.fromkeys(ids)), "label": item["name"]}\n            for path, ids in sorted(by_path.items()) if ids\n        ]\n        if item["coverage"]:\n            item["coverageSource"] = "auto:first-italian-publication"\n'''
           new = '''    for item in imported:\n        is_auto = item.get("coverageSource") == "auto:first-italian-publication"\n        if item.get("coverage") and not is_auto:\n            continue\n        baseline = item.get("coverage", []) if is_auto else []\n        codes = scanned.get(item["id"], [])\n        if not codes:\n            continue\n        identity = f"{item['series']} {item['name']}"\n        candidates = candidates_for_title(identity)\n        matched = [code_to_issue[code] for code in codes if code in code_to_issue]\n        if not matched:\n            continue\n\n        route_union = {path for issue in matched for path in issue.get("paths", [])}\n        if not candidates and len(route_union) == 1:\n            candidates = set(route_union)\n\n        by_path: dict[str, list[str]] = {}\n        for coverage in baseline:\n            path_id = coverage.get("path")\n            if path_id and coverage.get("issueIds"):\n                by_path.setdefault(path_id, []).extend(coverage["issueIds"])\n        for issue in matched:\n            for path_id in issue.get("paths", []):\n                if path_id in candidates:\n                    by_path.setdefault(path_id, []).append(issue["id"])\n\n        merged_coverage = [\n            {"path": path_id, "issueIds": list(dict.fromkeys(ids)), "label": item["name"]}\n            for path_id, ids in sorted(by_path.items()) if ids\n        ]\n        if merged_coverage:\n            item["coverage"] = merged_coverage\n            item["coverageSource"] = "auto:first-italian-publication"\n'''
-          if old not in text:
-              raise SystemExit("coverage regeneration block not found")
-          text = text.replace(old, new, 1)
+          if old in text:
+              text = text.replace(old, new, 1)
           path.write_text(text, encoding="utf-8")
-      - name: Validate builder syntax
-        run: python -m py_compile scripts/build_mutant_street_wave.py scripts/build_editions_catalog.py
-      - name: Build character paths
-        env:
-          MARVELTRACKER_WORKERS: "14"
-        run: python scripts/build_mutant_street_wave.py
-      - name: Rebuild global physical catalog
-        run: python scripts/build_catalog.py
-      - name: Register new paths in alternative-edition matcher
-        shell: python
-        run: |
-          from pathlib import Path
-          path = Path("scripts/build_editions_catalog.py")
-          text = path.read_text(encoding="utf-8")
-          if '"elektra": [\'elektra\'' not in text:
-              anchor = '    "moon-knight": [\'moon knight\', \'cavaliere della luna\', \'marc spector\'],\n'
-              insert = (
-                  '    "elektra": [\'elektra\', \'elektra natchios\'],\n'
-                  '    "deadpool": [\'deadpool\', \'wade wilson\'],\n'
-                  '    "cable": [\'cable\', \'nathan summers\'],\n'
-                  '    "magik": [\'magik\', \'illyana rasputin\', \'illyana\'],\n'
-              )
-              if anchor not in text:
-                  raise SystemExit("PATH_ALIASES anchor not found")
-              text = text.replace(anchor, anchor + insert, 1)
-              path.write_text(text, encoding="utf-8")
+
       - name: Regenerate alternative editions
         run: python scripts/build_editions_catalog.py
-      - name: Verify alternative coverage baseline
-        shell: python
+
+      - name: Verify alternative editions
+        shell: bash
         run: |
+          python scripts/check_alternative_coverage.py
+          python - <<'PY'
           import json
           from pathlib import Path
-          payload = json.loads(Path("data/editions.json").read_text(encoding="utf-8"))
-          editions = payload.get("editions", [])
-          minimums = {
-              "daredevil": (57, 332),
-              "wolverine-616": (20, 119),
-          }
+          payload = json.loads(Path('data/editions.json').read_text(encoding='utf-8'))
+          minimums = {'daredevil': (57, 332), 'wolverine-616': (20, 119)}
           for path_id, (min_editions, min_issues) in minimums.items():
-              matches = []
-              issue_ids = set()
-              for edition in editions:
-                  coverages = [c for c in edition.get("coverage", []) if c.get("path") == path_id and c.get("issueIds")]
-                  if coverages:
-                      matches.append(edition)
-                      for coverage in coverages:
-                          issue_ids.update(coverage["issueIds"])
-              print(f"{path_id}: {len(matches)} alternative editions, {len(issue_ids)} covered physical issues")
-              if len(matches) < min_editions or len(issue_ids) < min_issues:
-                  raise SystemExit(f"alternative coverage regression for {path_id}")
-      - name: Verify existing alternative coverage regression
-        run: python scripts/check_alternative_coverage.py
-      - name: Verify new paths
-        run: node scripts/verify-mutant-street-wave.mjs
-      - name: Verify previous street wave
-        run: node scripts/verify-street-wave.mjs
-      - name: Verify global data
-        run: node scripts/verify-data.mjs
-      - name: Commit generated data
+              matches, issues = 0, set()
+              for edition in payload.get('editions', []):
+                  covs = [c for c in edition.get('coverage', []) if c.get('path') == path_id and c.get('issueIds')]
+                  if covs:
+                      matches += 1
+                      for cov in covs:
+                          issues.update(cov['issueIds'])
+              print(f'{path_id}: {matches} editions / {len(issues)} issues')
+              if matches < min_editions or len(issues) < min_issues:
+                  raise SystemExit(f'alternative coverage regression: {path_id}')
+          PY
+
+      - name: Commit alternative editions
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/characters.json data/hubs.json data/catalog.json data/editions.json data/mutant-street-wave-audit.json data/mutant-street-wave-sources.json \
-            data/characters/elektra.json data/characters/deadpool.json data/characters/cable.json data/characters/magik.json \
-            assets/heroes/elektra.svg assets/heroes/deadpool.svg assets/heroes/cable.svg assets/heroes/magik.svg \
-            scripts/build_editions_catalog.py
-          if git diff --cached --quiet; then
-            echo "No generated changes to commit"
-          else
-            git commit -m "Add Elektra Deadpool Cable and Magik reading paths"
+          git add data/editions.json scripts/build_editions_catalog.py
+          if ! git diff --cached --quiet; then
+            git commit -m "Extend alternative editions for mutant street paths"
+            git pull --rebase origin main
             git push origin HEAD:main
           fi
