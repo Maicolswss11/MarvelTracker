@@ -12,6 +12,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v6
         with:
@@ -19,8 +20,39 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+      - name: Correct verified source code
+        shell: python
+        run: |
+          from pathlib import Path
+          path = Path("data/mutant-street-wave-sources.json")
+          text = path.read_text(encoding="utf-8")
+          text = text.replace('"DEDPLTU3"', '"DETUP3"')
+          path.write_text(text, encoding="utf-8")
+      - name: Harden alternative-edition regeneration
+        shell: python
+        run: |
+          from pathlib import Path
+          path = Path("scripts/build_editions_catalog.py")
+          text = path.read_text(encoding="utf-8")
+
+          old = '''            auto_generated = old.get("coverageSource") == "auto:first-italian-publication"\n            preserved_coverage = [] if auto_generated else old.get("coverage", [])\n            preserved_source = "" if auto_generated else old.get("coverageSource", "")\n'''
+          new = '''            auto_generated = old.get("coverageSource") == "auto:first-italian-publication"\n            # Automatic coverage is a verified baseline. A fresh network scan may\n            # extend it, but transient ComicsBox failures must never erase it.\n            preserved_coverage = old.get("coverage", [])\n            preserved_source = old.get("coverageSource", "")\n'''
+          if old in text:
+              text = text.replace(old, new, 1)
+
+          old = '''    to_scan = [\n        item for item in imported\n        if not item.get("coverage") and should_fetch_detail(f"{item['series']} {item['name']}")\n    ]\n'''
+          new = '''    to_scan = [\n        item for item in imported\n        if (not item.get("coverage") or item.get("coverageSource") == "auto:first-italian-publication")\n        and should_fetch_detail(f"{item['series']} {item['name']}")\n    ]\n'''
+          if old in text:
+              text = text.replace(old, new, 1)
+
+          old = '''    for item in imported:\n        if item.get("coverage"):\n            continue\n        codes = scanned.get(item["id"], [])\n        if not codes:\n            continue\n        identity = f"{item['series']} {item['name']}"\n        candidates = candidates_for_title(identity)\n        matched = [code_to_issue[code] for code in codes if code in code_to_issue]\n        if not matched:\n            continue\n\n        route_union = {path for issue in matched for path in issue.get("paths", [])}\n        if not candidates and len(route_union) == 1:\n            candidates = set(route_union)\n\n        by_path: dict[str, list[str]] = {}\n        for issue in matched:\n            for path in issue.get("paths", []):\n                if path in candidates:\n                    by_path.setdefault(path, []).append(issue["id"])\n\n        item["coverage"] = [\n            {"path": path, "issueIds": list(dict.fromkeys(ids)), "label": item["name"]}\n            for path, ids in sorted(by_path.items()) if ids\n        ]\n        if item["coverage"]:\n            item["coverageSource"] = "auto:first-italian-publication"\n'''
+          new = '''    for item in imported:\n        is_auto = item.get("coverageSource") == "auto:first-italian-publication"\n        if item.get("coverage") and not is_auto:\n            continue\n        baseline = item.get("coverage", []) if is_auto else []\n        codes = scanned.get(item["id"], [])\n        if not codes:\n            continue\n        identity = f"{item['series']} {item['name']}"\n        candidates = candidates_for_title(identity)\n        matched = [code_to_issue[code] for code in codes if code in code_to_issue]\n        if not matched:\n            continue\n\n        route_union = {path for issue in matched for path in issue.get("paths", [])}\n        if not candidates and len(route_union) == 1:\n            candidates = set(route_union)\n\n        by_path: dict[str, list[str]] = {}\n        for coverage in baseline:\n            path_id = coverage.get("path")\n            if path_id and coverage.get("issueIds"):\n                by_path.setdefault(path_id, []).extend(coverage["issueIds"])\n        for issue in matched:\n            for path_id in issue.get("paths", []):\n                if path_id in candidates:\n                    by_path.setdefault(path_id, []).append(issue["id"])\n\n        merged_coverage = [\n            {"path": path_id, "issueIds": list(dict.fromkeys(ids)), "label": item["name"]}\n            for path_id, ids in sorted(by_path.items()) if ids\n        ]\n        if merged_coverage:\n            item["coverage"] = merged_coverage\n            item["coverageSource"] = "auto:first-italian-publication"\n'''
+          if old not in text:
+              raise SystemExit("coverage regeneration block not found")
+          text = text.replace(old, new, 1)
+          path.write_text(text, encoding="utf-8")
       - name: Validate builder syntax
-        run: python -m py_compile scripts/build_mutant_street_wave.py
+        run: python -m py_compile scripts/build_mutant_street_wave.py scripts/build_editions_catalog.py
       - name: Build character paths
         env:
           MARVELTRACKER_WORKERS: "14"
@@ -47,6 +79,29 @@ jobs:
               path.write_text(text, encoding="utf-8")
       - name: Regenerate alternative editions
         run: python scripts/build_editions_catalog.py
+      - name: Verify alternative coverage baseline
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          payload = json.loads(Path("data/editions.json").read_text(encoding="utf-8"))
+          editions = payload.get("editions", [])
+          minimums = {
+              "daredevil": (57, 332),
+              "wolverine-616": (20, 119),
+          }
+          for path_id, (min_editions, min_issues) in minimums.items():
+              matches = []
+              issue_ids = set()
+              for edition in editions:
+                  coverages = [c for c in edition.get("coverage", []) if c.get("path") == path_id and c.get("issueIds")]
+                  if coverages:
+                      matches.append(edition)
+                      for coverage in coverages:
+                          issue_ids.update(coverage["issueIds"])
+              print(f"{path_id}: {len(matches)} alternative editions, {len(issue_ids)} covered physical issues")
+              if len(matches) < min_editions or len(issue_ids) < min_issues:
+                  raise SystemExit(f"alternative coverage regression for {path_id}")
       - name: Verify existing alternative coverage regression
         run: python scripts/check_alternative_coverage.py
       - name: Verify new paths
@@ -60,7 +115,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/characters.json data/hubs.json data/catalog.json data/editions.json data/mutant-street-wave-audit.json \
+          git add data/characters.json data/hubs.json data/catalog.json data/editions.json data/mutant-street-wave-audit.json data/mutant-street-wave-sources.json \
             data/characters/elektra.json data/characters/deadpool.json data/characters/cable.json data/characters/magik.json \
             assets/heroes/elektra.svg assets/heroes/deadpool.svg assets/heroes/cable.svg assets/heroes/magik.svg \
             scripts/build_editions_catalog.py
