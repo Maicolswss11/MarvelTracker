@@ -21,14 +21,14 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Add transient source retry
+      - name: Add resilient source loading
         shell: python
         run: |
           from pathlib import Path
           path = Path("scripts/build_mutant_street_wave.py")
           text = path.read_text(encoding="utf-8")
           old = '    loaded, source_errors = street.load_config_sources(config, workers)\n    filtered_roles, filtered_role_errors = filtered_source_roles(config, loaded, workers)\n'
-          new = '''    loaded, source_errors = street.load_config_sources(config, workers)\n    # ComicsBox occasionally drops a single series request. Retry only failed\n    # series before the expensive protagonist scan instead of discarding the run.\n    for retry in range(1, 4):\n        if not source_errors:\n            break\n        log(f"Retry sorgenti ComicsBox {retry}: {len(source_errors)}")\n        for code in list(source_errors):\n            try:\n                loaded[code] = legacy.load_foreign_series(code)\n                source_errors.pop(code, None)\n            except Exception as error:\n                source_errors[code] = str(error)\n    filtered_roles, filtered_role_errors = filtered_source_roles(config, loaded, workers)\n'''
+          new = '''    # Loading all 77 ComicsBox series at the same 32-way concurrency used for\n    # story classification can trigger transient throttling. Keep the expensive\n    # classification parallel, but load source series conservatively and retry\n    # failures with backoff before doing thousands of downstream requests.\n    source_workers = min(workers, 8)\n    loaded, source_errors = street.load_config_sources(config, source_workers)\n    retry_delays = (5, 15, 30, 60)\n    for retry, delay in enumerate(retry_delays, 1):\n        if not source_errors:\n            break\n        failed_codes = ", ".join(sorted(source_errors))\n        log(f"Retry sorgenti ComicsBox {retry}/{len(retry_delays)} tra {delay}s: {failed_codes}")\n        __import__("time").sleep(delay)\n        for code in list(source_errors):\n            try:\n                loaded[code] = legacy.load_foreign_series(code)\n                source_errors.pop(code, None)\n            except Exception as error:\n                source_errors[code] = str(error)\n    if source_errors:\n        details = "; ".join(f"{code}: {error}" for code, error in sorted(source_errors.items()))\n        raise RuntimeError(f"ComicsBox source load failed after retries: {details}")\n    log(f"Sorgenti ComicsBox complete: {len(loaded)}/77")\n    filtered_roles, filtered_role_errors = filtered_source_roles(config, loaded, workers)\n'''
           if old not in text:
               raise SystemExit("builder source-load anchor not found")
           path.write_text(text.replace(old, new, 1), encoding="utf-8")
