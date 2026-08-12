@@ -1,0 +1,114 @@
+name: Build mutant teams wave 1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-mutant-teams-wave1.yml"
+      - "data/mutant-teams-wave1-sources.json"
+      - "scripts/build_mutant_teams_wave1.py"
+      - "scripts/verify-mutant-teams-wave1.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-mutant-teams-wave1
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Build New Mutants X-Factor X-Force
+        run: python scripts/build_mutant_teams_wave1.py --workers 24
+
+      - name: Rebuild catalog
+        run: python scripts/build_catalog.py
+
+      - name: Verify mutant team data
+        run: |
+          node scripts/verify-mutant-teams-wave1.mjs
+          node scripts/verify-xmen-wave1.mjs
+          node scripts/verify-mutant-street-wave.mjs
+          node scripts/verify-data.mjs
+
+      - name: Commit team checkpoint
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/characters.json \
+            data/hubs.json \
+            data/catalog.json \
+            data/mutant-teams-wave1-audit.json \
+            data/mutant-teams-wave1-sources.json \
+            data/characters/new-mutants.json \
+            data/characters/x-factor.json \
+            data/characters/x-force.json \
+            assets/heroes/new-mutants.svg \
+            assets/heroes/x-factor.svg \
+            assets/heroes/x-force.svg
+          if git diff --cached --quiet; then
+            echo "No team changes to commit"
+          else
+            git commit -m "Add New Mutants X-Factor and X-Force reading paths"
+            git status --short
+            git pull --rebase --autostash origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Rebuild alternative editions
+        run: |
+          python scripts/build_editions_catalog.py
+          python scripts/check_alternative_coverage.py
+          python scripts/check_magik_alternatives.py
+
+      - name: Require team alternative coverage
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path("data/editions.json").read_text(encoding="utf-8"))
+          editions = payload.get("editions", [])
+          for path_id in ("new-mutants", "x-factor", "x-force"):
+              matched = []
+              issues = set()
+              for edition in editions:
+                  rows = [row for row in edition.get("coverage", []) if row.get("path") == path_id and row.get("issueIds")]
+                  if not rows:
+                      continue
+                  matched.append(edition["id"])
+                  for row in rows:
+                      issues.update(row["issueIds"])
+              print(f"{path_id}: {len(matched)} editions / {len(issues)} issues")
+              if not matched or not issues:
+                  raise SystemExit(f"{path_id}: zero alternative-edition coverage")
+          PY
+
+      - name: Commit alternative editions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/editions.json
+          if git diff --cached --quiet; then
+            echo "No alternative-edition changes to commit"
+          else
+            git commit -m "Expand alternative editions for mutant teams"
+            git status --short
+            git pull --rebase --autostash origin main
+            git push origin HEAD:main
+          fi
