@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#070a0e">
   <meta name="color-scheme" content="dark">
   <meta name="description" content="Marvel Archive: tracker personale delle edizioni italiane Marvel.">
@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="css/global-search.css?v=2">
   <link rel="stylesheet" href="css/profile-account.css?v=2">
   <link rel="stylesheet" href="css/achievements.css?v=2">
+  <link rel="stylesheet" href="css/mobile-polish.css?v=1">
 </head>
 <body>
 <div class="marvelBoot" id="marvelBoot" role="status" aria-label="Caricamento Marvel Archive">
@@ -94,7 +95,7 @@
       </div>
     </section>
     <div id="trackerView">
-      <header class="topbar"><button type="button" class="trackerHomeBtn" id="trackerHomeBtn" aria-label="Torna alla home"><span id="trackerHomeIcon"></span><b>Home</b></button><div class="topbarTitle"><strong id="topTitle">Marvel Archive</strong><span id="topSub">Caricamento…</span></div><div class="search"><input id="search" type="search" placeholder="Filtra questo percorso per numero, titolo, evento o anno…"></div><div class="trackerTopActions"><button type="button" class="globalSearchTrigger globalSearchCompact" data-global-search aria-label="Cerca un albo in tutto l'archivio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Cerca albo</span></button><button class="compactBtn" id="trackerProfileBtn">Collezione</button><button class="compactBtn" id="compactBtn">Vista compatta</button><button type="button" class="trackerAccountBtn" id="trackerAccountBtn" aria-label="Apri il tuo profilo"><span class="accountAvatar" data-account-avatar>M</span></button></div></header>
+      <header class="topbar"><button type="button" class="trackerHomeBtn" id="trackerHomeBtn" aria-label="Torna alla home"><span id="trackerHomeIcon"></span><b>Home</b></button><div class="topbarTitle"><strong id="topTitle">Marvel Archive</strong><span id="topSub">Caricamento…</span></div><div class="search"><input id="search" type="search" placeholder="Filtra il percorso…" aria-label="Filtra questo percorso per numero, titolo, evento o anno"></div><div class="trackerTopActions"><button type="button" class="globalSearchTrigger globalSearchCompact" data-global-search aria-label="Cerca un albo in tutto l'archivio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Cerca albo</span></button><button class="compactBtn" id="trackerProfileBtn">Collezione</button><button class="compactBtn" id="compactBtn">Vista compatta</button><button type="button" class="trackerAccountBtn" id="trackerAccountBtn" aria-label="Apri il tuo profilo"><span class="accountAvatar" data-account-avatar>M</span></button></div></header>
       <div class="content">
         <section class="hero"><article class="heroPanel"><div class="label" id="heroLabel">Percorso attivo</div><h1 id="heroTitle">Marvel Archive</h1><p id="heroDesc">Caricamento dati…</p></article><div class="nextPanel" id="nextPanel"><div class="loading">Caricamento…</div></div></section>
         <div class="route" id="route"></div>
@@ -107,10 +108,10 @@
 </div>
 <script src="js/editions.js?v=6"></script>
 <script src="js/achievements.js?v=2"></script>
-<script src="js/profile-ui.js?v=5"></script>
+<script src="js/profile-ui.js?v=6"></script>
 <script src="js/motion.js?v=2"></script>
 <script src="js/global-search.js?v=2"></script>
-<script type="module" src="js/app.js?v=21"></script>
+<script type="module" src="js/app.js?v=22"></script>
 <script type="module" src="js/hub-ui.js?v=11"></script>
 </body>
 </html>

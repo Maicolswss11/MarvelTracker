@@ -773,6 +773,7 @@
     $("trackerView").hidden = true;
     $("profileView").hidden = false;
     if(updateHash) history.replaceState(null,"",`#/profile/${activeTab}`);
+    requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"auto"}));
     $("profileBody").innerHTML = '<div class="profileLoading">Preparazione del catalogo personale…</div>';
     try{
       await loadCatalog();

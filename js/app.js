@@ -257,6 +257,7 @@ async function switchCharacter(id,{updateHash=true,issue=null,animate=true}={}){
   const routeTarget=issue?resolveIssueToken(currentCharacter,issue):null;
   if(updateHash)history.replaceState(null,"",`#/${meta.id}${routeTarget?`/${routeIssueToken(routeTarget)}`:""}`);
   if(routeTarget)requestAnimationFrame(()=>$( `issue-${routeTarget.seriesId}-${routeTarget.n}` )?.scrollIntoView({behavior:"smooth",block:"center"}));
+  else requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"auto"}));
   return true;
 }
 function issueSearchText(i){return [i.n,i.name,i.title,i.date,i.era,i.eraSub,i.series,...(i.contents||[]).flatMap(content=>[content.series,content.number,content.title])].join(" ").toLowerCase()}
@@ -348,6 +349,7 @@ function showHome({updateHash=true,animate=true}={}){
   renderCharacters();
   renderHome();
   if(updateHash)history.replaceState(null,"","#/home");
+  requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"auto"}));
 }
 function friendlyAuthError(error){const message=String(error?.message||error||"Operazione non riuscita.");if(/invalid login credentials/i.test(message))return"Email o password non corretti.";if(/already registered/i.test(message))return"Esiste già un account con questa email.";if(/password/i.test(message)&&/least/i.test(message))return"La password deve contenere almeno 8 caratteri.";return message}
 function exportProgress(){const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="marvel_archive_progressi.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),600)}
