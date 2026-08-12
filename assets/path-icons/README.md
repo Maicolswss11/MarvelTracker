@@ -1,6 +1,8 @@
 # Path icons
 
-Questa cartella contiene le immagini raster usate come identità visiva dei percorsi.
+Questa cartella contiene esclusivamente le immagini raster usate come identità visiva dei percorsi (quelle mostrate, per esempio, in "Continua a leggere").
+
+Le immagini profilo sono un inventario separato: restano in `assets/heroes/` e vengono configurate in `js/profile-ui.js`. Non vanno copiate qui né registrate automaticamente come icone percorso.
 
 - Usa immagini quadrate o quasi quadrate, preferibilmente almeno 500×500 px.
 - JPG, PNG e WebP sono supportati.
