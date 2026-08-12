@@ -1,7 +1,7 @@
 /* User profile hub — loaded after cinematic.css so the identity page owns its layout. */
 .accountAvatar{overflow:hidden;background:linear-gradient(145deg,var(--avatar-accent,#ed1d24),color-mix(in srgb,var(--avatar-accent,#ed1d24) 55%,#05070a))!important}
 .accountAvatar img,.profileHeroAvatarVisual img,.profileAvatarPreview img,.profileReaderAvatar img{width:100%;height:100%;display:block;object-fit:cover}
-.accountAvatar[data-avatar-kind="preset"] img,.profileHeroAvatarVisual[data-avatar-kind="preset"] img,.profileAvatarPreview[data-avatar-kind="preset"] img,.profileReaderAvatar[data-avatar-kind="preset"] img{object-fit:contain;padding:4px;background:radial-gradient(circle at 50% 35%,color-mix(in srgb,var(--avatar-accent) 30%,#182230),#070b10 74%)}
+.accountAvatar[data-avatar-kind="preset"] img,.profileHeroAvatarVisual[data-avatar-kind="preset"] img,.profileAvatarPreview[data-avatar-kind="preset"] img,.profileReaderAvatar[data-avatar-kind="preset"] img{object-fit:cover;object-position:center;padding:0;background:none}
 
 .profileView{--profile-accent:#ed1d24}
 .profileIdentityHero{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center!important;gap:32px;min-height:310px!important;background:linear-gradient(122deg,rgba(18,27,38,.97),rgba(7,12,18,.99) 61%,color-mix(in srgb,var(--profile-accent) 13%,#070c12))!important}
@@ -39,7 +39,7 @@
 .profileAvatarPreset{position:relative;min-width:0;padding:8px 6px 9px;border:1px solid rgba(129,159,188,.15);border-radius:14px;background:rgba(7,13,19,.8);color:#8796a5;cursor:pointer;transition:transform .23s ease,border-color .2s ease,background .2s ease}
 .profileAvatarPreset:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--avatar-accent) 62%,#44576a)}
 .profileAvatarPreset>span{display:block;aspect-ratio:1;overflow:hidden;border-radius:11px;background:radial-gradient(circle at 50% 35%,color-mix(in srgb,var(--avatar-accent) 30%,#182230),#070b10 74%)}
-.profileAvatarPreset img{width:100%;height:100%;display:block;object-fit:contain;padding:3px}
+.profileAvatarPreset img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;padding:0}
 .profileAvatarPreset small{display:block;margin-top:7px;overflow:hidden;color:#a9b6c2;font-size:7px;font-weight:850;line-height:1.2;text-overflow:ellipsis;white-space:nowrap}
 .profileAvatarPreset>i{position:absolute;right:5px;top:5px;display:none;width:18px;height:18px;place-items:center;border-radius:50%;background:var(--avatar-accent);color:#fff;font-size:9px;font-style:normal;box-shadow:0 5px 12px rgba(0,0,0,.35)}
 .profileAvatarPreset.selected{border-color:var(--avatar-accent);background:color-mix(in srgb,var(--avatar-accent) 10%,#091018);box-shadow:0 0 25px color-mix(in srgb,var(--avatar-accent) 12%,transparent)}
