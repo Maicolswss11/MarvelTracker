@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "paths": {
+    "ironman": "assets/path-icons/ironman.jpg",
+    "thor": "assets/path-icons/thor.jpg",
+    "cap": "assets/path-icons/cap.jpg",
+    "hulk": "assets/path-icons/hulk.jpg",
+    "spiderman": "assets/path-icons/spiderman.jpg",
+    "blackpanther": "assets/path-icons/blackpanther.jpg",
+    "scarletwitch": "assets/path-icons/scarletwitch.jpg",
+    "doctor-strange": "assets/path-icons/doctor-strange.jpg",
+    "captainmarvel": "assets/path-icons/captainmarvel.jpg",
+    "blackwidow": "assets/path-icons/blackwidow.jpg",
+    "xmen": "assets/path-icons/xmen.png",
+    "fantastic-four": "assets/path-icons/fantastic-four.jpg"
+  }
+}

@@ -3,6 +3,7 @@ const HUB_SESSION_KEY = "marvel_archive_last_hub";
 let hubManifest = null;
 let pathManifest = null;
 let uiArt = {paths:{},hubs:{}};
+let pathIconCatalog = {version:1,paths:{}};
 let activeHubId = null;
 let progressSnapshot = new Map();
 
@@ -17,16 +18,22 @@ function pathTypeLabel(path){
 }
 function pathHubIds(path){ return Array.isArray(path?.hubs) ? path.hubs : path?.primaryHub ? [path.primaryHub] : []; }
 
+function pathLogoSource(path){
+  const override = pathIconCatalog?.paths?.[path?.id] || "";
+  return {logo:override || path?.logo || "",override:!!override};
+}
 function pathLogoUrl(path){
-  const logo = path?.logo || "";
+  const {logo,override} = pathLogoSource(path);
   if(!logo) return "";
   const separator = logo.includes("?") ? "&" : "?";
-  return `${logo}${separator}v=${encodeURIComponent(pathManifest?.version||1)}`;
+  const version = override ? pathIconCatalog.version : pathManifest?.version;
+  return `${logo}${separator}v=${encodeURIComponent(version||1)}`;
 }
 function pathArtworkMarkup(path){
   const cover = uiArt?.paths?.[path?.id] || "";
   const fallback = pathLogoUrl(path);
-  return `${cover?`<img class="pathArtPrimary" loading="lazy" src="${esc(cover)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">`:""}${fallback?`<img class="pathArtFallback" loading="lazy" src="${esc(fallback)}" alt="">`:""}`;
+  const raster = /\.(?:png|jpe?g|webp)(?:[?#]|$)/i.test(pathLogoSource(path).logo);
+  return `${cover?`<img class="pathArtPrimary" loading="lazy" src="${esc(cover)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">`:""}${fallback?`<img class="pathArtFallback pathIconImage ${raster?"pathIconRaster":"pathIconVector"}" loading="lazy" src="${esc(fallback)}" alt="" data-path-icon-id="${esc(path?.id||"")}">`:""}`;
 }
 function hubArtworkUrls(hub){
   return [...new Set(uiArt?.hubs?.[hub?.id] || [])].filter(Boolean).slice(0,4);
@@ -273,15 +280,17 @@ function refresh(){
 
 async function initHubUi(){
   try{
-    const [hubResponse,pathResponse,artResponse] = await Promise.all([
+    const [hubResponse,pathResponse,artResponse,iconResponse] = await Promise.all([
       fetch("data/hubs.json",{cache:"no-cache"}),
       fetch("data/characters.json",{cache:"no-cache"}),
-      fetch("data/ui-art.json",{cache:"no-cache"}).catch(()=>null)
+      fetch("data/ui-art.json",{cache:"no-cache"}).catch(()=>null),
+      fetch("data/path-icons.json",{cache:"no-cache"}).catch(()=>null)
     ]);
     if(!hubResponse.ok || !pathResponse.ok) throw new Error("Impossibile caricare la tassonomia Marvel");
     hubManifest = await hubResponse.json();
     pathManifest = await pathResponse.json();
     if(artResponse?.ok) uiArt = await artResponse.json();
+    if(iconResponse?.ok) pathIconCatalog = await iconResponse.json();
     ensureHomeExplorer();
     refresh();
     ["homeBtn","trackerHomeBtn"].forEach(id=>byId(id)?.addEventListener("click",()=>{

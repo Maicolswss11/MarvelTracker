@@ -4,6 +4,7 @@ const STORAGE_KEY = "marvel_archive_characters_v12";
 let activeStorageKey = STORAGE_KEY;
 const characterCache = new Map();
 let manifest = null;
+let pathIconCatalog = {version:1,paths:{}};
 let currentMeta = null;
 let currentCharacter = null;
 let activeCharacter = "ironman";
@@ -186,9 +187,21 @@ function renderBulkToolbar(){
 function requiredIssues(){return currentCharacter.issues.filter(i=>i.required!==false&&!i.future)}
 function nextIssue(){return requiredIssues().find(i=>!status(i.id).read)||null}
 function pad3(n){return String(n).padStart(3,"0")}
-function versioned(path){
+function versioned(path,assetVersion=manifest?.version||1){
   const separator=path.includes("?")?"&":"?";
-  return `${path}${separator}v=${encodeURIComponent(manifest?.version||1)}`;
+  return `${path}${separator}v=${encodeURIComponent(assetVersion)}`;
+}
+function pathIconSource(path){
+  const override=pathIconCatalog?.paths?.[path?.id]||"";
+  return {source:override||path?.logo||"",override:!!override};
+}
+function pathIconImage(path,{alt="",className="",lazy=false,onerror="this.style.display='none'"}={}){
+  const {source,override}=pathIconSource(path);
+  if(!source)return "";
+  const raster=/\.(?:png|jpe?g|webp)(?:[?#]|$)/i.test(source);
+  const classes=[className,"pathIconImage",raster?"pathIconRaster":"pathIconVector"].filter(Boolean).join(" ");
+  const assetVersion=override?(pathIconCatalog.version||1):(manifest?.version||1);
+  return `<img${lazy?' loading="lazy"':''} class="${esc(classes)}" src="${esc(versioned(source,assetVersion))}" alt="${esc(alt)}" data-path-icon-id="${esc(path?.id||"")}" onerror="${onerror}">`;
 }
 function coverPlaceholder(i,accentOverride=null){
   const accent=accentOverride||currentCharacter?.accent||currentMeta?.accent||"#43d7ff",safe=s=>String(s??"").replace(/[<>&]/g,m=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[m]));
@@ -199,7 +212,14 @@ window.coverFail = (img)=>{if(img.dataset.failed==="1"){img.style.display="none"
 function coverImg(i,lazy=true,accent=null){return `<img ${lazy?'loading="lazy" ':''}src="${esc(i.cover||coverPlaceholder(i,accent))}" data-placeholder="${coverPlaceholder(i,accent)}" alt="${esc(i.name)}" referrerpolicy="no-referrer" onerror="coverFail(this)">`}
 
 async function loadManifest(){
-  const r=await fetch("data/characters.json",{cache:"no-cache"}); if(!r.ok)throw new Error(`Manifest HTTP ${r.status}`); manifest=await r.json(); await window.MarvelEditions?.load(manifest.version); state=normalizeState(state);
+  const [r,iconsResponse]=await Promise.all([
+    fetch("data/characters.json",{cache:"no-cache"}),
+    fetch("data/path-icons.json",{cache:"no-cache"}).catch(()=>null)
+  ]);
+  if(!r.ok)throw new Error(`Manifest HTTP ${r.status}`);
+  manifest=await r.json();
+  if(iconsResponse?.ok)pathIconCatalog=await iconsResponse.json();
+  await window.MarvelEditions?.load(manifest.version); state=normalizeState(state);
 }
 async function loadEncodedCharacter(id, meta){
   if(typeof DecompressionStream!=="function") throw new Error("Il browser non supporta la decompressione gzip richiesta dal tracker. Aggiorna il browser e riprova.");
@@ -262,7 +282,7 @@ async function switchCharacter(id,{updateHash=true,issue=null,animate=true}={}){
 }
 function issueSearchText(i){return [i.n,i.name,i.title,i.date,i.era,i.eraSub,i.series,...(i.contents||[]).flatMap(content=>[content.series,content.number,content.title])].join(" ").toLowerCase()}
 function visibleIssues(){const q=els.search.value.trim().toLowerCase();return currentCharacter.issues.filter(i=>(optionalVisible||!i.skip)&&(activeSeries==="Tutte"||i.seriesId===activeSeries)&&(activeEra==="Tutte"||i.era===activeEra)&&(!q||issueSearchText(i).includes(q)))}
-function renderCharacters(){const home=document.body.classList.contains("homeActive");els.charGrid.innerHTML=manifest.characters.map(c=>`<button type="button" class="charBtn ${!home&&c.id===activeCharacter?"active":""}" data-char="${esc(c.id)}" aria-pressed="${!home&&c.id===activeCharacter}"><div class="charIcon"><span class="logoFallback">LOGO</span><img src="${esc(versioned(c.logo))}" alt="Logo ${esc(c.name)}" onerror="this.style.display='none'"></div><b>${esc(c.name)}</b><span>${esc(c.subtitle)}</span></button>`).join("");els.charGrid.querySelectorAll("[data-char]").forEach(b=>b.onclick=()=>void switchCharacter(b.dataset.char))}
+function renderCharacters(){const home=document.body.classList.contains("homeActive");els.charGrid.innerHTML=manifest.characters.map(c=>`<button type="button" class="charBtn ${!home&&c.id===activeCharacter?"active":""}" data-char="${esc(c.id)}" aria-pressed="${!home&&c.id===activeCharacter}"><div class="charIcon"><span class="logoFallback">LOGO</span>${pathIconImage(c,{alt:`Logo ${c.name}`})}</div><b>${esc(c.name)}</b><span>${esc(c.subtitle)}</span></button>`).join("");els.charGrid.querySelectorAll("[data-char]").forEach(b=>b.onclick=()=>void switchCharacter(b.dataset.char))}
 function readCountFor(id){return Object.values(state.characters?.[id]?.issues||{}).filter(x=>x?.read).length}
 function accountStorageKey(id){return `${STORAGE_KEY}:user:${id}`}
 function refreshCurrentView(){if(!manifest)return;if(document.body.classList.contains("profileActive")){void window.MarvelProfile?.render();return}if(document.body.classList.contains("homeActive")||!currentCharacter)showHome({updateHash:false});else if(currentCharacter.id!==activeCharacter)void switchCharacter(activeCharacter);else renderAll()}
@@ -304,8 +324,8 @@ async function renderHomeContinue(meta){
   try{
     const character=await loadCharacter(meta.id);if(request!==homeContinueRequest||els.homeView.hidden)return;
     const progress=state.characters?.[meta.id]?.issues||{},required=character.issues.filter(i=>i.required!==false&&!i.future),next=required.find(i=>!progress[i.id]?.read);
-    if(!next){els.homeContinue.innerHTML=`<div class="homeContinueComplete"><img src="${esc(versioned(meta.logo))}" alt=""><span>${icon("check")}</span><div><div class="homeEyebrow">Percorso completato</div><h2>Sei in pari con ${esc(meta.name)}</h2><p>${esc(character.end)}</p></div><button type="button" data-continue-char="${esc(meta.id)}">Rivedi il percorso ${icon("arrow")}</button></div>`}
-    else els.homeContinue.innerHTML=`<div class="homeContinueHead"><span>Continua a leggere</span><span class="homeContinueCloud">${icon(accountView.user?"cloud":"book")}${accountView.user?"Sincronizzato":"Salvato in locale"}</span></div><div class="homeContinueBody"><div class="homeContinueCover"><div class="fallback">${esc(next.name)}</div>${coverImg(next,false,meta.accent)}</div><div class="homeContinueMeta"><div class="homeContinueHero"><img src="${esc(versioned(meta.logo))}" alt=""><span><b>${esc(meta.name)}</b><small>Albo ${next.seq} di ${required.length}</small></span></div><h2>${esc(next.name)}</h2><p>${esc(next.title)}<br><span>${esc(next.date)} · ${esc(next.era)}</span></p><button type="button" data-continue-char="${esc(meta.id)}">Apri il percorso ${icon("arrow")}</button></div></div>`;
+    if(!next){els.homeContinue.innerHTML=`<div class="homeContinueComplete">${pathIconImage(meta,{alt:meta.name})}<span>${icon("check")}</span><div><div class="homeEyebrow">Percorso completato</div><h2>Sei in pari con ${esc(meta.name)}</h2><p>${esc(character.end)}</p></div><button type="button" data-continue-char="${esc(meta.id)}">Rivedi il percorso ${icon("arrow")}</button></div>`}
+    else els.homeContinue.innerHTML=`<div class="homeContinueHead"><span>Continua a leggere</span><span class="homeContinueCloud">${icon(accountView.user?"cloud":"book")}${accountView.user?"Sincronizzato":"Salvato in locale"}</span></div><div class="homeContinueBody"><div class="homeContinueCover"><div class="fallback">${esc(next.name)}</div>${coverImg(next,false,meta.accent)}</div><div class="homeContinueMeta"><div class="homeContinueHero">${pathIconImage(meta,{alt:meta.name})}<span><b>${esc(meta.name)}</b><small>Albo ${next.seq} di ${required.length}</small></span></div><h2>${esc(next.name)}</h2><p>${esc(next.title)}<br><span>${esc(next.date)} · ${esc(next.era)}</span></p><button type="button" data-continue-char="${esc(meta.id)}">Apri il percorso ${icon("arrow")}</button></div></div>`;
     els.homeContinue.querySelector("[data-continue-char]").onclick=()=>void switchCharacter(meta.id);
   }catch(error){
     if(request!==homeContinueRequest)return;
@@ -323,10 +343,10 @@ function renderHome(){
   const fmt=n=>new Intl.NumberFormat("it-IT").format(n);
   const greetingName=accountDisplayName();
   els.homeGreetingName.textContent=greetingName&&greetingName!=="Profilo locale"?`${greetingName}.`:"lettore.";
-  els.homeHeroIcons.innerHTML=manifest.characters.map(c=>`<button type="button" class="homeHeroIcon" style="--hero-accent:${esc(c.accent)}" title="Apri ${esc(c.name)}" data-hero-shortcut="${esc(c.id)}"><img src="${esc(versioned(c.logo))}" alt="${esc(c.name)}" onerror="this.parentElement.style.display='none'"></button>`).join("");
+  els.homeHeroIcons.innerHTML=manifest.characters.map(c=>`<button type="button" class="homeHeroIcon" style="--hero-accent:${esc(c.accent)}" title="Apri ${esc(c.name)}" data-hero-shortcut="${esc(c.id)}">${pathIconImage(c,{alt:c.name,onerror:"this.parentElement.style.display='none'"})}</button>`).join("");
   els.homeHeroIcons.querySelectorAll("[data-hero-shortcut]").forEach(b=>b.onclick=()=>void switchCharacter(b.dataset.heroShortcut));
   els.homeStats.innerHTML=`<article class="homeStat" style="--stat-color:#ed1d24"><div class="homeStatLabel">${icon("paths")}<span>Percorsi</span></div><b>${manifest.characters.length}</b><small>${completed} completati</small></article><article class="homeStat" style="--stat-color:#64b9ff"><div class="homeStatLabel">${icon("book")}<span>Albi mappati</span></div><b>${fmt(totalMapped)}</b><small>Edizioni italiane in ordine di lettura</small></article><article class="homeStat" style="--stat-color:#ffb000"><div class="homeStatLabel">${icon("archive")}<span>Recuperati</span></div><b>${fmt(ownedTotal)}</b><small>${fmt(physicalTotal)} fisici · ${fmt(digitalTotal)} digitali</small></article><article class="homeStat" style="--stat-color:#4fe0a0"><div class="homeStatLabel">${icon("chart")}<span>Avanzamento</span></div><b>${globalPct}%</b><small>${fmt(readTotal)} albi letti in tutti i percorsi</small></article>`;
-  els.homeCharacterGrid.innerHTML=manifest.characters.map(c=>{const read=readCountFor(c.id),total=c.totalRequired||0,pct=Math.min(100,Math.round(read/(total||1)*100));return `<button type="button" class="homeCharCard" style="--hero-accent:${esc(c.accent)}" data-home-char="${esc(c.id)}" aria-label="Apri il percorso di ${esc(c.name)}, ${read} albi letti su ${total}"><span class="homeCharTop"><img class="homeCharLogo" src="${esc(versioned(c.logo))}" alt="Logo ${esc(c.name)}" onerror="this.style.visibility='hidden'"><span class="homeCharPercent">${pct}%</span></span><span class="homeCharMeta"><b>${esc(c.name)}</b><span>${esc(c.subtitle)}</span><small>${esc(c.start.split(" — ")[0])}</small></span><span class="homeCharProgress"><span class="homeCharProgressTop"><span>Albi letti</span><b>${read}/${total}</b></span><span class="homeCharTrack"><span style="width:${pct}%"></span></span><span class="homeCharOpen">Apri percorso ${icon("arrow")}</span></span></button>`}).join("");
+  els.homeCharacterGrid.innerHTML=manifest.characters.map(c=>{const read=readCountFor(c.id),total=c.totalRequired||0,pct=Math.min(100,Math.round(read/(total||1)*100));return `<button type="button" class="homeCharCard" style="--hero-accent:${esc(c.accent)}" data-home-char="${esc(c.id)}" aria-label="Apri il percorso di ${esc(c.name)}, ${read} albi letti su ${total}"><span class="homeCharTop">${pathIconImage(c,{alt:`Logo ${c.name}`,className:"homeCharLogo",onerror:"this.style.visibility='hidden'"})}<span class="homeCharPercent">${pct}%</span></span><span class="homeCharMeta"><b>${esc(c.name)}</b><span>${esc(c.subtitle)}</span><small>${esc(c.start.split(" — ")[0])}</small></span><span class="homeCharProgress"><span class="homeCharProgressTop"><span>Albi letti</span><b>${read}/${total}</b></span><span class="homeCharTrack"><span style="width:${pct}%"></span></span><span class="homeCharOpen">Apri percorso ${icon("arrow")}</span></span></button>`}).join("");
   els.homeCharacterGrid.querySelectorAll("[data-home-char]").forEach(b=>b.onclick=()=>void switchCharacter(b.dataset.homeChar));
   els.homeResume.innerHTML=`Riprendi ${esc(resume.name)} ${icon("arrow")}`;
   els.homeTopResume.innerHTML=`Riprendi ${icon("arrow")}`;
