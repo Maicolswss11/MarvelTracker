@@ -49,8 +49,8 @@ body.globalSearchOpen{overflow:hidden}
 .globalSearchResultBody{min-width:0;padding:2px 0;display:flex;flex-direction:column;align-items:flex-start}
 .globalSearchBadges{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:7px}
 .globalSearchBadges span{padding:4px 7px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(255,255,255,.03);color:#8292a1;font-size:6.5px;font-weight:950;text-transform:uppercase;letter-spacing:.075em}
-.globalSearchBadges .kind.issue{border-color:rgba(255,64,72,.28);background:rgba(237,29,36,.08);color:#ff777d}
-.globalSearchBadges .kind.edition{border-color:rgba(255,188,46,.3);background:rgba(255,176,0,.08);color:#ffc95a}
+.globalSearchBadges .kind-issue{border-color:rgba(255,64,72,.28);background:rgba(237,29,36,.08);color:#ff777d}
+.globalSearchBadges .kind-edition{border-color:rgba(255,188,46,.3);background:rgba(255,176,0,.08);color:#ffc95a}
 .globalSearchBadges .physical{border-color:rgba(255,188,46,.3);color:#ffca61}
 .globalSearchBadges .digital{border-color:rgba(100,185,255,.3);color:#82c8ff}
 .globalSearchBadges .read{border-color:rgba(79,224,160,.3);color:#69e6ae}

@@ -250,7 +250,7 @@
   function resultMarkup(item){
     const status = statusFor(item);
     const badges = [
-      `<span class="kind ${item.kind}">${esc(item.kindLabel)}</span>`,
+      `<span class="kind kind-${item.kind}">${esc(item.kindLabel)}</span>`,
       item.future?'<span class="future">Annunciato</span>':"",
       status.physical?'<span class="physical">Fisico</span>':"",
       status.digital?'<span class="digital">Digitale</span>':"",
