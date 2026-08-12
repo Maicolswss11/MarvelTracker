@@ -78,6 +78,41 @@ def _norm(value: Any) -> str:
     return " ".join(str(value or "").casefold().replace("–", "-").split())
 
 
+def build_path_entry(
+    path_meta: dict[str, Any],
+    character: dict[str, Any],
+    issue: dict[str, Any],
+) -> dict[str, Any]:
+    reading_step = issue.get("readingStep") if isinstance(issue.get("readingStep"), dict) else {}
+    sequence = issue.get("seq")
+    number = issue.get("n")
+    timeline_mode = bool(character.get("timelineMode"))
+    if timeline_mode and isinstance(sequence, int) and not isinstance(sequence, bool):
+        token = f"p{sequence}"
+    else:
+        token = str(number if number is not None else sequence if sequence is not None else "")
+
+    content_ids = reading_step.get("contentIds")
+    if not isinstance(content_ids, list):
+        content_ids = [
+            content.get("id")
+            for content in issue.get("contents", [])
+            if isinstance(content, dict) and content.get("id")
+        ]
+
+    entry = {
+        "pathId": path_meta["id"],
+        "token": token,
+        "position": reading_step.get("position", sequence),
+        "contentIds": content_ids,
+    }
+    if issue.get("era"):
+        entry["era"] = issue["era"]
+    if issue.get("skip"):
+        entry["optional"] = True
+    return entry
+
+
 def choose_path_cover(path_meta: dict[str, Any], issues: list[dict[str, Any]]) -> str | None:
     path_id = path_meta["id"]
     candidates = [
@@ -169,6 +204,7 @@ def main() -> None:
                     "paths": [],
                     "pathNames": [],
                     "hubs": [],
+                    "pathEntries": [],
                 },
             )
             fill_missing(row, issue)
@@ -179,6 +215,15 @@ def main() -> None:
             for hub in path_meta.get("hubs", []):
                 if hub not in row["hubs"]:
                     row["hubs"].append(hub)
+
+            path_entry = build_path_entry(path_meta, character, issue)
+            duplicate = any(
+                entry.get("pathId") == path_entry["pathId"]
+                and entry.get("token") == path_entry["token"]
+                for entry in row["pathEntries"]
+            )
+            if not duplicate:
+                row["pathEntries"].append(path_entry)
 
     issues = list(catalog.values())
     for row in issues:

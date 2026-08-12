@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="css/profile.css?v=2">
   <link rel="stylesheet" href="css/editions.css?v=3">
   <link rel="stylesheet" href="css/cinematic.css?v=4">
+  <link rel="stylesheet" href="css/editorial-refresh.css?v=1">
+  <link rel="stylesheet" href="css/global-search.css?v=1">
   <link rel="stylesheet" href="css/profile-account.css?v=2">
   <link rel="stylesheet" href="css/achievements.css?v=2">
 </head>
@@ -61,11 +63,11 @@
     <section class="homeView" id="homeView" hidden>
       <header class="homeTopbar">
         <div class="homeTopBrand"><img src="assets/brand/marvel.png?v=3" alt="Marvel"><span><b>MARVEL ARCHIVE</b><small>Il tuo archivio personale</small></span></div>
-        <div class="homeTopActions"><button type="button" class="homeTopAction" id="homeTopResume">Riprendi percorso</button><button type="button" class="homeTopAction" id="homeProfileBtn" aria-label="Apri la collezione"><svg class="homeTopActionIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8v12h16V8"/><path d="M2.5 4h19v4h-19z"/><path d="M9 12h6"/></svg><span class="homeTopActionLabel">Collezione</span></button><button type="button" class="accountButton" id="homeAccountBtn" aria-label="Apri il tuo profilo"><span class="accountAvatar" data-account-avatar>M</span><span class="accountButtonText"><b data-account-name>Profilo locale</b><small data-account-status>Accedi per sincronizzare</small></span></button></div>
+        <div class="homeTopActions"><button type="button" class="globalSearchTrigger homeGlobalSearch" data-global-search aria-label="Cerca un albo in tutto l'archivio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Cerca albo</span><kbd>Ctrl K</kbd></button><button type="button" class="homeTopAction" id="homeTopResume">Riprendi percorso</button><button type="button" class="homeTopAction" id="homeProfileBtn" aria-label="Apri la collezione"><svg class="homeTopActionIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8v12h16V8"/><path d="M2.5 4h19v4h-19z"/><path d="M9 12h6"/></svg><span class="homeTopActionLabel">Collezione</span></button><button type="button" class="accountButton" id="homeAccountBtn" aria-label="Apri il tuo profilo"><span class="accountAvatar" data-account-avatar>M</span><span class="accountButtonText"><b data-account-name>Profilo locale</b><small data-account-status>Accedi per sincronizzare</small></span></button></div>
       </header>
       <div class="homeContent">
         <section class="homeDashboardHero">
-          <div class="homeIntro"><div class="homeEyebrow">Personal reading system · Edizioni italiane</div><h1>Bentornato,<br><span id="homeGreetingName">lettore.</span></h1><p>La tua collezione Marvel in un solo posto: riprendi dal prossimo albo, controlla i progressi e passa da un percorso all'altro senza perdere il filo.</p><div class="homeHeroActions"><button type="button" class="homePrimary" id="homeResume">Riprendi</button><button type="button" class="homeSecondary" id="homeExplore">Tutti i percorsi</button></div><div class="homeHeroIcons" id="homeHeroIcons" aria-label="Percorsi disponibili"></div></div>
+          <div class="homeIntro"><div class="homeEyebrow">Personal reading system · Edizioni italiane</div><h1>Bentornato,<br><span id="homeGreetingName">lettore.</span></h1><p>La tua collezione Marvel in un solo posto: riprendi dal prossimo albo, controlla i progressi e passa da un percorso all'altro senza perdere il filo.</p><button type="button" class="homeArchiveSearch" data-global-search><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span><b>Cerca nell'archivio</b><small>Albo italiano, testata, numero o contenuto USA</small></span><kbd>Ctrl K</kbd></button><div class="homeHeroActions"><button type="button" class="homePrimary" id="homeResume">Riprendi</button><button type="button" class="homeSecondary" id="homeExplore">Tutti i percorsi</button></div><div class="homeHeroIcons" id="homeHeroIcons" aria-label="Percorsi disponibili"></div></div>
           <div class="homeContinue" id="homeContinue"><div class="homeContinueLoading"><span></span><div><b>Prepariamo il prossimo albo…</b><small>Caricamento del percorso</small></div></div></div>
         </section>
         <section class="homeStats" id="homeStats" aria-label="Riepilogo progressi"></section>
@@ -75,7 +77,7 @@
     <section class="profileView" id="profileView" hidden>
       <header class="profileTopbar">
         <div class="profileTopbarLeft"><button type="button" class="profileHomeButton" id="profileHomeBtn">← Home</button><div class="profileBrand"><b>MARVEL ARCHIVE</b><span>Profilo · Collezione globale</span></div></div>
-        <div class="profileTopbarRight"><button type="button" class="profileAccountButton" id="profileAccountBtn"><span class="accountAvatar" data-account-avatar>M</span><span data-account-name>Profilo locale</span></button></div>
+        <div class="profileTopbarRight"><button type="button" class="globalSearchTrigger globalSearchCompact" data-global-search aria-label="Cerca un albo in tutto l'archivio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Cerca albo</span></button><button type="button" class="profileAccountButton" id="profileAccountBtn"><span class="accountAvatar" data-account-avatar>M</span><span data-account-name>Profilo locale</span></button></div>
       </header>
       <div class="profileContent">
         <section class="profileHero profileIdentityHero" id="profileIdentityHero">
@@ -92,7 +94,7 @@
       </div>
     </section>
     <div id="trackerView">
-      <header class="topbar"><button type="button" class="trackerHomeBtn" id="trackerHomeBtn" aria-label="Torna alla home"><span id="trackerHomeIcon"></span><b>Home</b></button><div class="topbarTitle"><strong id="topTitle">Marvel Archive</strong><span id="topSub">Caricamento…</span></div><div class="search"><input id="search" type="search" placeholder="Cerca numero, titolo, evento, anno…"></div><div class="trackerTopActions"><button class="compactBtn" id="trackerProfileBtn">Collezione</button><button class="compactBtn" id="compactBtn">Vista compatta</button><button type="button" class="trackerAccountBtn" id="trackerAccountBtn" aria-label="Apri il tuo profilo"><span class="accountAvatar" data-account-avatar>M</span></button></div></header>
+      <header class="topbar"><button type="button" class="trackerHomeBtn" id="trackerHomeBtn" aria-label="Torna alla home"><span id="trackerHomeIcon"></span><b>Home</b></button><div class="topbarTitle"><strong id="topTitle">Marvel Archive</strong><span id="topSub">Caricamento…</span></div><div class="search"><input id="search" type="search" placeholder="Filtra questo percorso per numero, titolo, evento o anno…"></div><div class="trackerTopActions"><button type="button" class="globalSearchTrigger globalSearchCompact" data-global-search aria-label="Cerca un albo in tutto l'archivio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Cerca albo</span></button><button class="compactBtn" id="trackerProfileBtn">Collezione</button><button class="compactBtn" id="compactBtn">Vista compatta</button><button type="button" class="trackerAccountBtn" id="trackerAccountBtn" aria-label="Apri il tuo profilo"><span class="accountAvatar" data-account-avatar>M</span></button></div></header>
       <div class="content">
         <section class="hero"><article class="heroPanel"><div class="label" id="heroLabel">Percorso attivo</div><h1 id="heroTitle">Marvel Archive</h1><p id="heroDesc">Caricamento dati…</p></article><div class="nextPanel" id="nextPanel"><div class="loading">Caricamento…</div></div></section>
         <div class="route" id="route"></div>
@@ -107,6 +109,7 @@
 <script src="js/achievements.js?v=2"></script>
 <script src="js/profile-ui.js?v=5"></script>
 <script src="js/motion.js?v=2"></script>
+<script src="js/global-search.js?v=1"></script>
 <script type="module" src="js/app.js?v=20"></script>
 <script type="module" src="js/hub-ui.js?v=10"></script>
 </body>

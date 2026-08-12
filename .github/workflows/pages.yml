@@ -25,6 +25,8 @@ jobs:
         uses: actions/checkout@v6
       - name: Rebuild global issue catalog
         run: python scripts/build_catalog.py
+      - name: Verify global search index
+        run: node scripts/verify-global-search.mjs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload site

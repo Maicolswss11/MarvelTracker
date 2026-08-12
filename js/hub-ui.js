@@ -36,6 +36,11 @@ function hubArtworkMarkup(hub){
   if(!covers.length) return "";
   return `<span class="hubCardArt" aria-hidden="true">${covers.map(src=>`<img loading="lazy" src="${esc(src)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">`).join("")}</span><span class="hubCardShade" aria-hidden="true"></span>`;
 }
+function hubDetailArtworkMarkup(hub){
+  const covers = hubArtworkUrls(hub);
+  if(!covers.length) return `<div class="hubDetailMonogram" aria-hidden="true">${esc((hub?.name || "M").charAt(0))}</div>`;
+  return `<div class="hubDetailArtwork" aria-hidden="true">${covers.map(src=>`<span><img loading="lazy" src="${esc(src)}" alt="" referrerpolicy="no-referrer" onerror="this.parentElement.remove()"></span>`).join("")}</div>`;
+}
 
 function collectProgress(){
   const grid = byId("homeCharacterGrid");
@@ -120,10 +125,12 @@ function hubCard(hub,{compact=false}={}){
 
 function pathCard(path,hubId){
   const progress = progressSnapshot.get(path.id);
+  const percentage = Math.max(0,Math.min(100,Number.parseFloat(progress?.pct) || 0));
+  const progressLabel = progress?.count ? `${progress.count} letti` : `${Number(path.totalRequired||0).toLocaleString("it-IT")} tappe mappate`;
   return `<button type="button" class="hubPathCard" style="--path-accent:${esc(path.accent||"#ed1d24")}" data-hub-path="${esc(path.id)}" data-from-hub="${esc(hubId)}">
     <span class="hubPathLogo">${pathArtworkMarkup(path)}</span>
-    <span class="hubPathMain"><small>${esc(pathTypeLabel(path))}</small><b>${esc(path.name)}</b><span>${esc(path.subtitle)}</span></span>
-    <span class="hubPathProgress">${progress?`<b>${esc(progress.pct)}</b><small>${esc(progress.count)}</small>`:`<b>${Number(path.totalRequired||0).toLocaleString("it-IT")}</b><small>tappe</small>`}</span>
+    <span class="hubPathMain"><small>${esc(pathTypeLabel(path))}</small><b>${esc(path.name)}</b><span>${esc(path.subtitle)}</span><em>${esc(String(path.start||"").split(" — ")[0])}</em></span>
+    <span class="hubPathProgress"><span class="hubPathProgressValue"><b>${progress?esc(progress.pct):"0%"}</b><small>${esc(progressLabel)}</small></span><span class="hubPathTrack"><i style="width:${percentage}%"></i></span></span>
     <span class="hubPathArrow" aria-hidden="true">→</span>
   </button>`;
 }
@@ -151,7 +158,8 @@ function renderRootExplorer(root){
 
 function renderMainUniverse(root,hub){
   const families = (hub.sections?.flatMap(section=>section.items||[]) || []).map(hubById).filter(Boolean);
-  root.innerHTML = `${breadcrumbHtml(hub)}<section class="hubDetailHero" style="--hub-accent:${esc(hub.accent)}"><span class="hubEyebrow">Universo</span><h2>${esc(hub.name)}</h2><p>${esc(hub.subtitle)}</p></section>
+  const stats = hubStats(hub);
+  root.innerHTML = `${breadcrumbHtml(hub)}<section class="hubDetailHero" style="--hub-accent:${esc(hub.accent)}"><div class="hubDetailCopy"><span class="hubEyebrow">Universo</span><h2>${esc(hub.name)}</h2><p>${esc(hub.subtitle)}</p></div><div class="hubDetailAside">${hubDetailArtworkMarkup(hub)}<div class="hubDetailStats"><b>${stats.paths.length}</b><span>percorsi</span><b>${stats.total.toLocaleString("it-IT")}</b><span>tappe</span></div></div></section>
     <section class="hubShelf"><div class="hubShelfHead"><div><span>Terra-616</span><h3>Famiglie narrative</h3></div><small>Apri una famiglia per vedere squadre, personaggi e percorsi collegati.</small></div><div class="hubGrid familyGrid">${families.map(h=>hubCard(h,{compact:true})).join("")}</div></section>`;
   bindHubControls(root);
 }
@@ -162,7 +170,7 @@ function renderHubDetail(root,hub){
   const stats = hubStats(hub);
   const coming = hub.status === "coming" && !groups.length;
   root.innerHTML = `${breadcrumbHtml(hub)}
-    <section class="hubDetailHero" style="--hub-accent:${esc(hub.accent)}"><div><span class="hubEyebrow">${hub.type === "event-index" ? "Indice eventi" : hub.type === "universe" ? "Universo" : "Famiglia Marvel"}</span><h2>${esc(hub.name)}</h2><p>${esc(hub.subtitle)}</p></div><div class="hubDetailStats"><b>${stats.paths.length}</b><span>percorsi</span><b>${stats.total.toLocaleString("it-IT")}</b><span>tappe</span></div></section>
+    <section class="hubDetailHero" style="--hub-accent:${esc(hub.accent)}"><div class="hubDetailCopy"><span class="hubEyebrow">${hub.type === "event-index" ? "Indice eventi" : hub.type === "universe" ? "Universo" : "Famiglia Marvel"}</span><h2>${esc(hub.name)}</h2><p>${esc(hub.subtitle)}</p></div><div class="hubDetailAside">${hubDetailArtworkMarkup(hub)}<div class="hubDetailStats"><b>${stats.paths.length}</b><span>percorsi</span><b>${stats.total.toLocaleString("it-IT")}</b><span>tappe</span></div></div></section>
     ${coming?`<section class="hubEmpty"><span>Struttura pronta</span><h3>${esc(hub.name)} sarà costruito qui.</h3><p>Il contenitore è già parte della nuova architettura. Quando aggiungeremo i dati, non serviranno altre modifiche alla navigazione.</p></section>`:
       groups.map(group=>`<section class="hubShelf pathShelf"><div class="hubShelfHead"><div><span>${esc(hub.name)}</span><h3>${esc(group.label)}</h3></div><small>${(group.paths||[]).length} percorsi</small></div><div class="hubPathGrid">${(group.paths||[]).map(pathById).filter(Boolean).map(path=>pathCard(path,hub.id)).join("")}</div></section>`).join("")}
   `;
