@@ -14,6 +14,9 @@ required = {
     "storm": ("Storm", 39, 42),
     "rogue": ("Rogue", 27, 21),
     "gambit": ("Gambit", 4, 2),
+    "new-mutants": ("New Mutants", 25, 43),
+    "x-factor": ("X-Factor", 23, 103),
+    "x-force": ("X-Force", 17, 95),
 }
 
 failures = []
