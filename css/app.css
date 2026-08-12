@@ -24,6 +24,31 @@ body.compact .cover{display:none}body.compact .issue{grid-template-columns:54px 
 
 /* Tracker readability redesign v1 */
 #trackerView{font-size:16px}
+
+/* Active path identity — dedicated artwork in the path detail card. */
+#trackerView .heroPanel{display:grid;grid-template-columns:156px minmax(0,1fr);gap:24px;align-items:center;isolation:isolate}
+.heroPathVisual{position:relative;width:156px;aspect-ratio:1;overflow:hidden;border:1px solid color-mix(in srgb,var(--accent) 48%,#324255);border-radius:23px;background:radial-gradient(circle at 28% 20%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 56%),#080d13;box-shadow:0 18px 36px rgba(0,0,0,.38),0 0 30px color-mix(in srgb,var(--accent) 10%,transparent)}
+.heroPathVisual::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 1px rgba(255,255,255,.14),inset 0 -28px 38px rgba(0,0,0,.12);pointer-events:none}
+.heroPathVisual img{width:100%;height:100%;display:block}
+.heroPathVisual .pathIconRaster{object-fit:cover}
+.heroPathVisual .pathIconVector{object-fit:contain;padding:19%;opacity:.92}
+.heroPanelCopy{position:relative;z-index:1;min-width:0}
+#trackerView .heroPanel .heroTimeline{display:block;margin-top:10px;color:var(--accent);font-size:11px;line-height:1.42;letter-spacing:.015em;font-weight:800}
+#trackerView .heroPanel h1{margin-bottom:12px}
+
+@media(max-width:720px){
+  #trackerView .heroPanel{grid-template-columns:82px minmax(0,1fr);gap:14px;align-items:start}
+  .heroPathVisual{width:82px;border-radius:16px;box-shadow:0 12px 24px rgba(0,0,0,.34),0 0 22px color-mix(in srgb,var(--accent) 8%,transparent)}
+  #trackerView .heroPanel h1{margin:6px 0 8px;font-size:29px;line-height:.96}
+  #trackerView .heroPanel .heroTimeline{margin-top:7px;font-size:8.5px;line-height:1.38}
+  #trackerView .heroPanel p{font-size:9.5px;line-height:1.5}
+}
+
+@media(max-width:390px){
+  #trackerView .heroPanel{grid-template-columns:72px minmax(0,1fr);gap:12px}
+  .heroPathVisual{width:72px;border-radius:14px}
+  #trackerView .heroPanel h1{font-size:26px}
+}
 .filterLabel{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#718196;font-weight:900;margin:0 2px}.filterDivider{width:1px;height:26px;background:var(--line);margin:0 3px}.eraName{color:var(--cyan);font-size:10px}.issueBadges{min-height:0;margin-bottom:5px}.chronologyBadge{display:inline-flex;align-items:center;padding:4px 7px;border:1px solid color-mix(in srgb,var(--accent) 70%,var(--line));border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,#0b1118);color:var(--accent);font-size:8px;line-height:1;text-transform:uppercase;letter-spacing:.09em;font-weight:950}.issue.chronologyInsert{border-color:color-mix(in srgb,var(--accent) 65%,var(--line));background:linear-gradient(105deg,color-mix(in srgb,var(--accent) 8%,#101821),#0d141c 38%,#0b1118);box-shadow:inset 4px 0 0 var(--accent),0 14px 34px rgba(0,0,0,.16)}.issue.chronologyInsert:hover{border-color:var(--accent)}.issue.chronologyInsert .narrativeNum b{color:var(--accent)}
 .narrativeNum{display:flex;min-width:0;flex-direction:column;align-items:flex-start;justify-content:center;line-height:1}.narrativeNum>span{color:#718196;font-size:8px;font-weight:950;letter-spacing:.13em;text-transform:uppercase}.narrativeNum>b{display:block;margin-top:6px;color:var(--text);font-size:24px;font-weight:900;letter-spacing:-.04em}.narrativeNum>small{display:block;margin-top:8px;max-width:92px;color:#8696a6;font-size:8px;line-height:1.3;font-weight:750}
 @media(min-width:1121px){
