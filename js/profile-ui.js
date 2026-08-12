@@ -16,18 +16,18 @@
   let achievementStatus = "all";
 
   const AVATARS = [
-    {id:"iron-man",name:"Iron Man",src:"assets/heroes/ironman.png",accent:"#ed1d24"},
-    {id:"spider-man",name:"Spider-Man",src:"assets/heroes/spiderman.png",accent:"#f0444b"},
-    {id:"captain-america",name:"Capitan America",src:"assets/heroes/capitan-america.png",accent:"#4f9ee8"},
-    {id:"thor",name:"Thor",src:"assets/heroes/thor.png",accent:"#75b7ff"},
-    {id:"hulk",name:"Hulk",src:"assets/heroes/hulk.png",accent:"#70c74e"},
-    {id:"black-panther",name:"Black Panther",src:"assets/heroes/black-panther.svg",accent:"#a88cff"},
-    {id:"scarlet-witch",name:"Scarlet Witch",src:"assets/heroes/scarlet-witch.svg",accent:"#ee4779"},
-    {id:"doctor-strange",name:"Doctor Strange",src:"assets/heroes/doctor-strange.svg",accent:"#e66a55"},
-    {id:"captain-marvel",name:"Captain Marvel",src:"assets/heroes/captain-marvel.svg",accent:"#ffb51b"},
-    {id:"black-widow",name:"Black Widow",src:"assets/heroes/black-widow.svg",accent:"#d94d56"},
-    {id:"x-men",name:"X-Men",src:"assets/heroes/xmen.svg",accent:"#f3ca44"},
-    {id:"fantastic-four",name:"Fantastici Quattro",src:"assets/heroes/fantastic-four.svg",accent:"#63aaf5"},
+    {id:"iron-man",name:"Iron Man",src:"assets/heroes/iron-man.jpg",accent:"#ed1d24"},
+    {id:"spider-man",name:"Spider-Man",src:"assets/heroes/spidey.jpg",accent:"#f0444b"},
+    {id:"captain-america",name:"Capitan America",src:"assets/heroes/cap.jpg",accent:"#4f9ee8"},
+    {id:"thor",name:"Thor",src:"assets/heroes/thor.jpg",accent:"#75b7ff"},
+    {id:"hulk",name:"Hulk",src:"assets/heroes/hulk.jpg",accent:"#70c74e"},
+    {id:"black-panther",name:"Black Panther",src:"assets/heroes/black_panthern.jpg",accent:"#a88cff"},
+    {id:"scarlet-witch",name:"Scarlet Witch",src:"assets/heroes/wanda.jpg",accent:"#ee4779"},
+    {id:"doctor-strange",name:"Doctor Strange",src:"assets/heroes/docstrange.jpg",accent:"#e66a55"},
+    {id:"captain-marvel",name:"Captain Marvel",src:"assets/heroes/capmarvel.jpg",accent:"#ffb51b"},
+    {id:"black-widow",name:"Black Widow",src:"assets/heroes/natasha.jpg",accent:"#d94d56"},
+    {id:"x-men",name:"X-Men",src:"assets/heroes/logan.png",accent:"#f3ca44"},
+    {id:"fantastic-four",name:"Fantastici Quattro",src:"assets/heroes/f4.jpg",accent:"#63aaf5"},
   ];
   const AVATAR_BY_ID = new Map(AVATARS.map(item => [item.id,item]));
 
