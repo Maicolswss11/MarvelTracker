@@ -5,6 +5,7 @@ let activeStorageKey = STORAGE_KEY;
 const characterCache = new Map();
 let manifest = null;
 let pathIconCatalog = {version:1,paths:{}};
+let characterProfileCatalog = {version:1,profiles:{}};
 let currentMeta = null;
 let currentCharacter = null;
 let activeCharacter = "ironman";
@@ -24,7 +25,7 @@ const $ = (id) => document.getElementById(id);
 const els = {
   charGrid: $("charGrid"), doneCount: $("doneCount"), totalCount: $("totalCount"), progressBar: $("progressBar"), ownedCount: $("ownedCount"), physicalCount: $("physicalCount"), digitalCount: $("digitalCount"), pct: $("pct"),
   seriesNav: $("seriesNav"), jumpNext: $("jumpNext"), showOptional: $("showOptional"), exportBtn: $("exportBtn"), importFile: $("importFile"), resetBtn: $("resetBtn"),
-  footerNote: $("footerNote"), logoSub: $("logoSub"), topTitle: $("topTitle"), topSub: $("topSub"), search: $("search"), compactBtn: $("compactBtn"), heroPathVisual: $("heroPathVisual"), heroLabel: $("heroLabel"), heroTitle: $("heroTitle"), heroDesc: $("heroDesc"), nextPanel: $("nextPanel"), route: $("route"), noticeWrap: $("noticeWrap"), filterBar: $("filterBar"), seriesBlocks: $("seriesBlocks"),
+  footerNote: $("footerNote"), logoSub: $("logoSub"), topTitle: $("topTitle"), topSub: $("topSub"), search: $("search"), compactBtn: $("compactBtn"), heroPathVisual: $("heroPathVisual"), heroLabel: $("heroLabel"), heroTitle: $("heroTitle"), heroDesc: $("heroDesc"), characterProfileSlot: $("characterProfileSlot"), nextPanel: $("nextPanel"), route: $("route"), noticeWrap: $("noticeWrap"), filterBar: $("filterBar"), seriesBlocks: $("seriesBlocks"),
   homeView: $("homeView"), trackerView: $("trackerView"), homeBtn: $("homeBtn"), trackerHomeBtn: $("trackerHomeBtn"), trackerHomeIcon: $("trackerHomeIcon"), homeTopResume: $("homeTopResume"), homeResume: $("homeResume"), homeExplore: $("homeExplore"), homeHeroIcons: $("homeHeroIcons"), homeStats: $("homeStats"), homeCharacterGrid: $("homeCharacterGrid"), homeCharactersSection: $("homeCharactersSection"), homeContinue: $("homeContinue"), homeGreetingName: $("homeGreetingName"),
   homeAccountBtn: $("homeAccountBtn"), trackerAccountBtn: $("trackerAccountBtn")
 };
@@ -212,13 +213,15 @@ window.coverFail = (img)=>{if(img.dataset.failed==="1"){img.style.display="none"
 function coverImg(i,lazy=true,accent=null){return `<img ${lazy?'loading="lazy" ':''}src="${esc(i.cover||coverPlaceholder(i,accent))}" data-placeholder="${coverPlaceholder(i,accent)}" alt="${esc(i.name)}" referrerpolicy="no-referrer" onerror="coverFail(this)">`}
 
 async function loadManifest(){
-  const [r,iconsResponse]=await Promise.all([
+  const [r,iconsResponse,profilesResponse]=await Promise.all([
     fetch("data/characters.json",{cache:"no-cache"}),
-    fetch("data/path-icons.json",{cache:"no-cache"}).catch(()=>null)
+    fetch("data/path-icons.json",{cache:"no-cache"}).catch(()=>null),
+    fetch("data/character-profiles.json",{cache:"no-cache"}).catch(()=>null)
   ]);
   if(!r.ok)throw new Error(`Manifest HTTP ${r.status}`);
   manifest=await r.json();
   if(iconsResponse?.ok)pathIconCatalog=await iconsResponse.json();
+  if(profilesResponse?.ok)characterProfileCatalog=await profilesResponse.json();
   await window.MarvelEditions?.load(manifest.version); state=normalizeState(state);
 }
 async function loadEncodedCharacter(id, meta){
@@ -376,6 +379,45 @@ function exportProgress(){const blob=new Blob([JSON.stringify(state,null,2)],{ty
 function importProgress(file){return new Promise((resolve,reject)=>{if(!file){reject(new Error("Seleziona un file di backup."));return}const reader=new FileReader();reader.onload=()=>{try{state=normalizeState(JSON.parse(reader.result));saveState();refreshCurrentView();renderAccountUi();resolve(true)}catch{reject(new Error("Backup non valido."))}};reader.onerror=()=>reject(new Error("Impossibile leggere il backup."));reader.readAsText(file)})}
 async function authenticate({mode,email,password,displayName}){try{return mode==="register"?await signUp(email,password,displayName):await signIn(email,password)}catch(error){throw new Error(friendlyAuthError(error))}}
 function renderStats(){const req=requiredIssues(),r=req.filter(i=>status(i.id).read).length,o=req.filter(i=>status(i.id).owned).length,ph=req.filter(i=>status(i.id).physicalCovered).length,dg=req.filter(i=>status(i.id).digital).length,p=Math.round(r/(req.length||1)*100);els.doneCount.textContent=r;els.totalCount.textContent=req.length;els.ownedCount.textContent=o;els.physicalCount.textContent=ph;els.digitalCount.textContent=dg;els.pct.textContent=p+"%";els.progressBar.style.width=p+"%"}
+function renderCharacterProfile(){
+  const profile=characterProfileCatalog?.profiles?.[currentMeta?.id];
+  if(!profile||currentMeta?.type!=="character"){
+    els.characterProfileSlot.hidden=true;
+    els.characterProfileSlot.innerHTML="";
+    return;
+  }
+  const tags=(items,className)=>items.map(item=>`<span class="${className}">${esc(item)}</span>`).join("");
+  els.characterProfileSlot.hidden=false;
+  els.characterProfileSlot.innerHTML=`
+    <details class="characterProfile">
+      <summary>
+        <span class="characterProfileSummaryTitle"><small>Profilo Marvel</small><strong>Scopri il personaggio</strong></span>
+        <span class="characterProfileSummaryFacts">
+          <span><small>Identità</small><b>${esc(profile.realName)}</b></span>
+          <span><small>Universo</small><b>${esc(profile.universe)}</b></span>
+        </span>
+        <span class="characterProfileToggle" aria-hidden="true"></span>
+      </summary>
+      <div class="characterProfileBody">
+        <section class="characterBiography" aria-labelledby="characterBioTitle">
+          <small>Biografia essenziale</small>
+          <h2 id="characterBioTitle">Chi è ${esc(currentMeta.name)}</h2>
+          <p>${esc(profile.bio)}</p>
+        </section>
+        <dl class="characterDossier">
+          <div><dt>Prima apparizione</dt><dd>${esc(profile.debut)}</dd></div>
+          <div><dt>Creatori</dt><dd>${esc(profile.creators)}</dd></div>
+          <div><dt>Alias principali</dt><dd>${esc(profile.aliases.join(" · "))}</dd></div>
+          <div><dt>Universo</dt><dd>${esc(profile.universe)}</dd></div>
+        </dl>
+        <div class="characterProfileTags">
+          <section><small>Poteri e abilità</small><div>${tags(profile.abilities,"characterAbility")}</div></section>
+          <section><small>Affiliazioni principali</small><div>${tags(profile.affiliations,"characterAffiliation")}</div></section>
+        </div>
+        <p class="characterProfileNote">Profilo editoriale introduttivo, separato dall'ordine di lettura e privo di anticipazioni decisive.</p>
+      </div>
+    </details>`;
+}
 function renderHero(){
   document.documentElement.style.setProperty("--accent",currentCharacter.accent||currentMeta.accent);
   els.logoSub.textContent=currentCharacter.subtitle||currentMeta.subtitle;
@@ -386,6 +428,7 @@ function renderHero(){
   els.topTitle.textContent=`${currentCharacter.name} Reading System`;
   els.topSub.textContent=`${currentCharacter.start} → ${currentCharacter.end}`;
   els.footerNote.innerHTML=`<b>${esc(currentCharacter.name)}</b><br>${esc(currentCharacter.start)}<br>→ ${esc(currentCharacter.end)}`;
+  renderCharacterProfile();
 }
 function renderNext(){const i=nextIssue();if(!i){els.nextPanel.innerHTML=`<div class="nextMeta" style="grid-column:1/-1"><div class="label">Percorso completato</div><h2>Sei in pari con ${esc(currentCharacter.name)}.</h2><p>${esc(currentCharacter.end)}</p></div>`;return}const st=status(i.id);els.nextPanel.innerHTML=`<div class="nextCover"><div class="fallback">${esc(i.name)}</div>${coverImg(i,false)}</div><div class="nextMeta"><div class="label">Leggi adesso · ${i.seq}/${currentCharacter.totalRequired}</div><h2>${esc(i.name)}</h2><p>${esc(i.date)} · ${esc(i.era)}<br>${esc(i.title)}</p><div class="nextBtns"><button type="button" class="btn formatPhysical ${st.physical?"primary":""}" id="nextPhysical">${icon(st.physical?"check":"archive")}<span>Fisico</span></button><button type="button" class="btn formatDigital ${st.digital?"primary":""}" id="nextDigital">${icon(st.digital?"check":"cloud")}<span>Digitale</span></button><button type="button" class="btn done" id="nextRead">${icon(st.read?"check":"book")}<span>${st.read?"Letto":"Segna letto"}</span></button><button type="button" class="btn" id="nextJump"><span>Mostra</span>${icon("arrow")}</button></div></div>`;$("nextPhysical").onclick=()=>setStatus(i.id,{physical:!st.physical});$("nextDigital").onclick=()=>setStatus(i.id,{digital:!st.digital});$("nextRead").onclick=()=>setStatus(i.id,{read:!st.read});$("nextJump").onclick=()=>jumpToIssue(i)}
 function renderRoute(){

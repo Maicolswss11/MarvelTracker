@@ -49,6 +49,67 @@ body.compact .cover{display:none}body.compact .issue{grid-template-columns:54px 
   .heroPathVisual{width:72px;border-radius:14px}
   #trackerView .heroPanel h1{font-size:26px}
 }
+
+/* Character dossier — compact by default, editorial detail on demand. */
+#trackerView .hero{align-items:start}
+.characterProfileSlot{position:relative;z-index:2;grid-column:1/-1;align-self:stretch;min-width:0}
+.characterProfile{border:1px solid color-mix(in srgb,var(--accent) 26%,#2b3948);border-radius:16px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 5%,#0a1118),rgba(6,11,16,.82));overflow:hidden}
+.characterProfile>summary{min-height:68px;padding:13px 15px;display:grid;grid-template-columns:minmax(145px,.72fr) minmax(240px,1.28fr) 38px;gap:16px;align-items:center;list-style:none;cursor:pointer;user-select:none;transition:background .2s ease}
+.characterProfile>summary::-webkit-details-marker{display:none}
+.characterProfile>summary:hover{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.characterProfile>summary:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.characterProfileSummaryTitle{display:grid;gap:4px;min-width:0}
+.characterProfileSummaryTitle small,.characterBiography>small,.characterProfileTags section>small{color:var(--accent);font-size:7px;font-weight:950;letter-spacing:.13em;text-transform:uppercase}
+.characterProfileSummaryTitle strong{font-size:12px;line-height:1.2}
+.characterProfileSummaryFacts{min-width:0;display:grid;grid-template-columns:1fr .72fr;gap:8px}
+.characterProfileSummaryFacts>span{min-width:0;padding-left:12px;border-left:1px solid color-mix(in srgb,var(--accent) 30%,#263443);display:grid;gap:3px}
+.characterProfileSummaryFacts small{color:#6f8091;font-size:7px;font-weight:850;text-transform:uppercase;letter-spacing:.08em}
+.characterProfileSummaryFacts b{overflow:hidden;color:#dbe5ed;font-size:9px;line-height:1.25;text-overflow:ellipsis;white-space:nowrap}
+.characterProfileToggle{position:relative;width:34px;height:34px;border:1px solid color-mix(in srgb,var(--accent) 42%,#304052);border-radius:10px;background:color-mix(in srgb,var(--accent) 8%,#0c141d);transition:transform .25s ease,background .2s ease}
+.characterProfileToggle::before,.characterProfileToggle::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;border-radius:3px;background:var(--accent);transform:translate(-50%,-50%);transition:transform .25s ease}
+.characterProfileToggle::after{transform:translate(-50%,-50%) rotate(90deg)}
+.characterProfile[open] .characterProfileToggle{background:color-mix(in srgb,var(--accent) 15%,#0c141d);transform:rotate(180deg)}
+.characterProfile[open] .characterProfileToggle::after{transform:translate(-50%,-50%) rotate(0)}
+.characterProfileBody{padding:23px;border-top:1px solid color-mix(in srgb,var(--accent) 22%,#263443);display:grid;grid-template-columns:minmax(0,1.18fr) minmax(245px,.82fr);gap:21px;background:linear-gradient(145deg,rgba(10,17,24,.84),rgba(5,9,13,.92))}
+.characterBiography{min-width:0}
+.characterBiography h2{margin:7px 0 11px;font-size:22px;line-height:1.05;letter-spacing:-.025em}
+#trackerView .characterBiography p{max-width:780px;margin:0;color:#aab7c3;font-size:11px;line-height:1.72}
+.characterDossier{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start}
+.characterDossier>div{min-width:0;padding:11px;border:1px solid #253343;border-radius:11px;background:rgba(10,17,24,.75)}
+.characterDossier dt{margin:0 0 5px;color:#708193;font-size:7px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.characterDossier dd{margin:0;color:#d7e1e9;font-size:8.5px;line-height:1.45;font-weight:750}
+.characterProfileTags{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-top:2px}
+.characterProfileTags section{min-width:0}
+.characterProfileTags section>div{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.characterProfileTags section span{padding:6px 8px;border:1px solid #2b3a4b;border-radius:999px;background:#0c141d;color:#aebbc7;font-size:7.5px;font-weight:800;line-height:1}
+.characterProfileTags section .characterAbility{border-color:color-mix(in srgb,var(--accent) 32%,#2b3a4b);color:color-mix(in srgb,var(--accent) 64%,#fff)}
+#trackerView .characterProfileNote{grid-column:1/-1;margin:0;padding-top:12px;border-top:1px solid #202d3a;color:#647587;font-size:7.5px;line-height:1.45}
+
+@media(max-width:720px){
+  .characterProfileSlot{margin-top:1px}
+  .characterProfile{border-radius:14px}
+  .characterProfile>summary{min-height:76px;padding:11px 12px;grid-template-columns:minmax(0,1fr) 34px;gap:8px 10px}
+  .characterProfileSummaryTitle{gap:3px}
+  .characterProfileSummaryTitle strong{font-size:10.5px}
+  .characterProfileSummaryFacts{grid-column:1/-1;grid-row:2;grid-template-columns:minmax(0,1fr) auto;gap:10px}
+  .characterProfileSummaryFacts>span{padding-left:9px}
+  .characterProfileSummaryFacts b{font-size:8px}
+  .characterProfileToggle{grid-column:2;grid-row:1;width:32px;height:32px}
+  .characterProfileBody{padding:16px 13px;grid-template-columns:1fr;gap:17px}
+  .characterBiography h2{font-size:19px}
+  #trackerView .characterBiography p{font-size:9.5px;line-height:1.68}
+  .characterDossier{grid-template-columns:1fr 1fr;gap:7px}
+  .characterDossier>div{padding:9px}
+  .characterDossier dd{font-size:7.8px}
+  .characterProfileTags{grid-column:1;grid-template-columns:1fr;gap:14px}
+  .characterProfileTags section span{padding:6px 7px;font-size:7px}
+  #trackerView .characterProfileNote{grid-column:1;font-size:7px}
+}
+
+@media(max-width:390px){
+  .characterProfileSummaryFacts{grid-template-columns:minmax(0,1fr) minmax(82px,.58fr)}
+  .characterDossier{grid-template-columns:1fr}
+}
 .filterLabel{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#718196;font-weight:900;margin:0 2px}.filterDivider{width:1px;height:26px;background:var(--line);margin:0 3px}.eraName{color:var(--cyan);font-size:10px}.issueBadges{min-height:0;margin-bottom:5px}.chronologyBadge{display:inline-flex;align-items:center;padding:4px 7px;border:1px solid color-mix(in srgb,var(--accent) 70%,var(--line));border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,#0b1118);color:var(--accent);font-size:8px;line-height:1;text-transform:uppercase;letter-spacing:.09em;font-weight:950}.issue.chronologyInsert{border-color:color-mix(in srgb,var(--accent) 65%,var(--line));background:linear-gradient(105deg,color-mix(in srgb,var(--accent) 8%,#101821),#0d141c 38%,#0b1118);box-shadow:inset 4px 0 0 var(--accent),0 14px 34px rgba(0,0,0,.16)}.issue.chronologyInsert:hover{border-color:var(--accent)}.issue.chronologyInsert .narrativeNum b{color:var(--accent)}
 .narrativeNum{display:flex;min-width:0;flex-direction:column;align-items:flex-start;justify-content:center;line-height:1}.narrativeNum>span{color:#718196;font-size:8px;font-weight:950;letter-spacing:.13em;text-transform:uppercase}.narrativeNum>b{display:block;margin-top:6px;color:var(--text);font-size:24px;font-weight:900;letter-spacing:-.04em}.narrativeNum>small{display:block;margin-top:8px;max-width:92px;color:#8696a6;font-size:8px;line-height:1.3;font-weight:750}
 @media(min-width:1121px){

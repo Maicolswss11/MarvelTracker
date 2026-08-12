@@ -1,0 +1,585 @@
+{
+  "version": 1,
+  "profiles": {
+    "ironman": {
+      "realName": "Anthony Edward Stark",
+      "aliases": ["Iron Man", "Golden Avenger"],
+      "universe": "Terra-616",
+      "debut": "Tales of Suspense #39 (1963)",
+      "creators": "Stan Lee, Larry Lieber, Don Heck e Jack Kirby",
+      "affiliations": ["Vendicatori", "Illuminati", "Stark Industries"],
+      "abilities": ["Genio scientifico", "Armature potenziate", "Volo e sistemi energetici", "Strategia"],
+      "bio": "Tony Stark è un inventore e industriale la cui vita cambia quando, gravemente ferito e tenuto prigioniero, costruisce insieme a Ho Yinsen una prima armatura per sopravvivere e fuggire. Da quella necessità nasce Iron Man. Fondatore dei Vendicatori, Tony trasforma continuamente la propria tecnologia, ma il cuore del personaggio resta il conflitto fra controllo e responsabilità: la stessa intelligenza che può salvare il mondo può anche spingerlo a credere di poter decidere per tutti."
+    },
+    "war-machine": {
+      "realName": "James Rupert Rhodes",
+      "aliases": ["War Machine", "Rhodey", "Iron Patriot"],
+      "universe": "Terra-616",
+      "debut": "Iron Man #118 (1979); War Machine in Iron Man #282 (1992)",
+      "creators": "David Michelinie, John Byrne e Bob Layton",
+      "affiliations": ["Vendicatori", "Forze Armate USA", "Stark Industries"],
+      "abilities": ["Pilota militare", "Armatura da combattimento", "Armi pesanti", "Tattica operativa"],
+      "bio": "James Rhodes è un pilota e veterano che diventa uno degli amici più fidati di Tony Stark. Quando Tony non è in grado di agire, Rhodey indossa l'armatura di Iron Man e dimostra di essere molto più di un sostituto. Come War Machine adotta un equipaggiamento più pesante e un approccio pragmatico, combinando disciplina militare e coscienza personale. Il suo percorso ruota attorno all'indipendenza: essere alleato di Stark senza vivere nella sua ombra."
+    },
+    "thor": {
+      "realName": "Thor Odinson",
+      "aliases": ["Dio del Tuono", "Odinson"],
+      "universe": "Terra-616 / Asgard",
+      "debut": "Journey into Mystery #83 (1962)",
+      "creators": "Stan Lee, Larry Lieber e Jack Kirby",
+      "affiliations": ["Vendicatori", "Asgardiani", "Thor Corps"],
+      "abilities": ["Forza divina", "Controllo di fulmini e tempeste", "Volo tramite Mjolnir", "Longevità asgardiana"],
+      "bio": "Figlio di Odino e legato alla Terra fin dalla nascita, Thor è il guerriero di Asgard incaricato di imparare l'umiltà vivendo fra gli esseri umani. Mjolnir non è soltanto un'arma: giudica la dignità di chi lo impugna e rende il potere inseparabile dal carattere. Tra troni, profezie e battaglie cosmiche, Thor rimane un protettore di Midgard e uno dei fondatori dei Vendicatori, diviso fra il dovere verso il proprio regno e l'affetto per il mondo mortale."
+    },
+    "hercules": {
+      "realName": "Eracle",
+      "aliases": ["Hercules", "Principe della Forza"],
+      "universe": "Terra-616 / Olimpo",
+      "debut": "Journey into Mystery Annual #1 (1965)",
+      "creators": "Stan Lee e Jack Kirby",
+      "affiliations": ["Vendicatori", "Campioni", "God Squad"],
+      "abilities": ["Forza olimpica", "Resistenza sovrumana", "Combattimento millenario", "Immortalità"],
+      "bio": "Eroe dell'antica Grecia e figlio di Zeus, Hercules porta nel presente secoli di imprese, errori e leggende. Ama la battaglia, il vino e il racconto delle proprie vittorie, ma dietro l'esuberanza possiede una lealtà incrollabile. Amico e rivale di Thor, ha trovato nei Vendicatori una nuova compagnia di eroi. Le sue storie giocano spesso sul contrasto fra il mito celebrato da tutti e la persona che deve convivere con il peso reale di quelle imprese."
+    },
+    "cap": {
+      "realName": "Steve Rogers / Sam Wilson",
+      "aliases": ["Capitan America", "Nomad", "Falcon"],
+      "universe": "Terra-616",
+      "debut": "Captain America Comics #1 (1941); Sam assume il mantello in Captain America #25 (2014)",
+      "creators": "Joe Simon e Jack Kirby; mantello di Sam sviluppato da Rick Remender e Stuart Immonen",
+      "affiliations": ["Vendicatori", "S.H.I.E.L.D.", "Invaders"],
+      "abilities": ["Condizione fisica potenziata", "Maestria con lo scudo", "Leadership", "Tattica"],
+      "bio": "Steve Rogers accetta il siero del supersoldato per combattere il fascismo e diventa il simbolo vivente di un ideale, non dell'obbedienza cieca a un governo. Risvegliato nel presente, guida i Vendicatori cercando di rendere il proprio paese all'altezza dei valori che rappresenta. Sam Wilson, suo storico alleato, eredita lo scudo e ridefinisce quel simbolo attraverso una diversa esperienza dell'America. Il mantello unisce così due uomini, due epoche e la stessa responsabilità morale."
+    },
+    "falcon": {
+      "realName": "Samuel Thomas Wilson",
+      "aliases": ["Falcon", "Capitan America"],
+      "universe": "Terra-616",
+      "debut": "Captain America #117 (1969)",
+      "creators": "Stan Lee e Gene Colan",
+      "affiliations": ["Vendicatori", "S.H.I.E.L.D.", "Eroi in Vendita"],
+      "abilities": ["Volo alare", "Addestramento da combattimento", "Legame con Redwing", "Leadership"],
+      "bio": "Sam Wilson nasce come assistente sociale e difensore della propria comunità prima ancora di diventare un supereroe. L'incontro con Steve Rogers lo porta a combattere come Falcon, usando ali tecnologiche e il legame speciale con Redwing. Da partner di Capitan America diventa un Vendicatore e infine dimostra di poter portare personalmente lo scudo. La sua forza narrativa sta nel coniugare l'eroismo globale con l'attenzione concreta alle persone che le grandi battaglie rischiano di dimenticare."
+    },
+    "winter-soldier": {
+      "realName": "James Buchanan Barnes",
+      "aliases": ["Bucky", "Winter Soldier", "Capitan America"],
+      "universe": "Terra-616",
+      "debut": "Captain America Comics #1 (1941); Winter Soldier in Captain America #1 (2005)",
+      "creators": "Joe Simon e Jack Kirby; identità moderna di Ed Brubaker e Steve Epting",
+      "affiliations": ["Invaders", "Vendicatori", "S.H.I.E.L.D."],
+      "abilities": ["Spionaggio", "Tiro scelto", "Braccio cibernetico", "Combattimento ravvicinato"],
+      "bio": "Bucky Barnes combatte accanto a Capitan America durante la Seconda guerra mondiale e viene creduto morto nell'ultima missione. Recuperato e manipolato dall'Unione Sovietica, diventa il Winter Soldier, assassino mantenuto in stasi fra un incarico e l'altro. Il ritorno dei suoi ricordi apre un lungo percorso di riappropriazione dell'identità. Bucky non può cancellare ciò che gli è stato fatto compiere, ma sceglie di usare le proprie capacità per proteggere gli altri e costruire una vita oltre il senso di colpa."
+    },
+    "hulk": {
+      "realName": "Robert Bruce Banner",
+      "aliases": ["Hulk", "Jade Giant"],
+      "universe": "Terra-616",
+      "debut": "The Incredible Hulk #1 (1962)",
+      "creators": "Stan Lee e Jack Kirby",
+      "affiliations": ["Vendicatori", "Difensori", "Warbound"],
+      "abilities": ["Forza crescente con la rabbia", "Rigenerazione", "Resistenza estrema", "Intelletto scientifico di Banner"],
+      "bio": "Lo scienziato Bruce Banner viene investito dalle radiazioni gamma durante il collaudo di una bomba e da allora condivide il corpo con Hulk. Non si tratta semplicemente di un uomo che diventa un mostro: nel tempo emergono diverse personalità, ognuna legata a traumi e bisogni repressi di Bruce. Braccato come una minaccia e cercato come un'arma, Hulk oscilla fra distruzione e desiderio di pace. La sua forza aumenta con la rabbia, ma la vera battaglia riguarda l'accettazione di tutte le parti di sé."
+    },
+    "daredevil": {
+      "realName": "Matthew Michael Murdock",
+      "aliases": ["Daredevil", "Devil di Hell's Kitchen"],
+      "universe": "Terra-616",
+      "debut": "Daredevil #1 (1964)",
+      "creators": "Stan Lee, Bill Everett e Jack Kirby",
+      "affiliations": ["Difensori", "Avvocati Nelson & Murdock", "The Chaste"],
+      "abilities": ["Sensi ipersviluppati", "Senso radar", "Acrobazia", "Arte marziale e billy club"],
+      "bio": "Un incidente con materiale radioattivo priva Matt Murdock della vista ma amplifica tutti gli altri sensi, generando un preciso senso radar. Avvocato di giorno e vigilante di notte, difende Hell's Kitchen muovendosi continuamente fra legge, fede cattolica e violenza. Addestrato da Stick, possiede una disciplina eccezionale, ma è la sua ostinazione a definirlo davvero. Daredevil cade spesso, fisicamente e moralmente, e continua comunque a rialzarsi."
+    },
+    "elektra": {
+      "realName": "Elektra Natchios",
+      "aliases": ["Elektra", "Daredevil"],
+      "universe": "Terra-616",
+      "debut": "Daredevil #168 (1981)",
+      "creators": "Frank Miller",
+      "affiliations": ["La Mano", "The Chaste", "Thunderbolts"],
+      "abilities": ["Arti marziali", "Maestria con i sai", "Furtività", "Controllo mentale limitato"],
+      "bio": "Elektra Natchios incontra Matt Murdock quando entrambi sono giovani e prima che il trauma la indirizzi verso una vita di addestramento e assassinio. Passa dagli insegnamenti di Stick all'influenza della Mano, diventando una delle combattenti più letali del mondo. Il rapporto con Matt rappresenta la possibilità di una vita diversa, ma Elektra rifiuta di essere definita soltanto da lui. Antieroina imprevedibile, cerca una propria forma di giustizia senza fingere che le sue mani siano pulite."
+    },
+    "spiderman": {
+      "realName": "Peter Benjamin Parker",
+      "aliases": ["Spider-Man", "Friendly Neighborhood Spider-Man"],
+      "universe": "Terra-616",
+      "debut": "Amazing Fantasy #15 (1962)",
+      "creators": "Stan Lee e Steve Ditko",
+      "affiliations": ["Vendicatori", "Fondazione Futuro", "Daily Bugle"],
+      "abilities": ["Forza e agilità proporzionali a un ragno", "Senso di ragno", "Arrampicata", "Ragnatele artificiali"],
+      "bio": "Morso da un ragno irradiato, Peter Parker usa inizialmente i propri poteri per guadagno personale. La morte dello zio Ben, che avrebbe potuto impedire, gli insegna che da un grande potere deriva una grande responsabilità. Da allora protegge New York conciliando eroismo, studio, lavoro e affetti con risultati spesso disastrosi. La sua grandezza non nasce dall'assenza di errori, ma dalla decisione quotidiana di fare la cosa giusta anche quando gli costa tutto."
+    },
+    "venom": {
+      "realName": "Eddie Brock / Flash Thompson / Dylan Brock",
+      "aliases": ["Venom", "Agent Venom", "Lethal Protector"],
+      "universe": "Terra-616",
+      "debut": "The Amazing Spider-Man #300 (1988)",
+      "creators": "David Michelinie e Todd McFarlane",
+      "affiliations": ["Protettori Letali", "Guardiani della Galassia", "Agenti del Cosmo"],
+      "abilities": ["Simbiosi Klyntar", "Forza e rigenerazione", "Mimetismo", "Ragnatele organiche"],
+      "bio": "Venom nasce dall'unione fra un simbionte alieno respinto da Spider-Man ed Eddie Brock, giornalista convinto che Peter Parker abbia distrutto la sua vita. La loro vendetta evolve però in un codice da protettore letale: brutale, ma rivolto soprattutto contro chi minaccia gli innocenti. Il simbionte passa anche a Flash Thompson e Dylan Brock, cambiando insieme ai propri ospiti. Venom è quindi meno un singolo individuo che una relazione vivente, capace di amplificare rabbia, affetto e bisogno di appartenenza."
+    },
+    "black-cat": {
+      "realName": "Felicia Hardy",
+      "aliases": ["Black Cat", "Gatta Nera"],
+      "universe": "Terra-616",
+      "debut": "The Amazing Spider-Man #194 (1979)",
+      "creators": "Marv Wolfman e Keith Pollard",
+      "affiliations": ["Heroes for Hire", "Defenders", "Gilda dei Ladri"],
+      "abilities": ["Acrobazia", "Furto e infiltrazione", "Tecnologia da ladra", "Manipolazione della probabilità variabile"],
+      "bio": "Figlia del celebre ladro Walter Hardy, Felicia sceglie di superarne la reputazione diventando Black Cat. È una criminale elegante, un'alleata inaffidabile e uno dei legami più intensi di Spider-Man. Per molto tempo ama soprattutto l'eroe mascherato, mentre fatica ad accettare la normalità di Peter Parker; crescendo, costruisce un'identità più autonoma. La sua morale resta flessibile, ma dietro il gusto per il rischio esiste una sincera volontà di proteggere chi considera parte del proprio mondo."
+    },
+    "cyclops": {
+      "realName": "Scott Summers",
+      "aliases": ["Cyclops", "Slim"],
+      "universe": "Terra-616",
+      "debut": "X-Men #1 (1963)",
+      "creators": "Stan Lee e Jack Kirby",
+      "affiliations": ["X-Men", "X-Factor", "Campioni"],
+      "abilities": ["Raggi ottici concussivi", "Geometria di rimbalzo", "Leadership tattica", "Combattimento"],
+      "bio": "Scott Summers perde il controllo naturale dei propri raggi ottici dopo un trauma infantile e può contenerli solo grazie a lenti di quarzo rubino. Charles Xavier lo accoglie come primo X-Man e gli affida presto il comando della squadra. Riservato e disciplinato, Scott trasforma la paura di perdere il controllo in preparazione ossessiva. È uno stratega eccezionale e una figura spesso controversa: il peso di proteggere il popolo mutante lo costringe continuamente a scegliere fra l'ideale di Xavier e ciò che ritiene necessario per sopravvivere."
+    },
+    "jean-grey": {
+      "realName": "Jean Elaine Grey",
+      "aliases": ["Marvel Girl", "Phoenix"],
+      "universe": "Terra-616",
+      "debut": "X-Men #1 (1963)",
+      "creators": "Stan Lee e Jack Kirby",
+      "affiliations": ["X-Men", "X-Factor", "Quiet Council"],
+      "abilities": ["Telepatia omega", "Telecinesi", "Proiezione astrale", "Legame con la Forza Fenice"],
+      "bio": "Jean Grey manifesta la telepatia da bambina dopo aver percepito la morte di un'amica e viene aiutata da Charles Xavier a controllare quel trauma. Come Marvel Girl è fra i primi X-Men; come Phoenix entra in contatto con una forza cosmica di creazione e distruzione. Jean è potentissima, ma il suo ruolo non si riduce alla potenza: rappresenta empatia, volontà e capacità di ricominciare. Le sue storie interrogano il confine fra identità individuale e immensità del potere che la attraversa."
+    },
+    "storm": {
+      "realName": "Ororo Munroe",
+      "aliases": ["Storm", "Tempesta"],
+      "universe": "Terra-616",
+      "debut": "Giant-Size X-Men #1 (1975)",
+      "creators": "Len Wein e Dave Cockrum",
+      "affiliations": ["X-Men", "Vendicatori", "Wakanda"],
+      "abilities": ["Controllo atmosferico omega", "Volo", "Percezione climatica", "Leadership"],
+      "bio": "Figlia di una principessa kenyota e di un fotografo americano, Ororo rimane orfana al Cairo e sopravvive come ladra prima di essere venerata come dea della pioggia in Africa. Xavier la recluta negli X-Men, dove diventa una delle leader più autorevoli della storia mutante. Storm governa elementi capaci di devastare continenti, ma deve mantenere un controllo emotivo assoluto. Regina, guerriera e mediatrice, difende la libertà senza accettare che alcuna identità — mutante, africana o divina — esaurisca ciò che è."
+    },
+    "rogue": {
+      "realName": "Anna Marie",
+      "aliases": ["Rogue"],
+      "universe": "Terra-616",
+      "debut": "Avengers Annual #10 (1981)",
+      "creators": "Chris Claremont e Michael Golden",
+      "affiliations": ["X-Men", "Brotherhood of Evil Mutants", "Uncanny Avengers"],
+      "abilities": ["Assorbimento di ricordi e poteri", "Forza sovrumana", "Volo", "Resistenza"],
+      "bio": "Anna Marie cresce sotto l'influenza di Mystica e Destiny e debutta come avversaria degli eroi. Il suo tocco assorbe ricordi, personalità e poteri, rendendo pericolosa qualsiasi intimità. Dopo aver trattenuto troppo a lungo le capacità di Carol Danvers, cerca aiuto presso gli X-Men e sceglie una strada diversa. Rogue diventa una combattente e leader formidabile, ma il suo viaggio più importante riguarda fiducia e contatto: imparare che non è condannata a ferire ogni persona che ama."
+    },
+    "gambit": {
+      "realName": "Remy Étienne LeBeau",
+      "aliases": ["Gambit", "Le Diable Blanc"],
+      "universe": "Terra-616",
+      "debut": "Uncanny X-Men Annual #14 / Uncanny X-Men #266 (1990)",
+      "creators": "Chris Claremont e Jim Lee",
+      "affiliations": ["X-Men", "Gilda dei Ladri", "Marauders"],
+      "abilities": ["Carica cinetica degli oggetti", "Agilità", "Combattimento col bastone", "Furto e seduzione"],
+      "bio": "Abbandonato alla nascita e cresciuto dalla Gilda dei Ladri di New Orleans, Remy LeBeau impara presto a usare fascino e segreti come armi. Può caricare oggetti di energia cinetica, trasformando le carte da gioco in proiettili esplosivi. Entra negli X-Men portando con sé un passato che teme di rivelare e trova in Rogue un legame capace di metterlo davvero alla prova. Gambit vive sul confine fra truffatore e uomo d'onore, sempre intento a dimostrare che le scelte presenti contano più delle colpe passate."
+    },
+    "wolverine-616": {
+      "realName": "James Howlett",
+      "aliases": ["Logan", "Wolverine", "Weapon X"],
+      "universe": "Terra-616",
+      "debut": "The Incredible Hulk #180–181 (1974)",
+      "creators": "Len Wein, John Romita Sr. e Herb Trimpe",
+      "affiliations": ["X-Men", "Vendicatori", "Alpha Flight"],
+      "abilities": ["Fattore rigenerante", "Sensi animali", "Artigli e scheletro in adamantio", "Combattimento esperto"],
+      "bio": "James Howlett, conosciuto soprattutto come Logan, è un mutante canadese dalla vita eccezionalmente lunga. Il fattore rigenerante e gli artigli ossei lo rendono quasi impossibile da uccidere; il programma Weapon X cancella parte dei suoi ricordi e riveste il suo scheletro di adamantio. Dietro la ferocia esiste però un uomo guidato da un severo codice personale, influenzato anche dalla cultura samurai. Negli X-Men trova una famiglia e il difficile compito di insegnare ai più giovani a non diventare l'arma che altri volevano fare di lui."
+    },
+    "deadpool": {
+      "realName": "Wade Wilson",
+      "aliases": ["Deadpool", "Mercenario Chiacchierone"],
+      "universe": "Terra-616",
+      "debut": "The New Mutants #98 (1991)",
+      "creators": "Fabian Nicieza e Rob Liefeld",
+      "affiliations": ["X-Force", "Avengers Unity Division", "Mercs for Money"],
+      "abilities": ["Fattore rigenerante", "Armi da fuoco e lame", "Imprevedibilità", "Consapevolezza metanarrativa"],
+      "bio": "Wade Wilson è un mercenario malato di cancro che si sottopone a esperimenti legati a Weapon X. Il fattore rigenerante gli salva la vita ma lascia corpo e mente profondamente segnati. Deadpool affronta violenza, trauma e solitudine attraverso un flusso continuo di battute e una singolare consapevolezza di trovarsi dentro una storia a fumetti. Sotto il caos cerca ostinatamente approvazione e affetto. Può comportarsi da assassino o da eroe, spesso nella stessa giornata, ma non smette di desiderare una possibilità di redenzione."
+    },
+    "cable": {
+      "realName": "Nathan Christopher Charles Summers",
+      "aliases": ["Cable", "Nathan Dayspring"],
+      "universe": "Terra-616 / futuri alternativi",
+      "debut": "The New Mutants #87 (1990)",
+      "creators": "Louise Simonson e Rob Liefeld",
+      "affiliations": ["X-Force", "X-Men", "Askani"],
+      "abilities": ["Telepatia", "Telecinesi", "Tecnologia futuristica", "Strategia militare"],
+      "bio": "Nathan Summers è il figlio di Cyclops e Madelyne Pryor. Infettato da un virus tecnorganico, viene inviato nel futuro affinché possa sopravvivere e cresce in una guerra contro Apocalypse. Tornato nel presente come Cable, trasforma i Nuovi Mutanti nella più militante X-Force e cerca di impedire il futuro dal quale proviene. Gran parte dei suoi enormi poteri psichici serve a contenere l'infezione, mentre l'esperienza di soldato lo rende disposto a prendere decisioni che gli X-Men tradizionali eviterebbero."
+    },
+    "magik": {
+      "realName": "Illyana Nikolievna Rasputina",
+      "aliases": ["Magik", "Regina del Limbo"],
+      "universe": "Terra-616 / Limbo",
+      "debut": "Giant-Size X-Men #1 (1975); Magik in The New Mutants #14 (1984)",
+      "creators": "Len Wein e Dave Cockrum; sviluppata da Chris Claremont",
+      "affiliations": ["Nuovi Mutanti", "X-Men", "Quiet Council"],
+      "abilities": ["Teletrasporto con dischi temporali", "Stregoneria", "Soulsword", "Armatura mistica"],
+      "bio": "Illyana Rasputin, sorella minore di Colosso, viene rapita nel Limbo e vi trascorre anni mentre sulla Terra passano pochi istanti. Addestrata nella magia e costretta a sopravvivere al dominio di Belasco, forgia la Soulsword e conquista il regno che l'ha traumatizzata. Tornata fra i Nuovi Mutanti, Illyana combina sarcasmo, affetto e una durezza maturata troppo presto. Magik vive fra due mondi e teme costantemente che il potere demoniaco necessario a proteggerli possa consumare la sua umanità."
+    },
+    "antman": {
+      "realName": "Henry Jonathan Pym / Scott Edward Harris Lang",
+      "aliases": ["Ant-Man", "Giant-Man", "Goliath"],
+      "universe": "Terra-616",
+      "debut": "Tales to Astonish #27 e #35 (1962); Scott Lang in Marvel Premiere #47 (1979)",
+      "creators": "Stan Lee, Larry Lieber e Jack Kirby; Scott Lang di David Michelinie e John Byrne",
+      "affiliations": ["Vendicatori", "Fondazione Futuro", "Ant-Man Security Solutions"],
+      "abilities": ["Particelle Pym", "Variazione di dimensioni", "Comunicazione con insetti", "Ingegneria"],
+      "bio": "Hank Pym scopre particelle capaci di alterare massa e dimensioni e diventa il primo Ant-Man, oltre che uno dei fondatori dei Vendicatori. Il suo genio produce meraviglie e conseguenze che segnano profondamente la sua vita. Scott Lang, tecnico e ladro per necessità, ruba l'equipaggiamento per salvare la figlia Cassie e ottiene da Hank la possibilità di riscattarsi come secondo Ant-Man. Il mantello unisce così l'inventore tormentato e il padre imperfetto che prova sempre a meritare una seconda occasione."
+    },
+    "wasp": {
+      "realName": "Janet van Dyne / Nadia van Dyne",
+      "aliases": ["Wasp", "Vespa"],
+      "universe": "Terra-616",
+      "debut": "Tales to Astonish #44 (1963); Nadia in All-New, All-Different Avengers #9 (2016)",
+      "creators": "Stan Lee, Ernie Hart e Jack Kirby; Nadia sviluppata da Mark Waid",
+      "affiliations": ["Vendicatori", "Unstoppable Wasps", "G.I.R.L."],
+      "abilities": ["Riduzione dimensionale", "Volo", "Scariche bioelettriche", "Genio scientifico"],
+      "bio": "Janet van Dyne ottiene da Hank Pym la capacità di ridursi, volare e lanciare scariche bioelettriche. Dietro l'immagine mondana diventa una fondatrice, finanziatrice e fra le leader più efficaci dei Vendicatori. Nadia, figlia di Hank cresciuta nella Red Room, evade grazie alla propria intelligenza e adotta il cognome di Janet, trovando in lei una famiglia scelta. Le due Wasp rappresentano generazioni diverse ma condividono curiosità, resilienza e la capacità di creare comunità dove prima esistevano soltanto controllo e isolamento."
+    },
+    "scarletwitch": {
+      "realName": "Wanda Maximoff",
+      "aliases": ["Scarlet Witch", "Wanda"],
+      "universe": "Terra-616",
+      "debut": "X-Men #4 (1964)",
+      "creators": "Stan Lee e Jack Kirby",
+      "affiliations": ["Vendicatori", "Brotherhood of Evil Mutants", "Midnight Suns"],
+      "abilities": ["Magia del caos", "Incantesimi", "Alterazione della probabilità", "Manipolazione della realtà"],
+      "bio": "Wanda Maximoff cresce in Transia accanto al gemello Pietro e compare inizialmente nella Confraternita dei Mutanti, più per debito e paura che per convinzione. Nei Vendicatori trova una casa e sviluppa i propri poteri da semplici dardi probabilistici a una profonda padronanza della magia del caos. Origini e legami familiari vengono più volte messi in discussione, ma Wanda continua a ricostruire la propria identità. È una strega dal potere immenso che lotta perché il dolore non decida quale realtà meriti di esistere."
+    },
+    "quicksilver": {
+      "realName": "Pietro Maximoff",
+      "aliases": ["Quicksilver", "Pietro"],
+      "universe": "Terra-616",
+      "debut": "X-Men #4 (1964)",
+      "creators": "Stan Lee e Jack Kirby",
+      "affiliations": ["Vendicatori", "Brotherhood of Evil Mutants", "X-Factor"],
+      "abilities": ["Velocità sovrumana", "Riflessi accelerati", "Metabolismo rapido", "Combattimento ad alta velocità"],
+      "bio": "Pietro Maximoff percepisce il mondo come se tutti gli altri si muovessero troppo lentamente. Questa esperienza alimenta impazienza e arroganza, ma anche un istinto feroce nel proteggere la sorella Wanda. Dopo gli inizi nella Confraternita entra nei Vendicatori e costruisce legami con mutanti, umani e Inumani senza sentirsi mai completamente a casa. Quicksilver è un uomo sempre in movimento che fatica a lasciare indietro risentimenti e paure, anche quando potrebbe attraversare un continente in pochi minuti."
+    },
+    "vision": {
+      "realName": "Vision",
+      "aliases": ["Visione"],
+      "universe": "Terra-616",
+      "debut": "The Avengers #57 (1968)",
+      "creators": "Roy Thomas e John Buscema",
+      "affiliations": ["Vendicatori", "Avengers A.I.", "Famiglia Vision"],
+      "abilities": ["Controllo della densità", "Volo", "Raggi solari", "Elaborazione sintetica"],
+      "bio": "Ultron crea Visione per usarlo contro i Vendicatori, combinando un corpo sintetico con schemi cerebrali umani. Visione rifiuta il proprio creatore e si unisce alla squadra, scegliendo di definire da sé cosa significhi essere vivo. Può diventare intangibile o duro come il diamante, ma le sue storie più importanti riguardano emozioni, amore e famiglia. Il rapporto con Wanda Maximoff e i tentativi di costruire una vita normale mostrano quanto profondamente umano possa essere un essere artificiale."
+    },
+    "wonderman": {
+      "realName": "Simon Williams",
+      "aliases": ["Wonder Man"],
+      "universe": "Terra-616",
+      "debut": "The Avengers #9 (1964)",
+      "creators": "Stan Lee, Don Heck e Jack Kirby",
+      "affiliations": ["Vendicatori", "West Coast Avengers", "Revengers"],
+      "abilities": ["Energia ionica", "Forza e resistenza sovrumane", "Volo", "Quasi immortalità"],
+      "bio": "Simon Williams è un industriale caduto in disgrazia che il Barone Zemo trasforma in un essere di energia ionica e manda contro i Vendicatori. Il suo sacrificio per salvarli apre la strada a una seconda vita come eroe. I suoi schemi cerebrali contribuiscono alla mente di Visione, creando fra i due un legame insolito e complesso. Wonder Man alterna missioni cosmiche a una carriera da attore, cercando di conciliare celebrità, pacifismo e un potere che lo rende sempre meno umano dal punto di vista fisico."
+    },
+    "hawkeye": {
+      "realName": "Clinton Francis Barton",
+      "aliases": ["Hawkeye", "Occhio di Falco", "Ronin"],
+      "universe": "Terra-616",
+      "debut": "Tales of Suspense #57 (1964)",
+      "creators": "Stan Lee e Don Heck",
+      "affiliations": ["Vendicatori", "West Coast Avengers", "Thunderbolts"],
+      "abilities": ["Tiro con l'arco", "Mira eccezionale", "Acrobazia", "Leadership sul campo"],
+      "bio": "Rimasto orfano, Clint Barton cresce in un circo e impara il tiro con l'arco da figure tutt'altro che affidabili. Dopo un esordio da criminale frainteso ottiene da Capitan America l'occasione di entrare nei Vendicatori. Non possiede poteri, ricchezze o armature: affronta dèi e mostri con abilità, ostinazione e frecce speciali. Il suo carattere ribelle nasconde un forte bisogno di appartenenza. Hawkeye è spesso l'uomo più vulnerabile della squadra e proprio per questo uno dei più determinati a restare in piedi."
+    },
+    "blackwidow": {
+      "realName": "Natalia Alianovna Romanova",
+      "aliases": ["Black Widow", "Vedova Nera", "Natasha Romanoff"],
+      "universe": "Terra-616",
+      "debut": "Tales of Suspense #52 (1964)",
+      "creators": "Stan Lee, Don Rico e Don Heck",
+      "affiliations": ["Vendicatori", "S.H.I.E.L.D.", "Champions"],
+      "abilities": ["Spionaggio", "Arti marziali", "Armi e gadget", "Condizionamento fisico avanzato"],
+      "bio": "Addestrata e condizionata nella Red Room, Natasha Romanoff opera inizialmente come spia sovietica contro Iron Man. Liberatasi dal controllo, diserta e diventa agente dello S.H.I.E.L.D., Vendicatrice e leader. La sua storia è costruita su identità false, ricordi manipolati e debiti difficili da estinguere. Black Widow non ha illusioni sulla propria innocenza, ma usa proprio la conoscenza del mondo clandestino per impedire che altri vengano trasformati in strumenti come lei."
+    },
+    "luke-cage": {
+      "realName": "Carl Lucas",
+      "aliases": ["Luke Cage", "Power Man"],
+      "universe": "Terra-616",
+      "debut": "Hero for Hire #1 (1972)",
+      "creators": "Archie Goodwin, George Tuska e John Romita Sr.",
+      "affiliations": ["Heroes for Hire", "Vendicatori", "Difensori"],
+      "abilities": ["Pelle quasi indistruttibile", "Forza sovrumana", "Resistenza", "Combattimento di strada"],
+      "bio": "Ingiustamente condannato con il nome di Carl Lucas, Luke si offre volontario per un esperimento carcerario che gli conferisce forza sovrumana e pelle quasi indistruttibile. Evade, assume il nome Luke Cage e apre un'attività da eroe a pagamento ad Harlem. Quello che nasce come mezzo per sopravvivere diventa un impegno verso la comunità. Partner storico di Iron Fist, marito di Jessica Jones e leader dei Vendicatori, Luke conserva sempre una prospettiva concreta: il mondo si salva anche proteggendo un singolo quartiere."
+    },
+    "iron-fist": {
+      "realName": "Daniel Thomas Rand-K'ai",
+      "aliases": ["Iron Fist", "Pugno d'Acciaio"],
+      "universe": "Terra-616 / K'un-Lun",
+      "debut": "Marvel Premiere #15 (1974)",
+      "creators": "Roy Thomas e Gil Kane",
+      "affiliations": ["Heroes for Hire", "Difensori", "Immortal Weapons"],
+      "abilities": ["Maestria marziale", "Controllo del chi", "Pugno d'Acciaio", "Meditazione e guarigione"],
+      "bio": "Dopo la morte dei genitori sull'Himalaya, Danny Rand viene accolto nella città mistica di K'un-Lun. Anni di addestramento culminano nello scontro con il drago Shou-Lao, dal quale ottiene il potere dell'Iron Fist concentrando il chi nel pugno. Tornato a New York per vendetta, sceglie una strada eroica e forma con Luke Cage gli Heroes for Hire. Danny vive fra privilegio occidentale e tradizione mistica, imparando che possedere un titolo sacro non significa comprenderne automaticamente la responsabilità."
+    },
+    "jessica-jones": {
+      "realName": "Jessica Campbell Jones-Cage",
+      "aliases": ["Jessica Jones", "Jewel", "Knightress"],
+      "universe": "Terra-616",
+      "debut": "Alias #1 (2001)",
+      "creators": "Brian Michael Bendis e Michael Gaydos",
+      "affiliations": ["Alias Investigations", "Difensori", "Vendicatori"],
+      "abilities": ["Forza sovrumana", "Resistenza", "Volo limitato", "Investigazione privata"],
+      "bio": "Un incidente dona a Jessica Jones forza e capacità di volare, spingendola verso una breve carriera da eroina. L'incontro con il controllo mentale dell'Uomo Porpora la traumatizza e la porta ad abbandonare il costume per aprire Alias Investigations. Cinica, diretta e dotata di grande intuito, Jessica lavora ai margini del mondo dei supereroi osservandone le conseguenze umane. Il rapporto con Luke Cage e la famiglia che costruiscono non cancellano il trauma, ma mostrano una guarigione imperfetta e autentica."
+    },
+    "punisher": {
+      "realName": "Frank Castle",
+      "aliases": ["Punisher", "Il Punitore"],
+      "universe": "Terra-616",
+      "debut": "The Amazing Spider-Man #129 (1974)",
+      "creators": "Gerry Conway, Ross Andru e John Romita Sr.",
+      "affiliations": ["Marines degli Stati Uniti", "Thunderbolts", "Secret Avengers"],
+      "abilities": ["Addestramento militare", "Armi da fuoco", "Guerriglia", "Interrogatorio"],
+      "bio": "Frank Castle è un veterano la cui famiglia viene uccisa durante una sparatoria fra criminali a Central Park. Da quel momento conduce una guerra senza fine contro il crimine usando metodi letali che lo separano dagli altri vigilanti. Non possiede superpoteri e non cerca davvero redenzione: trasforma addestramento, dolore e pianificazione in un arsenale. Punisher funziona anche come limite morale dell'universo Marvel, costringendo eroi come Spider-Man e Daredevil a confrontarsi con ciò che distingue giustizia e vendetta."
+    },
+    "moon-knight": {
+      "realName": "Marc Spector",
+      "aliases": ["Moon Knight", "Steven Grant", "Jake Lockley"],
+      "universe": "Terra-616",
+      "debut": "Werewolf by Night #32 (1975)",
+      "creators": "Doug Moench e Don Perlin",
+      "affiliations": ["Midnight Sons", "Vendicatori", "Difensori"],
+      "abilities": ["Combattimento e armi", "Investigazione", "Resistenza al dolore", "Poteri concessi da Khonshu variabili"],
+      "bio": "Il mercenario Marc Spector viene lasciato morire ai piedi di una statua del dio egizio Khonshu e torna in vita convinto di esserne l'avatar. Come Moon Knight combatte il crimine attraverso un sistema di identità che comprende Steven Grant e Jake Lockley, non semplici travestimenti ma parti profonde della sua esperienza dissociativa. Il rapporto con Khonshu oscilla fra fede, dipendenza e ribellione. Marc cerca di proteggere chi viaggia di notte mentre prova a stabilire quali voci meritino davvero di guidarlo."
+    },
+    "sentry": {
+      "realName": "Robert Reynolds",
+      "aliases": ["Sentry", "Golden Guardian", "The Void"],
+      "universe": "Terra-616",
+      "debut": "The Sentry #1 (2000)",
+      "creators": "Paul Jenkins, Jae Lee e Rick Veitch",
+      "affiliations": ["Vendicatori", "Dark Avengers", "Horsemen of Death"],
+      "abilities": ["Potere di un milione di soli esplosivi", "Volo", "Manipolazione molecolare", "Rigenerazione"],
+      "bio": "Bob Reynolds ritrova il ricordo di essere stato Sentry, un eroe di potenza quasi illimitata che il mondo intero ha dimenticato. La sua luce è inseparabile dal Void, presenza distruttiva legata alle sue paure e alla fragilità della sua mente. Bob desidera sinceramente aiutare gli altri, ma ogni ritorno del suo potere rischia di liberarne il contrario. Sentry racconta il supereroe come mito rimosso e come persona vulnerabile, incapace di risolvere il proprio dolore semplicemente diventando più forte."
+    },
+    "spider-woman": {
+      "realName": "Jessica Miriam Drew",
+      "aliases": ["Spider-Woman", "Arachne"],
+      "universe": "Terra-616",
+      "debut": "Marvel Spotlight #32 (1977)",
+      "creators": "Archie Goodwin e Marie Severin",
+      "affiliations": ["Vendicatori", "S.H.I.E.L.D.", "S.W.O.R.D."],
+      "abilities": ["Forza e agilità sovrumane", "Volo planato", "Scariche bioelettriche", "Feromoni"],
+      "bio": "Jessica Drew acquisisce poteri aracnidi attraverso gli esperimenti del padre e cresce isolata, vulnerabile alla manipolazione dell'Hydra. Dopo aver scoperto la verità diventa agente, investigatrice e Vendicatrice, cercando un'identità che non sia stata programmata da altri. Le sue scariche bioelettriche e le capacità da spia la rendono un'avversaria formidabile. Spider-Woman condivide poco con Peter Parker oltre al nome: il suo mondo è fatto di cospirazioni, lealtà tradite e lenta conquista dell'autonomia."
+    },
+    "blackpanther": {
+      "realName": "T'Challa",
+      "aliases": ["Black Panther", "Pantera Nera", "Re dei Morti"],
+      "universe": "Terra-616 / Wakanda",
+      "debut": "Fantastic Four #52 (1966)",
+      "creators": "Stan Lee e Jack Kirby",
+      "affiliations": ["Vendicatori", "Illuminati", "Wakanda"],
+      "abilities": ["Sensi e fisico potenziati", "Genio scientifico", "Arti marziali", "Tecnologia al vibranio"],
+      "bio": "T'Challa eredita il mantello della Pantera Nera e il trono del Wakanda, nazione africana rimasta indipendente grazie al vibranio e a un avanzamento tecnologico senza pari. Scienziato, guerriero e sovrano, deve proteggere il proprio popolo senza isolarlo dal resto del mondo. Nei Vendicatori porta una prospettiva da capo di Stato e una preparazione quasi ossessiva. Ogni sua scelta mette in tensione l'uomo, il re e il simbolo religioso che rappresenta."
+    },
+    "captainmarvel": {
+      "realName": "Carol Susan Jane Danvers",
+      "aliases": ["Captain Marvel", "Ms. Marvel", "Binary"],
+      "universe": "Terra-616",
+      "debut": "Marvel Super-Heroes #13 (1968); Captain Marvel in Avenging Spider-Man #9 (2012)",
+      "creators": "Roy Thomas e Gene Colan; rilancio di Kelly Sue DeConnick",
+      "affiliations": ["Vendicatori", "S.H.I.E.L.D.", "Alpha Flight"],
+      "abilities": ["Forza e volo", "Assorbimento energetico", "Raggi fotonici", "Addestramento aeronautico"],
+      "bio": "Carol Danvers è un'ufficiale dell'aeronautica e responsabile della sicurezza quando l'esplosione di un dispositivo Kree altera il suo corpo. Come Ms. Marvel, Binary e infine Captain Marvel attraversa perdite di memoria, trasformazioni cosmiche e continui tentativi di riprendere il controllo della propria storia. Pilota prima ancora che supereroina, affronta ogni limite come qualcosa da superare. Assumendo il nome di Captain Marvel sceglie di onorare un'eredità senza rinunciare alla propria identità."
+    },
+    "shehulk": {
+      "realName": "Jennifer Susan Walters",
+      "aliases": ["She-Hulk", "Jennifer Walters"],
+      "universe": "Terra-616",
+      "debut": "The Savage She-Hulk #1 (1980)",
+      "creators": "Stan Lee e John Buscema",
+      "affiliations": ["Vendicatori", "Fantastici Quattro", "A-Force"],
+      "abilities": ["Forza gamma", "Resistenza", "Rigenerazione", "Competenza legale"],
+      "bio": "L'avvocata Jennifer Walters riceve una trasfusione d'emergenza dal cugino Bruce Banner e sviluppa una trasformazione gamma. A differenza di Bruce mantiene generalmente intelletto e personalità nella forma di She-Hulk, scoprendo in essa sicurezza e libertà. Difende superumani in tribunale e combatte al fianco di Vendicatori e Fantastici Quattro, spesso consapevole delle convenzioni narrative che la circondano. Jennifer unisce forza fisica, ironia e diritto, ricordando che anche gli eroi devono rispondere delle conseguenze delle proprie azioni."
+    },
+    "doctor-doom": {
+      "realName": "Victor Werner von Doom",
+      "aliases": ["Doctor Doom", "Dottor Destino", "Sovrano di Latveria"],
+      "universe": "Terra-616 / Latveria",
+      "debut": "Fantastic Four #5 (1962)",
+      "creators": "Stan Lee e Jack Kirby",
+      "affiliations": ["Latveria", "Future Foundation", "Cabal"],
+      "abilities": ["Genio scientifico", "Stregoneria", "Armatura potenziata", "Volontà eccezionale"],
+      "bio": "Victor von Doom nasce in una comunità rom della Latveria e perde i genitori a causa di persecuzione e magia. Convinto che solo il proprio controllo possa impedire altra sofferenza, padroneggia scienza e stregoneria, conquista il trono e trasforma il paese a propria immagine. La rivalità con Reed Richards alimenta il suo orgoglio, ma Doom non è un semplice tiranno: ama sinceramente la Latveria e può compiere gesti eroici, purché il mondo riconosca che nessuno è più adatto di lui a governarlo."
+    },
+    "doctor-strange": {
+      "realName": "Stephen Vincent Strange",
+      "aliases": ["Doctor Strange", "Stregone Supremo"],
+      "universe": "Terra-616",
+      "debut": "Strange Tales #110 (1963)",
+      "creators": "Stan Lee e Steve Ditko",
+      "affiliations": ["Difensori", "Vendicatori", "Midnight Sons"],
+      "abilities": ["Arti mistiche", "Proiezione astrale", "Teletrasporto", "Artefatti magici"],
+      "bio": "Stephen Strange è un chirurgo brillante e arrogante che perde la precisione delle mani in un incidente automobilistico. Cercando disperatamente una cura raggiunge l'Antico e scopre un universo di minacce mistiche. Lo studio e il sacrificio lo trasformano nello Stregone Supremo, difensore della realtà contro forze che non possono essere affrontate con la scienza convenzionale. Strange conserva orgoglio e bisogno di controllo, ma impara che il vero prezzo della magia non è pronunciare un incantesimo: è accettarne responsabilità e conseguenze."
+    },
+    "ghost-rider": {
+      "realName": "Johnny Blaze / Danny Ketch / Alejandra Jones / Robbie Reyes",
+      "aliases": ["Ghost Rider", "Spirito della Vendetta"],
+      "universe": "Terra-616",
+      "debut": "Marvel Spotlight #5 (1972) per Johnny Blaze",
+      "creators": "Gary Friedrich, Roy Thomas e Mike Ploog",
+      "affiliations": ["Midnight Sons", "Vendicatori", "Spirits of Vengeance"],
+      "abilities": ["Fuoco infernale", "Veicolo mistico", "Rigenerazione", "Sguardo di Penitenza variabile"],
+      "bio": "Ghost Rider è un mantello legato agli Spiriti della Vendetta. Johnny Blaze vende l'anima per salvare una persona amata e viene unito a Zarathos; Danny Ketch, Alejandra Jones e Robbie Reyes incarnano in modi differenti la stessa forza punitiva. Quando lo spirito prende il controllo, carne e veicolo bruciano di fuoco infernale e la colpa diventa un'arma. Ogni Rider deve decidere se essere strumento di una vendetta assoluta o guidare quel potere verso una forma più umana di giustizia."
+    },
+    "blade": {
+      "realName": "Eric Brooks",
+      "aliases": ["Blade", "Daywalker"],
+      "universe": "Terra-616",
+      "debut": "The Tomb of Dracula #10 (1973)",
+      "creators": "Marv Wolfman e Gene Colan",
+      "affiliations": ["Midnight Sons", "Nightstalkers", "Vendicatori"],
+      "abilities": ["Fisiologia da dhampir", "Immunità ai morsi", "Maestria con le lame", "Caccia ai vampiri"],
+      "bio": "Eric Brooks nasce mentre sua madre viene attaccata da un vampiro, ottenendo immunità alla trasformazione e caratteristiche sovrumane senza condividerne tutte le debolezze. Cresciuto come cacciatore, dedica la vita a eliminare vampiri e altre minacce occulte. Blade è metodico, diffidente e disposto a usare la brutalità dei mostri contro di loro. La sua posizione fra umanità e vampirismo lo rende però anche un ponte: comprende il nemico abbastanza da sapere che non ogni creatura della notte è uguale."
+    },
+    "morbius": {
+      "realName": "Michael Morbius",
+      "aliases": ["Morbius", "Vampiro Vivente"],
+      "universe": "Terra-616",
+      "debut": "The Amazing Spider-Man #101 (1971)",
+      "creators": "Roy Thomas e Gil Kane",
+      "affiliations": ["Midnight Sons", "Legion of Monsters", "S.H.I.E.L.D."],
+      "abilities": ["Forza e agilità sovrumane", "Ecolocalizzazione", "Volo planato", "Rigenerazione"],
+      "bio": "Il biochimico Michael Morbius tenta di curare una rara malattia del sangue combinando elettroshock e materiale genetico di pipistrello. L'esperimento lo trasforma in uno pseudo-vampiro assetato di sangue, biologico anziché soprannaturale. Morbius oscilla fra scienziato in cerca di una cura, predatore e riluttante protettore degli innocenti. La sua tragedia nasce dall'aver applicato un'intelligenza straordinaria senza accettare i limiti etici della disperazione."
+    },
+    "silver-surfer": {
+      "realName": "Norrin Radd",
+      "aliases": ["Silver Surfer", "Araldo di Galactus"],
+      "universe": "Terra-616 / Zenn-La",
+      "debut": "Fantastic Four #48 (1966)",
+      "creators": "Stan Lee e Jack Kirby",
+      "affiliations": ["Araldi di Galactus", "Difensori", "Annihilators"],
+      "abilities": ["Potere Cosmico", "Volo interstellare", "Manipolazione di energia e materia", "Resistenza cosmica"],
+      "bio": "Norrin Radd offre se stesso a Galactus per salvare il pianeta Zenn-La e diventa Silver Surfer, incaricato di trovare mondi che il divoratore possa consumare. L'incontro con la Terra risveglia la coscienza che il Potere Cosmico aveva anestetizzato e lo spinge alla ribellione. Da allora attraversa l'universo come esploratore, filosofo e protettore, continuamente affascinato e deluso dagli esseri viventi. La sua libertà ha un prezzo: la nostalgia per il mondo e la persona che ha lasciato indietro."
+    },
+    "nova": {
+      "realName": "Richard Rider / Samuel Alexander",
+      "aliases": ["Nova", "Human Rocket"],
+      "universe": "Terra-616",
+      "debut": "Nova #1 (1976); Sam Alexander in Marvel Point One #1 (2011)",
+      "creators": "Marv Wolfman e John Buscema; Sam Alexander di Jeph Loeb e Ed McGuinness",
+      "affiliations": ["Nova Corps", "New Warriors", "Campioni"],
+      "abilities": ["Nova Force", "Volo cosmico", "Proiezione energetica", "Worldmind"],
+      "bio": "Richard Rider è un adolescente terrestre scelto dall'ultimo centurione Rhomann Dey per ereditare il potere dei Nova Corps. Cresce da eroe inesperto a pilastro della difesa galattica, portando responsabilità enormi spesso in completa solitudine. Anni dopo Sam Alexander trova l'elmetto del padre e scopre la stessa eredità da una prospettiva più giovane. Entrambi sono razzi umani capaci di attraversare lo spazio, ma il loro vero viaggio consiste nel diventare degni della fiducia ricevuta."
+    },
+    "adam-warlock": {
+      "realName": "Adam Warlock",
+      "aliases": ["Him", "Warlock", "Adam Magus"],
+      "universe": "Terra-616",
+      "debut": "Fantastic Four #66–67 (1967); come Warlock in Marvel Premiere #1 (1972)",
+      "creators": "Stan Lee e Jack Kirby; identità sviluppata da Roy Thomas e Gil Kane",
+      "affiliations": ["Infinity Watch", "Guardiani della Galassia", "Annihilators"],
+      "abilities": ["Manipolazione di energia cosmica", "Rigenerazione in bozzolo", "Volo", "Legame con la Gemma dell'Anima"],
+      "bio": "Creato dall'Enclave come essere umano perfetto e chiamato inizialmente Him, Adam rifiuta i propri creatori e cerca uno scopo nel cosmo. L'Alto Evoluzionario gli affida la Gemma dell'Anima e il compito di salvare la Contro-Terra, trasformandolo in una figura messianica continuamente tentata dal fanatismo. Warlock muore e rinasce attraverso un bozzolo, affrontando spesso versioni oscure di se stesso. È un pianificatore cosmico che cerca l'equilibrio sapendo quanto facilmente la certezza morale possa diventare tirannia."
+    },
+    "thanos": {
+      "realName": "Thanos",
+      "aliases": ["Titano Folle"],
+      "universe": "Terra-616 / Titano",
+      "debut": "Iron Man #55 (1973)",
+      "creators": "Jim Starlin",
+      "affiliations": ["Black Order", "Cabal", "Infinity Watch"],
+      "abilities": ["Forza e resistenza cosmiche", "Intelletto scientifico", "Manipolazione energetica", "Strategia"],
+      "bio": "Nato fra gli Eterni di Titano con un aspetto che lo rende diverso, Thanos sviluppa un rapporto ossessivo con la morte, intesa sia come concetto sia come entità cosmica. Scienziato, conquistatore e filosofo nichilista, cerca poteri assoluti come le Gemme dell'Infinito per imporre all'universo il proprio ordine. Dietro ogni vittoria si nasconde però una tendenza all'autosabotaggio: una parte di lui sa di non essere degna dell'onnipotenza che desidera. Questa contraddizione lo rende molto più di un semplice tiranno cosmico."
+    },
+    "cosmic-ghost-rider": {
+      "realName": "Frank Castle",
+      "aliases": ["Cosmic Ghost Rider", "The Rider"],
+      "universe": "Terra-TRN666 / multiverso",
+      "debut": "Thanos #13 (2017)",
+      "creators": "Donny Cates e Geoff Shaw",
+      "affiliations": ["Araldi di Galactus", "Guardiani della Galassia", "Legion of the Unliving"],
+      "abilities": ["Fuoco infernale cosmico", "Potere Cosmico", "Fattore rigenerante", "Viaggio spaziale e temporale"],
+      "bio": "In un futuro alternativo Frank Castle sopravvive alla fine della Terra stringendo un patto che lo trasforma in Ghost Rider. Rimasto solo, diventa poi araldo di Galactus e unisce il Potere Cosmico al fuoco infernale. Secoli di isolamento spezzano ulteriormente la sua stabilità, producendo un antieroe chiacchierone, imprevedibile e immensamente pericoloso. Cosmic Ghost Rider attraversa tempo e realtà convinto di poter correggere la storia, ma porta con sé la stessa incapacità del Punisher di distinguere sempre prevenzione, punizione e vendetta."
+    },
+    "ultimate-spiderman-classic": {
+      "realName": "Peter Parker / Miles Gonzalo Morales",
+      "aliases": ["Ultimate Spider-Man"],
+      "universe": "Terra-1610",
+      "debut": "Ultimate Spider-Man #1 (2000); Miles in Ultimate Fallout #4 (2011)",
+      "creators": "Brian Michael Bendis, Mark Bagley e Sara Pichelli",
+      "affiliations": ["Ultimates", "Young Ultimates", "S.H.I.E.L.D."],
+      "abilities": ["Forza e agilità aracnidi", "Senso di ragno", "Ragnatele", "Mimetismo e venom blast per Miles"],
+      "bio": "Nella Terra-1610 Peter Parker diventa Spider-Man in un mondo più giovane, diretto e diffidente verso i supereroi, imparando il proprio codice mentre è ancora adolescente. La sua eredità passa a Miles Morales, ragazzo di Brooklyn morso da un diverso ragno geneticamente modificato. Miles possiede mimetismo e scariche bioelettriche oltre ai poteri classici, ma teme di non essere all'altezza del nome. Il percorso racconta due crescite consecutive e dimostra che Spider-Man non è una persona sostituibile, bensì una responsabilità che può ispirarne un'altra."
+    },
+    "ultimate-ironman": {
+      "realName": "Antonio Stark",
+      "aliases": ["Ultimate Iron Man", "Iron Patriot"],
+      "universe": "Terra-1610",
+      "debut": "Ultimate Marvel Team-Up #4 (2001)",
+      "creators": "Brian Michael Bendis e Mike Allred",
+      "affiliations": ["Ultimates", "S.H.I.E.L.D.", "Stark Industries"],
+      "abilities": ["Genio tecnologico", "Armature modulari", "Volo e armi energetiche", "Risorse industriali"],
+      "bio": "Il Tony Stark della Terra-1610 è un inventore miliardario che affronta la prospettiva della morte con ironia, eccessi e un bisogno crescente di lasciare qualcosa di utile. Costruisce armature avanzate e finanzia gli Ultimates, diventandone uno dei pilastri tecnici. Più pragmatico e politicamente compromesso della controparte classica, opera spesso accanto allo S.H.I.E.L.D. senza smettere di diffidare delle istituzioni. L'armatura protegge il corpo; sarcasmo e spettacolo proteggono una vulnerabilità che Tony mostra a pochissimi."
+    },
+    "ultimate-wolverine": {
+      "realName": "James Howlett",
+      "aliases": ["Logan", "Wolverine"],
+      "universe": "Terra-1610",
+      "debut": "Ultimate X-Men #1 (2001)",
+      "creators": "Mark Millar e Adam Kubert",
+      "affiliations": ["X-Men", "Brotherhood of Mutant Supremacy", "Weapon X"],
+      "abilities": ["Fattore rigenerante", "Artigli e scheletro in adamantio", "Sensi potenziati", "Operazioni clandestine"],
+      "bio": "Il Wolverine della Terra-1610 è un agente di Weapon X e della Confraternita inviato inizialmente a infiltrarsi negli X-Men. Più cinico e moralmente ambiguo del Logan classico, porta con sé ricordi frammentati, violenza istituzionale e un forte istinto di sopravvivenza. Il rapporto con la squadra lo costringe gradualmente a scegliere fra il ruolo di arma e quello di compagno. Anche in questo universo Wolverine cerca una famiglia, ma il percorso per meritare la fiducia altrui è molto più aspro."
+    },
+    "ultimate-thor": {
+      "realName": "Thor Odinson",
+      "aliases": ["Ultimate Thor", "Thorlief Golmen"],
+      "universe": "Terra-1610 / Asgard",
+      "debut": "The Ultimates #4 (2002)",
+      "creators": "Mark Millar e Bryan Hitch",
+      "affiliations": ["Ultimates", "Asgardiani", "European Defence Initiative"],
+      "abilities": ["Forza asgardiana", "Controllo del fulmine", "Teletrasporto", "Mjolnir"],
+      "bio": "Nella Terra-1610 Thor appare come un attivista contrario al complesso militare e sostiene di essere il Dio del Tuono, mentre governi e compagni sospettano che sia un uomo delirante dotato di tecnologia avanzata. L'ambiguità iniziale rende fede e identità parte centrale della sua storia. Quando combatte con gli Ultimates, Thor mantiene una prospettiva critica sul potere politico che la squadra rappresenta. È un guerriero divino, ma anche la voce che domanda chi controlli gli eroi creati per difendere il mondo."
+    },
+    "ultimate-cap": {
+      "realName": "Steven Rogers",
+      "aliases": ["Ultimate Capitan America"],
+      "universe": "Terra-1610",
+      "debut": "The Ultimates #1 (2002)",
+      "creators": "Mark Millar e Bryan Hitch",
+      "affiliations": ["Ultimates", "Esercito degli Stati Uniti", "S.H.I.E.L.D."],
+      "abilities": ["Fisico da supersoldato", "Tattica militare", "Maestria con lo scudo", "Leadership"],
+      "bio": "Lo Steve Rogers della Terra-1610 viene recuperato dopo decenni nel ghiaccio e arruolato negli Ultimates. È un soldato della Seconda guerra mondiale catapultato in un presente che comprende poco, più duro, nazionalista e impulsivo della versione classica. Il suo coraggio è autentico, ma convinzioni e metodi riflettono l'epoca da cui proviene. La sua storia mostra quanto possa essere pericoloso trasformare un uomo in simbolo senza permettergli il tempo di capire il mondo che dovrebbe rappresentare."
+    },
+    "ultimate-new-spiderman": {
+      "realName": "Peter Benjamin Parker",
+      "aliases": ["Ultimate Spider-Man"],
+      "universe": "Terra-6160",
+      "debut": "Ultimate Spider-Man #1 (2024)",
+      "creators": "Jonathan Hickman e Marco Checchetto per la versione Terra-6160",
+      "affiliations": ["Green Goblin", "Ultimates Network", "Famiglia Parker"],
+      "abilities": ["Forza e agilità aracnidi", "Senso di ragno", "Ragnatele organiche della tuta", "Esperienza adulta"],
+      "bio": "Nella Terra-6160 il Maker impedisce a Peter Parker di ricevere i propri poteri da adolescente. Peter cresce quindi come fotografo, marito di Mary Jane e padre di due figli, avvertendo però che alla sua vita manca qualcosa. Da adulto ottiene finalmente la possibilità di diventare Spider-Man e deve imparare l'eroismo mentre protegge una famiglia già costruita. Questa versione ribalta l'origine classica: non è il potere a costringerlo a crescere, ma un adulto responsabile che sceglie consapevolmente il rischio per diventare chi avrebbe dovuto essere."
+    },
+    "ultimate-new-black-panther": {
+      "realName": "T'Challa",
+      "aliases": ["Ultimate Black Panther", "Re del Wakanda"],
+      "universe": "Terra-6160 / Wakanda",
+      "debut": "Ultimate Black Panther #1 (2024)",
+      "creators": "Bryan Hill e Stefano Caselli per la versione Terra-6160",
+      "affiliations": ["Wakanda", "Dora Milaje", "Coalizione africana"],
+      "abilities": ["Fisico potenziato", "Arti marziali", "Tecnologia al vibranio", "Comando politico e militare"],
+      "bio": "Nella Terra-6160 il Wakanda rimane nascosto mentre il continente africano subisce l'espansione di poteri legati a Ra e Khonshu. T'Challa deve decidere se preservare l'isolamento che ha protetto il regno o guidarlo in una guerra capace di cambiarlo per sempre. Circondato da Okoye, Shuri e dalle Dora Milaje, affronta minacce esterne e dubbi interni sulla corona. Questa Pantera Nera conserva tradizione e tecnologia del mito classico, ma opera in un mondo geopolitico radicalmente riscritto dal Maker."
+    },
+    "ultimate-new-wolverine": {
+      "realName": "Logan",
+      "aliases": ["Ultimate Wolverine", "Winter Soldier"],
+      "universe": "Terra-6160",
+      "debut": "Ultimate Universe: One Year In #1 (2024)",
+      "creators": "Chris Condon e Alessandro Cappuccio per la versione Terra-6160",
+      "affiliations": ["Direttorato eurasiatico", "Opposizione mutante", "Weapon program"],
+      "abilities": ["Fattore rigenerante", "Artigli e scheletro in adamantio", "Sensi potenziati", "Condizionamento da assassino"],
+      "bio": "Nella Terra-6160 Logan viene trasformato nel Winter Soldier del Direttorato eurasiatico controllato da Magik, Colosso e Omega Red. Memoria e volontà sono spezzate per farne un'arma contro la resistenza mutante, mentre frammenti della persona sotto la maschera continuano a riemergere. Questa versione fonde due miti Marvel — Wolverine e il Soldato d'Inverno — e concentra la storia sulla lotta contro programmazione e imperialismo. Gli artigli possono obbedire agli ordini; l'identità di Logan, molto meno."
+    }
+  }
+}
