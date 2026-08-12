@@ -30,9 +30,12 @@ function pathLogoUrl(path){
   return `${logo}${separator}v=${encodeURIComponent(version||1)}`;
 }
 function pathArtworkMarkup(path){
-  const cover = uiArt?.paths?.[path?.id] || "";
   const fallback = pathLogoUrl(path);
   const raster = /\.(?:png|jpe?g|webp)(?:[?#]|$)/i.test(pathLogoSource(path).logo);
+  if(path?.type === "character" && fallback){
+    return `<img class="pathArtPrimary pathCharacterPortrait pathIconImage ${raster?"pathIconRaster":"pathIconVector"}" loading="lazy" src="${esc(fallback)}" alt="" data-path-icon-id="${esc(path.id)}" onerror="this.remove()">`;
+  }
+  const cover = uiArt?.paths?.[path?.id] || "";
   return `${cover?`<img class="pathArtPrimary" loading="lazy" src="${esc(cover)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">`:""}${fallback?`<img class="pathArtFallback pathIconImage ${raster?"pathIconRaster":"pathIconVector"}" loading="lazy" src="${esc(fallback)}" alt="" data-path-icon-id="${esc(path?.id||"")}">`:""}`;
 }
 function hubArtworkUrls(hub){
