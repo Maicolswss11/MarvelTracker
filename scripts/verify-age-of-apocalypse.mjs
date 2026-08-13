@@ -47,6 +47,17 @@ Object.assign(totals, {
   "x-universe-aoa": 1,
   "return-age-of-apocalypse": 1,
 });
+const pathArtContent = {
+  "astonishing-xmen-aoa": "XM_ASTO_001",
+  "amazing-xmen-aoa": "XM_AMAZ_001",
+  "gambit-xternals-aoa": "GAMXTE_001",
+  "generation-next-aoa": "GENEXT_001",
+  "weapon-x-aoa": "WEAPX1_001",
+  "x-calibre-aoa": "XCALIBR_001",
+  "factor-x-aoa": "FACTX_001",
+  "x-man-aoa": "XMAN_001",
+  "x-universe-aoa": "XUNIVER_001",
+};
 
 const errors = [];
 const manifestById = new Map(manifest.characters.map(row => [row.id, row]));
@@ -76,6 +87,17 @@ for (const id of expected) {
     for (const contentId of issue.readingStep?.contentIds || []) {
       if (!available.has(contentId)) errors.push(`${id}/${issue.id}: contenuto ${contentId} non dichiarato`);
     }
+  }
+}
+
+for (const [id, contentId] of Object.entries(pathArtContent)) {
+  const expectedCover = `https://www.comicsbox.it/cover/${contentId}.jpg`;
+  const meta = manifestById.get(id);
+  if (meta?.logo !== expectedCover || meta?.editorialCover !== expectedCover) {
+    errors.push(`${id}: copertina identitaria non collegata a ${contentId}`);
+  }
+  if (art.paths?.[id] !== expectedCover) {
+    errors.push(`${id}: artwork UI non collegato a ${contentId}`);
   }
 }
 

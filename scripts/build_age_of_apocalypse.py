@@ -174,6 +174,7 @@ PATH_CONFIG: OrderedDict[str, dict[str, Any]] = OrderedDict([
         "type": "team",
         "universe": "Terra-295",
         "accent": "#d85b71",
+        "artContentId": "XM_ASTO_001",
         "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
         "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
         "description": "I quattro capitoli completi della squadra guidata da Rogue. Sabretooth, Blink, Wild Child, Morph e Sunfire affrontano le fabbriche di Infinites e le selezioni di Olocausto, mentre la resistenza tenta di proteggere i superstiti umani.",
@@ -185,6 +186,7 @@ PATH_CONFIG: OrderedDict[str, dict[str, Any]] = OrderedDict([
         "type": "team",
         "universe": "Terra-295",
         "accent": "#5da9e9",
+        "artContentId": "XM_AMAZ_001",
         "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
         "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
         "description": "La missione completa degli X-Men guidati da Quicksilver. Storm, Dazzler, Banshee, Iceman ed Exodus devono sostenere l'evacuazione degli umani verso l'Europa e contrastare la Fratellanza del Caos e il Cavaliere Abyss.",
@@ -196,6 +198,7 @@ PATH_CONFIG: OrderedDict[str, dict[str, Any]] = OrderedDict([
         "type": "team",
         "universe": "Terra-295",
         "accent": "#a779d9",
+        "artContentId": "GAMXTE_001",
         "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
         "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
         "description": "Gambit conduce Jubilee, Strong Guy, Sunspot e Lila Cheney nello spazio Shi'ar per recuperare un frammento del Cristallo M'Kraan. La missione collega direttamente la resistenza di Magneto al tentativo di Bishop di ripristinare la realtà perduta.",
@@ -207,6 +210,7 @@ PATH_CONFIG: OrderedDict[str, dict[str, Any]] = OrderedDict([
         "type": "team",
         "universe": "Terra-295",
         "accent": "#d9a33d",
+        "artContentId": "GENEXT_001",
         "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
         "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
         "description": "Colosso e Shadowcat guidano Chamber, Husk, Mondo, Skin e Vincente nella missione per liberare Illyana Rasputin dal Core di Seattle. I quattro capitoli mostrano il costo più duro della resistenza giovanile contro Sugar Man.",
@@ -218,6 +222,7 @@ PATH_CONFIG: OrderedDict[str, dict[str, Any]] = OrderedDict([
         "type": "character",
         "universe": "Terra-295",
         "accent": "#d36c42",
+        "artContentId": "WEAPX1_001",
         "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
         "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
         "description": "La miniserie completa di Logan nella realtà dominata da Apocalisse. Weapon X e Jean Grey operano fra Europa e America mentre il piano nucleare del Consiglio Umano mette in conflitto la salvezza dei superstiti e il destino del continente occupato.",
@@ -229,6 +234,7 @@ PATH_CONFIG: OrderedDict[str, dict[str, Any]] = OrderedDict([
         "type": "team",
         "universe": "Terra-295",
         "accent": "#6f77d9",
+        "artContentId": "XCALIBR_001",
         "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
         "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
         "description": "Nightcrawler attraversa le rotte dei profughi per raggiungere Avalon e trovare Destiny, l'unica mutante capace di verificare il racconto di Bishop. Mystica, Switchback e Damask trasformano la missione in una piccola squadra nata lungo il viaggio.",
@@ -240,6 +246,7 @@ PATH_CONFIG: OrderedDict[str, dict[str, Any]] = OrderedDict([
         "type": "team",
         "universe": "Terra-295",
         "accent": "#6db9a5",
+        "artContentId": "FACTX_001",
         "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
         "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
         "description": "Il fronte interno del regime visto attraverso Cyclops, Havok e l'Elite Mutant Force. I laboratori di Bestia Nera e i recinti di Sinistro incrinano la fedeltà dei due fratelli e mostrano il sistema di controllo costruito da Apocalisse dall'interno.",
@@ -251,6 +258,7 @@ PATH_CONFIG: OrderedDict[str, dict[str, Any]] = OrderedDict([
         "type": "character",
         "universe": "Terra-295",
         "accent": "#4ec8d5",
+        "artContentId": "XMAN_001",
         "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
         "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
         "description": "I primi quattro capitoli di Nate Grey, giovane psionico creato da Sinistro usando il patrimonio genetico di Scott Summers e Jean Grey. Cresciuto fra gli Outcasts di Forge, Nate scopre gradualmente la propria origine e il motivo per cui Apocalisse lo considera una minaccia.",
@@ -262,6 +270,7 @@ PATH_CONFIG: OrderedDict[str, dict[str, Any]] = OrderedDict([
         "type": "collection",
         "universe": "Terra-295",
         "accent": "#cf8752",
+        "artContentId": "XUNIVER_001",
         "start": "L'era di Apocalisse Collection #6 — Novembre 2014",
         "end": "L'era di Apocalisse Collection #6 — Novembre 2014",
         "description": "Un percorso concentrato sul sesto volume: X-Universe segue gli eroi non mutanti sopravvissuti, X-Men Chronicles ricostruisce due momenti anteriori al crossover e X-Men: Omega chiude il conflitto principale. È il complemento corale agli otto titoli paralleli.",
@@ -397,7 +406,12 @@ def update_manifest(paths: list[dict[str, Any]]) -> None:
     manifest["characters"] = [row for row in manifest["characters"] if row["id"] not in new_ids]
     for payload in paths:
         config = PATH_CONFIG[payload["id"]]
-        manifest["characters"].append({
+        art_content_id = config.get("artContentId")
+        editorial_cover = (
+            f"https://www.comicsbox.it/cover/{art_content_id}.jpg"
+            if art_content_id else None
+        )
+        entry = {
             "id": payload["id"],
             "name": payload["name"],
             "subtitle": payload["subtitle"],
@@ -406,13 +420,16 @@ def update_manifest(paths: list[dict[str, Any]]) -> None:
             "primaryHub": "age-of-apocalypse",
             "hubs": ["age-of-apocalypse"],
             "accent": payload["accent"],
-            "logo": payload["issues"][0]["cover"],
+            "logo": editorial_cover or payload["issues"][0]["cover"],
             "data": f"data/characters/{payload['id']}.json",
             "start": payload["start"],
             "end": payload["end"],
             "totalRequired": payload["totalRequired"],
             "relatedPaths": payload["relatedPaths"],
-        })
+        }
+        if editorial_cover:
+            entry["editorialCover"] = editorial_cover
+        manifest["characters"].append(entry)
     manifest["version"] = max(int(manifest.get("version", 0)), 33)
     dump(path, manifest, compact=True)
 

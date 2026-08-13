@@ -114,6 +114,10 @@ def build_path_entry(
 
 
 def choose_path_cover(path_meta: dict[str, Any], issues: list[dict[str, Any]]) -> str | None:
+    editorial_cover = path_meta.get("editorialCover")
+    if editorial_cover:
+        return str(editorial_cover)
+
     path_id = path_meta["id"]
     candidates = [
         row for row in issues
