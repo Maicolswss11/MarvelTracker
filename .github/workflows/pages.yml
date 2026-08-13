@@ -29,6 +29,8 @@ jobs:
         run: node scripts/verify-global-search.mjs
       - name: Verify Marvel 2099 universe
         run: node scripts/verify-marvel-2099.mjs
+      - name: Verify team and event dossiers
+        run: node scripts/verify-editorial-profiles.mjs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload site

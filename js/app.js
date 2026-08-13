@@ -6,6 +6,8 @@ const characterCache = new Map();
 let manifest = null;
 let pathIconCatalog = {version:1,paths:{}};
 let characterProfileCatalog = {version:1,profiles:{}};
+let editorialProfileCatalog = {version:1,profiles:{}};
+let uiArtCatalog = {version:1,paths:{}};
 let currentMeta = null;
 let currentCharacter = null;
 let activeCharacter = "ironman";
@@ -194,15 +196,17 @@ function versioned(path,assetVersion=manifest?.version||1){
 }
 function pathIconSource(path){
   const override=pathIconCatalog?.paths?.[path?.id]||"";
-  return {source:override||path?.logo||"",override:!!override};
+  const editorial=["team","event"].includes(path?.type)?uiArtCatalog?.paths?.[path?.id]||"":"";
+  const source=override||editorial||path?.logo||"";
+  return {source,sourceKind:override?"override":editorial?"editorial":"manifest"};
 }
 function pathIconImage(path,{alt="",className="",lazy=false,onerror="this.style.display='none'"}={}){
-  const {source,override}=pathIconSource(path);
+  const {source,sourceKind}=pathIconSource(path);
   if(!source)return "";
   const raster=/\.(?:png|jpe?g|webp)(?:[?#]|$)/i.test(source);
   const classes=[className,"pathIconImage",raster?"pathIconRaster":"pathIconVector"].filter(Boolean).join(" ");
-  const assetVersion=override?(pathIconCatalog.version||1):(manifest?.version||1);
-  return `<img${lazy?' loading="lazy"':''} class="${esc(classes)}" src="${esc(versioned(source,assetVersion))}" alt="${esc(alt)}" data-path-icon-id="${esc(path?.id||"")}" onerror="${onerror}">`;
+  const assetVersion=sourceKind==="override"?(pathIconCatalog.version||1):sourceKind==="editorial"?(uiArtCatalog.version||1):(manifest?.version||1);
+  return `<img${lazy?' loading="lazy"':''} class="${esc(classes)}" src="${esc(versioned(source,assetVersion))}" alt="${esc(alt)}" data-path-icon-id="${esc(path?.id||"")}"${/^https?:/i.test(source)?' referrerpolicy="no-referrer"':''} onerror="${onerror}">`;
 }
 function coverPlaceholder(i,accentOverride=null){
   const accent=accentOverride||currentCharacter?.accent||currentMeta?.accent||"#43d7ff",safe=s=>String(s??"").replace(/[<>&]/g,m=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[m]));
@@ -213,15 +217,19 @@ window.coverFail = (img)=>{if(img.dataset.failed==="1"){img.style.display="none"
 function coverImg(i,lazy=true,accent=null){return `<img ${lazy?'loading="lazy" ':''}src="${esc(i.cover||coverPlaceholder(i,accent))}" data-placeholder="${coverPlaceholder(i,accent)}" alt="${esc(i.name)}" referrerpolicy="no-referrer" onerror="coverFail(this)">`}
 
 async function loadManifest(){
-  const [r,iconsResponse,profilesResponse]=await Promise.all([
+  const [r,iconsResponse,profilesResponse,editorialProfilesResponse,artResponse]=await Promise.all([
     fetch("data/characters.json",{cache:"no-cache"}),
     fetch("data/path-icons.json",{cache:"no-cache"}).catch(()=>null),
-    fetch("data/character-profiles.json",{cache:"no-cache"}).catch(()=>null)
+    fetch("data/character-profiles.json",{cache:"no-cache"}).catch(()=>null),
+    fetch("data/editorial-profiles.json",{cache:"no-cache"}).catch(()=>null),
+    fetch("data/ui-art.json",{cache:"no-cache"}).catch(()=>null)
   ]);
   if(!r.ok)throw new Error(`Manifest HTTP ${r.status}`);
   manifest=await r.json();
   if(iconsResponse?.ok)pathIconCatalog=await iconsResponse.json();
   if(profilesResponse?.ok)characterProfileCatalog=await profilesResponse.json();
+  if(editorialProfilesResponse?.ok)editorialProfileCatalog=await editorialProfilesResponse.json();
+  if(artResponse?.ok)uiArtCatalog=await artResponse.json();
   await window.MarvelEditions?.load(manifest.version); state=normalizeState(state);
 }
 async function loadEncodedCharacter(id, meta){
@@ -379,42 +387,63 @@ function exportProgress(){const blob=new Blob([JSON.stringify(state,null,2)],{ty
 function importProgress(file){return new Promise((resolve,reject)=>{if(!file){reject(new Error("Seleziona un file di backup."));return}const reader=new FileReader();reader.onload=()=>{try{state=normalizeState(JSON.parse(reader.result));saveState();refreshCurrentView();renderAccountUi();resolve(true)}catch{reject(new Error("Backup non valido."))}};reader.onerror=()=>reject(new Error("Impossibile leggere il backup."));reader.readAsText(file)})}
 async function authenticate({mode,email,password,displayName}){try{return mode==="register"?await signUp(email,password,displayName):await signIn(email,password)}catch(error){throw new Error(friendlyAuthError(error))}}
 function renderStats(){const req=requiredIssues(),r=req.filter(i=>status(i.id).read).length,o=req.filter(i=>status(i.id).owned).length,ph=req.filter(i=>status(i.id).physicalCovered).length,dg=req.filter(i=>status(i.id).digital).length,p=Math.round(r/(req.length||1)*100);els.doneCount.textContent=r;els.totalCount.textContent=req.length;els.ownedCount.textContent=o;els.physicalCount.textContent=ph;els.digitalCount.textContent=dg;els.pct.textContent=p+"%";els.progressBar.style.width=p+"%"}
-function renderCharacterProfile(){
-  const profile=characterProfileCatalog?.profiles?.[currentMeta?.id];
-  if(!profile||currentMeta?.type!=="character"){
+function renderPathProfile(){
+  const profile=characterProfileCatalog?.profiles?.[currentMeta?.id]||editorialProfileCatalog?.profiles?.[currentMeta?.id];
+  const profileType=profile?.type||currentMeta?.type;
+  if(!profile||!["character","team","event"].includes(profileType)){
     els.characterProfileSlot.hidden=true;
     els.characterProfileSlot.innerHTML="";
     return;
   }
-  const tags=(items,className)=>items.map(item=>`<span class="${className}">${esc(item)}</span>`).join("");
+  const list=value=>Array.isArray(value)?value.filter(Boolean):[];
+  const joined=value=>list(value).join(" · ");
+  const tags=(items,className)=>list(items).map(item=>`<span class="${className}">${esc(item)}</span>`).join("");
+  const configs={
+    character:{
+      kicker:"Profilo Marvel",action:"Scopri il personaggio",factOne:["Identità",profile.realName],factTwo:["Universo",profile.universe],
+      bioKicker:"Biografia essenziale",title:`Chi è ${currentMeta.name}`,
+      dossier:[["Prima apparizione",profile.debut],["Creatori",profile.creators],["Alias principali",joined(profile.aliases)],["Universo",profile.universe]],
+      groups:[["Poteri e abilità",profile.abilities],["Affiliazioni principali",profile.affiliations]],
+      note:"Profilo editoriale introduttivo, separato dall'ordine di lettura e privo di anticipazioni decisive."
+    },
+    team:{
+      kicker:"Dossier squadra",action:"Scopri la squadra",factOne:["Fondazione",profile.founded],factTwo:["Universo",profile.universe],
+      bioKicker:"Storia della squadra",title:`Chi sono i ${currentMeta.name}`,
+      dossier:[["Prima apparizione",profile.debut],["Creatori",profile.creators],["Membri fondatori",joined(profile.founders)],["Universo",profile.universe]],
+      groups:[["Membri e leader principali",profile.members],["Basi e identità",[...list(profile.bases),...list(profile.traits)]]],
+      note:"Dossier editoriale della squadra: riassume identità e storia senza sostituire l'ordine di lettura del percorso."
+    },
+    event:{
+      kicker:"Dossier evento",action:"Scopri l'evento",factOne:["Periodo",profile.period],factTwo:["Universo",profile.universe],
+      bioKicker:"Contesto editoriale",title:`Cos'è ${currentMeta.name}`,
+      dossier:[["Pubblicazione",profile.debut],["Autori principali",profile.creators],["Innesco",profile.trigger],["Portata",profile.scope]],
+      groups:[["Schieramenti e protagonisti",profile.factions],["Conseguenze principali",profile.consequences]],
+      note:"Dossier di contesto: segnala le conseguenze storiche generali, ma evita di anticipare lo svolgimento delle singole tappe."
+    }
+  };
+  const config=configs[profileType];
+  const dossier=config.dossier.map(([label,value])=>`<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`).join("");
+  const groups=config.groups.map(([label,items],index)=>`<section><small>${esc(label)}</small><div>${tags(items,index===0?"characterAbility":"characterAffiliation")}</div></section>`).join("");
   els.characterProfileSlot.hidden=false;
   els.characterProfileSlot.innerHTML=`
-    <details class="characterProfile">
+    <details class="characterProfile pathProfile pathProfile--${esc(profileType)}">
       <summary>
-        <span class="characterProfileSummaryTitle"><small>Profilo Marvel</small><strong>Scopri il personaggio</strong></span>
+        <span class="characterProfileSummaryTitle"><small>${esc(config.kicker)}</small><strong>${esc(config.action)}</strong></span>
         <span class="characterProfileSummaryFacts">
-          <span><small>Identità</small><b>${esc(profile.realName)}</b></span>
-          <span><small>Universo</small><b>${esc(profile.universe)}</b></span>
+          <span><small>${esc(config.factOne[0])}</small><b>${esc(config.factOne[1])}</b></span>
+          <span><small>${esc(config.factTwo[0])}</small><b>${esc(config.factTwo[1])}</b></span>
         </span>
         <span class="characterProfileToggle" aria-hidden="true"></span>
       </summary>
       <div class="characterProfileBody">
-        <section class="characterBiography" aria-labelledby="characterBioTitle">
-          <small>Biografia essenziale</small>
-          <h2 id="characterBioTitle">Chi è ${esc(currentMeta.name)}</h2>
+        <section class="characterBiography" aria-labelledby="pathProfileTitle">
+          <small>${esc(config.bioKicker)}</small>
+          <h2 id="pathProfileTitle">${esc(config.title)}</h2>
           <p>${esc(profile.bio)}</p>
         </section>
-        <dl class="characterDossier">
-          <div><dt>Prima apparizione</dt><dd>${esc(profile.debut)}</dd></div>
-          <div><dt>Creatori</dt><dd>${esc(profile.creators)}</dd></div>
-          <div><dt>Alias principali</dt><dd>${esc(profile.aliases.join(" · "))}</dd></div>
-          <div><dt>Universo</dt><dd>${esc(profile.universe)}</dd></div>
-        </dl>
-        <div class="characterProfileTags">
-          <section><small>Poteri e abilità</small><div>${tags(profile.abilities,"characterAbility")}</div></section>
-          <section><small>Affiliazioni principali</small><div>${tags(profile.affiliations,"characterAffiliation")}</div></section>
-        </div>
-        <p class="characterProfileNote">Profilo editoriale introduttivo, separato dall'ordine di lettura e privo di anticipazioni decisive.</p>
+        <dl class="characterDossier">${dossier}</dl>
+        <div class="characterProfileTags">${groups}</div>
+        <p class="characterProfileNote">${esc(config.note)}</p>
       </div>
     </details>`;
 }
@@ -428,7 +457,7 @@ function renderHero(){
   els.topTitle.textContent=`${currentCharacter.name} Reading System`;
   els.topSub.textContent=`${currentCharacter.start} → ${currentCharacter.end}`;
   els.footerNote.innerHTML=`<b>${esc(currentCharacter.name)}</b><br>${esc(currentCharacter.start)}<br>→ ${esc(currentCharacter.end)}`;
-  renderCharacterProfile();
+  renderPathProfile();
 }
 function renderNext(){const i=nextIssue();if(!i){els.nextPanel.innerHTML=`<div class="nextMeta" style="grid-column:1/-1"><div class="label">Percorso completato</div><h2>Sei in pari con ${esc(currentCharacter.name)}.</h2><p>${esc(currentCharacter.end)}</p></div>`;return}const st=status(i.id);els.nextPanel.innerHTML=`<div class="nextCover"><div class="fallback">${esc(i.name)}</div>${coverImg(i,false)}</div><div class="nextMeta"><div class="label">Leggi adesso · ${i.seq}/${currentCharacter.totalRequired}</div><h2>${esc(i.name)}</h2><p>${esc(i.date)} · ${esc(i.era)}<br>${esc(i.title)}</p><div class="nextBtns"><button type="button" class="btn formatPhysical ${st.physical?"primary":""}" id="nextPhysical">${icon(st.physical?"check":"archive")}<span>Fisico</span></button><button type="button" class="btn formatDigital ${st.digital?"primary":""}" id="nextDigital">${icon(st.digital?"check":"cloud")}<span>Digitale</span></button><button type="button" class="btn done" id="nextRead">${icon(st.read?"check":"book")}<span>${st.read?"Letto":"Segna letto"}</span></button><button type="button" class="btn" id="nextJump"><span>Mostra</span>${icon("arrow")}</button></div></div>`;$("nextPhysical").onclick=()=>setStatus(i.id,{physical:!st.physical});$("nextDigital").onclick=()=>setStatus(i.id,{digital:!st.digital});$("nextRead").onclick=()=>setStatus(i.id,{read:!st.read});$("nextJump").onclick=()=>jumpToIssue(i)}
 function renderRoute(){
