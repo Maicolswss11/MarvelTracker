@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "profiles": {
     "ironman": {
       "realName": "Anthony Edward Stark",
@@ -580,6 +580,46 @@
       "affiliations": ["Direttorato eurasiatico", "Opposizione mutante", "Weapon program"],
       "abilities": ["Fattore rigenerante", "Artigli e scheletro in adamantio", "Sensi potenziati", "Condizionamento da assassino"],
       "bio": "Nella Terra-6160 Logan viene trasformato nel Winter Soldier del Direttorato eurasiatico controllato da Magik, Colosso e Omega Red. Memoria e volontà sono spezzate per farne un'arma contro la resistenza mutante, mentre frammenti della persona sotto la maschera continuano a riemergere. Questa versione fonde due miti Marvel — Wolverine e il Soldato d'Inverno — e concentra la storia sulla lotta contro programmazione e imperialismo. Gli artigli possono obbedire agli ordini; l'identità di Logan, molto meno."
+    },
+    "spiderman-2099": {
+      "realName": "Miguel O'Hara",
+      "aliases": ["Spider-Man 2099", "L'Uomo Ragno del futuro"],
+      "universe": "Terra-928",
+      "debut": "Spider-Man 2099 #1 (1992), dopo l'anteprima in Amazing Spider-Man #365",
+      "creators": "Peter David e Rick Leonardi",
+      "affiliations": ["Alchemax", "Exiles", "Nueva York 2099"],
+      "abilities": ["Forza e agilità sovrumane", "Artigli retrattili", "Zanne con veleno paralizzante", "Visione accelerata e mantello planante"],
+      "bio": "Miguel O'Hara è un brillante genetista di Alchemax nella Nueva York del 2099, una società dominata dalle megacorporazioni. Quando tenta di sottrarsi al controllo del suo datore di lavoro, un esperimento di riscrittura genetica fonde il suo DNA con quello di un ragno. Miguel non replica i poteri di Peter Parker: sviluppa artigli, zanne velenose e sensi estremamente potenziati, mentre una tuta del Día de los Muertos e un mantello di tessuto instabile completano la sua identità. Cinico e riluttante all'inizio, diventa il simbolo capace di sfidare Alchemax e di restituire speranza a un futuro che considera gli eroi soltanto leggende."
+    },
+    "doom-2099": {
+      "realName": "Victor von Doom",
+      "aliases": ["Doom 2099", "Dottor Destino", "Presidente Doom"],
+      "universe": "Terra-928",
+      "debut": "Doom 2099 #1 (1993)",
+      "creators": "John Francis Moore e Pat Broderick, dalla creazione di Stan Lee e Jack Kirby",
+      "affiliations": ["Latveria", "One Nation Under Doom", "S.H.I.E.L.D. 2099"],
+      "abilities": ["Genio scientifico", "Stregoneria", "Armatura futuristica", "Strategia politica e militare"],
+      "bio": "Un uomo che afferma di essere Victor von Doom riappare nel 2099 e trova la Latveria conquistata, la memoria incompleta e il mondo nelle mani delle corporazioni. Ricostruisce la propria armatura con tecnologia futura, riconquista il trono e trasforma gradualmente una vendetta personale in un progetto globale. Quando assume il controllo degli Stati Uniti, Doom si presenta come l'unico sovrano capace di spezzare il potere corporativo e imporre ordine al pianeta. La serie conserva l'ambiguità fondamentale del personaggio: liberatore per chi vive sotto Alchemax, tiranno per chi rifiuta il suo dominio, Victor combatte davvero per un mondo migliore ma non riesce a immaginarne uno che non gli obbedisca."
+    },
+    "punisher-2099": {
+      "realName": "Jake Gallows",
+      "aliases": ["Punisher 2099", "Ministro della Punizione"],
+      "universe": "Terra-928",
+      "debut": "The Punisher 2099 #1 (1993)",
+      "creators": "Pat Mills, Tony Skinner e Tom Morgan",
+      "affiliations": ["Public Eye", "Governo di Doom 2099", "Rete di vigilanza di Transverse City"],
+      "abilities": ["Addestramento da agente", "Armi futuristiche", "Armatura e sorveglianza avanzate", "Tattica intimidatoria"],
+      "bio": "Jake Gallows è un agente del Public Eye di Transverse City. Dopo l'omicidio della madre, del fratello e della cognata, trova il diario di guerra di Frank Castle e decide di applicarne il codice in un futuro dove perfino la giustizia è diventata un servizio aziendale. Costruisce un arsenale tecnologico, un carcere privato e un'identità capace di terrorizzare criminali e corporazioni, spingendo la logica del Punitore verso estremi spesso grotteschi. Sotto il governo di Doom viene nominato Ministro della Punizione, ma l'autorità ufficiale non rende più semplice il confine tra legge e ossessione. Gallows è il prodotto di un sistema disumano che tenta di combattere adottandone la stessa brutalità."
+    },
+    "ghost-rider-2099": {
+      "realName": "Kenshiro “Zero” Cochrane",
+      "aliases": ["Ghost Rider 2099", "Zero", "Spirito digitale della Vendetta"],
+      "universe": "Terra-928",
+      "debut": "Ghost Rider 2099 #1 (1994)",
+      "creators": "Len Kaminski e Chris Bachalo",
+      "affiliations": ["Hotwire", "Ghostworks", "Undernet"],
+      "abilities": ["Corpo cibernetico sovrumano", "Autoriparazione", "Accesso alle reti digitali", "Armi e veicoli integrati"],
+      "bio": "Kenshiro Cochrane, detto Zero, è un hacker di Transverse City ucciso dopo aver sottratto dati a una corporazione. Prima che la sua mente scompaia, la trasferisce nella rete e viene reclutato da Ghostworks, un'intelligenza collettiva che inserisce la sua coscienza in un potente corpo cibernetico. Il risultato richiama l'antico Ghost Rider senza dipendere da una maledizione demoniaca: metallo, codice e memoria sostituiscono ossa e fuoco infernale. Zero torna nel mondo fisico per vendicarsi, proteggere i compagni di Hotwire e capire quanto della persona originale sopravviva nella macchina. Il suo conflitto non è soltanto contro le corporazioni, ma contro chiunque pretenda di possedere identità e libero arbitrio."
     }
   }
 }

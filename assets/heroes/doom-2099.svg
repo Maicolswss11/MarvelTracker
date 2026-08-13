@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" role="img" aria-labelledby="title">
+  <title id="title">Doom 2099</title>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1715"/><stop offset="1" stop-color="#173f30"/></linearGradient><linearGradient id="m" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d8eee4"/><stop offset=".5" stop-color="#6f9987"/><stop offset="1" stop-color="#d8eee4"/></linearGradient></defs>
+  <rect width="160" height="200" rx="24" fill="url(#g)"/><path d="M38 37h84l-9 91-33 23-33-23z" fill="#07110f" stroke="#69d28b" stroke-width="3"/><path d="M52 51h56l-5 66-23 17-23-17z" fill="url(#m)"/><path d="m59 77 16 5-14 8m40-13-16 5 14 8M68 109h24M64 119h32" fill="none" stroke="#0b1715" stroke-width="6" stroke-linecap="square"/><text x="80" y="171" fill="#fff" font-family="Arial,sans-serif" font-size="16" font-weight="900" text-anchor="middle" letter-spacing="3">DOOM</text><text x="80" y="190" fill="#69d28b" font-family="Arial,sans-serif" font-size="20" font-weight="900" text-anchor="middle">2099</text>
+</svg>

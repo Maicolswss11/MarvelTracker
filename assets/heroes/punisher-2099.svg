@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" role="img" aria-labelledby="title">
+  <title id="title">Punisher 2099</title>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#121419"/><stop offset="1" stop-color="#3d1f20"/></linearGradient></defs>
+  <rect width="160" height="200" rx="24" fill="url(#g)"/><path d="M45 39h70l10 45-19 34-11-8v35l-15-14-15 14v-35l-11 8-19-34z" fill="#e8eef0"/><path d="m53 73 20 7-17 12m51-19-20 7 17 12M70 104h20" fill="none" stroke="#15181d" stroke-width="8" stroke-linecap="square"/><path d="M37 32h86M29 151h102" stroke="#ff8b5c" stroke-width="3"/><text x="80" y="173" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="900" text-anchor="middle" letter-spacing="1">PUNISHER</text><text x="80" y="191" fill="#ff8b5c" font-family="Arial,sans-serif" font-size="19" font-weight="900" text-anchor="middle">2099</text>
+</svg>

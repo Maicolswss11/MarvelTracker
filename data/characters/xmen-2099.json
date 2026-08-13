@@ -1,0 +1,1234 @@
+{
+  "id": "xmen-2099",
+  "name": "X-Men 2099",
+  "subtitle": "Xi'an Chi Xan e i mutanti di Halo City",
+  "accent": "#f0cb55",
+  "start": "X-Men 2099 #1 — Giugno 1994",
+  "end": "Marvel Omnibus #219 — Marzo 2025",
+  "description": "X-Men 2099 #1–35 nelle edizioni Marvel Italia, più lo Special e Oasis. L'Omnibus 2025 è usato soltanto per i racconti che non avevano avuto una precedente edizione italiana, senza duplicare la lettura dei diciotto spillati originali.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "XM2099",
+      "name": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "range": "#1–18"
+    },
+    {
+      "id": "2099AD",
+      "name": "2099 AD",
+      "publisher": "Marvel Italia",
+      "range": "#1–13"
+    },
+    {
+      "id": "2099SPEC_P",
+      "name": "2099 Special",
+      "publisher": "Marvel Italia",
+      "range": "#13–17"
+    },
+    {
+      "id": "MCROS_M",
+      "name": "Marvel Crossover",
+      "publisher": "Marvel Italia",
+      "range": "#13"
+    },
+    {
+      "id": "MAROMNIB",
+      "name": "Marvel Omnibus",
+      "publisher": "Panini Comics",
+      "range": "#219"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "marvel-2099",
+    "spiderman-2099",
+    "xmen"
+  ],
+  "totalRequired": 35,
+  "issues": [
+    {
+      "id": "XM2099:1",
+      "n": 1,
+      "name": "X-Men 2099 #1",
+      "title": "Il Raduno",
+      "date": "Giugno 1994",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_001.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_001",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #1.",
+      "contents": [
+        {
+          "id": "XMEN2099:1",
+          "series": "X-Men 2099",
+          "number": "1"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "XMEN2099:1"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:2",
+      "n": 2,
+      "name": "X-Men 2099 #2",
+      "title": "Synge City Blues",
+      "date": "Luglio 1994",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_002.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_002",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 2,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #2.",
+      "contents": [
+        {
+          "id": "XMEN2099:2",
+          "series": "X-Men 2099",
+          "number": "2"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 2,
+        "contentIds": [
+          "XMEN2099:2"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:3",
+      "n": 3,
+      "name": "X-Men 2099 #3",
+      "title": "Viva Las Vegas!",
+      "date": "Agosto 1994",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_003.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_003",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 3,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #3.",
+      "contents": [
+        {
+          "id": "XMEN2099:3",
+          "series": "X-Men 2099",
+          "number": "3"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 3,
+        "contentIds": [
+          "XMEN2099:3"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:4",
+      "n": 4,
+      "name": "X-Men 2099 #4",
+      "title": "La stanza oscura",
+      "date": "Settembre 1994",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_004.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_004",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 4,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #4.",
+      "contents": [
+        {
+          "id": "XMEN2099:4",
+          "series": "X-Men 2099",
+          "number": "4"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 4,
+        "contentIds": [
+          "XMEN2099:4"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:5",
+      "n": 5,
+      "name": "X-Men 2099 #5",
+      "title": "Cade il Martello",
+      "date": "Ottobre 1994",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_005.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_005",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 5,
+      "era": "Cade il Martello",
+      "instruction": "Leggi: X-Men 2099 #5.",
+      "contents": [
+        {
+          "id": "XMEN2099:5",
+          "series": "X-Men 2099",
+          "number": "5"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 5,
+        "contentIds": [
+          "XMEN2099:5"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:6",
+      "n": 6,
+      "name": "X-Men 2099 #6",
+      "title": "Arrivano... i Freakshow!",
+      "date": "Novembre 1994",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_006.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_006",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 6,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #6.",
+      "contents": [
+        {
+          "id": "XMEN2099:6",
+          "series": "X-Men 2099",
+          "number": "6"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 6,
+        "contentIds": [
+          "XMEN2099:6"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:7",
+      "n": 7,
+      "name": "X-Men 2099 #7",
+      "title": "Skullfire!",
+      "date": "Dicembre 1994",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_007.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_007",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 7,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #7.",
+      "contents": [
+        {
+          "id": "XMEN2099:7",
+          "series": "X-Men 2099",
+          "number": "7"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 7,
+        "contentIds": [
+          "XMEN2099:7"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:8",
+      "n": 8,
+      "name": "X-Men 2099 #8",
+      "title": "Venti spettrali!",
+      "date": "Gennaio 1995",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_008.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_008",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 8,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #8.",
+      "contents": [
+        {
+          "id": "XMEN2099:8",
+          "series": "X-Men 2099",
+          "number": "8"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 8,
+        "contentIds": [
+          "XMEN2099:8"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:9",
+      "n": 9,
+      "name": "X-Men 2099 #9",
+      "title": "Il segreto di Xi'An",
+      "date": "Febbraio 1995",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_009.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_009",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 9,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #9.",
+      "contents": [
+        {
+          "id": "XMEN2099:9",
+          "series": "X-Men 2099",
+          "number": "9"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 9,
+        "contentIds": [
+          "XMEN2099:9"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:10",
+      "n": 10,
+      "name": "X-Men 2099 #10",
+      "title": "Il ritorno di... la Lunatica!",
+      "date": "Marzo 1995",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_010.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_010",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 10,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #10.",
+      "contents": [
+        {
+          "id": "XMEN2099:10",
+          "series": "X-Men 2099",
+          "number": "10"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 10,
+        "contentIds": [
+          "XMEN2099:10"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:11",
+      "n": 11,
+      "name": "X-Men 2099 #11",
+      "title": "Il mistero di Driver!",
+      "date": "Aprile 1995",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_011.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_011",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 11,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #11 · X-Men 2099 #12.",
+      "contents": [
+        {
+          "id": "XMEN2099:11",
+          "series": "X-Men 2099",
+          "number": "11"
+        },
+        {
+          "id": "XMEN2099:12",
+          "series": "X-Men 2099",
+          "number": "12"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 11,
+        "contentIds": [
+          "XMEN2099:11",
+          "XMEN2099:12"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:12",
+      "n": 12,
+      "name": "X-Men 2099 #12",
+      "title": "Benvenuto al Teatro del Dolore!",
+      "date": "Maggio 1995",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_012.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_012",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 12,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #13.",
+      "contents": [
+        {
+          "id": "XMEN2099:13",
+          "series": "X-Men 2099",
+          "number": "13"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 12,
+        "contentIds": [
+          "XMEN2099:13"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:13",
+      "n": 13,
+      "name": "X-Men 2099 #13",
+      "title": "Metalhead",
+      "date": "Giugno 1995",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_013.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_013",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 13,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #14.",
+      "contents": [
+        {
+          "id": "XMEN2099:14",
+          "series": "X-Men 2099",
+          "number": "14"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 13,
+        "contentIds": [
+          "XMEN2099:14"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:14",
+      "n": 14,
+      "name": "X-Men 2099 #14",
+      "title": "La prossima fase di Metalhead",
+      "date": "Luglio 1995",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_014.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_014",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 14,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #15.",
+      "contents": [
+        {
+          "id": "XMEN2099:15",
+          "series": "X-Men 2099",
+          "number": "15"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 14,
+        "contentIds": [
+          "XMEN2099:15"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:15",
+      "n": 15,
+      "name": "X-Men 2099 #15",
+      "title": "Halloween Jack",
+      "date": "Agosto 1995",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_015.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_015",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 15,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #16.",
+      "contents": [
+        {
+          "id": "XMEN2099:16",
+          "series": "X-Men 2099",
+          "number": "16"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 15,
+        "contentIds": [
+          "XMEN2099:16"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:16",
+      "n": 16,
+      "name": "X-Men 2099 #16",
+      "title": "Strani giorni",
+      "date": "Settembre 1995",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_016.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_016",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 16,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #17.",
+      "contents": [
+        {
+          "id": "XMEN2099:17",
+          "series": "X-Men 2099",
+          "number": "17"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 16,
+        "contentIds": [
+          "XMEN2099:17"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:17",
+      "n": 17,
+      "name": "X-Men 2099 #17",
+      "title": "Ecco a voi i Free Radical Chic",
+      "date": "Ottobre 1995",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_017.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_017",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 17,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #18.",
+      "contents": [
+        {
+          "id": "XMEN2099:18",
+          "series": "X-Men 2099",
+          "number": "18"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 17,
+        "contentIds": [
+          "XMEN2099:18"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:18",
+      "n": 18,
+      "name": "X-Men 2099 #18",
+      "title": "Battaglia a Las Vegas",
+      "date": "Novembre 1995",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_018.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_018",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 18,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: X-Men 2099 #19 · X-Men 2099 #20.",
+      "contents": [
+        {
+          "id": "XMEN2099:19",
+          "series": "X-Men 2099",
+          "number": "19"
+        },
+        {
+          "id": "XMEN2099:20",
+          "series": "X-Men 2099",
+          "number": "20"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 18,
+        "contentIds": [
+          "XMEN2099:19",
+          "XMEN2099:20"
+        ]
+      }
+    },
+    {
+      "id": "2099AD:1",
+      "n": 1,
+      "name": "2099 AD #1",
+      "title": "Una nazione sotto Doom",
+      "date": "Dicembre 1995",
+      "seriesId": "2099AD",
+      "series": "2099 AD",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099AD_001.jpg",
+      "url": "https://www.comicsbox.it/albo/2099AD_001",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 19,
+      "era": "One Nation Under Doom",
+      "instruction": "Leggi: X-Men 2099 #21.",
+      "contents": [
+        {
+          "id": "XMEN2099:21",
+          "series": "X-Men 2099",
+          "number": "21"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 19,
+        "contentIds": [
+          "XMEN2099:21"
+        ]
+      }
+    },
+    {
+      "id": "2099AD:2",
+      "n": 2,
+      "name": "2099 AD #2",
+      "title": "La nuova era",
+      "date": "Gennaio 1996",
+      "seriesId": "2099AD",
+      "series": "2099 AD",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099AD_002.jpg",
+      "url": "https://www.comicsbox.it/albo/2099AD_002",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 20,
+      "era": "One Nation Under Doom",
+      "instruction": "Leggi: X-Men 2099 #22.",
+      "contents": [
+        {
+          "id": "XMEN2099:22",
+          "series": "X-Men 2099",
+          "number": "22"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 20,
+        "contentIds": [
+          "XMEN2099:22"
+        ]
+      }
+    },
+    {
+      "id": "2099AD:3",
+      "n": 3,
+      "name": "2099 AD #3",
+      "title": "Mr. O'Hara va a Washington",
+      "date": "Febbraio 1996",
+      "seriesId": "2099AD",
+      "series": "2099 AD",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099AD_003.jpg",
+      "url": "https://www.comicsbox.it/albo/2099AD_003",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 21,
+      "era": "One Nation Under Doom",
+      "instruction": "Leggi: X-Men 2099 #23.",
+      "contents": [
+        {
+          "id": "XMEN2099:23",
+          "series": "X-Men 2099",
+          "number": "23"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 21,
+        "contentIds": [
+          "XMEN2099:23"
+        ]
+      }
+    },
+    {
+      "id": "2099AD:4",
+      "n": 4,
+      "name": "2099 AD #4",
+      "title": "L'Uomo Ragno contro Venom",
+      "date": "Marzo 1996",
+      "seriesId": "2099AD",
+      "series": "2099 AD",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099AD_004.jpg",
+      "url": "https://www.comicsbox.it/albo/2099AD_004",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 22,
+      "era": "One Nation Under Doom",
+      "instruction": "Leggi: X-Men 2099 #24.",
+      "contents": [
+        {
+          "id": "XMEN2099:24",
+          "series": "X-Men 2099",
+          "number": "24"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 22,
+        "contentIds": [
+          "XMEN2099:24"
+        ]
+      }
+    },
+    {
+      "id": "2099AD:6",
+      "n": 6,
+      "name": "2099 AD #6",
+      "title": "L'ultimo sipario",
+      "date": "Maggio 1996",
+      "seriesId": "2099AD",
+      "series": "2099 AD",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099AD_006.jpg",
+      "url": "https://www.comicsbox.it/albo/2099AD_006",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 23,
+      "era": "One Nation Under Doom",
+      "instruction": "Leggi: X-Men 2099 #25.",
+      "contents": [
+        {
+          "id": "XMEN2099:25",
+          "series": "X-Men 2099",
+          "number": "25"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 23,
+        "contentIds": [
+          "XMEN2099:25"
+        ]
+      }
+    },
+    {
+      "id": "2099AD:7",
+      "n": 7,
+      "name": "2099 AD #7",
+      "title": "Io odio l'Uomo Ragno 2099",
+      "date": "Giugno 1996",
+      "seriesId": "2099AD",
+      "series": "2099 AD",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099AD_007.jpg",
+      "url": "https://www.comicsbox.it/albo/2099AD_007",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 24,
+      "era": "One Nation Under Doom",
+      "instruction": "Leggi: X-Men 2099 #26.",
+      "contents": [
+        {
+          "id": "XMEN2099:26",
+          "series": "X-Men 2099",
+          "number": "26"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 24,
+        "contentIds": [
+          "XMEN2099:26"
+        ]
+      }
+    },
+    {
+      "id": "2099AD:8",
+      "n": 8,
+      "name": "2099 AD #8",
+      "title": "La città dei morti",
+      "date": "Luglio 1996",
+      "seriesId": "2099AD",
+      "series": "2099 AD",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099AD_008.jpg",
+      "url": "https://www.comicsbox.it/albo/2099AD_008",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 25,
+      "era": "One Nation Under Doom",
+      "instruction": "Leggi: X-Men 2099 #27.",
+      "contents": [
+        {
+          "id": "XMEN2099:27",
+          "series": "X-Men 2099",
+          "number": "27"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 25,
+        "contentIds": [
+          "XMEN2099:27"
+        ]
+      }
+    },
+    {
+      "id": "2099AD:10",
+      "n": 10,
+      "name": "2099 AD #10",
+      "title": "Goblin 2099",
+      "date": "Settembre 1996",
+      "seriesId": "2099AD",
+      "series": "2099 AD",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099AD_010.jpg",
+      "url": "https://www.comicsbox.it/albo/2099AD_010",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 26,
+      "era": "One Nation Under Doom",
+      "instruction": "Leggi: X-Men 2099 #28.",
+      "contents": [
+        {
+          "id": "XMEN2099:28",
+          "series": "X-Men 2099",
+          "number": "28"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 26,
+        "contentIds": [
+          "XMEN2099:28"
+        ]
+      }
+    },
+    {
+      "id": "2099AD:11",
+      "n": 11,
+      "name": "2099 AD #11",
+      "title": "Goblin ti tiene in pugno!",
+      "date": "Ottobre 1996",
+      "seriesId": "2099AD",
+      "series": "2099 AD",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099AD_011.jpg",
+      "url": "https://www.comicsbox.it/albo/2099AD_011",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 27,
+      "era": "One Nation Under Doom",
+      "instruction": "Leggi: X-Men 2099 #29.",
+      "contents": [
+        {
+          "id": "XMEN2099:29",
+          "series": "X-Men 2099",
+          "number": "29"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 27,
+        "contentIds": [
+          "XMEN2099:29"
+        ]
+      }
+    },
+    {
+      "id": "2099AD:12",
+      "n": 12,
+      "name": "2099 AD #12",
+      "title": "Le profezie di Doom",
+      "date": "Novembre 1996",
+      "seriesId": "2099AD",
+      "series": "2099 AD",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099AD_012.jpg",
+      "url": "https://www.comicsbox.it/albo/2099AD_012",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 28,
+      "era": "One Nation Under Doom",
+      "instruction": "Leggi: X-Men 2099 #30.",
+      "contents": [
+        {
+          "id": "XMEN2099:30",
+          "series": "X-Men 2099",
+          "number": "30"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 28,
+        "contentIds": [
+          "XMEN2099:30"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:13",
+      "n": 13,
+      "displayNumber": "13",
+      "name": "2099 Special #13",
+      "title": "Universo Marvel 2099",
+      "date": "Gennaio 1996",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_013.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_013",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 29,
+      "era": "La fine del mondo 2099",
+      "instruction": "Leggi: X-Men 2099 #31.",
+      "contents": [
+        {
+          "id": "XMEN2099:31",
+          "series": "X-Men 2099",
+          "number": "31"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 29,
+        "contentIds": [
+          "XMEN2099:31"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:15",
+      "n": 15,
+      "displayNumber": "15",
+      "name": "2099 Special #15",
+      "title": "È sempre più buio... prima dell'alba",
+      "date": "Marzo 1996",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_015.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_015",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 30,
+      "era": "La fine del mondo 2099",
+      "instruction": "Leggi: X-Men 2099 #32.",
+      "contents": [
+        {
+          "id": "XMEN2099:32",
+          "series": "X-Men 2099",
+          "number": "32"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 30,
+        "contentIds": [
+          "XMEN2099:32"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:16",
+      "n": 16,
+      "displayNumber": "16",
+      "name": "2099 Special #16",
+      "title": "Universo Marvel 2099",
+      "date": "Aprile 1996",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_016.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_016",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 31,
+      "era": "La fine del mondo 2099",
+      "instruction": "Leggi: X-Men 2099 #33.",
+      "contents": [
+        {
+          "id": "XMEN2099:33",
+          "series": "X-Men 2099",
+          "number": "33"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 31,
+        "contentIds": [
+          "XMEN2099:33"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:17",
+      "n": 17,
+      "displayNumber": "17",
+      "name": "2099 Special #17",
+      "title": "La fine del viaggio!",
+      "date": "Maggio 1996",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_017.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_017",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 32,
+      "era": "La fine del mondo 2099",
+      "instruction": "Leggi: X-Men 2099 #34 · X-Men 2099 #35.",
+      "contents": [
+        {
+          "id": "XMEN2099:34",
+          "series": "X-Men 2099",
+          "number": "34"
+        },
+        {
+          "id": "XMEN2099:35",
+          "series": "X-Men 2099",
+          "number": "35"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 32,
+        "contentIds": [
+          "XMEN2099:34",
+          "XMEN2099:35"
+        ]
+      }
+    },
+    {
+      "id": "2099AD:13",
+      "n": 13,
+      "name": "2099 AD #13",
+      "title": "X-Men 2099 Special",
+      "date": "Dicembre 1996",
+      "seriesId": "2099AD",
+      "series": "2099 AD",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099AD_013.jpg",
+      "url": "https://www.comicsbox.it/albo/2099AD_013",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 33,
+      "era": "One Nation Under Doom",
+      "instruction": "Leggi: X-Men 2099 Special #main.",
+      "contents": [
+        {
+          "id": "XM2099SP:main",
+          "series": "X-Men 2099 Special",
+          "number": "main"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 33,
+        "contentIds": [
+          "XM2099SP:main"
+        ]
+      }
+    },
+    {
+      "id": "MCROS_M:13",
+      "n": 13,
+      "name": "Marvel Crossover #13",
+      "title": "2099 Apocalypse",
+      "date": "Luglio 1996",
+      "seriesId": "MCROS_M",
+      "series": "Marvel Crossover",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/MCROS_M_013.jpg",
+      "url": "https://www.comicsbox.it/albo/MCROS_M_013",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 34,
+      "era": "Eventi e crossover 2099",
+      "instruction": "Leggi: X-Men 2099 Special #halloween.",
+      "contents": [
+        {
+          "id": "XM2099SP:halloween",
+          "series": "X-Men 2099 Special",
+          "number": "halloween"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 34,
+        "contentIds": [
+          "XM2099SP:halloween"
+        ]
+      }
+    },
+    {
+      "id": "MAROMNIB:219",
+      "n": 219,
+      "name": "Marvel Omnibus #219",
+      "title": "X-Men 2099",
+      "date": "Marzo 2025",
+      "seriesId": "MAROMNIB",
+      "series": "Marvel Omnibus",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MAROMNIB_219.jpg",
+      "url": "https://www.comicsbox.it/albo/MAROMNIB_219",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 35,
+      "era": "Recuperi moderni degli inediti",
+      "instruction": "Leggi: X-Men 2099 Special #shakti · X-Men 2099: Oasis #1.",
+      "contents": [
+        {
+          "id": "XM2099SP:shakti",
+          "series": "X-Men 2099 Special",
+          "number": "shakti"
+        },
+        {
+          "id": "XM2099OASIS:1",
+          "series": "X-Men 2099: Oasis",
+          "number": "1"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 35,
+        "contentIds": [
+          "XM2099SP:shakti",
+          "XM2099OASIS:1"
+        ]
+      }
+    }
+  ]
+}

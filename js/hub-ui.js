@@ -72,6 +72,14 @@ function hubPaths(hub){
   return [...ids].map(pathById).filter(Boolean);
 }
 
+function hubChildren(hub){
+  const ids = new Set([
+    ...(hub?.sections?.flatMap(section=>section.items||[]) || []),
+    ...(hubManifest?.hubs||[]).filter(child=>child.parent===hub?.id).map(child=>child.id)
+  ]);
+  return [...ids].map(hubById).filter(Boolean);
+}
+
 function hubStats(hub,visited=new Set()){
   if(!hub || visited.has(hub.id)) return {paths:[],total:0};
   visited.add(hub.id);
@@ -177,12 +185,13 @@ function renderMainUniverse(root,hub){
 function renderHubDetail(root,hub){
   collectProgress();
   const groups = hub.groups || [];
+  const children = hubChildren(hub);
   const stats = hubStats(hub);
-  const coming = hub.status === "coming" && !groups.length;
+  const coming = hub.status === "coming" && !groups.length && !children.length;
   root.innerHTML = `${breadcrumbHtml(hub)}
     <section class="hubDetailHero" style="--hub-accent:${esc(hub.accent)}"><div class="hubDetailCopy"><span class="hubEyebrow">${hub.type === "event-index" ? "Indice eventi" : hub.type === "universe" ? "Universo" : "Famiglia Marvel"}</span><h2>${esc(hub.name)}</h2><p>${esc(hub.subtitle)}</p></div><div class="hubDetailAside">${hubDetailArtworkMarkup(hub)}<div class="hubDetailStats"><b>${stats.paths.length}</b><span>percorsi</span><b>${stats.total.toLocaleString("it-IT")}</b><span>tappe</span></div></div></section>
     ${coming?`<section class="hubEmpty"><span>Struttura pronta</span><h3>${esc(hub.name)} sarà costruito qui.</h3><p>Il contenitore è già parte della nuova architettura. Quando aggiungeremo i dati, non serviranno altre modifiche alla navigazione.</p></section>`:
-      groups.map(group=>`<section class="hubShelf pathShelf"><div class="hubShelfHead"><div><span>${esc(hub.name)}</span><h3>${esc(group.label)}</h3></div><small>${(group.paths||[]).length} percorsi</small></div><div class="hubPathGrid">${(group.paths||[]).map(pathById).filter(Boolean).map(path=>pathCard(path,hub.id)).join("")}</div></section>`).join("")}
+      `${children.length?`<section class="hubShelf"><div class="hubShelfHead"><div><span>${esc(hub.name)}</span><h3>${esc(hub.sections?.[0]?.label||"Esplora le realtà")}</h3></div><small>${children.length} ${children.length===1?"universo":"universi"}</small></div><div class="hubGrid universeGrid">${children.map(child=>hubCard(child)).join("")}</div></section>`:""}${groups.map(group=>`<section class="hubShelf pathShelf"><div class="hubShelfHead"><div><span>${esc(hub.name)}</span><h3>${esc(group.label)}</h3></div><small>${(group.paths||[]).length} percorsi</small></div><div class="hubPathGrid">${(group.paths||[]).map(pathById).filter(Boolean).map(path=>pathCard(path,hub.id)).join("")}</div></section>`).join("")}`}
   `;
   bindHubControls(root);
 }

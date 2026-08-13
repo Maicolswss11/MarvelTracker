@@ -1,0 +1,978 @@
+{
+  "id": "punisher-2099",
+  "name": "Punisher 2099",
+  "subtitle": "Jake Gallows · Terra-928",
+  "accent": "#ff8b5c",
+  "start": "Marvel 2099 Speciale — Aprile 1993",
+  "end": "2099 Special #7 — Dicembre 1995",
+  "description": "Il percorso italiano disponibile di Jake Gallows: Punisher 2099 #1–28, compresi i capitoli brevi, ricostruiti nelle antologie Star Comics e Marvel Italia. I numeri USA #29–34 sono esclusi perché non risultano pubblicati in italiano.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "2099SPE",
+      "name": "Marvel 2099 Speciale",
+      "publisher": "Star Comics",
+      "range": "#0"
+    },
+    {
+      "id": "UR2099",
+      "name": "L'Uomo Ragno 2099",
+      "publisher": "Star Comics",
+      "range": "#2–30"
+    },
+    {
+      "id": "XM2099",
+      "name": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "range": "#5"
+    },
+    {
+      "id": "2099SPEC_P",
+      "name": "2099 Special",
+      "publisher": "Marvel Italia",
+      "range": "#5–7"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "marvel-2099",
+    "punisher",
+    "doom-2099"
+  ],
+  "totalRequired": 28,
+  "issues": [
+    {
+      "id": "2099SPE:0",
+      "n": 0,
+      "displayNumber": "0",
+      "name": "Marvel 2099 Speciale",
+      "title": "2099 Speciale ZERO",
+      "date": "Aprile 1993",
+      "seriesId": "2099SPE",
+      "series": "Marvel 2099 Speciale",
+      "publisher": "Star Comics",
+      "cover": "https://www.comicsbox.it/cover/2099SPE_000.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPE_000",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "La nascita del 2099",
+      "instruction": "Leggi: Punisher 2099 #1.",
+      "contents": [
+        {
+          "id": "PUN2099:1",
+          "series": "Punisher 2099",
+          "number": "1"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "PUN2099:1"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:2",
+      "n": 2,
+      "name": "L'Uomo Ragno 2099 #2",
+      "title": "Battesimo del fuoco",
+      "date": "Luglio 1993",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Star Comics",
+      "cover": "https://www.comicsbox.it/cover/UR2099_002.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_002",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 2,
+      "era": "La nascita del 2099",
+      "instruction": "Leggi: Punisher 2099 #2.",
+      "contents": [
+        {
+          "id": "PUN2099:2",
+          "series": "Punisher 2099",
+          "number": "2"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 2,
+        "contentIds": [
+          "PUN2099:2"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:5",
+      "n": 5,
+      "name": "L'Uomo Ragno 2099 #5",
+      "title": "Downtown",
+      "date": "Ottobre 1993",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Star Comics",
+      "cover": "https://www.comicsbox.it/cover/UR2099_005.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_005",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 3,
+      "era": "La nascita del 2099",
+      "instruction": "Leggi: Punisher 2099 #3.",
+      "contents": [
+        {
+          "id": "PUN2099:3",
+          "series": "Punisher 2099",
+          "number": "3"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 3,
+        "contentIds": [
+          "PUN2099:3"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:8",
+      "n": 8,
+      "name": "L'Uomo Ragno 2099 #8",
+      "title": "Casa dolce casa",
+      "date": "Gennaio 1994",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Star Comics",
+      "cover": "https://www.comicsbox.it/cover/UR2099_008.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_008",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 4,
+      "era": "La nascita del 2099",
+      "instruction": "Leggi: Punisher 2099 #4.",
+      "contents": [
+        {
+          "id": "PUN2099:4",
+          "series": "Punisher 2099",
+          "number": "4"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 4,
+        "contentIds": [
+          "PUN2099:4"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:9",
+      "n": 9,
+      "name": "L'Uomo Ragno 2099 #9",
+      "title": "Dietro la maschera",
+      "date": "Febbraio 1994",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Star Comics",
+      "cover": "https://www.comicsbox.it/cover/UR2099_009.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_009",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 5,
+      "era": "La nascita del 2099",
+      "instruction": "Leggi: Punisher 2099 #5.",
+      "contents": [
+        {
+          "id": "PUN2099:5",
+          "series": "Punisher 2099",
+          "number": "5"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 5,
+        "contentIds": [
+          "PUN2099:5"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:10",
+      "n": 10,
+      "name": "L'Uomo Ragno 2099 #10",
+      "title": "Sotto assedio",
+      "date": "Marzo 1994",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Star Comics",
+      "cover": "https://www.comicsbox.it/cover/UR2099_010.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_010",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 6,
+      "era": "La nascita del 2099",
+      "instruction": "Leggi: Punisher 2099 #6.",
+      "contents": [
+        {
+          "id": "PUN2099:6",
+          "series": "Punisher 2099",
+          "number": "6"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 6,
+        "contentIds": [
+          "PUN2099:6"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:11",
+      "n": 11,
+      "name": "L'Uomo Ragno 2099 #11",
+      "title": "Thanatos",
+      "date": "Aprile 1994",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Star Comics",
+      "cover": "https://www.comicsbox.it/cover/UR2099_011.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_011",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 7,
+      "era": "La nascita del 2099",
+      "instruction": "Leggi: Punisher 2099 #7.",
+      "contents": [
+        {
+          "id": "PUN2099:7",
+          "series": "Punisher 2099",
+          "number": "7"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 7,
+        "contentIds": [
+          "PUN2099:7"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:12",
+      "n": 12,
+      "name": "L'Uomo Ragno 2099 #12",
+      "title": "Profani e profeti",
+      "date": "Maggio 1994",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_012.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_012",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 8,
+      "era": "La nascita del 2099",
+      "instruction": "Leggi: Punisher 2099 #8.",
+      "contents": [
+        {
+          "id": "PUN2099:8",
+          "series": "Punisher 2099",
+          "number": "8"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 8,
+        "contentIds": [
+          "PUN2099:8"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:13",
+      "n": 13,
+      "name": "L'Uomo Ragno 2099 #13",
+      "title": "Punto di ebollizione",
+      "date": "Giugno 1994",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_013.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_013",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 9,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #9.",
+      "contents": [
+        {
+          "id": "PUN2099:9",
+          "series": "Punisher 2099",
+          "number": "9"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 9,
+        "contentIds": [
+          "PUN2099:9"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:14",
+      "n": 14,
+      "name": "L'Uomo Ragno 2099 #14",
+      "title": "Nulla si trasforma",
+      "date": "Luglio 1994",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_014.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_014",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 10,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #10.",
+      "contents": [
+        {
+          "id": "PUN2099:10",
+          "series": "Punisher 2099",
+          "number": "10"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 10,
+        "contentIds": [
+          "PUN2099:10"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:15",
+      "n": 15,
+      "name": "L'Uomo Ragno 2099 #15",
+      "title": "Comando a distanza",
+      "date": "Agosto 1994",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_015.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_015",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 11,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #11.",
+      "contents": [
+        {
+          "id": "PUN2099:11",
+          "series": "Punisher 2099",
+          "number": "11"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 11,
+        "contentIds": [
+          "PUN2099:11"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:17",
+      "n": 17,
+      "name": "L'Uomo Ragno 2099 #17",
+      "title": "Cade il Martello",
+      "date": "Ottobre 1994",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_017.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_017",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 12,
+      "era": "Cade il Martello",
+      "instruction": "Leggi: Punisher 2099 #12.",
+      "contents": [
+        {
+          "id": "PUN2099:12",
+          "series": "Punisher 2099",
+          "number": "12"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 12,
+        "contentIds": [
+          "PUN2099:12"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:18",
+      "n": 18,
+      "name": "L'Uomo Ragno 2099 #18",
+      "title": "Bloodsword contro l'Uomo Ragno 2099",
+      "date": "Novembre 1994",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_018.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_018",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 13,
+      "era": "Cade il Martello",
+      "instruction": "Leggi: Punisher 2099 #14.",
+      "contents": [
+        {
+          "id": "PUN2099:14",
+          "series": "Punisher 2099",
+          "number": "14"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 13,
+        "contentIds": [
+          "PUN2099:14"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:19",
+      "n": 19,
+      "name": "L'Uomo Ragno 2099 #19",
+      "title": "2099",
+      "date": "Dicembre 1994",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_019.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_019",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 14,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #15.",
+      "contents": [
+        {
+          "id": "PUN2099:15",
+          "series": "Punisher 2099",
+          "number": "15"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 14,
+        "contentIds": [
+          "PUN2099:15"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:20",
+      "n": 20,
+      "name": "L'Uomo Ragno 2099 #20",
+      "title": "Ah, sì?",
+      "date": "Gennaio 1995",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_020.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_020",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 15,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #16.",
+      "contents": [
+        {
+          "id": "PUN2099:16",
+          "series": "Punisher 2099",
+          "number": "16"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 15,
+        "contentIds": [
+          "PUN2099:16"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:21",
+      "n": 21,
+      "name": "L'Uomo Ragno 2099 #21",
+      "title": "Errore di sistema",
+      "date": "Febbraio 1995",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_021.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_021",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 16,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #17.",
+      "contents": [
+        {
+          "id": "PUN2099:17",
+          "series": "Punisher 2099",
+          "number": "17"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 16,
+        "contentIds": [
+          "PUN2099:17"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:22",
+      "n": 22,
+      "name": "L'Uomo Ragno 2099 #22",
+      "title": "Ecco! Sono io l'Uomo Ragno 2099",
+      "date": "Marzo 1995",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_022.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_022",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 17,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #18.",
+      "contents": [
+        {
+          "id": "PUN2099:18",
+          "series": "Punisher 2099",
+          "number": "18"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 17,
+        "contentIds": [
+          "PUN2099:18"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:23",
+      "n": 23,
+      "name": "L'Uomo Ragno 2099 #23",
+      "title": "Pericolo! Non toccatelo!",
+      "date": "Aprile 1995",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_023.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_023",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 18,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #19.",
+      "contents": [
+        {
+          "id": "PUN2099:19",
+          "series": "Punisher 2099",
+          "number": "19"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 18,
+        "contentIds": [
+          "PUN2099:19"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:24",
+      "n": 24,
+      "name": "L'Uomo Ragno 2099 #24",
+      "title": "Vecchi amici... nuovi nemici!",
+      "date": "Maggio 1995",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_024.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_024",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 19,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #20.",
+      "contents": [
+        {
+          "id": "PUN2099:20",
+          "series": "Punisher 2099",
+          "number": "20"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 19,
+        "contentIds": [
+          "PUN2099:20"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:25",
+      "n": 25,
+      "name": "L'Uomo Ragno 2099 #25",
+      "title": "È il momento della verità...",
+      "date": "Giugno 1995",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_025.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_025",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 20,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #21.",
+      "contents": [
+        {
+          "id": "PUN2099:21",
+          "series": "Punisher 2099",
+          "number": "21"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 20,
+        "contentIds": [
+          "PUN2099:21"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:26",
+      "n": 26,
+      "name": "L'Uomo Ragno 2099 #26",
+      "title": "The Web of Life",
+      "date": "Luglio 1995",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_026.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_026",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 21,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #22.",
+      "contents": [
+        {
+          "id": "PUN2099:22",
+          "series": "Punisher 2099",
+          "number": "22"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 21,
+        "contentIds": [
+          "PUN2099:22"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:27",
+      "n": 27,
+      "name": "L'Uomo Ragno 2099 #27",
+      "title": "Welcome to Nightshade",
+      "date": "Agosto 1995",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_027.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_027",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 22,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #23.",
+      "contents": [
+        {
+          "id": "PUN2099:23",
+          "series": "Punisher 2099",
+          "number": "23"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 22,
+        "contentIds": [
+          "PUN2099:23"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:28",
+      "n": 28,
+      "name": "L'Uomo Ragno 2099 #28",
+      "title": "Travesty",
+      "date": "Settembre 1995",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_028.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_028",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 23,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #24.",
+      "contents": [
+        {
+          "id": "PUN2099:24",
+          "series": "Punisher 2099",
+          "number": "24"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 23,
+        "contentIds": [
+          "PUN2099:24"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:29",
+      "n": 29,
+      "name": "L'Uomo Ragno 2099 #29",
+      "title": "Svendita totale",
+      "date": "Ottobre 1995",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_029.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_029",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 24,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #25.",
+      "contents": [
+        {
+          "id": "PUN2099:25",
+          "series": "Punisher 2099",
+          "number": "25"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 24,
+        "contentIds": [
+          "PUN2099:25"
+        ]
+      }
+    },
+    {
+      "id": "UR2099:30",
+      "n": 30,
+      "name": "L'Uomo Ragno 2099 #30",
+      "title": "Bugaboo / Route 666",
+      "date": "Novembre 1995",
+      "seriesId": "UR2099",
+      "series": "L'Uomo Ragno 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/UR2099_030.jpg",
+      "url": "https://www.comicsbox.it/albo/UR2099_030",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 25,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #26.",
+      "contents": [
+        {
+          "id": "PUN2099:26",
+          "series": "Punisher 2099",
+          "number": "26"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 25,
+        "contentIds": [
+          "PUN2099:26"
+        ]
+      }
+    },
+    {
+      "id": "XM2099:5",
+      "n": 5,
+      "name": "X-Men 2099 #5",
+      "title": "Cade il Martello",
+      "date": "Ottobre 1994",
+      "seriesId": "XM2099",
+      "series": "X-Men 2099",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/XM2099_005.jpg",
+      "url": "https://www.comicsbox.it/albo/XM2099_005",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 26,
+      "era": "Cade il Martello",
+      "instruction": "Leggi: Punisher 2099 #13.",
+      "contents": [
+        {
+          "id": "PUN2099:13",
+          "series": "Punisher 2099",
+          "number": "13"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 26,
+        "contentIds": [
+          "PUN2099:13"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:5",
+      "n": 5,
+      "displayNumber": "5",
+      "name": "2099 Special #5",
+      "title": "Universo Marvel 2099",
+      "date": "Maggio 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_005.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_005",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 27,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #25-extra.",
+      "contents": [
+        {
+          "id": "PUN2099:25-extra",
+          "series": "Punisher 2099",
+          "number": "25-extra"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 27,
+        "contentIds": [
+          "PUN2099:25-extra"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:7",
+      "n": 7,
+      "displayNumber": "7",
+      "name": "2099 Special #7",
+      "title": "Universo Marvel 2099",
+      "date": "Luglio 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_007.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_007",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 28,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Punisher 2099 #27 · Punisher 2099 #28.",
+      "contents": [
+        {
+          "id": "PUN2099:27",
+          "series": "Punisher 2099",
+          "number": "27"
+        },
+        {
+          "id": "PUN2099:28",
+          "series": "Punisher 2099",
+          "number": "28"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 28,
+        "contentIds": [
+          "PUN2099:27",
+          "PUN2099:28"
+        ]
+      }
+    }
+  ]
+}

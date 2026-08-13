@@ -1,0 +1,541 @@
+{
+  "id": "ghost-rider-2099",
+  "name": "Ghost Rider 2099",
+  "subtitle": "Kenshiro “Zero” Cochrane · Terra-928",
+  "accent": "#ff6a32",
+  "start": "2099 Special #2 — Febbraio 1995",
+  "end": "2099 Special #15 — Aprile 1997",
+  "description": "La serie completa Ghost Rider 2099 #1–25 di Len Kaminski, pubblicata integralmente in Italia dentro 2099 Special. Le card raggruppano i capitoli USA contenuti in ogni volume fisico.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "2099SPEC_P",
+      "name": "2099 Special",
+      "publisher": "Marvel Italia",
+      "range": "#2–15"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "marvel-2099",
+    "ghost-rider",
+    "doom-2099"
+  ],
+  "totalRequired": 13,
+  "issues": [
+    {
+      "id": "2099SPEC_P:2",
+      "n": 2,
+      "displayNumber": "2",
+      "name": "2099 Special #2",
+      "title": "Ghost Rider 2099",
+      "date": "Febbraio 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_002.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_002",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Ghost Rider 2099 #1 · Ghost Rider 2099 #2 · Ghost Rider 2099 #3 · Ghost Rider 2099 #4.",
+      "contents": [
+        {
+          "id": "GR2099:1",
+          "series": "Ghost Rider 2099",
+          "number": "1"
+        },
+        {
+          "id": "GR2099:2",
+          "series": "Ghost Rider 2099",
+          "number": "2"
+        },
+        {
+          "id": "GR2099:3",
+          "series": "Ghost Rider 2099",
+          "number": "3"
+        },
+        {
+          "id": "GR2099:4",
+          "series": "Ghost Rider 2099",
+          "number": "4"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "GR2099:1",
+          "GR2099:2",
+          "GR2099:3",
+          "GR2099:4"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:3",
+      "n": 3,
+      "displayNumber": "3",
+      "name": "2099 Special #3",
+      "title": "Universo Marvel 2099",
+      "date": "Marzo 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_003.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_003",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 2,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Ghost Rider 2099 #5 · Ghost Rider 2099 #6 · Ghost Rider 2099 #7.",
+      "contents": [
+        {
+          "id": "GR2099:5",
+          "series": "Ghost Rider 2099",
+          "number": "5"
+        },
+        {
+          "id": "GR2099:6",
+          "series": "Ghost Rider 2099",
+          "number": "6"
+        },
+        {
+          "id": "GR2099:7",
+          "series": "Ghost Rider 2099",
+          "number": "7"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 2,
+        "contentIds": [
+          "GR2099:5",
+          "GR2099:6",
+          "GR2099:7"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:4",
+      "n": 4,
+      "displayNumber": "4",
+      "name": "2099 Special #4",
+      "title": "Universo Marvel 2099",
+      "date": "Aprile 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_004.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_004",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 3,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Ghost Rider 2099 #8 · Ghost Rider 2099 #9.",
+      "contents": [
+        {
+          "id": "GR2099:8",
+          "series": "Ghost Rider 2099",
+          "number": "8"
+        },
+        {
+          "id": "GR2099:9",
+          "series": "Ghost Rider 2099",
+          "number": "9"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 3,
+        "contentIds": [
+          "GR2099:8",
+          "GR2099:9"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:5",
+      "n": 5,
+      "displayNumber": "5",
+      "name": "2099 Special #5",
+      "title": "Universo Marvel 2099",
+      "date": "Maggio 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_005.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_005",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 4,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Ghost Rider 2099 #10 · Ghost Rider 2099 #11.",
+      "contents": [
+        {
+          "id": "GR2099:10",
+          "series": "Ghost Rider 2099",
+          "number": "10"
+        },
+        {
+          "id": "GR2099:11",
+          "series": "Ghost Rider 2099",
+          "number": "11"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 4,
+        "contentIds": [
+          "GR2099:10",
+          "GR2099:11"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:6",
+      "n": 6,
+      "displayNumber": "6",
+      "name": "2099 Special #6",
+      "title": "Universo Marvel 2099",
+      "date": "Giugno 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_006.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_006",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 5,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Ghost Rider 2099 #12.",
+      "contents": [
+        {
+          "id": "GR2099:12",
+          "series": "Ghost Rider 2099",
+          "number": "12"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 5,
+        "contentIds": [
+          "GR2099:12"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:7",
+      "n": 7,
+      "displayNumber": "7",
+      "name": "2099 Special #7",
+      "title": "Universo Marvel 2099",
+      "date": "Luglio 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_007.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_007",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 6,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Ghost Rider 2099 #13 · Ghost Rider 2099 #14.",
+      "contents": [
+        {
+          "id": "GR2099:13",
+          "series": "Ghost Rider 2099",
+          "number": "13"
+        },
+        {
+          "id": "GR2099:14",
+          "series": "Ghost Rider 2099",
+          "number": "14"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 6,
+        "contentIds": [
+          "GR2099:13",
+          "GR2099:14"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:8",
+      "n": 8,
+      "displayNumber": "8",
+      "name": "2099 Special #8",
+      "title": "Arriva... Infarto!",
+      "date": "Agosto 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_008.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_008",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 7,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Ghost Rider 2099 #15 · Ghost Rider 2099 #16.",
+      "contents": [
+        {
+          "id": "GR2099:15",
+          "series": "Ghost Rider 2099",
+          "number": "15"
+        },
+        {
+          "id": "GR2099:16",
+          "series": "Ghost Rider 2099",
+          "number": "16"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 7,
+        "contentIds": [
+          "GR2099:15",
+          "GR2099:16"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:9",
+      "n": 9,
+      "displayNumber": "9",
+      "name": "2099 Special #9",
+      "title": "Universo Marvel 2099",
+      "date": "Settembre 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_009.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_009",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 8,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Ghost Rider 2099 #17 · Ghost Rider 2099 #18.",
+      "contents": [
+        {
+          "id": "GR2099:17",
+          "series": "Ghost Rider 2099",
+          "number": "17"
+        },
+        {
+          "id": "GR2099:18",
+          "series": "Ghost Rider 2099",
+          "number": "18"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 8,
+        "contentIds": [
+          "GR2099:17",
+          "GR2099:18"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:10",
+      "n": 10,
+      "displayNumber": "10",
+      "name": "2099 Special #10",
+      "title": "Universo Marvel 2099",
+      "date": "Ottobre 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_010.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_010",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 9,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Ghost Rider 2099 #19 · Ghost Rider 2099 #20.",
+      "contents": [
+        {
+          "id": "GR2099:19",
+          "series": "Ghost Rider 2099",
+          "number": "19"
+        },
+        {
+          "id": "GR2099:20",
+          "series": "Ghost Rider 2099",
+          "number": "20"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 9,
+        "contentIds": [
+          "GR2099:19",
+          "GR2099:20"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:12",
+      "n": 12,
+      "displayNumber": "12",
+      "name": "2099 Special #12",
+      "title": "Universo Marvel 2099",
+      "date": "Dicembre 1995",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_012.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_012",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 10,
+      "era": "L'universo si espande",
+      "instruction": "Leggi: Ghost Rider 2099 #21 · Ghost Rider 2099 #22.",
+      "contents": [
+        {
+          "id": "GR2099:21",
+          "series": "Ghost Rider 2099",
+          "number": "21"
+        },
+        {
+          "id": "GR2099:22",
+          "series": "Ghost Rider 2099",
+          "number": "22"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 10,
+        "contentIds": [
+          "GR2099:21",
+          "GR2099:22"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:13",
+      "n": 13,
+      "displayNumber": "13",
+      "name": "2099 Special #13",
+      "title": "Universo Marvel 2099",
+      "date": "Gennaio 1996",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_013.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_013",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 11,
+      "era": "La fine del mondo 2099",
+      "instruction": "Leggi: Ghost Rider 2099 #23.",
+      "contents": [
+        {
+          "id": "GR2099:23",
+          "series": "Ghost Rider 2099",
+          "number": "23"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 11,
+        "contentIds": [
+          "GR2099:23"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:14",
+      "n": 14,
+      "displayNumber": "14",
+      "name": "2099 Special #14",
+      "title": "E la città sarà sommersa dal sangue!",
+      "date": "Febbraio 1996",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_014.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_014",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 12,
+      "era": "La fine del mondo 2099",
+      "instruction": "Leggi: Ghost Rider 2099 #24.",
+      "contents": [
+        {
+          "id": "GR2099:24",
+          "series": "Ghost Rider 2099",
+          "number": "24"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 12,
+        "contentIds": [
+          "GR2099:24"
+        ]
+      }
+    },
+    {
+      "id": "2099SPEC_P:15",
+      "n": 15,
+      "displayNumber": "15",
+      "name": "2099 Special #15",
+      "title": "È sempre più buio... prima dell'alba",
+      "date": "Marzo 1996",
+      "seriesId": "2099SPEC_P",
+      "series": "2099 Special",
+      "publisher": "Marvel Italia",
+      "cover": "https://www.comicsbox.it/cover/2099SPEC_P_015.jpg",
+      "url": "https://www.comicsbox.it/albo/2099SPEC_P_015",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 13,
+      "era": "La fine del mondo 2099",
+      "instruction": "Leggi: Ghost Rider 2099 #25.",
+      "contents": [
+        {
+          "id": "GR2099:25",
+          "series": "Ghost Rider 2099",
+          "number": "25"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 13,
+        "contentIds": [
+          "GR2099:25"
+        ]
+      }
+    }
+  ]
+}

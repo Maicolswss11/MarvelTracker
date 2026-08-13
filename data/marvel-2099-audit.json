@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "scope": "Marvel 2099 classico nelle edizioni italiane",
+  "physicalIssues": 84,
+  "requiredMasterIssues": 83,
+  "optionalReprints": [
+    "2099SPEC_P:0"
+  ],
+  "paths": {
+    "marvel-2099": 83,
+    "spiderman-2099": 44,
+    "doom-2099": 41,
+    "punisher-2099": 28,
+    "xmen-2099": 35,
+    "ghost-rider-2099": 13
+  },
+  "knownItalianGaps": {
+    "punisher-2099": [
+      "Punisher 2099 #29–34"
+    ]
+  },
+  "scopedModernRecoveries": {
+    "MAROMNIB:219": [
+      "X-Men 2099 Special: Shakti",
+      "X-Men 2099: Oasis #1"
+    ],
+    "MAROMNIB:233": [
+      "Doom 2099 #39 (storia breve)",
+      "Doom 2099 #40–44"
+    ]
+  },
+  "sources": [
+    "https://www.comicsbox.it/serie/UR2099",
+    "https://www.comicsbox.it/serie/XM2099",
+    "https://www.comicsbox.it/serie/2099SPEC_P",
+    "https://www.comicsbox.it/serie/2099AD",
+    "https://www.comicsbox.it/serie/MCROS_M",
+    "https://www.comicsbox.it/serie/SM12099",
+    "https://www.comicsbox.it/serie/DOOM2099",
+    "https://www.comicsbox.it/serie/PUN2099",
+    "https://www.comicsbox.it/serie/XMEN2099",
+    "https://www.comicsbox.it/serie/GR2099"
+  ]
+}

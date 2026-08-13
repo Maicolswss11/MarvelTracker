@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" role="img" aria-labelledby="title">
+  <title id="title">Spider-Man 2099</title>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0a1833"/><stop offset="1" stop-color="#3d0b2c"/></linearGradient></defs>
+  <rect width="160" height="200" rx="24" fill="url(#g)"/><g fill="none" stroke="#e43f68" stroke-opacity=".28"><circle cx="80" cy="88" r="52"/><circle cx="80" cy="88" r="35"/><path d="M80 30v116M28 88h104M43 49l74 78M117 49l-74 78"/></g><path d="m80 46 13 25 28 8-20 20 5 29-26-14-26 14 5-29-20-20 28-8z" fill="#e43f68" fill-opacity=".9"/><path d="M80 52v57M65 67l15 18 15-18M59 84l21 17 21-17" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text x="80" y="163" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="900" text-anchor="middle" letter-spacing="1">SPIDER-MAN</text><text x="80" y="183" fill="#e43f68" font-family="Arial,sans-serif" font-size="22" font-weight="900" text-anchor="middle">2099</text>
+</svg>

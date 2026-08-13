@@ -142,6 +142,8 @@ def write_ui_art(manifest: dict[str, Any], issues: list[dict[str, Any]]) -> None
         "main": ["spiderman", "avengers", "xmen", "fantastic-four"],
         "ultimate-classic": ["ultimate-spiderman-classic", "ultimate-xmen", "ultimates", "ultimate-fantastic-four"],
         "ultimate-new": ["ultimate-new-spiderman", "ultimate-new-black-panther", "ultimate-new-xmen", "ultimate-new-ultimates", "ultimate-new-wolverine"],
+        "alternate": ["marvel-2099", "spiderman-2099", "xmen-2099", "doom-2099"],
+        "marvel-2099": ["marvel-2099", "spiderman-2099", "xmen-2099", "doom-2099"],
         "avengers": ["ironman", "thor", "cap", "hulk"],
         "xmen": ["xmen", "wolverine-616"],
         "spider": ["spiderman", "venom"],

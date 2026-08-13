@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" role="img" aria-labelledby="title">
+  <title id="title">X-Men 2099</title>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#19213a"/><stop offset="1" stop-color="#493515"/></linearGradient></defs>
+  <rect width="160" height="200" rx="24" fill="url(#g)"/><circle cx="80" cy="86" r="55" fill="none" stroke="#f0cb55" stroke-width="5"/><path d="M44 44 80 79l36-35M44 128l36-35 36 35" fill="none" stroke="#f0cb55" stroke-width="16" stroke-linecap="square"/><circle cx="80" cy="86" r="13" fill="#f0cb55" stroke="#fff" stroke-width="4"/><text x="80" y="164" fill="#fff" font-family="Arial,sans-serif" font-size="17" font-weight="900" text-anchor="middle" letter-spacing="2">X-MEN</text><text x="80" y="187" fill="#f0cb55" font-family="Arial,sans-serif" font-size="23" font-weight="900" text-anchor="middle">2099</text>
+</svg>
