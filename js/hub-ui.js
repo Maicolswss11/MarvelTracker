@@ -147,7 +147,7 @@ function pathCard(path,hubId){
   const progress = progressSnapshot.get(path.id);
   const percentage = Math.max(0,Math.min(100,Number.parseFloat(progress?.pct) || 0));
   const progressLabel = progress?.count ? `${progress.count} letti` : `${Number(path.totalRequired||0).toLocaleString("it-IT")} tappe mappate`;
-  return `<button type="button" class="hubPathCard" style="--path-accent:${esc(path.accent||"#ed1d24")}" data-hub-path="${esc(path.id)}" data-from-hub="${esc(hubId)}">
+  return `<button type="button" class="hubPathCard hubPathCard--${esc(path.type||"other")}" style="--path-accent:${esc(path.accent||"#ed1d24")}" data-hub-path="${esc(path.id)}" data-from-hub="${esc(hubId)}">
     <span class="hubPathLogo">${pathArtworkMarkup(path)}</span>
     <span class="hubPathMain"><small>${esc(pathTypeLabel(path))}</small><b>${esc(path.name)}</b><span>${esc(path.subtitle)}</span><em>${esc(String(path.start||"").split(" — ")[0])}</em></span>
     <span class="hubPathProgress"><span class="hubPathProgressValue"><b>${progress?esc(progress.pct):"0%"}</b><small>${esc(progressLabel)}</small></span><span class="hubPathTrack"><i style="width:${percentage}%"></i></span></span>

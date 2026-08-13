@@ -38,6 +38,8 @@
 .hubPathLogo .pathArtFallback.pathIconRaster,
 .hubPathLogo .pathArtPrimary.pathEditorialArtwork{padding:0!important;object-fit:contain!important;object-position:center!important;background:#071019!important}
 .hubSideArtwork .pathArtPrimary.pathEditorialArtwork{object-fit:contain!important;object-position:center!important;background:#071019!important}
+.hubPathCard.hubPathCard--event{grid-template-columns:118px minmax(0,1fr) minmax(128px,168px) 22px!important}
+.hubPathCard--event .hubPathLogo{width:118px!important;height:72px!important}
 .hubPathMain{align-self:center;gap:3px!important}
 .hubPathMain small{font-size:6.5px!important;color:var(--path-accent)!important}
 .hubPathMain b{font-size:17px!important;line-height:1.12;letter-spacing:-.035em!important}
@@ -66,6 +68,8 @@
   .hubDetailAside .hubDetailStats{margin:auto auto 0 0}
   .hubPathCard{grid-template-columns:70px minmax(0,1fr) minmax(116px,150px) 20px!important}
   .hubPathLogo{width:70px!important;height:88px!important}
+  .hubPathCard.hubPathCard--event{grid-template-columns:104px minmax(0,1fr) minmax(116px,150px) 20px!important}
+  .hubPathCard--event .hubPathLogo{width:104px!important;height:66px!important}
 }
 
 @media(max-width:720px){
@@ -76,6 +80,8 @@
   .hubDetailArtwork>span{width:70px}
   .hubPathCard{grid-template-columns:64px minmax(0,1fr) 20px!important;min-height:104px!important;padding:10px!important;gap:12px!important}
   .hubPathLogo{width:64px!important;height:82px!important}
+  .hubPathCard.hubPathCard--event{grid-template-columns:88px minmax(0,1fr) 20px!important}
+  .hubPathCard--event .hubPathLogo{width:88px!important;height:58px!important}
   .hubPathProgress{display:none!important}
   .hubPathMain b{font-size:15px!important}
   .hubPathArrow{display:block!important}
@@ -94,6 +100,8 @@
   .hubDetailStats b{font-size:20px!important}
   .hubPathCard{grid-template-columns:58px minmax(0,1fr) 18px!important;min-height:92px!important;gap:10px!important}
   .hubPathLogo{width:58px!important;height:74px!important}
+  .hubPathCard.hubPathCard--event{grid-template-columns:76px minmax(0,1fr) 18px!important}
+  .hubPathCard--event .hubPathLogo{width:76px!important;height:52px!important}
   .hubPathMain em{display:none}
 }
 
