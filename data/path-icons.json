@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "paths": {
     "ironman": "assets/path-icons/ironman.jpg",
     "war-machine": "assets/path-icons/war-machine.jpg",
@@ -64,7 +64,26 @@
     "cosmic-ghost-rider": "assets/path-icons/cosmic-ghost-rider.jpg",
     "guardians-of-the-galaxy": "assets/path-icons/guardians-of-the-galaxy.jpg",
     "ultimates-616": "assets/path-icons/ultimates-616.jpg",
-    "marvel-zombies": "assets/path-icons/marvel-zombies.jpg",
+    "house-of-m": "assets/path-icons/HouseofM.jpg",
+    "civil-war": "assets/path-icons/CivilWar.webp",
+    "secret-invasion": "assets/path-icons/SecretInvasion.webp",
+    "siege": "assets/path-icons/Siege.webp",
+    "fear-itself": "assets/path-icons/FearItself.webp",
+    "avengers-vs-xmen": "assets/path-icons/AvsX.webp",
+    "secret-wars-1984": "assets/path-icons/SecretWars1984.webp",
+    "infinity-gauntlet": "assets/path-icons/InfinityGauntlet.webp",
+    "infinity": "assets/path-icons/Infinity.webp",
+    "secret-wars-2015": "assets/path-icons/SecretWars2015.webp",
+    "civil-war-ii": "assets/path-icons/CivilWarII.webp",
+    "secret-empire": "assets/path-icons/SecretEmpire.webp",
+    "war-of-the-realms": "assets/path-icons/GuerradeiRegni.webp",
+    "absolute-carnage": "assets/path-icons/AbsoluteCarnage.webp",
+    "empyre": "assets/path-icons/Empyre.png",
+    "king-in-black": "assets/path-icons/KinginBlack.webp",
+    "blood-hunt": "assets/path-icons/BloodHunt.png",
+    "judgment-day": "assets/path-icons/AXE.webp",
+    "marvel-zombies": "assets/path-icons/MarvelZombies.webp",
+    "marvel-zombies-2149": "assets/path-icons/marvel-zombies-2149.jpg",
     "zombie-spider-man": "assets/path-icons/zombie-spider-man.jpg",
     "xmen-2099": "assets/path-icons/xmen-2099.jpg",
     "ultimates": "assets/path-icons/ultimates.jpg",
@@ -78,6 +97,12 @@
     "ultimate-new-spiderman": "assets/path-icons/ultimate-new-spiderman.jpg",
     "ultimate-new-black-panther": "assets/path-icons/ultimate-new-black-panther.jpg",
     "ultimate-new-wolverine": "assets/path-icons/ultimate-new-wolverine.jpg",
-    "ultimate-new-ultimates": "assets/path-icons/ultimate-new-ultimates.jpg"
+    "ultimate-new-ultimates": "assets/path-icons/ultimate-new-ultimates.jpg",
+    "ultimate-origins": "assets/path-icons/ultimateorigins.webp",
+    "ultimate-doomsday": "assets/path-icons/UltimateDoomsday.webp",
+    "ultimate-cataclysm": "assets/path-icons/cataclisma.png",
+    "ultimate-invasion": "assets/path-icons/ultimateinvasion.png",
+    "ultimate-incursion": "assets/path-icons/ultimatespidermanincurion.png",
+    "ultimate-endgame": "assets/path-icons/ultimateendgame.jpeg"
   }
 }
