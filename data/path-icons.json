@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "paths": {
     "ironman": "assets/path-icons/ironman.jpg",
     "war-machine": "assets/path-icons/war-machine.jpg",
@@ -16,8 +16,11 @@
     "venom": "assets/path-icons/venom.jpg",
     "black-cat": "assets/path-icons/black-cat.jpg",
     "avengers": "assets/path-icons/avengers.jpg",
+    "fantastic-four": "assets/path-icons/fantastic-four.jpg",
     "xmen": "assets/path-icons/xmen.jpg",
     "x-force": "assets/path-icons/x-force.jpg",
+    "x-factor": "assets/path-icons/x-factor.jpg",
+    "new-mutants": "assets/path-icons/new-mutants.jpg",
     "cyclops": "assets/path-icons/cyclops.jpg",
     "jean-grey": "assets/path-icons/jean-grey.jpg",
     "storm": "assets/path-icons/storm.jpg",
@@ -51,6 +54,7 @@
     "doctor-strange": "assets/path-icons/doctor-strange.jpg",
     "ghost-rider": "assets/path-icons/ghost-rider.jpg",
     "ghost-rider-2099": "assets/path-icons/ghost-rider-2099.jpg",
+    "midnight-sons": "assets/path-icons/midnight-sons.jpg",
     "blade": "assets/path-icons/blade.jpg",
     "morbius": "assets/path-icons/morbius.jpg",
     "silver-surfer": "assets/path-icons/silver-surfer.jpg",
@@ -58,7 +62,14 @@
     "adam-warlock": "assets/path-icons/adam-warlock.jpg",
     "thanos": "assets/path-icons/thanos.jpg",
     "cosmic-ghost-rider": "assets/path-icons/cosmic-ghost-rider.jpg",
+    "guardians-of-the-galaxy": "assets/path-icons/guardians-of-the-galaxy.jpg",
+    "ultimates-616": "assets/path-icons/ultimates-616.jpg",
+    "marvel-zombies": "assets/path-icons/marvel-zombies.jpg",
+    "zombie-spider-man": "assets/path-icons/zombie-spider-man.jpg",
+    "xmen-2099": "assets/path-icons/xmen-2099.jpg",
     "ultimates": "assets/path-icons/ultimates.jpg",
+    "ultimate-xmen": "assets/path-icons/ultimate-xmen.jpg",
+    "ultimate-fantastic-four": "assets/path-icons/ultimate-fantastic-four.jpg",
     "ultimate-spiderman-classic": "assets/path-icons/ultimate-spiderman-classic.jpg",
     "ultimate-ironman": "assets/path-icons/ultimate-ironman.png",
     "ultimate-wolverine": "assets/path-icons/ultimate-wolverine.jpg",
@@ -66,6 +77,7 @@
     "ultimate-cap": "assets/path-icons/ultimate-cap.jpg",
     "ultimate-new-spiderman": "assets/path-icons/ultimate-new-spiderman.jpg",
     "ultimate-new-black-panther": "assets/path-icons/ultimate-new-black-panther.jpg",
-    "ultimate-new-wolverine": "assets/path-icons/ultimate-new-wolverine.jpg"
+    "ultimate-new-wolverine": "assets/path-icons/ultimate-new-wolverine.jpg",
+    "ultimate-new-ultimates": "assets/path-icons/ultimate-new-ultimates.jpg"
   }
 }
