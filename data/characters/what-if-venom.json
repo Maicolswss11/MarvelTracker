@@ -1,0 +1,93 @@
+{
+  "id": "what-if-venom",
+  "name": "Venom: Il Simbionte Supremo",
+  "subtitle": "She-Hulk · Wolverine · Strange · Loki · Moon Knight",
+  "accent": "#b7d2e7",
+  "start": "Marvel Collection (II) #603 — Ottobre 2024",
+  "end": "Marvel Collection (II) #603 — Ottobre 2024",
+  "description": "La miniserie What If...? Venom completa immagina il simbionte legato a cinque ospiti diversi. I capitoli compongono un esperimento multiversale sul modo in cui Venom amplifica corpo, poteri e conflitti interiori di She-Hulk, Wolverine, Doctor Strange, Loki e Moon Knight.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MVNWCOL_P",
+      "name": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "range": "#603",
+      "years": "2024"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "what-if",
+    "venom",
+    "wolverine-616",
+    "doctor-strange",
+    "moon-knight"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "MVNWCOL_P:603",
+      "n": 603,
+      "name": "Marvel Collection (II) #603",
+      "title": "What If...? Venom: Il Simbionte Supremo",
+      "date": "Ottobre 2024",
+      "seriesId": "MVNWCOL_P",
+      "series": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MVNWCOL_P_603.jpg",
+      "url": "https://www.comicsbox.it/albo/MVNWCOL_P_603",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "Il Simbionte Supremo",
+      "instruction": "Leggi What If...? Venom #1–5 seguendo i cinque diversi ospiti del simbionte.",
+      "contents": [
+        {
+          "id": "WIFVENOM:1",
+          "series": "What If...? Venom",
+          "number": "1",
+          "title": "What If...? Venom #1"
+        },
+        {
+          "id": "WIFVENOM:2",
+          "series": "What If...? Venom",
+          "number": "2",
+          "title": "What If...? Venom #2"
+        },
+        {
+          "id": "WIFVENOM:3",
+          "series": "What If...? Venom",
+          "number": "3",
+          "title": "What If...? Venom #3"
+        },
+        {
+          "id": "WIFVENOM:4",
+          "series": "What If...? Venom",
+          "number": "4",
+          "title": "What If...? Venom #4"
+        },
+        {
+          "id": "WIFVENOM:5",
+          "series": "What If...? Venom",
+          "number": "5",
+          "title": "What If...? Venom #5"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "WIFVENOM:1",
+          "WIFVENOM:2",
+          "WIFVENOM:3",
+          "WIFVENOM:4",
+          "WIFVENOM:5"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

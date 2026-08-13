@@ -58,13 +58,18 @@ body.compact .cover{display:none}body.compact .issue{grid-template-columns:54px 
 .heroPathVisual img{width:100%;height:100%;display:block}
 .heroPathVisual .pathIconRaster{object-fit:cover}
 .heroPathVisual .pathIconVector{object-fit:contain;padding:19%;opacity:.92}
+.heroPanel:has(.heroPathVisual--event){grid-template-columns:minmax(188px,24%) minmax(0,1fr)}
+.heroPathVisual--event{width:100%;max-width:220px;aspect-ratio:16/10;border-radius:20px}
+.heroPathVisual--event .pathIconRaster{object-fit:cover!important;object-position:center!important}
 .heroPanelCopy{position:relative;z-index:1;min-width:0}
 #trackerView .heroPanel .heroTimeline{display:block;margin-top:10px;color:var(--accent);font-size:11px;line-height:1.42;letter-spacing:.015em;font-weight:800}
 #trackerView .heroPanel h1{margin-bottom:12px}
 
 @media(max-width:720px){
   #trackerView .heroPanel{grid-template-columns:82px minmax(0,1fr);gap:14px;align-items:start}
+  #trackerView .heroPanel:has(.heroPathVisual--event){grid-template-columns:116px minmax(0,1fr)}
   .heroPathVisual{width:82px;border-radius:16px;box-shadow:0 12px 24px rgba(0,0,0,.34),0 0 22px color-mix(in srgb,var(--accent) 8%,transparent)}
+  .heroPathVisual--event{width:116px;max-width:none;aspect-ratio:16/10;border-radius:14px}
   #trackerView .heroPanel h1{margin:6px 0 8px;font-size:29px;line-height:.96}
   #trackerView .heroPanel .heroTimeline{margin-top:7px;font-size:8.5px;line-height:1.38}
   #trackerView .heroPanel p{font-size:9.5px;line-height:1.5}
@@ -72,7 +77,9 @@ body.compact .cover{display:none}body.compact .issue{grid-template-columns:54px 
 
 @media(max-width:390px){
   #trackerView .heroPanel{grid-template-columns:72px minmax(0,1fr);gap:12px}
+  #trackerView .heroPanel:has(.heroPathVisual--event){grid-template-columns:104px minmax(0,1fr)}
   .heroPathVisual{width:72px;border-radius:14px}
+  .heroPathVisual--event{width:104px;border-radius:13px}
   #trackerView .heroPanel h1{font-size:26px}
 }
 

@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "profiles": {
     "ironman": {
       "realName": "Anthony Edward Stark",
@@ -1397,6 +1397,61 @@
         "Resistenza da non-morto e Fame sovrumana"
       ],
       "bio": "Il Peter Parker di Terra-2149 conserva memoria, intelligenza e poteri dopo il contagio, ma la Fame trasforma ogni impulso eroico in una minaccia. La tragedia del personaggio nasce dalla sua piena consapevolezza: a differenza di molti infetti, Spider-Man comprende il peso delle persone che ha divorato e non riesce a nascondersi dietro l'istinto. Attraversa così la conquista cosmica dei Marvel Zombies e il successivo passaggio in un'altra realtà cercando un modo per spezzare il ciclo. Il suo percorso deforma il principio della responsabilità senza cancellarlo: Peter rimane insieme colpevole, vittima e uno dei pochi zombie disposti a opporsi alla propria natura."
+    },
+    "what-if-miles-morales": {
+      "realName": "Miles Morales · varianti multiversali",
+      "aliases": [
+        "Capitan America",
+        "Wolverine",
+        "Hulk",
+        "Thor",
+        "Spider-Man"
+      ],
+      "universe": "Cinque realtà del Multiverso What If",
+      "debut": "What If...? Miles Morales #1 (2022)",
+      "creators": "Cody Ziglar, Paco Medina e i team creativi della miniserie del 2022",
+      "affiliations": [
+        "Avengers multiversali",
+        "S.H.I.E.L.D. alternativo",
+        "X-Men alternativi",
+        "Asgard alternativo"
+      ],
+      "abilities": [
+        "Poteri variabili secondo la realtà",
+        "Addestramento da supersoldato",
+        "Fattore rigenerante e artigli",
+        "Forza gamma",
+        "Poteri asgardiani e Mjolnir"
+      ],
+      "bio": "Questa incarnazione editoriale di Miles Morales non è un singolo personaggio continuo, ma una costellazione di cinque possibilità. Ogni capitolo conserva il nucleo morale di Miles e cambia l'incontro che definisce la sua vita: il siero del supersoldato, il programma Weapon X, l'energia gamma, il potere di Thor o il morso del ragno. Le differenze mostrano quanto identità, famiglia e responsabilità contino più del costume. Nel finale le varianti entrano in contatto e trasformano l'antologia in una piccola squadra multiversale, distinta sia dal Miles dell'Universo Ultimate sia da quello trasferito su Terra-616."
+    },
+    "what-if-venom": {
+      "realName": "Simbionte Venom · varianti multiversali",
+      "aliases": [
+        "Il Simbionte Supremo",
+        "She-Venom",
+        "Venom-Wolverine",
+        "Venom-Strange",
+        "Venom-Moon Knight"
+      ],
+      "universe": "Cinque realtà del Multiverso What If",
+      "debut": "What If...? Venom #1 (2024)",
+      "creators": "Jeremy Holt e i team artistici della miniserie What If...? Venom",
+      "affiliations": [
+        "She-Hulk",
+        "Wolverine",
+        "Doctor Strange",
+        "Loki",
+        "Moon Knight"
+      ],
+      "abilities": [
+        "Legame simbiotico",
+        "Amplificazione dei poteri dell'ospite",
+        "Mutaforma e mimetizzazione",
+        "Memoria genetica",
+        "Adattamento fisico e mistico"
+      ],
+      "bio": "Il Venom di questo percorso è il simbionte osservato attraverso cinque legami alternativi. Invece di definire la propria identità insieme a Eddie Brock, incontra She-Hulk, Wolverine, Doctor Strange, Loki e Moon Knight e assorbe ogni volta capacità, traumi e conflitti molto diversi. La miniserie usa così Venom come reagente narrativo: forza gamma, rigenerazione mutante, magia e identità frammentate cambiano anche il comportamento del Klyntar. I capitoli appartengono a possibilità separate e non sostituiscono la storia del simbionte di Terra-616; il profilo riassume ciò che rimane costante quando cambia l'ospite."
     }
   }
 }

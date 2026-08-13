@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "scope": "What If...? nelle raccolte italiane Panini selezionate, con ogni realtà trattata come possibilità autonoma",
+  "publishedThrough": "Ottobre 2024",
+  "physicalIssues": 6,
+  "usaStories": 34,
+  "paths": {
+    "what-if": 6,
+    "what-if-classic": 3,
+    "what-if-miles-morales": 1,
+    "what-if-venom": 1,
+    "what-if-dark": 1,
+    "avengers-1950s-what-if": 1,
+    "what-if-kree-skrull-war": 1
+  },
+  "sharedPhysicalIssues": {
+    "MARVGEEKS:33": [
+      "what-if",
+      "what-if-classic",
+      "avengers-1950s-what-if"
+    ],
+    "MARVGEEKS:35": [
+      "what-if",
+      "what-if-classic",
+      "what-if-kree-skrull-war"
+    ],
+    "MVNWCOL_P:436": [
+      "what-if",
+      "what-if-miles-morales"
+    ],
+    "MVNWCOL_P:567": [
+      "what-if",
+      "what-if-dark"
+    ],
+    "MVNWCOL_P:603": [
+      "what-if",
+      "what-if-venom"
+    ]
+  },
+  "scopingNotes": [
+    "I tre Classic contengono i numeri USA #1–12, #14–15 e #17–20; i numeri assenti non vengono inventati come lacune fisiche.",
+    "Miles Morales, What If...? Dark e What If...? Venom appartengono a raccolte autonome e non a una singola continuità condivisa.",
+    "Ogni percorso figlio riusa l'ID del volume fisico e limita la lettura ai contenuti USA indicati."
+  ],
+  "imageRequests": {
+    "universe": {
+      "what-if": "what-if.jpg"
+    },
+    "collections": {
+      "what-if-classic": "what-if-classic.jpg",
+      "what-if-dark": "what-if-dark.jpg"
+    },
+    "characters": {
+      "what-if-miles-morales": "what-if-miles-morales.jpg",
+      "what-if-venom": "what-if-venom.jpg"
+    },
+    "teams": {
+      "avengers-1950s-what-if": "avengers-1950s-what-if.jpg"
+    },
+    "events": {
+      "what-if-kree-skrull-war": "what-if-kree-skrull-war.jpg"
+    }
+  },
+  "sources": [
+    "https://www.comicsbox.it/albo/MARVGEEKS_017",
+    "https://www.panini.it/shp_ita_it/what-if-classic-1-mgeek017isbn-it08.html",
+    "https://www.comicsbox.it/albo/MARVGEEKS_033",
+    "https://www.panini.it/shp_ita_it/what-if-classic-2-mgeek033isbn-it08.html",
+    "https://www.comicsbox.it/albo/MARVGEEKS_035",
+    "https://www.panini.it/shp_ita_it/what-if-classic-3-mgeek035isbn-it08.html",
+    "https://www.comicsbox.it/albo/MVNWCOL_P_436",
+    "https://www.panini.it/shp_ita_it/what-if-miles-morales-mnowi213isbn-it08.html",
+    "https://www.comicsbox.it/albo/MVNWCOL_P_567",
+    "https://www.panini.it/shp_ita_it/what-if-dark-multiverso-oscuro-mnowi286isbn-it08.html",
+    "https://www.comicsbox.it/albo/MVNWCOL_P_603",
+    "https://www.panini.it/shp_ita_it/what-if-venom-il-simbionte-supremo-mnowi320isbn-it08.html",
+    "https://www.marvel.com/comics/series/34253/what_if_miles_morales_2022",
+    "https://www.marvel.com/comics/series/38826/what_if_venom_2024",
+    "https://www.marvel.com/articles/comics/what-if-dark-puts-a-dark-twist-on-classic-moments"
+  ]
+}

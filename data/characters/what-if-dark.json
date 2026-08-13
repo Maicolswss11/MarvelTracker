@@ -1,0 +1,100 @@
+{
+  "id": "what-if-dark",
+  "name": "What If...? Dark",
+  "subtitle": "Multiverso Oscuro · sei one-shot",
+  "accent": "#8b6fda",
+  "start": "Marvel Collection (II) #567 — Aprile 2024",
+  "end": "Marvel Collection (II) #567 — Aprile 2024",
+  "description": "Sei one-shot completi che riscrivono celebri snodi Marvel in chiave più cupa: Loki e Mjolnir, la notte del ponte di Gwen Stacy, Ben Grimm e Venom, Moon Knight, Carnage e lo scontro fra Blade e Dracula. Non condividono una continuità e vengono riuniti soltanto dal marchio editoriale Dark.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MVNWCOL_P",
+      "name": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "range": "#567",
+      "years": "2024"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "what-if",
+    "thor",
+    "moon-knight",
+    "blade",
+    "venom"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "MVNWCOL_P:567",
+      "n": 567,
+      "name": "Marvel Collection (II) #567",
+      "title": "What If...? Dark: Multiverso Oscuro",
+      "date": "Aprile 2024",
+      "seriesId": "MVNWCOL_P",
+      "series": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MVNWCOL_P_567.jpg",
+      "url": "https://www.comicsbox.it/albo/MVNWCOL_P_567",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "Multiverso Oscuro",
+      "instruction": "Leggi i sei one-shot autonomi; non serve un ordine di continuità oltre a quello del volume.",
+      "contents": [
+        {
+          "id": "WIFDARKLOK:1",
+          "series": "What If...? Dark: Loki",
+          "number": "1",
+          "title": "What If...? Dark: Loki #1"
+        },
+        {
+          "id": "WIFDARKGWN:1",
+          "series": "What If...? Dark: Spider-Gwen",
+          "number": "1",
+          "title": "What If...? Dark: Spider-Gwen #1"
+        },
+        {
+          "id": "WIFDARKVEN:1",
+          "series": "What If...? Dark: Venom",
+          "number": "1",
+          "title": "What If...? Dark: Venom #1"
+        },
+        {
+          "id": "WIFDARKMK:1",
+          "series": "What If...? Dark: Moon Knight",
+          "number": "1",
+          "title": "What If...? Dark: Moon Knight #1"
+        },
+        {
+          "id": "WIFDARKCARN:1",
+          "series": "What If...? Dark: Carnage",
+          "number": "1",
+          "title": "What If...? Dark: Carnage #1"
+        },
+        {
+          "id": "WIFDARKTOD:1",
+          "series": "What If...? Dark: Tomb of Dracula",
+          "number": "1",
+          "title": "What If...? Dark: Tomb of Dracula #1"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "WIFDARKLOK:1",
+          "WIFDARKGWN:1",
+          "WIFDARKVEN:1",
+          "WIFDARKMK:1",
+          "WIFDARKCARN:1",
+          "WIFDARKTOD:1"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

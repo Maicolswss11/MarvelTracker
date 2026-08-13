@@ -1,0 +1,444 @@
+{
+  "id": "what-if",
+  "name": "What If...?",
+  "subtitle": "Infinite possibilità · realtà indipendenti",
+  "accent": "#45b8e8",
+  "start": "Marvel Geeks #17 — Giugno 2021",
+  "end": "Marvel Collection (II) #603 — Ottobre 2024",
+  "description": "Portale italiano di What If...? costruito su sei raccolte Panini: i primi diciotto racconti classici disponibili nella collana Marvel Geeks e tre cicli moderni dedicati a Miles Morales, alle varianti Dark e al simbionte Venom. Ogni storia apre una realtà autonoma: il master ordina i volumi fisici, mentre i percorsi collegati isolano personaggi, squadre ed eventi senza duplicare la copia posseduta.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MARVGEEKS",
+      "name": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "range": "#17, #33, #35",
+      "years": "2021–2023"
+    },
+    {
+      "id": "MVNWCOL_P",
+      "name": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "range": "#436, #567, #603",
+      "years": "2022–2024"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "what-if-classic",
+    "what-if-miles-morales",
+    "what-if-venom",
+    "what-if-dark",
+    "avengers-1950s-what-if",
+    "what-if-kree-skrull-war"
+  ],
+  "totalRequired": 6,
+  "issues": [
+    {
+      "id": "MARVGEEKS:17",
+      "n": 17,
+      "name": "Marvel Geeks #17",
+      "title": "What If? Classic 1",
+      "date": "Giugno 2021",
+      "seriesId": "MARVGEEKS",
+      "series": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MARVGEEKS_017.jpg",
+      "url": "https://www.comicsbox.it/albo/MARVGEEKS_017",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "What If? classico · volume 1",
+      "instruction": "Leggi What If? vol. 1 #1–6: il primo blocco delle realtà classiche.",
+      "contents": [
+        {
+          "id": "WHIF1:1",
+          "series": "What If? vol. 1",
+          "number": "1",
+          "title": "What If? vol. 1 #1"
+        },
+        {
+          "id": "WHIF1:2",
+          "series": "What If? vol. 1",
+          "number": "2",
+          "title": "What If? vol. 1 #2"
+        },
+        {
+          "id": "WHIF1:3",
+          "series": "What If? vol. 1",
+          "number": "3",
+          "title": "What If? vol. 1 #3"
+        },
+        {
+          "id": "WHIF1:4",
+          "series": "What If? vol. 1",
+          "number": "4",
+          "title": "What If? vol. 1 #4"
+        },
+        {
+          "id": "WHIF1:5",
+          "series": "What If? vol. 1",
+          "number": "5",
+          "title": "What If? vol. 1 #5"
+        },
+        {
+          "id": "WHIF1:6",
+          "series": "What If? vol. 1",
+          "number": "6",
+          "title": "What If? vol. 1 #6"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "WHIF1:1",
+          "WHIF1:2",
+          "WHIF1:3",
+          "WHIF1:4",
+          "WHIF1:5",
+          "WHIF1:6"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "MARVGEEKS:33",
+      "n": 33,
+      "name": "Marvel Geeks #33",
+      "title": "What If? Classic 2",
+      "date": "Agosto 2022",
+      "seriesId": "MARVGEEKS",
+      "series": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MARVGEEKS_033.jpg",
+      "url": "https://www.comicsbox.it/albo/MARVGEEKS_033",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 2,
+      "era": "What If? classico · volume 2",
+      "instruction": "Leggi What If? vol. 1 #7–12: Spider-Man, Avengers, Thor, Fantastici Quattro e Hulk.",
+      "contents": [
+        {
+          "id": "WHIF1:7",
+          "series": "What If? vol. 1",
+          "number": "7",
+          "title": "What If? vol. 1 #7"
+        },
+        {
+          "id": "WHIF1:8",
+          "series": "What If? vol. 1",
+          "number": "8",
+          "title": "What If? vol. 1 #8"
+        },
+        {
+          "id": "WHIF1:9",
+          "series": "What If? vol. 1",
+          "number": "9",
+          "title": "What If? vol. 1 #9"
+        },
+        {
+          "id": "WHIF1:10",
+          "series": "What If? vol. 1",
+          "number": "10",
+          "title": "What If? vol. 1 #10"
+        },
+        {
+          "id": "WHIF1:11",
+          "series": "What If? vol. 1",
+          "number": "11",
+          "title": "What If? vol. 1 #11"
+        },
+        {
+          "id": "WHIF1:12",
+          "series": "What If? vol. 1",
+          "number": "12",
+          "title": "What If? vol. 1 #12"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 2,
+        "contentIds": [
+          "WHIF1:7",
+          "WHIF1:8",
+          "WHIF1:9",
+          "WHIF1:10",
+          "WHIF1:11",
+          "WHIF1:12"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "MVNWCOL_P:436",
+      "n": 436,
+      "name": "Marvel Collection (II) #436",
+      "title": "What If...? Miles Morales: Quanti Miles ci vogliono per...?",
+      "date": "Ottobre 2022",
+      "seriesId": "MVNWCOL_P",
+      "series": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MVNWCOL_P_436.jpg",
+      "url": "https://www.comicsbox.it/albo/MVNWCOL_P_436",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 3,
+      "era": "Miles Morales alternativi",
+      "instruction": "Leggi What If...? Miles Morales #1–5, miniserie completa.",
+      "contents": [
+        {
+          "id": "WHATIFMM:1",
+          "series": "What If...? Miles Morales",
+          "number": "1",
+          "title": "What If...? Miles Morales #1"
+        },
+        {
+          "id": "WHATIFMM:2",
+          "series": "What If...? Miles Morales",
+          "number": "2",
+          "title": "What If...? Miles Morales #2"
+        },
+        {
+          "id": "WHATIFMM:3",
+          "series": "What If...? Miles Morales",
+          "number": "3",
+          "title": "What If...? Miles Morales #3"
+        },
+        {
+          "id": "WHATIFMM:4",
+          "series": "What If...? Miles Morales",
+          "number": "4",
+          "title": "What If...? Miles Morales #4"
+        },
+        {
+          "id": "WHATIFMM:5",
+          "series": "What If...? Miles Morales",
+          "number": "5",
+          "title": "What If...? Miles Morales #5"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 3,
+        "contentIds": [
+          "WHATIFMM:1",
+          "WHATIFMM:2",
+          "WHATIFMM:3",
+          "WHATIFMM:4",
+          "WHATIFMM:5"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "MARVGEEKS:35",
+      "n": 35,
+      "name": "Marvel Geeks #35",
+      "title": "What If? Classic 3",
+      "date": "Febbraio 2023",
+      "seriesId": "MARVGEEKS",
+      "series": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MARVGEEKS_035.jpg",
+      "url": "https://www.comicsbox.it/albo/MARVGEEKS_035",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 4,
+      "era": "What If? classico · volume 3",
+      "instruction": "Leggi What If? vol. 1 #14–15 e #17–20, come raccolti nel terzo Classic.",
+      "contents": [
+        {
+          "id": "WHIF1:14",
+          "series": "What If? vol. 1",
+          "number": "14",
+          "title": "What If? vol. 1 #14"
+        },
+        {
+          "id": "WHIF1:15",
+          "series": "What If? vol. 1",
+          "number": "15",
+          "title": "What If? vol. 1 #15"
+        },
+        {
+          "id": "WHIF1:17",
+          "series": "What If? vol. 1",
+          "number": "17",
+          "title": "What If? vol. 1 #17"
+        },
+        {
+          "id": "WHIF1:18",
+          "series": "What If? vol. 1",
+          "number": "18",
+          "title": "What If? vol. 1 #18"
+        },
+        {
+          "id": "WHIF1:19",
+          "series": "What If? vol. 1",
+          "number": "19",
+          "title": "What If? vol. 1 #19"
+        },
+        {
+          "id": "WHIF1:20",
+          "series": "What If? vol. 1",
+          "number": "20",
+          "title": "What If? vol. 1 #20"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 4,
+        "contentIds": [
+          "WHIF1:14",
+          "WHIF1:15",
+          "WHIF1:17",
+          "WHIF1:18",
+          "WHIF1:19",
+          "WHIF1:20"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "MVNWCOL_P:567",
+      "n": 567,
+      "name": "Marvel Collection (II) #567",
+      "title": "What If...? Dark: Multiverso Oscuro",
+      "date": "Aprile 2024",
+      "seriesId": "MVNWCOL_P",
+      "series": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MVNWCOL_P_567.jpg",
+      "url": "https://www.comicsbox.it/albo/MVNWCOL_P_567",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 5,
+      "era": "Multiverso Oscuro",
+      "instruction": "Leggi i sei one-shot What If...? Dark raccolti nel volume.",
+      "contents": [
+        {
+          "id": "WIFDARKLOK:1",
+          "series": "What If...? Dark: Loki",
+          "number": "1",
+          "title": "What If...? Dark: Loki #1"
+        },
+        {
+          "id": "WIFDARKGWN:1",
+          "series": "What If...? Dark: Spider-Gwen",
+          "number": "1",
+          "title": "What If...? Dark: Spider-Gwen #1"
+        },
+        {
+          "id": "WIFDARKVEN:1",
+          "series": "What If...? Dark: Venom",
+          "number": "1",
+          "title": "What If...? Dark: Venom #1"
+        },
+        {
+          "id": "WIFDARKMK:1",
+          "series": "What If...? Dark: Moon Knight",
+          "number": "1",
+          "title": "What If...? Dark: Moon Knight #1"
+        },
+        {
+          "id": "WIFDARKCARN:1",
+          "series": "What If...? Dark: Carnage",
+          "number": "1",
+          "title": "What If...? Dark: Carnage #1"
+        },
+        {
+          "id": "WIFDARKTOD:1",
+          "series": "What If...? Dark: Tomb of Dracula",
+          "number": "1",
+          "title": "What If...? Dark: Tomb of Dracula #1"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 5,
+        "contentIds": [
+          "WIFDARKLOK:1",
+          "WIFDARKGWN:1",
+          "WIFDARKVEN:1",
+          "WIFDARKMK:1",
+          "WIFDARKCARN:1",
+          "WIFDARKTOD:1"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "MVNWCOL_P:603",
+      "n": 603,
+      "name": "Marvel Collection (II) #603",
+      "title": "What If...? Venom: Il Simbionte Supremo",
+      "date": "Ottobre 2024",
+      "seriesId": "MVNWCOL_P",
+      "series": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MVNWCOL_P_603.jpg",
+      "url": "https://www.comicsbox.it/albo/MVNWCOL_P_603",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 6,
+      "era": "Il Simbionte Supremo",
+      "instruction": "Leggi What If...? Venom #1–5, miniserie completa.",
+      "contents": [
+        {
+          "id": "WIFVENOM:1",
+          "series": "What If...? Venom",
+          "number": "1",
+          "title": "What If...? Venom #1"
+        },
+        {
+          "id": "WIFVENOM:2",
+          "series": "What If...? Venom",
+          "number": "2",
+          "title": "What If...? Venom #2"
+        },
+        {
+          "id": "WIFVENOM:3",
+          "series": "What If...? Venom",
+          "number": "3",
+          "title": "What If...? Venom #3"
+        },
+        {
+          "id": "WIFVENOM:4",
+          "series": "What If...? Venom",
+          "number": "4",
+          "title": "What If...? Venom #4"
+        },
+        {
+          "id": "WIFVENOM:5",
+          "series": "What If...? Venom",
+          "number": "5",
+          "title": "What If...? Venom #5"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 6,
+        "contentIds": [
+          "WIFVENOM:1",
+          "WIFVENOM:2",
+          "WIFVENOM:3",
+          "WIFVENOM:4",
+          "WIFVENOM:5"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

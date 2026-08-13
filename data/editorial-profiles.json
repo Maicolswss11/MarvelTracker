@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "profiles": {
     "avengers": {
       "type": "team",
@@ -1104,6 +1104,61 @@
         "Continuità zombie autonoma"
       ],
       "bio": "Red Band sposta l'apocalisse all'alba dell'Universo Marvel. Reed Richards, Sue Storm, Ben Grimm e Johnny Storm tornano dal loro volo con poteri straordinari e una fame incontrollabile, facendo del primo grande evento eroico l'inizio del disastro. La miniserie procede poi attraverso versioni accelerate e sanguinose di tappe storiche come la nascita degli Avengers, gli X-Men e le Guerre Segrete. Non continua nessuna precedente realtà zombie: usa l'intera storia editoriale Marvel come materia per una nuova cronologia compatta, pubblicata in Italia in un singolo volume Red Band."
+    },
+    "avengers-1950s-what-if": {
+      "type": "team",
+      "founded": "Anni Cinquanta nella storia · 1978 editorialmente",
+      "universe": "Realtà alternativa del What If classico",
+      "debut": "What If? vol. 1 #9 (1978)",
+      "creators": "Roy Thomas, Don Glut, Alan Kupperberg e Bill Black",
+      "founders": [
+        "Jimmy Woo",
+        "3-D Man",
+        "Gorilla-Man",
+        "Human Robot",
+        "Marvel Boy",
+        "Venus"
+      ],
+      "members": [
+        "Jimmy Woo",
+        "3-D Man",
+        "Gorilla-Man",
+        "Human Robot",
+        "Marvel Boy",
+        "Venus"
+      ],
+      "bases": [
+        "Strutture federali statunitensi",
+        "Teatri operativi dell'era atomica"
+      ],
+      "traits": [
+        "Supergruppo pre-Avengers",
+        "Eroi pulp e fantascientifici",
+        "Missioni coordinate dall'FBI",
+        "Prototipo degli Agents of Atlas"
+      ],
+      "bio": "What If? #9 immagina che Jimmy Woo riunisca negli anni Cinquanta alcuni eroi dell'epoca Atlas per affrontare minacce che nessun agente potrebbe gestire da solo. 3-D Man, Gorilla-Man, Human Robot, Marvel Boy e Venus diventano così Avengers prima che il nome appartenga alla squadra di Thor, Iron Man, Hulk, Ant-Man e Wasp. Il racconto nacque come deviazione dalla storia nota e valorizza il patrimonio pulp, horror e fantascientifico della Marvel precedente al 1961. Idee e personaggi saranno poi rielaborati dagli Agents of Atlas nella continuità principale, ma questo percorso conserva il team esattamente nella cornice alternativa del capitolo originale."
+    },
+    "what-if-kree-skrull-war": {
+      "type": "event",
+      "period": "1980 editorialmente · deviazione dalla Guerra Kree-Skrull",
+      "universe": "Realtà alternativa del What If classico",
+      "debut": "What If? vol. 1 #20 (1980)",
+      "creators": "Tom DeFalco, Alan Kupperberg e Bruce Patterson",
+      "trigger": "Rick Jones non interviene nel momento decisivo della Guerra Kree-Skrull",
+      "scope": "Un capitolo autoconclusivo raccolto in What If? Classic 3",
+      "factions": [
+        "Avengers",
+        "Impero Kree",
+        "Impero Skrull",
+        "Suprema Intelligenza"
+      ],
+      "consequences": [
+        "Esito alternativo del conflitto cosmico",
+        "Nuove pressioni sugli Avengers",
+        "Separazione netta dalla cronologia di Terra-616"
+      ],
+      "bio": "La Guerra Kree-Skrull originale mette la Terra al centro dello scontro fra due imperi e assegna a Rick Jones un ruolo decisivo nel finale. What If? #20 rimuove proprio quella variabile e segue la reazione degli Avengers quando il conflitto non può essere risolto nello stesso modo. L'evento alternativo non è un seguito né una riscrittura retroattiva della saga di Terra-616: è un esperimento autoconclusivo sulle conseguenze di un'assenza. Il percorso seleziona soltanto questo capitolo dal terzo volume Classic, permettendo di possedere una sola copia fisica pur ritrovandola sia nell'antologia completa sia nella scheda dell'evento."
     }
   }
 }

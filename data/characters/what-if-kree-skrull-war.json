@@ -1,0 +1,63 @@
+{
+  "id": "what-if-kree-skrull-war",
+  "name": "Guerra Kree-Skrull alternativa",
+  "subtitle": "Senza Rick Jones · What If? #20",
+  "accent": "#ef725e",
+  "start": "Marvel Geeks #35 — Febbraio 2023",
+  "end": "Marvel Geeks #35 — Febbraio 2023",
+  "description": "What If? #20 devia dalla Guerra Kree-Skrull chiedendo cosa sarebbe accaduto agli Avengers senza l'intervento decisivo di Rick Jones. È un singolo evento alternativo completo, estratto dal terzo volume Classic e mantenuto distinto dalla cronologia della guerra originale di Terra-616.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MARVGEEKS",
+      "name": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "range": "#35",
+      "years": "2023"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "what-if",
+    "what-if-classic",
+    "avengers"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "MARVGEEKS:35",
+      "n": 35,
+      "name": "Marvel Geeks #35",
+      "title": "What If? Classic 3",
+      "date": "Febbraio 2023",
+      "seriesId": "MARVGEEKS",
+      "series": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MARVGEEKS_035.jpg",
+      "url": "https://www.comicsbox.it/albo/MARVGEEKS_035",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "What If? classico · volume 3",
+      "instruction": "Leggi soltanto What If? vol. 1 #20: la Guerra Kree-Skrull senza Rick Jones.",
+      "contents": [
+        {
+          "id": "WHIF1:20",
+          "series": "What If? vol. 1",
+          "number": "20",
+          "title": "What If? vol. 1 #20"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "WHIF1:20"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

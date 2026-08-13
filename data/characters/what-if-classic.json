@@ -1,0 +1,238 @@
+{
+  "id": "what-if-classic",
+  "name": "What If? Classic",
+  "subtitle": "La serie originale · 1977–1980",
+  "accent": "#32a9dd",
+  "start": "Marvel Geeks #17 — Giugno 2021",
+  "end": "Marvel Geeks #35 — Febbraio 2023",
+  "description": "I tre volumi Marvel Geeks raccolgono diciotto capitoli della prima serie What If?: numeri 1–12, 14–15 e 17–20. L'ordine segue i capitoli USA, saltando soltanto quelli non inclusi in queste edizioni italiane; ogni episodio è una deviazione indipendente e non forma una singola continuità.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MARVGEEKS",
+      "name": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "range": "#17, #33, #35",
+      "years": "2021–2023"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "what-if",
+    "avengers-1950s-what-if",
+    "what-if-kree-skrull-war"
+  ],
+  "totalRequired": 3,
+  "issues": [
+    {
+      "id": "MARVGEEKS:17",
+      "n": 17,
+      "name": "Marvel Geeks #17",
+      "title": "What If? Classic 1",
+      "date": "Giugno 2021",
+      "seriesId": "MARVGEEKS",
+      "series": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MARVGEEKS_017.jpg",
+      "url": "https://www.comicsbox.it/albo/MARVGEEKS_017",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "What If? classico · volume 1",
+      "instruction": "Leggi What If? vol. 1 #1–6.",
+      "contents": [
+        {
+          "id": "WHIF1:1",
+          "series": "What If? vol. 1",
+          "number": "1",
+          "title": "What If? vol. 1 #1"
+        },
+        {
+          "id": "WHIF1:2",
+          "series": "What If? vol. 1",
+          "number": "2",
+          "title": "What If? vol. 1 #2"
+        },
+        {
+          "id": "WHIF1:3",
+          "series": "What If? vol. 1",
+          "number": "3",
+          "title": "What If? vol. 1 #3"
+        },
+        {
+          "id": "WHIF1:4",
+          "series": "What If? vol. 1",
+          "number": "4",
+          "title": "What If? vol. 1 #4"
+        },
+        {
+          "id": "WHIF1:5",
+          "series": "What If? vol. 1",
+          "number": "5",
+          "title": "What If? vol. 1 #5"
+        },
+        {
+          "id": "WHIF1:6",
+          "series": "What If? vol. 1",
+          "number": "6",
+          "title": "What If? vol. 1 #6"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "WHIF1:1",
+          "WHIF1:2",
+          "WHIF1:3",
+          "WHIF1:4",
+          "WHIF1:5",
+          "WHIF1:6"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "MARVGEEKS:33",
+      "n": 33,
+      "name": "Marvel Geeks #33",
+      "title": "What If? Classic 2",
+      "date": "Agosto 2022",
+      "seriesId": "MARVGEEKS",
+      "series": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MARVGEEKS_033.jpg",
+      "url": "https://www.comicsbox.it/albo/MARVGEEKS_033",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 2,
+      "era": "What If? classico · volume 2",
+      "instruction": "Prosegui con What If? vol. 1 #7–12.",
+      "contents": [
+        {
+          "id": "WHIF1:7",
+          "series": "What If? vol. 1",
+          "number": "7",
+          "title": "What If? vol. 1 #7"
+        },
+        {
+          "id": "WHIF1:8",
+          "series": "What If? vol. 1",
+          "number": "8",
+          "title": "What If? vol. 1 #8"
+        },
+        {
+          "id": "WHIF1:9",
+          "series": "What If? vol. 1",
+          "number": "9",
+          "title": "What If? vol. 1 #9"
+        },
+        {
+          "id": "WHIF1:10",
+          "series": "What If? vol. 1",
+          "number": "10",
+          "title": "What If? vol. 1 #10"
+        },
+        {
+          "id": "WHIF1:11",
+          "series": "What If? vol. 1",
+          "number": "11",
+          "title": "What If? vol. 1 #11"
+        },
+        {
+          "id": "WHIF1:12",
+          "series": "What If? vol. 1",
+          "number": "12",
+          "title": "What If? vol. 1 #12"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 2,
+        "contentIds": [
+          "WHIF1:7",
+          "WHIF1:8",
+          "WHIF1:9",
+          "WHIF1:10",
+          "WHIF1:11",
+          "WHIF1:12"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "MARVGEEKS:35",
+      "n": 35,
+      "name": "Marvel Geeks #35",
+      "title": "What If? Classic 3",
+      "date": "Febbraio 2023",
+      "seriesId": "MARVGEEKS",
+      "series": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MARVGEEKS_035.jpg",
+      "url": "https://www.comicsbox.it/albo/MARVGEEKS_035",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 3,
+      "era": "What If? classico · volume 3",
+      "instruction": "Concludi questa selezione con What If? vol. 1 #14–15 e #17–20.",
+      "contents": [
+        {
+          "id": "WHIF1:14",
+          "series": "What If? vol. 1",
+          "number": "14",
+          "title": "What If? vol. 1 #14"
+        },
+        {
+          "id": "WHIF1:15",
+          "series": "What If? vol. 1",
+          "number": "15",
+          "title": "What If? vol. 1 #15"
+        },
+        {
+          "id": "WHIF1:17",
+          "series": "What If? vol. 1",
+          "number": "17",
+          "title": "What If? vol. 1 #17"
+        },
+        {
+          "id": "WHIF1:18",
+          "series": "What If? vol. 1",
+          "number": "18",
+          "title": "What If? vol. 1 #18"
+        },
+        {
+          "id": "WHIF1:19",
+          "series": "What If? vol. 1",
+          "number": "19",
+          "title": "What If? vol. 1 #19"
+        },
+        {
+          "id": "WHIF1:20",
+          "series": "What If? vol. 1",
+          "number": "20",
+          "title": "What If? vol. 1 #20"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 3,
+        "contentIds": [
+          "WHIF1:14",
+          "WHIF1:15",
+          "WHIF1:17",
+          "WHIF1:18",
+          "WHIF1:19",
+          "WHIF1:20"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

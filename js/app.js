@@ -449,6 +449,7 @@ function renderPathProfile(){
 }
 function renderHero(){
   document.documentElement.style.setProperty("--accent",currentCharacter.accent||currentMeta.accent);
+  els.heroPathVisual.classList.toggle("heroPathVisual--event",currentMeta?.type==="event");
   els.logoSub.textContent=currentCharacter.subtitle||currentMeta.subtitle;
   els.heroPathVisual.innerHTML=pathIconImage(currentMeta,{alt:`Immagine del percorso ${currentMeta.name}`,className:"heroPathImage"});
   els.heroLabel.textContent="Percorso attivo";

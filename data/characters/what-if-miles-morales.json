@@ -1,0 +1,91 @@
+{
+  "id": "what-if-miles-morales",
+  "name": "Miles Morales: What If...?",
+  "subtitle": "Cinque Miles · cinque destini",
+  "accent": "#e44d64",
+  "start": "Marvel Collection (II) #436 — Ottobre 2022",
+  "end": "Marvel Collection (II) #436 — Ottobre 2022",
+  "description": "Cinque variazioni complete su Miles Morales: Capitan America, Wolverine, Hulk, Thor e Spider-Man. Il volume termina facendo incontrare le diverse incarnazioni, ma ciascun capitolo nasce in una realtà distinta e il percorso non va confuso con la biografia del Miles dell'Universo Ultimate o di Terra-616.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MVNWCOL_P",
+      "name": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "range": "#436",
+      "years": "2022"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "what-if",
+    "ultimate-spiderman-classic",
+    "spiderman"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "MVNWCOL_P:436",
+      "n": 436,
+      "name": "Marvel Collection (II) #436",
+      "title": "What If...? Miles Morales: Quanti Miles ci vogliono per...?",
+      "date": "Ottobre 2022",
+      "seriesId": "MVNWCOL_P",
+      "series": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MVNWCOL_P_436.jpg",
+      "url": "https://www.comicsbox.it/albo/MVNWCOL_P_436",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "Miles Morales alternativi",
+      "instruction": "Leggi tutti e cinque i capitoli: ogni numero presenta un Miles alternativo e il finale li riunisce.",
+      "contents": [
+        {
+          "id": "WHATIFMM:1",
+          "series": "What If...? Miles Morales",
+          "number": "1",
+          "title": "What If...? Miles Morales #1"
+        },
+        {
+          "id": "WHATIFMM:2",
+          "series": "What If...? Miles Morales",
+          "number": "2",
+          "title": "What If...? Miles Morales #2"
+        },
+        {
+          "id": "WHATIFMM:3",
+          "series": "What If...? Miles Morales",
+          "number": "3",
+          "title": "What If...? Miles Morales #3"
+        },
+        {
+          "id": "WHATIFMM:4",
+          "series": "What If...? Miles Morales",
+          "number": "4",
+          "title": "What If...? Miles Morales #4"
+        },
+        {
+          "id": "WHATIFMM:5",
+          "series": "What If...? Miles Morales",
+          "number": "5",
+          "title": "What If...? Miles Morales #5"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "WHATIFMM:1",
+          "WHATIFMM:2",
+          "WHATIFMM:3",
+          "WHATIFMM:4",
+          "WHATIFMM:5"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

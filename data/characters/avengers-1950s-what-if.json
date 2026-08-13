@@ -1,0 +1,63 @@
+{
+  "id": "avengers-1950s-what-if",
+  "name": "Avengers degli anni Cinquanta",
+  "subtitle": "Jimmy Woo e gli eroi dell'era atomica",
+  "accent": "#e3b341",
+  "start": "Marvel Geeks #33 — Agosto 2022",
+  "end": "Marvel Geeks #33 — Agosto 2022",
+  "description": "Il racconto di What If? #9 immagina una formazione degli Avengers attiva negli anni Cinquanta sotto la guida di Jimmy Woo. La tappa seleziona soltanto quel capitolo dal secondo volume Classic; le successive rielaborazioni degli Agents of Atlas nella continuità principale restano percorsi separati.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MARVGEEKS",
+      "name": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "range": "#33",
+      "years": "2022"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "what-if",
+    "what-if-classic",
+    "avengers"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "MARVGEEKS:33",
+      "n": 33,
+      "name": "Marvel Geeks #33",
+      "title": "What If? Classic 2",
+      "date": "Agosto 2022",
+      "seriesId": "MARVGEEKS",
+      "series": "Marvel Geeks",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MARVGEEKS_033.jpg",
+      "url": "https://www.comicsbox.it/albo/MARVGEEKS_033",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "What If? classico · volume 2",
+      "instruction": "Leggi soltanto What If? vol. 1 #9: gli Avengers formati durante gli anni Cinquanta.",
+      "contents": [
+        {
+          "id": "WHIF1:9",
+          "series": "What If? vol. 1",
+          "number": "9",
+          "title": "What If? vol. 1 #9"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "WHIF1:9"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}
