@@ -1,0 +1,79 @@
+{
+  "id": "marvel-zombies-dawn-of-decay",
+  "name": "Marvel Zombies: Alba di Putrefazione",
+  "subtitle": "Terra-66804 · Groot e Hulk",
+  "accent": "#73cf72",
+  "start": "Marvel Collection (II) #647 — Aprile 2025",
+  "end": "Marvel Collection (II) #647 — Aprile 2025",
+  "description": "Miniserie completa in quattro capitoli. Un virus vegetale parte da Groot e trasforma gli eroi in creature fungine; Hulk e il giovane Groot diventano il centro di una storia autonoma, più avventurosa ma distinta da tutte le precedenti realtà zombie.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MVNWCOL_P",
+      "name": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "range": "#647",
+      "years": "2025"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "marvel-zombies",
+    "hulk",
+    "guardians-of-the-galaxy"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "MVNWCOL_P:647",
+      "n": 647,
+      "name": "Marvel Collection (II) #647",
+      "title": "Marvel Zombies: Alba di Putrefazione",
+      "date": "Aprile 2025",
+      "seriesId": "MVNWCOL_P",
+      "series": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MVNWCOL_P_647.jpg",
+      "url": "https://www.comicsbox.it/albo/MVNWCOL_P_647",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "Alba di Putrefazione",
+      "instruction": "Leggi Marvel Zombies: Dawn of Decay #1–4.",
+      "contents": [
+        {
+          "id": "MZDAWN:1",
+          "series": "Marvel Zombies: Dawn of Decay",
+          "number": "1"
+        },
+        {
+          "id": "MZDAWN:2",
+          "series": "Marvel Zombies: Dawn of Decay",
+          "number": "2"
+        },
+        {
+          "id": "MZDAWN:3",
+          "series": "Marvel Zombies: Dawn of Decay",
+          "number": "3"
+        },
+        {
+          "id": "MZDAWN:4",
+          "series": "Marvel Zombies: Dawn of Decay",
+          "number": "4"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "MZDAWN:1",
+          "MZDAWN:2",
+          "MZDAWN:3",
+          "MZDAWN:4"
+        ]
+      }
+    }
+  ]
+}

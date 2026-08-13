@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "scope": "Marvel Zombies nelle edizioni italiane Panini, separato per realtà narrativa",
+  "publishedThrough": "Maggio 2026",
+  "physicalIssues": 5,
+  "paths": {
+    "marvel-zombies": 5,
+    "zombie-spider-man": 1,
+    "marvel-zombies-2149": 1,
+    "marvel-zombies-battleworld": 1,
+    "marvel-zombies-resurrection": 1,
+    "marvel-zombies-dawn-of-decay": 1,
+    "marvel-zombies-red-band": 1
+  },
+  "continuities": {
+    "marvel-zombies-2149": "Terra-2149 e il ciclo Return su Terra-91126",
+    "marvel-zombies-battleworld": "Battleworld · Deadlands e Perfection",
+    "marvel-zombies-resurrection": "Terra-19121",
+    "marvel-zombies-dawn-of-decay": "Terra-66804",
+    "marvel-zombies-red-band": "Realtà autonoma senza designazione ufficiale usata nel percorso"
+  },
+  "sharedPhysicalIssues": {
+    "MAROMNIB:188": [
+      "marvel-zombies",
+      "zombie-spider-man",
+      "marvel-zombies-2149"
+    ],
+    "MAROMNIB:235": [
+      "marvel-zombies",
+      "marvel-zombies-battleworld",
+      "marvel-zombies-resurrection"
+    ]
+  },
+  "scopingNotes": [
+    "I materiali Marvel Apes del primo Zomnibus non sono inclusi nei contenuti del percorso.",
+    "Black, White & Blood resta una tappa antologica del master e non viene presentato come singolo evento.",
+    "Ogni percorso figlio riusa l'ID del volume fisico e limita la lettura ai contenuti USA indicati."
+  ],
+  "imageRequests": {
+    "universe": {
+      "marvel-zombies": "marvel-zombies.jpg"
+    },
+    "characters": {
+      "zombie-spider-man": "zombie-spider-man.jpg"
+    },
+    "teams": {
+      "marvel-zombies-2149": "marvel-zombies-2149.jpg"
+    },
+    "events": {
+      "marvel-zombies-battleworld": "marvel-zombies-battleworld.jpg",
+      "marvel-zombies-resurrection": "marvel-zombies-resurrection.jpg",
+      "marvel-zombies-dawn-of-decay": "marvel-zombies-dawn-of-decay.jpg",
+      "marvel-zombies-red-band": "marvel-zombies-red-band.jpg"
+    }
+  },
+  "sources": [
+    "https://www.comicsbox.it/albo/MAROMNIB_188",
+    "https://www.panini.it/shp_ita_it/marvel-zomnibus-momni032isbn-it08.html",
+    "https://www.comicsbox.it/albo/MAROMNIB_235",
+    "https://www.panini.it/shp_ita_it/marvel-zomnibus-il-ritorno-momni077isbn-it08.html",
+    "https://www.comicsbox.it/albo/MARVGIANTS_017",
+    "https://www.comicsbox.it/albo/MVNWCOL_P_647",
+    "https://www.comicsbox.it/albo/MVNWCOL_P_735",
+    "https://www.marvel.com/teams-and-groups/marvel-zombies-earth-2149",
+    "https://www.marvel.com/comics/series/20318/marvel_zombies_battleworld_2015",
+    "https://www.marvel.com/comics/series/28311/marvel_zombies_resurrection_2019"
+  ]
+}

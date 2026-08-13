@@ -1,0 +1,102 @@
+{
+  "id": "marvel-zombies-battleworld",
+  "name": "Marvel Zombies: Battleworld",
+  "subtitle": "Deadlands e Perfection · Secret Wars",
+  "accent": "#ff8c54",
+  "start": "Marvel Omnibus #235 — Settembre 2025",
+  "end": "Marvel Omnibus #235 — Settembre 2025",
+  "description": "Le due miniserie zombie di Secret Wars 2015: Elsa Bloodstone attraversa le Deadlands mentre gli ultimi umani di Perfection combattono contemporaneamente non-morti e droni di Ultron. Un percorso autonomo rispetto a Terra-2149.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MAROMNIB",
+      "name": "Marvel Omnibus",
+      "publisher": "Panini Comics",
+      "range": "#235",
+      "years": "2025"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "marvel-zombies",
+    "secret-wars-2015"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "MAROMNIB:235",
+      "n": 235,
+      "name": "Marvel Omnibus #235",
+      "title": "Marvel Zombies: Marvel Zomnibus - Il Ritorno",
+      "date": "Settembre 2025",
+      "seriesId": "MAROMNIB",
+      "series": "Marvel Omnibus",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MAROMNIB_235.jpg",
+      "url": "https://www.comicsbox.it/albo/MAROMNIB_235",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "Ritorni e realtà successive",
+      "instruction": "Leggi Marvel Zombies: Battleworld #1–4 e Age of Ultron vs. Marvel Zombies #1–4.",
+      "contents": [
+        {
+          "id": "MZ2015:1",
+          "series": "Marvel Zombies: Battleworld (2015)",
+          "number": "1"
+        },
+        {
+          "id": "MZ2015:2",
+          "series": "Marvel Zombies: Battleworld (2015)",
+          "number": "2"
+        },
+        {
+          "id": "MZ2015:3",
+          "series": "Marvel Zombies: Battleworld (2015)",
+          "number": "3"
+        },
+        {
+          "id": "MZ2015:4",
+          "series": "Marvel Zombies: Battleworld (2015)",
+          "number": "4"
+        },
+        {
+          "id": "AOUVSMZ:1",
+          "series": "Age of Ultron vs. Marvel Zombies",
+          "number": "1"
+        },
+        {
+          "id": "AOUVSMZ:2",
+          "series": "Age of Ultron vs. Marvel Zombies",
+          "number": "2"
+        },
+        {
+          "id": "AOUVSMZ:3",
+          "series": "Age of Ultron vs. Marvel Zombies",
+          "number": "3"
+        },
+        {
+          "id": "AOUVSMZ:4",
+          "series": "Age of Ultron vs. Marvel Zombies",
+          "number": "4"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "MZ2015:1",
+          "MZ2015:2",
+          "MZ2015:3",
+          "MZ2015:4",
+          "AOUVSMZ:1",
+          "AOUVSMZ:2",
+          "AOUVSMZ:3",
+          "AOUVSMZ:4"
+        ]
+      }
+    }
+  ]
+}

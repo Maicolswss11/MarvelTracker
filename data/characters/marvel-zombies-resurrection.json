@@ -1,0 +1,85 @@
+{
+  "id": "marvel-zombies-resurrection",
+  "name": "Marvel Zombies: Resurrection",
+  "subtitle": "Terra-19121 · i Respawned",
+  "accent": "#9d7be8",
+  "start": "Marvel Omnibus #235 — Settembre 2025",
+  "end": "Marvel Omnibus #235 — Settembre 2025",
+  "description": "Prologo 2019 e miniserie 2020 completi: il cadavere di Galactus porta sulla Terra un contagio parassitario diverso dalla Fame di Terra-2149. Spider-Man guida un gruppo di sopravvissuti in una realtà separata.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MAROMNIB",
+      "name": "Marvel Omnibus",
+      "publisher": "Panini Comics",
+      "range": "#235",
+      "years": "2025"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "marvel-zombies",
+    "spiderman",
+    "fantastic-four"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "MAROMNIB:235",
+      "n": 235,
+      "name": "Marvel Omnibus #235",
+      "title": "Marvel Zombies: Marvel Zomnibus - Il Ritorno",
+      "date": "Settembre 2025",
+      "seriesId": "MAROMNIB",
+      "series": "Marvel Omnibus",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MAROMNIB_235.jpg",
+      "url": "https://www.comicsbox.it/albo/MAROMNIB_235",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "Ritorni e realtà successive",
+      "instruction": "Leggi il prologo del 2019 e Marvel Zombies: Resurrection (2020) #1–4.",
+      "contents": [
+        {
+          "id": "MZRES2019:1",
+          "series": "Marvel Zombies: Resurrection (2019)",
+          "number": "1"
+        },
+        {
+          "id": "MZRES2020:1",
+          "series": "Marvel Zombies: Resurrection (2020)",
+          "number": "1"
+        },
+        {
+          "id": "MZRES2020:2",
+          "series": "Marvel Zombies: Resurrection (2020)",
+          "number": "2"
+        },
+        {
+          "id": "MZRES2020:3",
+          "series": "Marvel Zombies: Resurrection (2020)",
+          "number": "3"
+        },
+        {
+          "id": "MZRES2020:4",
+          "series": "Marvel Zombies: Resurrection (2020)",
+          "number": "4"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "MZRES2019:1",
+          "MZRES2020:1",
+          "MZRES2020:2",
+          "MZRES2020:3",
+          "MZRES2020:4"
+        ]
+      }
+    }
+  ]
+}

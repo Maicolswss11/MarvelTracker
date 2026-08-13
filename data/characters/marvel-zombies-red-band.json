@@ -1,0 +1,85 @@
+{
+  "id": "marvel-zombies-red-band",
+  "name": "Marvel Zombies: Red Band",
+  "subtitle": "Una nuova storia della morte",
+  "accent": "#f23f43",
+  "start": "Marvel Collection (II) #735 — Maggio 2026",
+  "end": "Marvel Collection (II) #735 — Maggio 2026",
+  "description": "La miniserie 2025 completa riscrive l'inizio dell'era Marvel: il volo cosmico dei Fantastici Quattro genera subito il contagio e l'epidemia attraversa versioni deformate dei grandi momenti editoriali. È una continuità autonoma, non un seguito di Terra-2149.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MVNWCOL_P",
+      "name": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "range": "#735",
+      "years": "2026"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "marvel-zombies",
+    "fantastic-four",
+    "secret-wars-1984"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "MVNWCOL_P:735",
+      "n": 735,
+      "name": "Marvel Collection (II) #735",
+      "title": "Marvel Zombies - Red Band: Una storia di morte",
+      "date": "Maggio 2026",
+      "seriesId": "MVNWCOL_P",
+      "series": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MVNWCOL_P_735.jpg",
+      "url": "https://www.comicsbox.it/albo/MVNWCOL_P_735",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "Red Band",
+      "instruction": "Leggi Marvel Zombies: Red Band #1–5.",
+      "contents": [
+        {
+          "id": "MZREDBAND:1",
+          "series": "Marvel Zombies: Red Band",
+          "number": "1"
+        },
+        {
+          "id": "MZREDBAND:2",
+          "series": "Marvel Zombies: Red Band",
+          "number": "2"
+        },
+        {
+          "id": "MZREDBAND:3",
+          "series": "Marvel Zombies: Red Band",
+          "number": "3"
+        },
+        {
+          "id": "MZREDBAND:4",
+          "series": "Marvel Zombies: Red Band",
+          "number": "4"
+        },
+        {
+          "id": "MZREDBAND:5",
+          "series": "Marvel Zombies: Red Band",
+          "number": "5"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "MZREDBAND:1",
+          "MZREDBAND:2",
+          "MZREDBAND:3",
+          "MZREDBAND:4",
+          "MZREDBAND:5"
+        ]
+      }
+    }
+  ]
+}

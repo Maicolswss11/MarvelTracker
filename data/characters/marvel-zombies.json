@@ -1,0 +1,750 @@
+{
+  "id": "marvel-zombies",
+  "name": "Marvel Zombies",
+  "subtitle": "Terra-2149 e le altre realtà contagiate",
+  "accent": "#a7d95b",
+  "start": "Marvel Omnibus #188 — Settembre 2023",
+  "end": "Marvel Collection (II) #735 — Maggio 2026",
+  "description": "Portale completo delle principali realtà Marvel Zombies disponibili in volume italiano. Il primo Zomnibus segue la saga classica di Terra-2149; il secondo raccoglie ritorni, Battleworld e Resurrection. Le tre tappe finali sono antologie o nuove epidemie autonome e non vengono confuse con la continuità originale.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MAROMNIB",
+      "name": "Marvel Omnibus",
+      "publisher": "Panini Comics",
+      "range": "#188, #235",
+      "years": "2023–2025"
+    },
+    {
+      "id": "MARVGIANTS",
+      "name": "Marvel Giants",
+      "publisher": "Panini Comics",
+      "range": "#17",
+      "years": "2024"
+    },
+    {
+      "id": "MVNWCOL_P",
+      "name": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "range": "#647, #735",
+      "years": "2025–2026"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "marvel-zombies-2149",
+    "zombie-spider-man",
+    "marvel-zombies-battleworld",
+    "marvel-zombies-resurrection",
+    "marvel-zombies-dawn-of-decay",
+    "marvel-zombies-red-band"
+  ],
+  "totalRequired": 5,
+  "issues": [
+    {
+      "id": "MAROMNIB:188",
+      "n": 188,
+      "name": "Marvel Omnibus #188",
+      "title": "Marvel Zombies: Marvel Zomnibus",
+      "date": "Settembre 2023",
+      "seriesId": "MAROMNIB",
+      "series": "Marvel Omnibus",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MAROMNIB_188.jpg",
+      "url": "https://www.comicsbox.it/albo/MAROMNIB_188",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "Terra-2149 · saga classica",
+      "instruction": "Leggi la saga classica di Terra-2149. I materiali Marvel Apes presenti nel volume sono extra e non fanno parte di questa tappa.",
+      "contents": [
+        {
+          "id": "MZDEADDAYS:1",
+          "series": "Marvel Zombies: Dead Days",
+          "number": "1"
+        },
+        {
+          "id": "MZEVILEVOL:1",
+          "series": "Marvel Zombies: Evil Evolution",
+          "number": "1"
+        },
+        {
+          "id": "ULTF4:21",
+          "series": "Ultimate Fantastic Four",
+          "number": "21"
+        },
+        {
+          "id": "ULTF4:22",
+          "series": "Ultimate Fantastic Four",
+          "number": "22"
+        },
+        {
+          "id": "ULTF4:23",
+          "series": "Ultimate Fantastic Four",
+          "number": "23"
+        },
+        {
+          "id": "ULTF4:30",
+          "series": "Ultimate Fantastic Four",
+          "number": "30"
+        },
+        {
+          "id": "ULTF4:31",
+          "series": "Ultimate Fantastic Four",
+          "number": "31"
+        },
+        {
+          "id": "ULTF4:32",
+          "series": "Ultimate Fantastic Four",
+          "number": "32"
+        },
+        {
+          "id": "MZOMBIE1:1",
+          "series": "Marvel Zombies (2005)",
+          "number": "1"
+        },
+        {
+          "id": "MZOMBIE1:2",
+          "series": "Marvel Zombies (2005)",
+          "number": "2"
+        },
+        {
+          "id": "MZOMBIE1:3",
+          "series": "Marvel Zombies (2005)",
+          "number": "3"
+        },
+        {
+          "id": "MZOMBIE1:4",
+          "series": "Marvel Zombies (2005)",
+          "number": "4"
+        },
+        {
+          "id": "MZOMBIE1:5",
+          "series": "Marvel Zombies (2005)",
+          "number": "5"
+        },
+        {
+          "id": "BLACKP4:28",
+          "series": "Black Panther (2005)",
+          "number": "28"
+        },
+        {
+          "id": "BLACKP4:29",
+          "series": "Black Panther (2005)",
+          "number": "29"
+        },
+        {
+          "id": "BLACKP4:30",
+          "series": "Black Panther (2005)",
+          "number": "30"
+        },
+        {
+          "id": "MZOMBIE2:1",
+          "series": "Marvel Zombies 2",
+          "number": "1"
+        },
+        {
+          "id": "MZOMBIE2:2",
+          "series": "Marvel Zombies 2",
+          "number": "2"
+        },
+        {
+          "id": "MZOMBIE2:3",
+          "series": "Marvel Zombies 2",
+          "number": "3"
+        },
+        {
+          "id": "MZOMBIE2:4",
+          "series": "Marvel Zombies 2",
+          "number": "4"
+        },
+        {
+          "id": "MZOMBIE2:5",
+          "series": "Marvel Zombies 2",
+          "number": "5"
+        },
+        {
+          "id": "MZRETURN:1",
+          "series": "Marvel Zombies Return",
+          "number": "1"
+        },
+        {
+          "id": "MZRETURN:2",
+          "series": "Marvel Zombies Return",
+          "number": "2"
+        },
+        {
+          "id": "MZRETURN:3",
+          "series": "Marvel Zombies Return",
+          "number": "3"
+        },
+        {
+          "id": "MZRETURN:4",
+          "series": "Marvel Zombies Return",
+          "number": "4"
+        },
+        {
+          "id": "MZRETURN:5",
+          "series": "Marvel Zombies Return",
+          "number": "5"
+        },
+        {
+          "id": "MZOMBIE3:1",
+          "series": "Marvel Zombies 3",
+          "number": "1"
+        },
+        {
+          "id": "MZOMBIE3:2",
+          "series": "Marvel Zombies 3",
+          "number": "2"
+        },
+        {
+          "id": "MZOMBIE3:3",
+          "series": "Marvel Zombies 3",
+          "number": "3"
+        },
+        {
+          "id": "MZOMBIE3:4",
+          "series": "Marvel Zombies 3",
+          "number": "4"
+        },
+        {
+          "id": "MZOMBIE4:1",
+          "series": "Marvel Zombies 4",
+          "number": "1"
+        },
+        {
+          "id": "MZOMBIE4:2",
+          "series": "Marvel Zombies 4",
+          "number": "2"
+        },
+        {
+          "id": "MZOMBIE4:3",
+          "series": "Marvel Zombies 4",
+          "number": "3"
+        },
+        {
+          "id": "MZOMBIE4:4",
+          "series": "Marvel Zombies 4",
+          "number": "4"
+        },
+        {
+          "id": "MZOMBIE5:1",
+          "series": "Marvel Zombies 5",
+          "number": "1"
+        },
+        {
+          "id": "MZOMBIE5:2",
+          "series": "Marvel Zombies 5",
+          "number": "2"
+        },
+        {
+          "id": "MZOMBIE5:3",
+          "series": "Marvel Zombies 5",
+          "number": "3"
+        },
+        {
+          "id": "MZOMBIE5:4",
+          "series": "Marvel Zombies 5",
+          "number": "4"
+        },
+        {
+          "id": "MZOMBIE5:5",
+          "series": "Marvel Zombies 5",
+          "number": "5"
+        },
+        {
+          "id": "MZSUPREME:1",
+          "series": "Marvel Zombies Supreme",
+          "number": "1"
+        },
+        {
+          "id": "MZSUPREME:2",
+          "series": "Marvel Zombies Supreme",
+          "number": "2"
+        },
+        {
+          "id": "MZSUPREME:3",
+          "series": "Marvel Zombies Supreme",
+          "number": "3"
+        },
+        {
+          "id": "MZSUPREME:4",
+          "series": "Marvel Zombies Supreme",
+          "number": "4"
+        },
+        {
+          "id": "MZSUPREME:5",
+          "series": "Marvel Zombies Supreme",
+          "number": "5"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "MZDEADDAYS:1",
+          "MZEVILEVOL:1",
+          "ULTF4:21",
+          "ULTF4:22",
+          "ULTF4:23",
+          "ULTF4:30",
+          "ULTF4:31",
+          "ULTF4:32",
+          "MZOMBIE1:1",
+          "MZOMBIE1:2",
+          "MZOMBIE1:3",
+          "MZOMBIE1:4",
+          "MZOMBIE1:5",
+          "BLACKP4:28",
+          "BLACKP4:29",
+          "BLACKP4:30",
+          "MZOMBIE2:1",
+          "MZOMBIE2:2",
+          "MZOMBIE2:3",
+          "MZOMBIE2:4",
+          "MZOMBIE2:5",
+          "MZRETURN:1",
+          "MZRETURN:2",
+          "MZRETURN:3",
+          "MZRETURN:4",
+          "MZRETURN:5",
+          "MZOMBIE3:1",
+          "MZOMBIE3:2",
+          "MZOMBIE3:3",
+          "MZOMBIE3:4",
+          "MZOMBIE4:1",
+          "MZOMBIE4:2",
+          "MZOMBIE4:3",
+          "MZOMBIE4:4",
+          "MZOMBIE5:1",
+          "MZOMBIE5:2",
+          "MZOMBIE5:3",
+          "MZOMBIE5:4",
+          "MZOMBIE5:5",
+          "MZSUPREME:1",
+          "MZSUPREME:2",
+          "MZSUPREME:3",
+          "MZSUPREME:4",
+          "MZSUPREME:5"
+        ]
+      }
+    },
+    {
+      "id": "MARVGIANTS:17",
+      "n": 17,
+      "name": "Marvel Giants #17",
+      "title": "Marvel Zombies: Black, White and Blood",
+      "date": "Giugno 2024",
+      "seriesId": "MARVGIANTS",
+      "series": "Marvel Giants",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MARVGIANTS_017.jpg",
+      "url": "https://www.comicsbox.it/albo/MARVGIANTS_017",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 2,
+      "era": "Incubi antologici",
+      "instruction": "Antologia autonoma: dodici racconti brevi in bianco, nero e rosso, raccolti dai quattro numeri USA.",
+      "contents": [
+        {
+          "id": "MZBWB:1",
+          "series": "Marvel Zombies: Black, White & Blood",
+          "number": "1"
+        },
+        {
+          "id": "MZBWB:2",
+          "series": "Marvel Zombies: Black, White & Blood",
+          "number": "2"
+        },
+        {
+          "id": "MZBWB:3",
+          "series": "Marvel Zombies: Black, White & Blood",
+          "number": "3"
+        },
+        {
+          "id": "MZBWB:4",
+          "series": "Marvel Zombies: Black, White & Blood",
+          "number": "4"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 2,
+        "contentIds": [
+          "MZBWB:1",
+          "MZBWB:2",
+          "MZBWB:3",
+          "MZBWB:4"
+        ]
+      }
+    },
+    {
+      "id": "MVNWCOL_P:647",
+      "n": 647,
+      "name": "Marvel Collection (II) #647",
+      "title": "Marvel Zombies: Alba di Putrefazione",
+      "date": "Aprile 2025",
+      "seriesId": "MVNWCOL_P",
+      "series": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MVNWCOL_P_647.jpg",
+      "url": "https://www.comicsbox.it/albo/MVNWCOL_P_647",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 3,
+      "era": "Alba di Putrefazione",
+      "instruction": "Leggi Marvel Zombies: Dawn of Decay #1–4, realtà autonoma con Groot e Hulk.",
+      "contents": [
+        {
+          "id": "MZDAWN:1",
+          "series": "Marvel Zombies: Dawn of Decay",
+          "number": "1"
+        },
+        {
+          "id": "MZDAWN:2",
+          "series": "Marvel Zombies: Dawn of Decay",
+          "number": "2"
+        },
+        {
+          "id": "MZDAWN:3",
+          "series": "Marvel Zombies: Dawn of Decay",
+          "number": "3"
+        },
+        {
+          "id": "MZDAWN:4",
+          "series": "Marvel Zombies: Dawn of Decay",
+          "number": "4"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 3,
+        "contentIds": [
+          "MZDAWN:1",
+          "MZDAWN:2",
+          "MZDAWN:3",
+          "MZDAWN:4"
+        ]
+      }
+    },
+    {
+      "id": "MAROMNIB:235",
+      "n": 235,
+      "name": "Marvel Omnibus #235",
+      "title": "Marvel Zombies: Marvel Zomnibus - Il Ritorno",
+      "date": "Settembre 2025",
+      "seriesId": "MAROMNIB",
+      "series": "Marvel Omnibus",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MAROMNIB_235.jpg",
+      "url": "https://www.comicsbox.it/albo/MAROMNIB_235",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 4,
+      "era": "Ritorni e realtà successive",
+      "instruction": "Leggi le storie zombie raccolte nel secondo Zomnibus; i percorsi collegati separano Battleworld e Resurrection.",
+      "contents": [
+        {
+          "id": "DPMWM:1",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "1"
+        },
+        {
+          "id": "DPMWM:2",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "2"
+        },
+        {
+          "id": "DPMWM:3",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "3"
+        },
+        {
+          "id": "DPMWM:4",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "4"
+        },
+        {
+          "id": "DPMWM:5",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "5"
+        },
+        {
+          "id": "DPMWM:6",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "6"
+        },
+        {
+          "id": "DPMWM:7",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "7"
+        },
+        {
+          "id": "DPMWM:8",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "8"
+        },
+        {
+          "id": "DPMWM:9",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "9"
+        },
+        {
+          "id": "DPMWM:10",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "10"
+        },
+        {
+          "id": "DPMWM:11",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "11"
+        },
+        {
+          "id": "DPMWM:12",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "12"
+        },
+        {
+          "id": "DPMWM:13",
+          "series": "Deadpool: Merc with a Mouth",
+          "number": "13"
+        },
+        {
+          "id": "MZCHRISTMAS:1",
+          "series": "Zombies Christmas Carol",
+          "number": "1"
+        },
+        {
+          "id": "MZCHRISTMAS:2",
+          "series": "Zombies Christmas Carol",
+          "number": "2"
+        },
+        {
+          "id": "MZCHRISTMAS:3",
+          "series": "Zombies Christmas Carol",
+          "number": "3"
+        },
+        {
+          "id": "MZCHRISTMAS:4",
+          "series": "Zombies Christmas Carol",
+          "number": "4"
+        },
+        {
+          "id": "MZCHRISTMAS:5",
+          "series": "Zombies Christmas Carol",
+          "number": "5"
+        },
+        {
+          "id": "MZDESTROY:1",
+          "series": "Marvel Zombies Destroy!",
+          "number": "1"
+        },
+        {
+          "id": "MZDESTROY:2",
+          "series": "Marvel Zombies Destroy!",
+          "number": "2"
+        },
+        {
+          "id": "MZDESTROY:3",
+          "series": "Marvel Zombies Destroy!",
+          "number": "3"
+        },
+        {
+          "id": "MZDESTROY:4",
+          "series": "Marvel Zombies Destroy!",
+          "number": "4"
+        },
+        {
+          "id": "MZDESTROY:5",
+          "series": "Marvel Zombies Destroy!",
+          "number": "5"
+        },
+        {
+          "id": "MZHALLOWEEN:1",
+          "series": "Marvel Zombies Halloween",
+          "number": "1"
+        },
+        {
+          "id": "MZ2015:1",
+          "series": "Marvel Zombies: Battleworld (2015)",
+          "number": "1"
+        },
+        {
+          "id": "MZ2015:2",
+          "series": "Marvel Zombies: Battleworld (2015)",
+          "number": "2"
+        },
+        {
+          "id": "MZ2015:3",
+          "series": "Marvel Zombies: Battleworld (2015)",
+          "number": "3"
+        },
+        {
+          "id": "MZ2015:4",
+          "series": "Marvel Zombies: Battleworld (2015)",
+          "number": "4"
+        },
+        {
+          "id": "AOUVSMZ:1",
+          "series": "Age of Ultron vs. Marvel Zombies",
+          "number": "1"
+        },
+        {
+          "id": "AOUVSMZ:2",
+          "series": "Age of Ultron vs. Marvel Zombies",
+          "number": "2"
+        },
+        {
+          "id": "AOUVSMZ:3",
+          "series": "Age of Ultron vs. Marvel Zombies",
+          "number": "3"
+        },
+        {
+          "id": "AOUVSMZ:4",
+          "series": "Age of Ultron vs. Marvel Zombies",
+          "number": "4"
+        },
+        {
+          "id": "MARVELZOMBIE2018:1",
+          "series": "Marvel Zombie (2018)",
+          "number": "1"
+        },
+        {
+          "id": "MZRES2019:1",
+          "series": "Marvel Zombies: Resurrection (2019)",
+          "number": "1"
+        },
+        {
+          "id": "MZRES2020:1",
+          "series": "Marvel Zombies: Resurrection (2020)",
+          "number": "1"
+        },
+        {
+          "id": "MZRES2020:2",
+          "series": "Marvel Zombies: Resurrection (2020)",
+          "number": "2"
+        },
+        {
+          "id": "MZRES2020:3",
+          "series": "Marvel Zombies: Resurrection (2020)",
+          "number": "3"
+        },
+        {
+          "id": "MZRES2020:4",
+          "series": "Marvel Zombies: Resurrection (2020)",
+          "number": "4"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 4,
+        "contentIds": [
+          "DPMWM:1",
+          "DPMWM:2",
+          "DPMWM:3",
+          "DPMWM:4",
+          "DPMWM:5",
+          "DPMWM:6",
+          "DPMWM:7",
+          "DPMWM:8",
+          "DPMWM:9",
+          "DPMWM:10",
+          "DPMWM:11",
+          "DPMWM:12",
+          "DPMWM:13",
+          "MZCHRISTMAS:1",
+          "MZCHRISTMAS:2",
+          "MZCHRISTMAS:3",
+          "MZCHRISTMAS:4",
+          "MZCHRISTMAS:5",
+          "MZDESTROY:1",
+          "MZDESTROY:2",
+          "MZDESTROY:3",
+          "MZDESTROY:4",
+          "MZDESTROY:5",
+          "MZHALLOWEEN:1",
+          "MZ2015:1",
+          "MZ2015:2",
+          "MZ2015:3",
+          "MZ2015:4",
+          "AOUVSMZ:1",
+          "AOUVSMZ:2",
+          "AOUVSMZ:3",
+          "AOUVSMZ:4",
+          "MARVELZOMBIE2018:1",
+          "MZRES2019:1",
+          "MZRES2020:1",
+          "MZRES2020:2",
+          "MZRES2020:3",
+          "MZRES2020:4"
+        ]
+      }
+    },
+    {
+      "id": "MVNWCOL_P:735",
+      "n": 735,
+      "name": "Marvel Collection (II) #735",
+      "title": "Marvel Zombies - Red Band: Una storia di morte",
+      "date": "Maggio 2026",
+      "seriesId": "MVNWCOL_P",
+      "series": "Marvel Collection (II)",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MVNWCOL_P_735.jpg",
+      "url": "https://www.comicsbox.it/albo/MVNWCOL_P_735",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 5,
+      "era": "Red Band",
+      "instruction": "Leggi Marvel Zombies: Red Band #1–5, nuova cronologia completa.",
+      "contents": [
+        {
+          "id": "MZREDBAND:1",
+          "series": "Marvel Zombies: Red Band",
+          "number": "1"
+        },
+        {
+          "id": "MZREDBAND:2",
+          "series": "Marvel Zombies: Red Band",
+          "number": "2"
+        },
+        {
+          "id": "MZREDBAND:3",
+          "series": "Marvel Zombies: Red Band",
+          "number": "3"
+        },
+        {
+          "id": "MZREDBAND:4",
+          "series": "Marvel Zombies: Red Band",
+          "number": "4"
+        },
+        {
+          "id": "MZREDBAND:5",
+          "series": "Marvel Zombies: Red Band",
+          "number": "5"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 5,
+        "contentIds": [
+          "MZREDBAND:1",
+          "MZREDBAND:2",
+          "MZREDBAND:3",
+          "MZREDBAND:4",
+          "MZREDBAND:5"
+        ]
+      }
+    }
+  ]
+}

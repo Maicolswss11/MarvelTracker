@@ -1,0 +1,205 @@
+{
+  "id": "marvel-zombies-2149",
+  "name": "Marvel Zombies di Terra-2149",
+  "subtitle": "Gli eroi infetti della realtà originale",
+  "accent": "#92c64a",
+  "start": "Marvel Omnibus #188 — Settembre 2023",
+  "end": "Marvel Omnibus #188 — Settembre 2023",
+  "description": "La cronologia essenziale del gruppo originale: l'epidemia, il primo contatto con l'Universo Ultimate, la fame cosmica e il ritorno degli infetti. Sono esclusi Marvel Apes e le miniserie ambientate in realtà zombie successive.",
+  "timelineMode": true,
+  "series": [
+    {
+      "id": "MAROMNIB",
+      "name": "Marvel Omnibus",
+      "publisher": "Panini Comics",
+      "range": "#188",
+      "years": "2023"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "marvel-zombies",
+    "zombie-spider-man",
+    "avengers"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "MAROMNIB:188",
+      "n": 188,
+      "name": "Marvel Omnibus #188",
+      "title": "Marvel Zombies: Marvel Zomnibus",
+      "date": "Settembre 2023",
+      "seriesId": "MAROMNIB",
+      "series": "Marvel Omnibus",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/MAROMNIB_188.jpg",
+      "url": "https://www.comicsbox.it/albo/MAROMNIB_188",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "seq": 1,
+      "era": "Terra-2149 · saga classica",
+      "instruction": "Segui il nucleo di Terra-2149: origini, saga principale, Black Panther, Marvel Zombies 2 e Return.",
+      "contents": [
+        {
+          "id": "MZDEADDAYS:1",
+          "series": "Marvel Zombies: Dead Days",
+          "number": "1"
+        },
+        {
+          "id": "ULTF4:21",
+          "series": "Ultimate Fantastic Four",
+          "number": "21"
+        },
+        {
+          "id": "ULTF4:22",
+          "series": "Ultimate Fantastic Four",
+          "number": "22"
+        },
+        {
+          "id": "ULTF4:23",
+          "series": "Ultimate Fantastic Four",
+          "number": "23"
+        },
+        {
+          "id": "ULTF4:30",
+          "series": "Ultimate Fantastic Four",
+          "number": "30"
+        },
+        {
+          "id": "ULTF4:31",
+          "series": "Ultimate Fantastic Four",
+          "number": "31"
+        },
+        {
+          "id": "ULTF4:32",
+          "series": "Ultimate Fantastic Four",
+          "number": "32"
+        },
+        {
+          "id": "MZOMBIE1:1",
+          "series": "Marvel Zombies (2005)",
+          "number": "1"
+        },
+        {
+          "id": "MZOMBIE1:2",
+          "series": "Marvel Zombies (2005)",
+          "number": "2"
+        },
+        {
+          "id": "MZOMBIE1:3",
+          "series": "Marvel Zombies (2005)",
+          "number": "3"
+        },
+        {
+          "id": "MZOMBIE1:4",
+          "series": "Marvel Zombies (2005)",
+          "number": "4"
+        },
+        {
+          "id": "MZOMBIE1:5",
+          "series": "Marvel Zombies (2005)",
+          "number": "5"
+        },
+        {
+          "id": "BLACKP4:28",
+          "series": "Black Panther (2005)",
+          "number": "28"
+        },
+        {
+          "id": "BLACKP4:29",
+          "series": "Black Panther (2005)",
+          "number": "29"
+        },
+        {
+          "id": "BLACKP4:30",
+          "series": "Black Panther (2005)",
+          "number": "30"
+        },
+        {
+          "id": "MZOMBIE2:1",
+          "series": "Marvel Zombies 2",
+          "number": "1"
+        },
+        {
+          "id": "MZOMBIE2:2",
+          "series": "Marvel Zombies 2",
+          "number": "2"
+        },
+        {
+          "id": "MZOMBIE2:3",
+          "series": "Marvel Zombies 2",
+          "number": "3"
+        },
+        {
+          "id": "MZOMBIE2:4",
+          "series": "Marvel Zombies 2",
+          "number": "4"
+        },
+        {
+          "id": "MZOMBIE2:5",
+          "series": "Marvel Zombies 2",
+          "number": "5"
+        },
+        {
+          "id": "MZRETURN:1",
+          "series": "Marvel Zombies Return",
+          "number": "1"
+        },
+        {
+          "id": "MZRETURN:2",
+          "series": "Marvel Zombies Return",
+          "number": "2"
+        },
+        {
+          "id": "MZRETURN:3",
+          "series": "Marvel Zombies Return",
+          "number": "3"
+        },
+        {
+          "id": "MZRETURN:4",
+          "series": "Marvel Zombies Return",
+          "number": "4"
+        },
+        {
+          "id": "MZRETURN:5",
+          "series": "Marvel Zombies Return",
+          "number": "5"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "position": 1,
+        "contentIds": [
+          "MZDEADDAYS:1",
+          "ULTF4:21",
+          "ULTF4:22",
+          "ULTF4:23",
+          "ULTF4:30",
+          "ULTF4:31",
+          "ULTF4:32",
+          "MZOMBIE1:1",
+          "MZOMBIE1:2",
+          "MZOMBIE1:3",
+          "MZOMBIE1:4",
+          "MZOMBIE1:5",
+          "BLACKP4:28",
+          "BLACKP4:29",
+          "BLACKP4:30",
+          "MZOMBIE2:1",
+          "MZOMBIE2:2",
+          "MZOMBIE2:3",
+          "MZOMBIE2:4",
+          "MZOMBIE2:5",
+          "MZRETURN:1",
+          "MZRETURN:2",
+          "MZRETURN:3",
+          "MZRETURN:4",
+          "MZRETURN:5"
+        ]
+      }
+    }
+  ]
+}

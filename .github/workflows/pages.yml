@@ -29,6 +29,10 @@ jobs:
         run: node scripts/verify-global-search.mjs
       - name: Verify Marvel 2099 universe
         run: node scripts/verify-marvel-2099.mjs
+      - name: Verify Marvel Zombies universe
+        run: node scripts/verify-marvel-zombies.mjs
+      - name: Verify character biographies
+        run: node scripts/verify-character-profiles.mjs
       - name: Verify team and event dossiers
         run: node scripts/verify-editorial-profiles.mjs
       - name: Setup Pages
