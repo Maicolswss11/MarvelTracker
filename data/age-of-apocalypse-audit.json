@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "scope": "Terra-295 nella L'era di Apocalisse Collection Panini #1–7",
+  "publishedThrough": "Gennaio 2015 per l'edizione fisica selezionata",
+  "physicalIssues": 7,
+  "usaIssues": 50,
+  "usaStories": 53,
+  "paths": {
+    "age-of-apocalypse": 7,
+    "age-of-apocalypse-event": 6,
+    "astonishing-xmen-aoa": 4,
+    "amazing-xmen-aoa": 4,
+    "gambit-xternals-aoa": 4,
+    "generation-next-aoa": 4,
+    "weapon-x-aoa": 4,
+    "x-calibre-aoa": 4,
+    "factor-x-aoa": 4,
+    "x-man-aoa": 4,
+    "x-universe-aoa": 1,
+    "return-age-of-apocalypse": 1
+  },
+  "sharedPhysicalModel": "Ogni percorso figlio riusa ERAPOCOL_P:1–7 e limita readingStep ai contenuti USA pertinenti.",
+  "scopingNotes": [
+    "I volumi #1–6 raccolgono il nucleo della saga originale; il #7 raccoglie il one-shot e la miniserie del 2005.",
+    "Il primo volume include la transizione finale dalla linea temporale originaria e X-Men: Alpha, ma non viene presentato come raccolta integrale di Legion Quest.",
+    "X-Man, Weapon X e le sei squadre seguono soltanto le rispettive miniserie in quattro parti, senza trasformare semplici apparizioni in tappe.",
+    "Il one-shot del 2005 contiene quattro storie ma conserva un solo ID di albo USA nel modello dei contenuti."
+  ],
+  "imageRequests": {
+    "characters": {
+      "weapon-x-aoa": "weapon-x-aoa.jpg",
+      "x-man-aoa": "x-man-aoa.jpg"
+    },
+    "teams": {
+      "amazing-xmen-aoa": "amazing-xmen-aoa.jpg",
+      "astonishing-xmen-aoa": "astonishing-xmen-aoa.jpg",
+      "gambit-xternals-aoa": "gambit-xternals-aoa.jpg",
+      "generation-next-aoa": "generation-next-aoa.jpg",
+      "x-calibre-aoa": "x-calibre-aoa.jpg",
+      "factor-x-aoa": "factor-x-aoa.jpg"
+    },
+    "optional": {
+      "age-of-apocalypse": "age-of-apocalypse.jpg",
+      "x-universe-aoa": "x-universe-aoa.jpg"
+    },
+    "events": "Le schede evento usano automaticamente la copertina del primo volume del percorso."
+  },
+  "sources": [
+    "https://www.comicsbox.it/serie/ERAPOCOL_P",
+    "https://www.comicsbox.it/albo/ERAPOCOL_P_001",
+    "https://www.comicsbox.it/albo/ERAPOCOL_P_002",
+    "https://www.comicsbox.it/albo/ERAPOCOL_P_003",
+    "https://www.comicsbox.it/albo/ERAPOCOL_P_004",
+    "https://www.comicsbox.it/albo/ERAPOCOL_P_005",
+    "https://www.comicsbox.it/albo/ERAPOCOL_P_006",
+    "https://www.comicsbox.it/albo/ERAPOCOL_P_007",
+    "https://www.marvel.com/comics/guides/84/age-of-apocalypse-the-complete-event",
+    "https://www.marvel.com/teams-and-groups/x-men-age-of-apocalypse"
+  ]
+}

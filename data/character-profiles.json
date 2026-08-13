@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "profiles": {
     "ironman": {
       "realName": "Anthony Edward Stark",
@@ -1452,6 +1452,57 @@
         "Adattamento fisico e mistico"
       ],
       "bio": "Il Venom di questo percorso è il simbionte osservato attraverso cinque legami alternativi. Invece di definire la propria identità insieme a Eddie Brock, incontra She-Hulk, Wolverine, Doctor Strange, Loki e Moon Knight e assorbe ogni volta capacità, traumi e conflitti molto diversi. La miniserie usa così Venom come reagente narrativo: forza gamma, rigenerazione mutante, magia e identità frammentate cambiano anche il comportamento del Klyntar. I capitoli appartengono a possibilità separate e non sostituiscono la storia del simbionte di Terra-616; il profilo riassume ciò che rimane costante quando cambia l'ospite."
+    },
+    "weapon-x-aoa": {
+      "realName": "James “Logan” Howlett",
+      "aliases": [
+        "Weapon X",
+        "Logan",
+        "Wolverine di Terra-295"
+      ],
+      "universe": "Terra-295",
+      "debut": "X-Men: Alpha #1 (1995); Weapon X #1 (1995)",
+      "creators": "Versione di Scott Lobdell, Mark Waid e Roger Cruz; serie di Larry Hama e Adam Kubert",
+      "affiliations": [
+        "X-Men di Magneto",
+        "Resistenza europea",
+        "Jean Grey",
+        "Consiglio Umano"
+      ],
+      "abilities": [
+        "Fattore rigenerante",
+        "Scheletro e artigli di adamantio",
+        "Sensi sovrumani",
+        "Esperienza militare e clandestina",
+        "Resistenza fisica eccezionale"
+      ],
+      "bio": "Il Logan di Terra-295 conserva l'indole feroce e il fattore rigenerante della sua controparte principale, ma è stato plasmato da una guerra già perduta. Conosciuto come Weapon X e privo di una mano dopo uno scontro con Cyclops, opera al fianco di Jean Grey nelle zone europee controllate dalla resistenza umana. La loro relazione è insieme sentimentale e politica: Logan appoggia il piano estremo del Consiglio Umano, mentre Jean teme il prezzo imposto ai civili e ai mutanti rimasti in America. I quattro capitoli seguono questo conflitto fino alla fase conclusiva della guerra contro Apocalisse, mantenendo separata la sua biografia da Wolverine di Terra-616."
+    },
+    "x-man-aoa": {
+      "realName": "Nathaniel “Nate” Grey",
+      "aliases": [
+        "X-Man",
+        "Nate Grey",
+        "Il figlio genetico di Scott e Jean"
+      ],
+      "universe": "Terra-295",
+      "debut": "X-Man #1 (1995)",
+      "creators": "Jeph Loeb e Steve Skroce",
+      "affiliations": [
+        "Outcasts di Forge",
+        "Sonique",
+        "Toad",
+        "Mastermind",
+        "Resistenza di Terra-295"
+      ],
+      "abilities": [
+        "Telepatia di livello omega",
+        "Telecinesi",
+        "Proiezione e manipolazione psionica",
+        "Volo telecinetico",
+        "Percezione delle energie e delle realtà"
+      ],
+      "bio": "Nate Grey nasce nei laboratori di Mister Sinister dall'unione artificiale del patrimonio genetico di Scott Summers e Jean Grey. Sinistro vuole creare un'arma psionica abbastanza potente da distruggere Apocalisse, ma Nate cresce lontano dal suo controllo insieme agli Outcasts guidati da Forge. È un adolescente dotato di poteri enormi, poca esperienza e un corpo incapace di contenere senza conseguenze tutta la propria energia. Nei primi quattro numeri scopre frammenti della propria origine, affronta i cacciatori del regime e comprende che sia Sinistro sia Apocalisse vedono in lui uno strumento. Questo profilo riguarda Nate di Terra-295 prima del suo successivo passaggio nella continuità principale."
     }
   }
 }

@@ -1,0 +1,187 @@
+{
+  "id": "x-man-aoa",
+  "name": "X-Man (Nate Grey)",
+  "subtitle": "L'arma vivente di Sinistro",
+  "accent": "#4ec8d5",
+  "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
+  "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
+  "description": "I primi quattro capitoli di Nate Grey, giovane psionico creato da Sinistro usando il patrimonio genetico di Scott Summers e Jean Grey. Cresciuto fra gli Outcasts di Forge, Nate scopre gradualmente la propria origine e il motivo per cui Apocalisse lo considera una minaccia.",
+  "timelineMode": true,
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "series": [
+    {
+      "id": "ERAPOCOL_P",
+      "name": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "range": "#2–5",
+      "years": "2014"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "age-of-apocalypse",
+    "age-of-apocalypse-event",
+    "cyclops",
+    "jean-grey",
+    "cable"
+  ],
+  "totalRequired": 4,
+  "issues": [
+    {
+      "id": "ERAPOCOL_P:2",
+      "n": 2,
+      "name": "L'era di Apocalisse Collection #2",
+      "title": "Agnelli sacrificali",
+      "date": "Marzo 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_002.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_002",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 1,
+      "era": "Fronti di guerra · atto I",
+      "instruction": "In questo volume leggi soltanto X-Man #1.",
+      "contents": [
+        {
+          "id": "XMAN_001",
+          "seriesId": "XMAN",
+          "series": "X-Man",
+          "number": 1,
+          "title": "X-Man #1",
+          "url": "https://www.comicsbox.it/albo/XMAN_001"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "x-man-aoa",
+        "position": 1,
+        "contentIds": [
+          "XMAN_001"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:3",
+      "n": 3,
+      "name": "L'era di Apocalisse Collection #3",
+      "title": "Fuoco nel cielo",
+      "date": "Maggio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_003.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_003",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 2,
+      "era": "Fronti di guerra · atto II",
+      "instruction": "In questo volume leggi soltanto X-Man #2.",
+      "contents": [
+        {
+          "id": "XMAN_002",
+          "seriesId": "XMAN",
+          "series": "X-Man",
+          "number": 2,
+          "title": "X-Man #2",
+          "url": "https://www.comicsbox.it/albo/XMAN_002"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "x-man-aoa",
+        "position": 2,
+        "contentIds": [
+          "XMAN_002"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:4",
+      "n": 4,
+      "name": "L'era di Apocalisse Collection #4",
+      "title": "Ferite aperte",
+      "date": "Luglio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_004.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_004",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 3,
+      "era": "Fronti di guerra · atto III",
+      "instruction": "In questo volume leggi soltanto X-Man #3.",
+      "contents": [
+        {
+          "id": "XMAN_003",
+          "seriesId": "XMAN",
+          "series": "X-Man",
+          "number": 3,
+          "title": "X-Man #3",
+          "url": "https://www.comicsbox.it/albo/XMAN_003"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "x-man-aoa",
+        "position": 3,
+        "contentIds": [
+          "XMAN_003"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:5",
+      "n": 5,
+      "name": "L'era di Apocalisse Collection #5",
+      "title": "L'arte della guerra",
+      "date": "Settembre 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_005.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_005",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 4,
+      "era": "Fronti di guerra · atto IV",
+      "instruction": "In questo volume leggi soltanto X-Man #4.",
+      "contents": [
+        {
+          "id": "XMAN_004",
+          "seriesId": "XMAN",
+          "series": "X-Man",
+          "number": 4,
+          "title": "X-Man #4",
+          "url": "https://www.comicsbox.it/albo/XMAN_004"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "x-man-aoa",
+        "position": 4,
+        "contentIds": [
+          "XMAN_004"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

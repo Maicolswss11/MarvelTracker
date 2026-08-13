@@ -1,0 +1,186 @@
+{
+  "id": "weapon-x-aoa",
+  "name": "Weapon X (Terra-295)",
+  "subtitle": "Logan e Jean Grey contro il regime",
+  "accent": "#d36c42",
+  "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
+  "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
+  "description": "La miniserie completa di Logan nella realtà dominata da Apocalisse. Weapon X e Jean Grey operano fra Europa e America mentre il piano nucleare del Consiglio Umano mette in conflitto la salvezza dei superstiti e il destino del continente occupato.",
+  "timelineMode": true,
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "series": [
+    {
+      "id": "ERAPOCOL_P",
+      "name": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "range": "#2–5",
+      "years": "2014"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "age-of-apocalypse",
+    "age-of-apocalypse-event",
+    "wolverine-616",
+    "jean-grey"
+  ],
+  "totalRequired": 4,
+  "issues": [
+    {
+      "id": "ERAPOCOL_P:2",
+      "n": 2,
+      "name": "L'era di Apocalisse Collection #2",
+      "title": "Agnelli sacrificali",
+      "date": "Marzo 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_002.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_002",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 1,
+      "era": "Fronti di guerra · atto I",
+      "instruction": "In questo volume leggi soltanto Weapon X #1.",
+      "contents": [
+        {
+          "id": "WEAPX1_001",
+          "seriesId": "WEAPX1",
+          "series": "Weapon X",
+          "number": 1,
+          "title": "Weapon X #1",
+          "url": "https://www.comicsbox.it/albo/WEAPX1_001"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "weapon-x-aoa",
+        "position": 1,
+        "contentIds": [
+          "WEAPX1_001"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:3",
+      "n": 3,
+      "name": "L'era di Apocalisse Collection #3",
+      "title": "Fuoco nel cielo",
+      "date": "Maggio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_003.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_003",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 2,
+      "era": "Fronti di guerra · atto II",
+      "instruction": "In questo volume leggi soltanto Weapon X #2.",
+      "contents": [
+        {
+          "id": "WEAPX1_002",
+          "seriesId": "WEAPX1",
+          "series": "Weapon X",
+          "number": 2,
+          "title": "Weapon X #2",
+          "url": "https://www.comicsbox.it/albo/WEAPX1_002"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "weapon-x-aoa",
+        "position": 2,
+        "contentIds": [
+          "WEAPX1_002"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:4",
+      "n": 4,
+      "name": "L'era di Apocalisse Collection #4",
+      "title": "Ferite aperte",
+      "date": "Luglio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_004.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_004",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 3,
+      "era": "Fronti di guerra · atto III",
+      "instruction": "In questo volume leggi soltanto Weapon X #3.",
+      "contents": [
+        {
+          "id": "WEAPX1_003",
+          "seriesId": "WEAPX1",
+          "series": "Weapon X",
+          "number": 3,
+          "title": "Weapon X #3",
+          "url": "https://www.comicsbox.it/albo/WEAPX1_003"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "weapon-x-aoa",
+        "position": 3,
+        "contentIds": [
+          "WEAPX1_003"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:5",
+      "n": 5,
+      "name": "L'era di Apocalisse Collection #5",
+      "title": "L'arte della guerra",
+      "date": "Settembre 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_005.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_005",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 4,
+      "era": "Fronti di guerra · atto IV",
+      "instruction": "In questo volume leggi soltanto Weapon X #4.",
+      "contents": [
+        {
+          "id": "WEAPX1_004",
+          "seriesId": "WEAPX1",
+          "series": "Weapon X",
+          "number": 4,
+          "title": "Weapon X #4",
+          "url": "https://www.comicsbox.it/albo/WEAPX1_004"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "weapon-x-aoa",
+        "position": 4,
+        "contentIds": [
+          "WEAPX1_004"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

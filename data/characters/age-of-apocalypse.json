@@ -1,0 +1,697 @@
+{
+  "id": "age-of-apocalypse",
+  "name": "Era di Apocalisse",
+  "subtitle": "Terra-295 · saga originale e ritorno del 2005",
+  "accent": "#e3973f",
+  "start": "L'era di Apocalisse Collection #1 — Gennaio 2014",
+  "end": "L'era di Apocalisse Collection #7 — Gennaio 2015",
+  "description": "Percorso master di Terra-295 costruito sui sette volumi Panini della L'era di Apocalisse Collection. I primi sei raccolgono il passaggio dalla linea temporale originaria al crossover del 1995 e la guerra contro Apocalisse; il settimo riunisce il one-shot celebrativo e la miniserie del 2005. I percorsi collegati riusano gli stessi volumi fisici e isolano una squadra, un protagonista o una fase narrativa.",
+  "timelineMode": true,
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "series": [
+    {
+      "id": "ERAPOCOL_P",
+      "name": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "range": "#1–7",
+      "years": "2014–2015"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "age-of-apocalypse-event",
+    "amazing-xmen-aoa",
+    "astonishing-xmen-aoa",
+    "gambit-xternals-aoa",
+    "generation-next-aoa",
+    "weapon-x-aoa",
+    "x-calibre-aoa",
+    "factor-x-aoa",
+    "x-man-aoa",
+    "x-universe-aoa",
+    "return-age-of-apocalypse"
+  ],
+  "totalRequired": 7,
+  "issues": [
+    {
+      "id": "ERAPOCOL_P:1",
+      "n": 1,
+      "name": "L'era di Apocalisse Collection #1",
+      "title": "Il sogno muore",
+      "date": "Gennaio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_001.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_001",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 1,
+      "era": "Prologo e X-Men: Alpha",
+      "instruction": "Leggi il volume completo: Uncanny X-Men vol. 1 #320, X-Men vol. 2 #40, Cable vol. 1 #20 e altri 3 capitoli.",
+      "contents": [
+        {
+          "id": "XM1_320",
+          "seriesId": "XM1",
+          "series": "Uncanny X-Men vol. 1",
+          "number": 320,
+          "title": "Uncanny X-Men vol. 1 #320",
+          "url": "https://www.comicsbox.it/albo/XM1_320"
+        },
+        {
+          "id": "XM2_040",
+          "seriesId": "XM2",
+          "series": "X-Men vol. 2",
+          "number": 40,
+          "title": "X-Men vol. 2 #40",
+          "url": "https://www.comicsbox.it/albo/XM2_040"
+        },
+        {
+          "id": "CAB2_020",
+          "seriesId": "CAB2",
+          "series": "Cable vol. 1",
+          "number": 20,
+          "title": "Cable vol. 1 #20",
+          "url": "https://www.comicsbox.it/albo/CAB2_020"
+        },
+        {
+          "id": "XM2_041",
+          "seriesId": "XM2",
+          "series": "X-Men vol. 2",
+          "number": 41,
+          "title": "X-Men vol. 2 #41",
+          "url": "https://www.comicsbox.it/albo/XM2_041"
+        },
+        {
+          "id": "XM_ALPH_001",
+          "seriesId": "XM_ALPH",
+          "series": "X-Men: Alpha",
+          "number": 1,
+          "title": "X-Men: Alpha #1",
+          "url": "https://www.comicsbox.it/albo/XM_ALPH_001"
+        },
+        {
+          "id": "XM1_321",
+          "seriesId": "XM1",
+          "series": "Uncanny X-Men vol. 1",
+          "number": 321,
+          "title": "Uncanny X-Men vol. 1 #321",
+          "url": "https://www.comicsbox.it/albo/XM1_321"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "pathId": "age-of-apocalypse",
+        "position": 1,
+        "contentIds": [
+          "XM1_320",
+          "XM2_040",
+          "CAB2_020",
+          "XM2_041",
+          "XM_ALPH_001",
+          "XM1_321"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:2",
+      "n": 2,
+      "name": "L'era di Apocalisse Collection #2",
+      "title": "Agnelli sacrificali",
+      "date": "Marzo 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_002.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_002",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 2,
+      "era": "Fronti di guerra · atto I",
+      "instruction": "Leggi il volume completo: Astonishing X-Men #1, Amazing X-Men #1, Gambit and the X-Ternals #1 e altri 5 capitoli.",
+      "contents": [
+        {
+          "id": "XM_ASTO_001",
+          "seriesId": "XM_ASTO",
+          "series": "Astonishing X-Men",
+          "number": 1,
+          "title": "Astonishing X-Men #1",
+          "url": "https://www.comicsbox.it/albo/XM_ASTO_001"
+        },
+        {
+          "id": "XM_AMAZ_001",
+          "seriesId": "XM_AMAZ",
+          "series": "Amazing X-Men",
+          "number": 1,
+          "title": "Amazing X-Men #1",
+          "url": "https://www.comicsbox.it/albo/XM_AMAZ_001"
+        },
+        {
+          "id": "GAMXTE_001",
+          "seriesId": "GAMXTE",
+          "series": "Gambit and the X-Ternals",
+          "number": 1,
+          "title": "Gambit and the X-Ternals #1",
+          "url": "https://www.comicsbox.it/albo/GAMXTE_001"
+        },
+        {
+          "id": "GENEXT_001",
+          "seriesId": "GENEXT",
+          "series": "Generation Next",
+          "number": 1,
+          "title": "Generation Next #1",
+          "url": "https://www.comicsbox.it/albo/GENEXT_001"
+        },
+        {
+          "id": "WEAPX1_001",
+          "seriesId": "WEAPX1",
+          "series": "Weapon X",
+          "number": 1,
+          "title": "Weapon X #1",
+          "url": "https://www.comicsbox.it/albo/WEAPX1_001"
+        },
+        {
+          "id": "XCALIBR_001",
+          "seriesId": "XCALIBR",
+          "series": "X-Calibre",
+          "number": 1,
+          "title": "X-Calibre #1",
+          "url": "https://www.comicsbox.it/albo/XCALIBR_001"
+        },
+        {
+          "id": "FACTX_001",
+          "seriesId": "FACTX",
+          "series": "Factor X",
+          "number": 1,
+          "title": "Factor X #1",
+          "url": "https://www.comicsbox.it/albo/FACTX_001"
+        },
+        {
+          "id": "XMAN_001",
+          "seriesId": "XMAN",
+          "series": "X-Man",
+          "number": 1,
+          "title": "X-Man #1",
+          "url": "https://www.comicsbox.it/albo/XMAN_001"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "pathId": "age-of-apocalypse",
+        "position": 2,
+        "contentIds": [
+          "XM_ASTO_001",
+          "XM_AMAZ_001",
+          "GAMXTE_001",
+          "GENEXT_001",
+          "WEAPX1_001",
+          "XCALIBR_001",
+          "FACTX_001",
+          "XMAN_001"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:3",
+      "n": 3,
+      "name": "L'era di Apocalisse Collection #3",
+      "title": "Fuoco nel cielo",
+      "date": "Maggio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_003.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_003",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 3,
+      "era": "Fronti di guerra · atto II",
+      "instruction": "Leggi il volume completo: Astonishing X-Men #2, Amazing X-Men #2, Gambit and the X-Ternals #2 e altri 5 capitoli.",
+      "contents": [
+        {
+          "id": "XM_ASTO_002",
+          "seriesId": "XM_ASTO",
+          "series": "Astonishing X-Men",
+          "number": 2,
+          "title": "Astonishing X-Men #2",
+          "url": "https://www.comicsbox.it/albo/XM_ASTO_002"
+        },
+        {
+          "id": "XM_AMAZ_002",
+          "seriesId": "XM_AMAZ",
+          "series": "Amazing X-Men",
+          "number": 2,
+          "title": "Amazing X-Men #2",
+          "url": "https://www.comicsbox.it/albo/XM_AMAZ_002"
+        },
+        {
+          "id": "GAMXTE_002",
+          "seriesId": "GAMXTE",
+          "series": "Gambit and the X-Ternals",
+          "number": 2,
+          "title": "Gambit and the X-Ternals #2",
+          "url": "https://www.comicsbox.it/albo/GAMXTE_002"
+        },
+        {
+          "id": "GENEXT_002",
+          "seriesId": "GENEXT",
+          "series": "Generation Next",
+          "number": 2,
+          "title": "Generation Next #2",
+          "url": "https://www.comicsbox.it/albo/GENEXT_002"
+        },
+        {
+          "id": "WEAPX1_002",
+          "seriesId": "WEAPX1",
+          "series": "Weapon X",
+          "number": 2,
+          "title": "Weapon X #2",
+          "url": "https://www.comicsbox.it/albo/WEAPX1_002"
+        },
+        {
+          "id": "XCALIBR_002",
+          "seriesId": "XCALIBR",
+          "series": "X-Calibre",
+          "number": 2,
+          "title": "X-Calibre #2",
+          "url": "https://www.comicsbox.it/albo/XCALIBR_002"
+        },
+        {
+          "id": "FACTX_002",
+          "seriesId": "FACTX",
+          "series": "Factor X",
+          "number": 2,
+          "title": "Factor X #2",
+          "url": "https://www.comicsbox.it/albo/FACTX_002"
+        },
+        {
+          "id": "XMAN_002",
+          "seriesId": "XMAN",
+          "series": "X-Man",
+          "number": 2,
+          "title": "X-Man #2",
+          "url": "https://www.comicsbox.it/albo/XMAN_002"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "pathId": "age-of-apocalypse",
+        "position": 3,
+        "contentIds": [
+          "XM_ASTO_002",
+          "XM_AMAZ_002",
+          "GAMXTE_002",
+          "GENEXT_002",
+          "WEAPX1_002",
+          "XCALIBR_002",
+          "FACTX_002",
+          "XMAN_002"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:4",
+      "n": 4,
+      "name": "L'era di Apocalisse Collection #4",
+      "title": "Ferite aperte",
+      "date": "Luglio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_004.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_004",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 4,
+      "era": "Fronti di guerra · atto III",
+      "instruction": "Leggi il volume completo: Astonishing X-Men #3, Amazing X-Men #3, Gambit and the X-Ternals #3 e altri 5 capitoli.",
+      "contents": [
+        {
+          "id": "XM_ASTO_003",
+          "seriesId": "XM_ASTO",
+          "series": "Astonishing X-Men",
+          "number": 3,
+          "title": "Astonishing X-Men #3",
+          "url": "https://www.comicsbox.it/albo/XM_ASTO_003"
+        },
+        {
+          "id": "XM_AMAZ_003",
+          "seriesId": "XM_AMAZ",
+          "series": "Amazing X-Men",
+          "number": 3,
+          "title": "Amazing X-Men #3",
+          "url": "https://www.comicsbox.it/albo/XM_AMAZ_003"
+        },
+        {
+          "id": "GAMXTE_003",
+          "seriesId": "GAMXTE",
+          "series": "Gambit and the X-Ternals",
+          "number": 3,
+          "title": "Gambit and the X-Ternals #3",
+          "url": "https://www.comicsbox.it/albo/GAMXTE_003"
+        },
+        {
+          "id": "GENEXT_003",
+          "seriesId": "GENEXT",
+          "series": "Generation Next",
+          "number": 3,
+          "title": "Generation Next #3",
+          "url": "https://www.comicsbox.it/albo/GENEXT_003"
+        },
+        {
+          "id": "WEAPX1_003",
+          "seriesId": "WEAPX1",
+          "series": "Weapon X",
+          "number": 3,
+          "title": "Weapon X #3",
+          "url": "https://www.comicsbox.it/albo/WEAPX1_003"
+        },
+        {
+          "id": "XCALIBR_003",
+          "seriesId": "XCALIBR",
+          "series": "X-Calibre",
+          "number": 3,
+          "title": "X-Calibre #3",
+          "url": "https://www.comicsbox.it/albo/XCALIBR_003"
+        },
+        {
+          "id": "FACTX_003",
+          "seriesId": "FACTX",
+          "series": "Factor X",
+          "number": 3,
+          "title": "Factor X #3",
+          "url": "https://www.comicsbox.it/albo/FACTX_003"
+        },
+        {
+          "id": "XMAN_003",
+          "seriesId": "XMAN",
+          "series": "X-Man",
+          "number": 3,
+          "title": "X-Man #3",
+          "url": "https://www.comicsbox.it/albo/XMAN_003"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "pathId": "age-of-apocalypse",
+        "position": 4,
+        "contentIds": [
+          "XM_ASTO_003",
+          "XM_AMAZ_003",
+          "GAMXTE_003",
+          "GENEXT_003",
+          "WEAPX1_003",
+          "XCALIBR_003",
+          "FACTX_003",
+          "XMAN_003"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:5",
+      "n": 5,
+      "name": "L'era di Apocalisse Collection #5",
+      "title": "L'arte della guerra",
+      "date": "Settembre 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_005.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_005",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 5,
+      "era": "Fronti di guerra · atto IV",
+      "instruction": "Leggi il volume completo: Astonishing X-Men #4, Amazing X-Men #4, Gambit and the X-Ternals #4 e altri 5 capitoli.",
+      "contents": [
+        {
+          "id": "XM_ASTO_004",
+          "seriesId": "XM_ASTO",
+          "series": "Astonishing X-Men",
+          "number": 4,
+          "title": "Astonishing X-Men #4",
+          "url": "https://www.comicsbox.it/albo/XM_ASTO_004"
+        },
+        {
+          "id": "XM_AMAZ_004",
+          "seriesId": "XM_AMAZ",
+          "series": "Amazing X-Men",
+          "number": 4,
+          "title": "Amazing X-Men #4",
+          "url": "https://www.comicsbox.it/albo/XM_AMAZ_004"
+        },
+        {
+          "id": "GAMXTE_004",
+          "seriesId": "GAMXTE",
+          "series": "Gambit and the X-Ternals",
+          "number": 4,
+          "title": "Gambit and the X-Ternals #4",
+          "url": "https://www.comicsbox.it/albo/GAMXTE_004"
+        },
+        {
+          "id": "GENEXT_004",
+          "seriesId": "GENEXT",
+          "series": "Generation Next",
+          "number": 4,
+          "title": "Generation Next #4",
+          "url": "https://www.comicsbox.it/albo/GENEXT_004"
+        },
+        {
+          "id": "WEAPX1_004",
+          "seriesId": "WEAPX1",
+          "series": "Weapon X",
+          "number": 4,
+          "title": "Weapon X #4",
+          "url": "https://www.comicsbox.it/albo/WEAPX1_004"
+        },
+        {
+          "id": "XCALIBR_004",
+          "seriesId": "XCALIBR",
+          "series": "X-Calibre",
+          "number": 4,
+          "title": "X-Calibre #4",
+          "url": "https://www.comicsbox.it/albo/XCALIBR_004"
+        },
+        {
+          "id": "FACTX_004",
+          "seriesId": "FACTX",
+          "series": "Factor X",
+          "number": 4,
+          "title": "Factor X #4",
+          "url": "https://www.comicsbox.it/albo/FACTX_004"
+        },
+        {
+          "id": "XMAN_004",
+          "seriesId": "XMAN",
+          "series": "X-Man",
+          "number": 4,
+          "title": "X-Man #4",
+          "url": "https://www.comicsbox.it/albo/XMAN_004"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "pathId": "age-of-apocalypse",
+        "position": 5,
+        "contentIds": [
+          "XM_ASTO_004",
+          "XM_AMAZ_004",
+          "GAMXTE_004",
+          "GENEXT_004",
+          "WEAPX1_004",
+          "XCALIBR_004",
+          "FACTX_004",
+          "XMAN_004"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:6",
+      "n": 6,
+      "name": "L'era di Apocalisse Collection #6",
+      "title": "Su terra consacrata",
+      "date": "Novembre 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_006.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_006",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 6,
+      "era": "Cronache, X-Universe e Omega",
+      "instruction": "Leggi il volume completo: X-Universe #1, X-Universe #2, X-Men Chronicles #1 e altri 2 capitoli.",
+      "contents": [
+        {
+          "id": "XUNIVER_001",
+          "seriesId": "XUNIVER",
+          "series": "X-Universe",
+          "number": 1,
+          "title": "X-Universe #1",
+          "url": "https://www.comicsbox.it/albo/XUNIVER_001"
+        },
+        {
+          "id": "XUNIVER_002",
+          "seriesId": "XUNIVER",
+          "series": "X-Universe",
+          "number": 2,
+          "title": "X-Universe #2",
+          "url": "https://www.comicsbox.it/albo/XUNIVER_002"
+        },
+        {
+          "id": "XM_CHRO_001",
+          "seriesId": "XM_CHRO",
+          "series": "X-Men Chronicles",
+          "number": 1,
+          "title": "X-Men Chronicles #1",
+          "url": "https://www.comicsbox.it/albo/XM_CHRO_001"
+        },
+        {
+          "id": "XM_CHRO_002",
+          "seriesId": "XM_CHRO",
+          "series": "X-Men Chronicles",
+          "number": 2,
+          "title": "X-Men Chronicles #2",
+          "url": "https://www.comicsbox.it/albo/XM_CHRO_002"
+        },
+        {
+          "id": "XM_OMEG_001",
+          "seriesId": "XM_OMEG",
+          "series": "X-Men: Omega",
+          "number": 1,
+          "title": "X-Men: Omega #1",
+          "url": "https://www.comicsbox.it/albo/XM_OMEG_001"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "pathId": "age-of-apocalypse",
+        "position": 6,
+        "contentIds": [
+          "XUNIVER_001",
+          "XUNIVER_002",
+          "XM_CHRO_001",
+          "XM_CHRO_002",
+          "XM_OMEG_001"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:7",
+      "n": 7,
+      "name": "L'era di Apocalisse Collection #7",
+      "title": "Ritorno all'Era di Apocalisse",
+      "date": "Gennaio 2015",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_007.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_007",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 7,
+      "era": "Ritorno su Terra-295",
+      "instruction": "Leggi il volume completo: X-Men: Age of Apocalypse One Shot #1, X-Men: Age of Apocalypse #1, X-Men: Age of Apocalypse #2 e altri 4 capitoli.",
+      "contents": [
+        {
+          "id": "XM_AGAPO_001",
+          "seriesId": "XM_AGAPO",
+          "series": "X-Men: Age of Apocalypse One Shot",
+          "number": 1,
+          "title": "X-Men: Age of Apocalypse One Shot #1",
+          "url": "https://www.comicsbox.it/albo/XM_AGAPO_001"
+        },
+        {
+          "id": "XM_AGAP_001",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 1,
+          "title": "X-Men: Age of Apocalypse #1",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_001"
+        },
+        {
+          "id": "XM_AGAP_002",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 2,
+          "title": "X-Men: Age of Apocalypse #2",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_002"
+        },
+        {
+          "id": "XM_AGAP_003",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 3,
+          "title": "X-Men: Age of Apocalypse #3",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_003"
+        },
+        {
+          "id": "XM_AGAP_004",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 4,
+          "title": "X-Men: Age of Apocalypse #4",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_004"
+        },
+        {
+          "id": "XM_AGAP_005",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 5,
+          "title": "X-Men: Age of Apocalypse #5",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_005"
+        },
+        {
+          "id": "XM_AGAP_006",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 6,
+          "title": "X-Men: Age of Apocalypse #6",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_006"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "pathId": "age-of-apocalypse",
+        "position": 7,
+        "contentIds": [
+          "XM_AGAPO_001",
+          "XM_AGAP_001",
+          "XM_AGAP_002",
+          "XM_AGAP_003",
+          "XM_AGAP_004",
+          "XM_AGAP_005",
+          "XM_AGAP_006"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

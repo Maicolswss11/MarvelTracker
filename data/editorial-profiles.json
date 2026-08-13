@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "profiles": {
     "avengers": {
       "type": "team",
@@ -1159,6 +1159,253 @@
         "Separazione netta dalla cronologia di Terra-616"
       ],
       "bio": "La Guerra Kree-Skrull originale mette la Terra al centro dello scontro fra due imperi e assegna a Rick Jones un ruolo decisivo nel finale. What If? #20 rimuove proprio quella variabile e segue la reazione degli Avengers quando il conflitto non può essere risolto nello stesso modo. L'evento alternativo non è un seguito né una riscrittura retroattiva della saga di Terra-616: è un esperimento autoconclusivo sulle conseguenze di un'assenza. Il percorso seleziona soltanto questo capitolo dal terzo volume Classic, permettendo di possedere una sola copia fisica pur ritrovandola sia nell'antologia completa sia nella scheda dell'evento."
+    },
+    "age-of-apocalypse-event": {
+      "type": "event",
+      "period": "1995 editorialmente",
+      "universe": "Terra-295 e linea temporale originaria",
+      "debut": "X-Men: Alpha #1 e le testate mutanti Marvel del 1995",
+      "creators": "Scott Lobdell, Mark Waid, Fabian Nicieza, Jeph Loeb, Larry Hama, Warren Ellis e i team creativi mutanti",
+      "trigger": "Legion viaggia nel passato per uccidere Magneto ma colpisce Charles Xavier, cancellando la storia conosciuta",
+      "scope": "Sei volumi italiani, otto miniserie parallele, prologo, cronache e finale",
+      "factions": [
+        "X-Men di Magneto",
+        "Impero di Apocalisse",
+        "Consiglio Umano",
+        "Bishop",
+        "Sinistro e i suoi agenti"
+      ],
+      "consequences": [
+        "Nascita di Terra-295",
+        "Dominio anticipato di Apocalisse",
+        "Nuove versioni degli eroi mutanti",
+        "Personaggi trasferiti nella continuità principale"
+      ],
+      "bio": "Era di Apocalisse nasce quando il viaggio temporale di Legion priva il mondo di Charles Xavier prima della fondazione degli X-Men. Apocalisse comincia così la propria conquista con anni di anticipo, mentre Magneto raccoglie l'eredità dell'amico e organizza una resistenza mutante. Nel 1995 Marvel sospese temporaneamente le normali testate X e le sostituì con otto serie ambientate nella nuova realtà, racchiuse fra X-Men: Alpha e X-Men: Omega. Ogni fronte segue una missione diversa ma contribuisce allo stesso piano: verificare il ricordo di Bishop, proteggere i superstiti e trovare un modo per correggere la storia. Il percorso italiano conserva questa struttura corale senza fondere Terra-295 con le biografie di Terra-616."
+    },
+    "astonishing-xmen-aoa": {
+      "type": "team",
+      "founded": "Durante il dominio di Apocalisse",
+      "universe": "Terra-295",
+      "debut": "Astonishing X-Men #1 (1995)",
+      "creators": "Scott Lobdell e Joe Madureira",
+      "founders": [
+        "Rogue",
+        "Sabretooth",
+        "Blink",
+        "Wild Child",
+        "Morph",
+        "Sunfire"
+      ],
+      "members": [
+        "Rogue",
+        "Sabretooth",
+        "Blink",
+        "Wild Child",
+        "Morph",
+        "Sunfire",
+        "Iceman"
+      ],
+      "bases": [
+        "Villa di Xavier",
+        "Fronte occidentale degli Stati Uniti"
+      ],
+      "traits": [
+        "Squadra di evacuazione",
+        "Contrasto alle selezioni",
+        "Guerra contro Olocausto",
+        "Distruzione delle fabbriche di Infinites"
+      ],
+      "bio": "Rogue guida la formazione degli Astonishing X-Men incaricata di fermare le selezioni con cui Olocausto elimina umani e mutanti considerati inadatti. Sabretooth e Wild Child costituiscono il nucleo d'assalto, Blink garantisce spostamenti istantanei, Morph e Sunfire portano versatilità e potenza. La squadra opera lontano dalla base di Magneto e deve conciliare il salvataggio dei prigionieri con la distruzione delle fabbriche di Infinites. Il rapporto protettivo fra Sabretooth e Blink dà alla missione il suo centro emotivo, mentre Rogue affronta anche il peso di essere comandante, compagna di Magneto e madre del giovane Charles."
+    },
+    "amazing-xmen-aoa": {
+      "type": "team",
+      "founded": "Durante il dominio di Apocalisse",
+      "universe": "Terra-295",
+      "debut": "Amazing X-Men #1 (1995)",
+      "creators": "Fabian Nicieza e Andy Kubert",
+      "founders": [
+        "Quicksilver",
+        "Storm",
+        "Dazzler",
+        "Banshee",
+        "Iceman",
+        "Exodus"
+      ],
+      "members": [
+        "Quicksilver",
+        "Storm",
+        "Dazzler",
+        "Banshee",
+        "Iceman",
+        "Exodus"
+      ],
+      "bases": [
+        "Villa di Xavier",
+        "Corridoio di evacuazione del Maine"
+      ],
+      "traits": [
+        "Evacuazione degli umani",
+        "Intervento rapido",
+        "Scontro con Abyss",
+        "Supporto alle altre squadre X"
+      ],
+      "bio": "Gli Amazing X-Men sono la formazione mobile guidata da Quicksilver, figlio di Magneto e comandante cresciuto sotto l'ombra della guerra. Storm, Dazzler, Banshee, Iceman ed Exodus lo accompagnano nel Maine per rendere possibile l'evacuazione degli umani verso l'Europa. La squadra affronta la Fratellanza del Caos e Abyss, uno dei Cavalieri di Apocalisse, mentre la situazione alla Villa di Xavier precipita. La velocità di Pietro non è soltanto un potere ma il principio operativo del gruppo: completare la missione, dividersi e raggiungere in tempo gli altri fronti della resistenza."
+    },
+    "gambit-xternals-aoa": {
+      "type": "team",
+      "founded": "Prima dell'offensiva finale contro Apocalisse",
+      "universe": "Terra-295",
+      "debut": "Gambit and the X-Ternals #1 (1995)",
+      "creators": "Fabian Nicieza, Tony Daniel e Salvador Larroca",
+      "founders": [
+        "Gambit",
+        "Jubilee",
+        "Strong Guy",
+        "Sunspot",
+        "Lila Cheney"
+      ],
+      "members": [
+        "Gambit",
+        "Jubilee",
+        "Strong Guy",
+        "Sunspot",
+        "Lila Cheney"
+      ],
+      "bases": [
+        "Resistenza di Magneto",
+        "Rotte interstellari di Lila Cheney"
+      ],
+      "traits": [
+        "Missioni clandestine",
+        "Teletrasporto interstellare",
+        "Recupero del Cristallo M'Kraan",
+        "Legame con l'Impero Shi'ar"
+      ],
+      "bio": "Gli X-Ternals sono il gruppo clandestino di Gambit, formato da Jubilee, Strong Guy, Sunspot e dalla teleporta Lila Cheney. Magneto affida loro la missione più lontana dalla guerra terrestre: raggiungere lo spazio Shi'ar e recuperare un frammento del Cristallo M'Kraan, necessario per dimostrare che i ricordi di Bishop appartengono a una realtà cancellata. L'operazione combina infiltrazione, pirateria cosmica e rapporti personali già incrinati. La squadra rappresenta la versione di Terra-295 della tradizione di X-Force, ma mantiene un'identità autonoma legata alla leadership irregolare di Gambit."
+    },
+    "generation-next-aoa": {
+      "type": "team",
+      "founded": "Durante la guerra di resistenza",
+      "universe": "Terra-295",
+      "debut": "Generation Next #1 (1995)",
+      "creators": "Scott Lobdell e Chris Bachalo",
+      "founders": [
+        "Colossus",
+        "Shadowcat",
+        "Chamber",
+        "Husk",
+        "Mondo",
+        "Skin",
+        "Vincente"
+      ],
+      "members": [
+        "Colossus",
+        "Shadowcat",
+        "Chamber",
+        "Husk",
+        "Mondo",
+        "Skin",
+        "Vincente"
+      ],
+      "bases": [
+        "Strutture di addestramento della resistenza",
+        "Core di Seattle"
+      ],
+      "traits": [
+        "Giovani mutanti addestrati alla guerra",
+        "Missione di salvataggio",
+        "Infiltrazione nel Core",
+        "Conflitto con Sugar Man"
+      ],
+      "bio": "Generation Next è la classe di giovani mutanti addestrata da Colosso e Shadowcat in un mondo che non concede loro il tempo di diventare adulti. Chamber, Husk, Mondo, Skin e Vincente vengono inviati nel Core di Seattle, complesso industriale e campo di prigionia governato da Sugar Man, per liberare Illyana Rasputin. La missione sfrutta le capacità complementari dei ragazzi e la conoscenza personale che Colosso ha della prigioniera, ma mette in luce anche l'ossessione del comandante per sua sorella. La miniserie è una delle storie più dure dell'evento e definisce quanto la guerra deformi perfino gli ideali degli X-Men."
+    },
+    "x-calibre-aoa": {
+      "type": "team",
+      "founded": "Durante il viaggio verso Avalon",
+      "universe": "Terra-295",
+      "debut": "X-Calibre #1 (1995)",
+      "creators": "Warren Ellis e Ken Lashley",
+      "founders": [
+        "Nightcrawler",
+        "Mystica",
+        "Switchback"
+      ],
+      "members": [
+        "Nightcrawler",
+        "Mystica",
+        "Switchback",
+        "Damask"
+      ],
+      "bases": [
+        "Rotte dei profughi",
+        "Avalon"
+      ],
+      "traits": [
+        "Ricerca di Destiny",
+        "Protezione dei rifugiati",
+        "Teletrasporto",
+        "Opposizione ai Pale Riders"
+      ],
+      "bio": "X-Calibre nasce più come alleanza di viaggio che come squadra pianificata. Magneto invia Nightcrawler alla ricerca di Destiny, la precognitiva che può confermare se Bishop ricorda davvero una linea temporale diversa. Il percorso conduce Kurt attraverso le rotte dei rifugiati e il santuario di Avalon, dove si riunisce con Mystica e incontra Switchback; Damask, inizialmente legata ai servitori di Apocalisse, completa poi il gruppo. La missione oppone la possibilità di una comunità pacifica alla brutalità dei Pale Riders e dà a Nightcrawler un ruolo centrale nella salvezza dell'intera realtà."
+    },
+    "factor-x-aoa": {
+      "type": "team",
+      "founded": "Durante il consolidamento del regime di Apocalisse",
+      "universe": "Terra-295",
+      "debut": "Factor X #1 (1995)",
+      "creators": "John Francis Moore, Steve Epting e Terry Dodson",
+      "founders": [
+        "Cyclops",
+        "Havok",
+        "Bestia Nera",
+        "Northstar",
+        "Aurora",
+        "Cannonball"
+      ],
+      "members": [
+        "Cyclops",
+        "Havok",
+        "Bestia Nera",
+        "Northstar",
+        "Aurora",
+        "Cannonball",
+        "Amazon",
+        "Bedlam Brothers"
+      ],
+      "bases": [
+        "Recinti di Sinistro",
+        "Laboratori di Bestia Nera"
+      ],
+      "traits": [
+        "Elite Mutant Force",
+        "Controllo dei prigionieri",
+        "Servizio al regime",
+        "Conflitto fra Cyclops e Havok"
+      ],
+      "bio": "Factor X racconta l'Elite Mutant Force dall'interno del sistema di Apocalisse. Cyclops e Havok sono ufficiali cresciuti sotto Mister Sinister, affiancati da Bestia Nera e da reparti come Northstar, Aurora e Cannonball. Il loro compito è controllare i recinti e soffocare ogni ribellione, ma Scott comincia a mettere in discussione ciò che vede nei laboratori e a favorire segretamente alcune fughe. La rivalità con Havok trasforma la crisi morale in uno scontro familiare. Il gruppo non è una versione eroica di X-Factor: è l'apparato del regime, osservato nel momento in cui le sue lealtà iniziano a spezzarsi."
+    },
+    "return-age-of-apocalypse": {
+      "type": "event",
+      "period": "2005 editorialmente",
+      "universe": "Terra-295",
+      "debut": "X-Men: Age of Apocalypse One Shot e X-Men: Age of Apocalypse #1 (2005)",
+      "creators": "Akira Yoshida, Chris Bachalo e i team creativi del one-shot celebrativo",
+      "trigger": "Il decennale dell'evento riapre Terra-295 dopo gli eventi di X-Men: Omega",
+      "scope": "Un one-shot con quattro storie e una miniserie di sei numeri, raccolti in un volume italiano",
+      "factions": [
+        "X-Men di Magneto",
+        "Superstiti umani e mutanti",
+        "Mister Sinister",
+        "Forze residue del vecchio regime"
+      ],
+      "consequences": [
+        "Conferma della sopravvivenza di Terra-295",
+        "Nuovi personaggi nella realtà alternativa",
+        "Ricostruzione incompleta dopo Apocalisse",
+        "Ponte verso successive visite multiversali"
+      ],
+      "bio": "Nel 2005 Marvel tornò nell'Era di Apocalisse per il decimo anniversario. Il one-shot contiene quattro episodi ambientati in momenti diversi della storia e amplia origini, incontri e sopravvivenze lasciati fuori dal crossover originale. La miniserie successiva riparte invece dopo X-Men: Omega e mostra Terra-295 come una realtà ancora esistente, impegnata a ricostruirsi sulle rovine del regime. Magneto e i suoi X-Men devono affrontare le conseguenze politiche e biologiche della guerra, insieme a minacce rimaste nascoste. Il percorso resta distinto sia dalla saga del 1995 sia dalle successive incursioni di personaggi di Terra-295 in altre continuità."
     }
   }
 }

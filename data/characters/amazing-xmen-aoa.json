@@ -1,0 +1,187 @@
+{
+  "id": "amazing-xmen-aoa",
+  "name": "Amazing X-Men",
+  "subtitle": "Quicksilver guida l'evacuazione",
+  "accent": "#5da9e9",
+  "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
+  "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
+  "description": "La missione completa degli X-Men guidati da Quicksilver. Storm, Dazzler, Banshee, Iceman ed Exodus devono sostenere l'evacuazione degli umani verso l'Europa e contrastare la Fratellanza del Caos e il Cavaliere Abyss.",
+  "timelineMode": true,
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "series": [
+    {
+      "id": "ERAPOCOL_P",
+      "name": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "range": "#2–5",
+      "years": "2014"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "age-of-apocalypse",
+    "age-of-apocalypse-event",
+    "xmen",
+    "quicksilver",
+    "storm"
+  ],
+  "totalRequired": 4,
+  "issues": [
+    {
+      "id": "ERAPOCOL_P:2",
+      "n": 2,
+      "name": "L'era di Apocalisse Collection #2",
+      "title": "Agnelli sacrificali",
+      "date": "Marzo 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_002.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_002",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 1,
+      "era": "Fronti di guerra · atto I",
+      "instruction": "In questo volume leggi soltanto Amazing X-Men #1.",
+      "contents": [
+        {
+          "id": "XM_AMAZ_001",
+          "seriesId": "XM_AMAZ",
+          "series": "Amazing X-Men",
+          "number": 1,
+          "title": "Amazing X-Men #1",
+          "url": "https://www.comicsbox.it/albo/XM_AMAZ_001"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "amazing-xmen-aoa",
+        "position": 1,
+        "contentIds": [
+          "XM_AMAZ_001"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:3",
+      "n": 3,
+      "name": "L'era di Apocalisse Collection #3",
+      "title": "Fuoco nel cielo",
+      "date": "Maggio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_003.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_003",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 2,
+      "era": "Fronti di guerra · atto II",
+      "instruction": "In questo volume leggi soltanto Amazing X-Men #2.",
+      "contents": [
+        {
+          "id": "XM_AMAZ_002",
+          "seriesId": "XM_AMAZ",
+          "series": "Amazing X-Men",
+          "number": 2,
+          "title": "Amazing X-Men #2",
+          "url": "https://www.comicsbox.it/albo/XM_AMAZ_002"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "amazing-xmen-aoa",
+        "position": 2,
+        "contentIds": [
+          "XM_AMAZ_002"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:4",
+      "n": 4,
+      "name": "L'era di Apocalisse Collection #4",
+      "title": "Ferite aperte",
+      "date": "Luglio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_004.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_004",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 3,
+      "era": "Fronti di guerra · atto III",
+      "instruction": "In questo volume leggi soltanto Amazing X-Men #3.",
+      "contents": [
+        {
+          "id": "XM_AMAZ_003",
+          "seriesId": "XM_AMAZ",
+          "series": "Amazing X-Men",
+          "number": 3,
+          "title": "Amazing X-Men #3",
+          "url": "https://www.comicsbox.it/albo/XM_AMAZ_003"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "amazing-xmen-aoa",
+        "position": 3,
+        "contentIds": [
+          "XM_AMAZ_003"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:5",
+      "n": 5,
+      "name": "L'era di Apocalisse Collection #5",
+      "title": "L'arte della guerra",
+      "date": "Settembre 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_005.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_005",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 4,
+      "era": "Fronti di guerra · atto IV",
+      "instruction": "In questo volume leggi soltanto Amazing X-Men #4.",
+      "contents": [
+        {
+          "id": "XM_AMAZ_004",
+          "seriesId": "XM_AMAZ",
+          "series": "Amazing X-Men",
+          "number": 4,
+          "title": "Amazing X-Men #4",
+          "url": "https://www.comicsbox.it/albo/XM_AMAZ_004"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "amazing-xmen-aoa",
+        "position": 4,
+        "contentIds": [
+          "XM_AMAZ_004"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

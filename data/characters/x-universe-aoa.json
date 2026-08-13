@@ -1,0 +1,104 @@
+{
+  "id": "x-universe-aoa",
+  "name": "X-Universe e Cronache",
+  "subtitle": "Le origini di Terra-295 e l'ultima frontiera",
+  "accent": "#cf8752",
+  "start": "L'era di Apocalisse Collection #6 — Novembre 2014",
+  "end": "L'era di Apocalisse Collection #6 — Novembre 2014",
+  "description": "Un percorso concentrato sul sesto volume: X-Universe segue gli eroi non mutanti sopravvissuti, X-Men Chronicles ricostruisce due momenti anteriori al crossover e X-Men: Omega chiude il conflitto principale. È il complemento corale agli otto titoli paralleli.",
+  "timelineMode": true,
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "series": [
+    {
+      "id": "ERAPOCOL_P",
+      "name": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "range": "#6",
+      "years": "2014"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "age-of-apocalypse",
+    "age-of-apocalypse-event",
+    "xmen"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "ERAPOCOL_P:6",
+      "n": 6,
+      "name": "L'era di Apocalisse Collection #6",
+      "title": "Su terra consacrata",
+      "date": "Novembre 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_006.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_006",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 1,
+      "era": "Cronache, X-Universe e Omega",
+      "instruction": "Leggi X-Universe #1–2, X-Men Chronicles #1–2 e X-Men: Omega.",
+      "contents": [
+        {
+          "id": "XUNIVER_001",
+          "seriesId": "XUNIVER",
+          "series": "X-Universe",
+          "number": 1,
+          "title": "X-Universe #1",
+          "url": "https://www.comicsbox.it/albo/XUNIVER_001"
+        },
+        {
+          "id": "XUNIVER_002",
+          "seriesId": "XUNIVER",
+          "series": "X-Universe",
+          "number": 2,
+          "title": "X-Universe #2",
+          "url": "https://www.comicsbox.it/albo/XUNIVER_002"
+        },
+        {
+          "id": "XM_CHRO_001",
+          "seriesId": "XM_CHRO",
+          "series": "X-Men Chronicles",
+          "number": 1,
+          "title": "X-Men Chronicles #1",
+          "url": "https://www.comicsbox.it/albo/XM_CHRO_001"
+        },
+        {
+          "id": "XM_CHRO_002",
+          "seriesId": "XM_CHRO",
+          "series": "X-Men Chronicles",
+          "number": 2,
+          "title": "X-Men Chronicles #2",
+          "url": "https://www.comicsbox.it/albo/XM_CHRO_002"
+        },
+        {
+          "id": "XM_OMEG_001",
+          "seriesId": "XM_OMEG",
+          "series": "X-Men: Omega",
+          "number": 1,
+          "title": "X-Men: Omega #1",
+          "url": "https://www.comicsbox.it/albo/XM_OMEG_001"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "pathId": "x-universe-aoa",
+        "position": 1,
+        "contentIds": [
+          "XUNIVER_001",
+          "XUNIVER_002",
+          "XM_CHRO_001",
+          "XM_CHRO_002",
+          "XM_OMEG_001"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

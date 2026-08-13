@@ -1,0 +1,186 @@
+{
+  "id": "generation-next-aoa",
+  "name": "Generation Next",
+  "subtitle": "La nuova generazione nel Core di Seattle",
+  "accent": "#d9a33d",
+  "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
+  "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
+  "description": "Colosso e Shadowcat guidano Chamber, Husk, Mondo, Skin e Vincente nella missione per liberare Illyana Rasputin dal Core di Seattle. I quattro capitoli mostrano il costo più duro della resistenza giovanile contro Sugar Man.",
+  "timelineMode": true,
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "series": [
+    {
+      "id": "ERAPOCOL_P",
+      "name": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "range": "#2–5",
+      "years": "2014"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "age-of-apocalypse",
+    "age-of-apocalypse-event",
+    "new-mutants",
+    "xmen"
+  ],
+  "totalRequired": 4,
+  "issues": [
+    {
+      "id": "ERAPOCOL_P:2",
+      "n": 2,
+      "name": "L'era di Apocalisse Collection #2",
+      "title": "Agnelli sacrificali",
+      "date": "Marzo 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_002.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_002",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 1,
+      "era": "Fronti di guerra · atto I",
+      "instruction": "In questo volume leggi soltanto Generation Next #1.",
+      "contents": [
+        {
+          "id": "GENEXT_001",
+          "seriesId": "GENEXT",
+          "series": "Generation Next",
+          "number": 1,
+          "title": "Generation Next #1",
+          "url": "https://www.comicsbox.it/albo/GENEXT_001"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "generation-next-aoa",
+        "position": 1,
+        "contentIds": [
+          "GENEXT_001"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:3",
+      "n": 3,
+      "name": "L'era di Apocalisse Collection #3",
+      "title": "Fuoco nel cielo",
+      "date": "Maggio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_003.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_003",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 2,
+      "era": "Fronti di guerra · atto II",
+      "instruction": "In questo volume leggi soltanto Generation Next #2.",
+      "contents": [
+        {
+          "id": "GENEXT_002",
+          "seriesId": "GENEXT",
+          "series": "Generation Next",
+          "number": 2,
+          "title": "Generation Next #2",
+          "url": "https://www.comicsbox.it/albo/GENEXT_002"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "generation-next-aoa",
+        "position": 2,
+        "contentIds": [
+          "GENEXT_002"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:4",
+      "n": 4,
+      "name": "L'era di Apocalisse Collection #4",
+      "title": "Ferite aperte",
+      "date": "Luglio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_004.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_004",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 3,
+      "era": "Fronti di guerra · atto III",
+      "instruction": "In questo volume leggi soltanto Generation Next #3.",
+      "contents": [
+        {
+          "id": "GENEXT_003",
+          "seriesId": "GENEXT",
+          "series": "Generation Next",
+          "number": 3,
+          "title": "Generation Next #3",
+          "url": "https://www.comicsbox.it/albo/GENEXT_003"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "generation-next-aoa",
+        "position": 3,
+        "contentIds": [
+          "GENEXT_003"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:5",
+      "n": 5,
+      "name": "L'era di Apocalisse Collection #5",
+      "title": "L'arte della guerra",
+      "date": "Settembre 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_005.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_005",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 4,
+      "era": "Fronti di guerra · atto IV",
+      "instruction": "In questo volume leggi soltanto Generation Next #4.",
+      "contents": [
+        {
+          "id": "GENEXT_004",
+          "seriesId": "GENEXT",
+          "series": "Generation Next",
+          "number": 4,
+          "title": "Generation Next #4",
+          "url": "https://www.comicsbox.it/albo/GENEXT_004"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "generation-next-aoa",
+        "position": 4,
+        "contentIds": [
+          "GENEXT_004"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

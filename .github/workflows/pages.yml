@@ -33,6 +33,8 @@ jobs:
         run: node scripts/verify-marvel-zombies.mjs
       - name: Verify What If universe
         run: node scripts/verify-what-if.mjs
+      - name: Verify Age of Apocalypse universe
+        run: node scripts/verify-age-of-apocalypse.mjs
       - name: Verify character biographies
         run: node scripts/verify-character-profiles.mjs
       - name: Verify team and event dossiers

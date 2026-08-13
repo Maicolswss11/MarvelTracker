@@ -1,0 +1,186 @@
+{
+  "id": "x-calibre-aoa",
+  "name": "X-Calibre",
+  "subtitle": "Nightcrawler sulla rotta di Avalon",
+  "accent": "#6f77d9",
+  "start": "L'era di Apocalisse Collection #2 — Marzo 2014",
+  "end": "L'era di Apocalisse Collection #5 — Settembre 2014",
+  "description": "Nightcrawler attraversa le rotte dei profughi per raggiungere Avalon e trovare Destiny, l'unica mutante capace di verificare il racconto di Bishop. Mystica, Switchback e Damask trasformano la missione in una piccola squadra nata lungo il viaggio.",
+  "timelineMode": true,
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "series": [
+    {
+      "id": "ERAPOCOL_P",
+      "name": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "range": "#2–5",
+      "years": "2014"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "age-of-apocalypse",
+    "age-of-apocalypse-event",
+    "xmen",
+    "deadpool"
+  ],
+  "totalRequired": 4,
+  "issues": [
+    {
+      "id": "ERAPOCOL_P:2",
+      "n": 2,
+      "name": "L'era di Apocalisse Collection #2",
+      "title": "Agnelli sacrificali",
+      "date": "Marzo 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_002.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_002",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 1,
+      "era": "Fronti di guerra · atto I",
+      "instruction": "In questo volume leggi soltanto X-Calibre #1.",
+      "contents": [
+        {
+          "id": "XCALIBR_001",
+          "seriesId": "XCALIBR",
+          "series": "X-Calibre",
+          "number": 1,
+          "title": "X-Calibre #1",
+          "url": "https://www.comicsbox.it/albo/XCALIBR_001"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "x-calibre-aoa",
+        "position": 1,
+        "contentIds": [
+          "XCALIBR_001"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:3",
+      "n": 3,
+      "name": "L'era di Apocalisse Collection #3",
+      "title": "Fuoco nel cielo",
+      "date": "Maggio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_003.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_003",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 2,
+      "era": "Fronti di guerra · atto II",
+      "instruction": "In questo volume leggi soltanto X-Calibre #2.",
+      "contents": [
+        {
+          "id": "XCALIBR_002",
+          "seriesId": "XCALIBR",
+          "series": "X-Calibre",
+          "number": 2,
+          "title": "X-Calibre #2",
+          "url": "https://www.comicsbox.it/albo/XCALIBR_002"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "x-calibre-aoa",
+        "position": 2,
+        "contentIds": [
+          "XCALIBR_002"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:4",
+      "n": 4,
+      "name": "L'era di Apocalisse Collection #4",
+      "title": "Ferite aperte",
+      "date": "Luglio 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_004.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_004",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 3,
+      "era": "Fronti di guerra · atto III",
+      "instruction": "In questo volume leggi soltanto X-Calibre #3.",
+      "contents": [
+        {
+          "id": "XCALIBR_003",
+          "seriesId": "XCALIBR",
+          "series": "X-Calibre",
+          "number": 3,
+          "title": "X-Calibre #3",
+          "url": "https://www.comicsbox.it/albo/XCALIBR_003"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "x-calibre-aoa",
+        "position": 3,
+        "contentIds": [
+          "XCALIBR_003"
+        ],
+        "scope": "selected-contents"
+      }
+    },
+    {
+      "id": "ERAPOCOL_P:5",
+      "n": 5,
+      "name": "L'era di Apocalisse Collection #5",
+      "title": "L'arte della guerra",
+      "date": "Settembre 2014",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_005.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_005",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 4,
+      "era": "Fronti di guerra · atto IV",
+      "instruction": "In questo volume leggi soltanto X-Calibre #4.",
+      "contents": [
+        {
+          "id": "XCALIBR_004",
+          "seriesId": "XCALIBR",
+          "series": "X-Calibre",
+          "number": 4,
+          "title": "X-Calibre #4",
+          "url": "https://www.comicsbox.it/albo/XCALIBR_004"
+        }
+      ],
+      "contentsStatus": "path-scoped",
+      "readingStep": {
+        "pathId": "x-calibre-aoa",
+        "position": 4,
+        "contentIds": [
+          "XCALIBR_004"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}

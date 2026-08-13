@@ -1,0 +1,122 @@
+{
+  "id": "return-age-of-apocalypse",
+  "name": "Ritorno all'Era di Apocalisse",
+  "subtitle": "Il decennale del 2005",
+  "accent": "#b94e46",
+  "start": "L'era di Apocalisse Collection #7 — Gennaio 2015",
+  "end": "L'era di Apocalisse Collection #7 — Gennaio 2015",
+  "description": "Il one-shot celebrativo e la miniserie X-Men: Age of Apocalypse #1–6 pubblicati per il decennale. Le storie brevi colmano passaggi precedenti, mentre la miniserie torna su Terra-295 dopo X-Men: Omega e mostra una realtà sopravvissuta ma ancora segnata dal regime.",
+  "timelineMode": true,
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "series": [
+    {
+      "id": "ERAPOCOL_P",
+      "name": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "range": "#7",
+      "years": "2015"
+    }
+  ],
+  "archives": [],
+  "relatedPaths": [
+    "age-of-apocalypse",
+    "age-of-apocalypse-event",
+    "xmen"
+  ],
+  "totalRequired": 1,
+  "issues": [
+    {
+      "id": "ERAPOCOL_P:7",
+      "n": 7,
+      "name": "L'era di Apocalisse Collection #7",
+      "title": "Ritorno all'Era di Apocalisse",
+      "date": "Gennaio 2015",
+      "seriesId": "ERAPOCOL_P",
+      "series": "L'era di Apocalisse Collection",
+      "publisher": "Panini Comics",
+      "cover": "https://www.comicsbox.it/cover/ERAPOCOL_P_007.jpg",
+      "url": "https://www.comicsbox.it/albo/ERAPOCOL_P_007",
+      "required": true,
+      "skip": false,
+      "future": false,
+      "coverSource": "ComicsBox",
+      "dateQuality": "ComicsBox",
+      "seq": 1,
+      "era": "Ritorno su Terra-295",
+      "instruction": "Leggi il one-shot celebrativo e X-Men: Age of Apocalypse #1–6.",
+      "contents": [
+        {
+          "id": "XM_AGAPO_001",
+          "seriesId": "XM_AGAPO",
+          "series": "X-Men: Age of Apocalypse One Shot",
+          "number": 1,
+          "title": "X-Men: Age of Apocalypse One Shot #1",
+          "url": "https://www.comicsbox.it/albo/XM_AGAPO_001"
+        },
+        {
+          "id": "XM_AGAP_001",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 1,
+          "title": "X-Men: Age of Apocalypse #1",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_001"
+        },
+        {
+          "id": "XM_AGAP_002",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 2,
+          "title": "X-Men: Age of Apocalypse #2",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_002"
+        },
+        {
+          "id": "XM_AGAP_003",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 3,
+          "title": "X-Men: Age of Apocalypse #3",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_003"
+        },
+        {
+          "id": "XM_AGAP_004",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 4,
+          "title": "X-Men: Age of Apocalypse #4",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_004"
+        },
+        {
+          "id": "XM_AGAP_005",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 5,
+          "title": "X-Men: Age of Apocalypse #5",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_005"
+        },
+        {
+          "id": "XM_AGAP_006",
+          "seriesId": "XM_AGAP",
+          "series": "X-Men: Age of Apocalypse",
+          "number": 6,
+          "title": "X-Men: Age of Apocalypse #6",
+          "url": "https://www.comicsbox.it/albo/XM_AGAP_006"
+        }
+      ],
+      "contentsStatus": "complete",
+      "readingStep": {
+        "pathId": "return-age-of-apocalypse",
+        "position": 1,
+        "contentIds": [
+          "XM_AGAPO_001",
+          "XM_AGAP_001",
+          "XM_AGAP_002",
+          "XM_AGAP_003",
+          "XM_AGAP_004",
+          "XM_AGAP_005",
+          "XM_AGAP_006"
+        ],
+        "scope": "selected-contents"
+      }
+    }
+  ]
+}
