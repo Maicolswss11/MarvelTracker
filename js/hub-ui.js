@@ -30,6 +30,10 @@ function pathLogoUrl(path){
   return `${logo}${separator}v=${encodeURIComponent(version||1)}`;
 }
 function pathArtworkMarkup(path){
+  const eventCover = path?.type === "event" ? uiArt?.paths?.[path.id] || "" : "";
+  if(eventCover){
+    return `<img class="pathArtPrimary pathEventCover pathIconImage pathIconRaster" loading="lazy" src="${esc(eventCover)}" alt="" referrerpolicy="no-referrer" data-path-icon-id="${esc(path.id)}" onerror="this.remove()">`;
+  }
   const fallback = pathLogoUrl(path);
   const logoSource = pathLogoSource(path);
   const raster = /\.(?:png|jpe?g|webp)(?:[?#]|$)/i.test(logoSource.logo);

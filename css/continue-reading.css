@@ -30,6 +30,14 @@
   border-color:color-mix(in srgb,var(--continue-accent) 48%,#2e3e51);
   box-shadow:0 10px 24px rgba(0,0,0,.28);
 }
+.homeContinueHero .pathEventCover{
+  width:34px;
+  height:51px;
+  flex:none;
+  padding:0;
+  border-radius:8px;
+  object-fit:cover;
+}
 .homeContinueHero span{min-width:0;gap:4px}
 .homeContinueHero b{
   overflow:hidden;
@@ -199,6 +207,7 @@
   .homeContinueRoute{gap:7px}
   .homeContinueHero{gap:7px}
   .homeContinueHero img{width:28px;height:28px;border-radius:8px}
+  .homeContinueHero .pathEventCover{width:24px;height:36px;border-radius:6px}
   .homeContinueHero b{font-size:10px}
   .homeContinueHero small{max-width:125px;font-size:6.5px}
   .homeContinueRouteBadge{min-width:0;padding:6px 7px;border-radius:8px}

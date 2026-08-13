@@ -131,10 +131,18 @@ def choose_path_cover(path_meta: dict[str, Any], issues: list[dict[str, Any]]) -
     return str(candidates[0]["cover"])
 
 
+def choose_first_event_cover(path_meta: dict[str, Any]) -> str | None:
+    character = unpack_character(path_meta["id"], path_meta["data"])
+    for issue in character.get("issues", []):
+        if issue.get("cover") and not issue.get("future") and issue.get("required") is not False:
+            return str(issue["cover"])
+    return None
+
+
 def write_ui_art(manifest: dict[str, Any], issues: list[dict[str, Any]]) -> None:
     path_art: dict[str, str] = {}
     for path_meta in manifest.get("characters", []):
-        cover = choose_path_cover(path_meta, issues)
+        cover = choose_first_event_cover(path_meta) if path_meta.get("type") == "event" else choose_path_cover(path_meta, issues)
         if cover:
             path_art[path_meta["id"]] = cover
 
