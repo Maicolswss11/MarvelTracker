@@ -58,6 +58,14 @@ body.compact .cover{display:none}body.compact .issue{grid-template-columns:54px 
 .heroPathVisual img{width:100%;height:100%;display:block}
 .heroPathVisual .pathIconRaster{object-fit:cover}
 .heroPathVisual .pathIconVector{object-fit:contain;padding:19%;opacity:.92}
+.heroPathVisual--universe{background:#080d13}
+.universePathMosaic{position:absolute;inset:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:3px;padding:4px;background:color-mix(in srgb,var(--accent) 8%,#070b10)}
+.universePathMosaic[data-count="2"]{grid-template-rows:1fr}
+.universePathMosaic[data-count="3"] .universePathMosaicTile:first-child{grid-row:1/-1}
+.universePathMosaicTile{min-width:0;min-height:0;overflow:hidden;border-radius:5px;background:#111923}
+.universePathMosaicTile img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.035)}
+.universePathMosaicTile.is-missing{background:radial-gradient(circle,color-mix(in srgb,var(--accent) 22%,#111923),#080d13)}
+.universePathMosaicBadge{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);min-width:47px;height:47px;padding:0 9px;border:3px solid var(--accent);border-radius:999px;background:rgba(6,10,15,.92);box-shadow:0 7px 20px rgba(0,0,0,.58),0 0 0 3px rgba(6,10,15,.72);display:grid;place-items:center;color:#f4f7fa;font-size:13px;line-height:1;font-weight:950;letter-spacing:-.02em}
 .pathIconImage.pathEventCover{padding:0!important;object-fit:cover!important;object-position:center!important}
 .charIcon .pathEventCover,.homeHeroIcon .pathEventCover,.homeContinueComplete>.pathEventCover{object-fit:contain!important}
 .homeCharLogo.pathEventCover{width:58px;height:82px;padding:0;border-radius:12px}
@@ -72,6 +80,7 @@ body.compact .cover{display:none}body.compact .issue{grid-template-columns:54px 
   #trackerView .heroPanel{grid-template-columns:82px minmax(0,1fr);gap:14px;align-items:start}
   #trackerView .heroPanel:has(.heroPathVisual--event){grid-template-columns:78px minmax(0,1fr)}
   .heroPathVisual{width:82px;border-radius:16px;box-shadow:0 12px 24px rgba(0,0,0,.34),0 0 22px color-mix(in srgb,var(--accent) 8%,transparent)}
+  .universePathMosaic{gap:2px;padding:3px}.universePathMosaicTile{border-radius:3px}.universePathMosaicBadge{min-width:31px;height:31px;padding:0 5px;border-width:2px;box-shadow:0 4px 12px rgba(0,0,0,.64),0 0 0 2px rgba(6,10,15,.76);font-size:8.5px}
   .homeCharLogo.pathEventCover{width:54px;height:78px}
   .heroPathVisual--event{width:78px;max-width:none;aspect-ratio:2/3;border-radius:13px}
   #trackerView .heroPanel h1{margin:6px 0 8px;font-size:29px;line-height:.96}

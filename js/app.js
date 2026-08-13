@@ -214,6 +214,23 @@ function pathIconImage(path,{alt="",className="",lazy=false,onerror="this.style.
   const assetVersion=sourceKind==="override"?(pathIconCatalog.version||1):sourceKind==="editorial"?(uiArtCatalog.version||1):(manifest?.version||1);
   return `<img${lazy?' loading="lazy"':''} class="${esc(classes)}" src="${esc(versioned(source,assetVersion))}" alt="${esc(alt)}" data-path-icon-id="${esc(path?.id||"")}"${/^https?:/i.test(source)?' referrerpolicy="no-referrer"':''} onerror="${onerror}">`;
 }
+function universeArtworkSources(path){
+  if(path?.type!=="universe")return [];
+  const hubIds=[path.primaryHub,...(path.hubs||[])].filter(Boolean);
+  for(const hubId of hubIds){
+    const sources=[...new Set(uiArtCatalog?.hubs?.[hubId]||[])].filter(Boolean).slice(0,4);
+    if(sources.length>=2)return sources;
+  }
+  return [];
+}
+function universeArtworkMarkup(path){
+  const sources=universeArtworkSources(path);
+  if(!sources.length)return "";
+  const earth=String(path?.subtitle||"").match(/Terra\s*[-–—]?\s*(\d+)/i)?.[1];
+  const badge=earth||(/^what if/i.test(path?.name||"")?"∞":"MULTI");
+  const tiles=sources.map(source=>`<span class="universePathMosaicTile"><img src="${esc(versioned(source,uiArtCatalog.version||1))}" alt=""${/^https?:/i.test(source)?' referrerpolicy="no-referrer"':''} onerror="this.parentElement.classList.add('is-missing');this.remove()"></span>`).join("");
+  return `<div class="universePathMosaic" data-count="${sources.length}" role="img" aria-label="Copertine rappresentative di ${esc(path?.name||'questo universo')}">${tiles}<b class="universePathMosaicBadge">${esc(badge)}</b></div>`;
+}
 function coverPlaceholder(i,accentOverride=null){
   const accent=accentOverride||currentCharacter?.accent||currentMeta?.accent||"#43d7ff",safe=s=>String(s??"").replace(/[<>&]/g,m=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[m]));
   const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 600"><rect width="420" height="600" fill="#0b1118"/><rect x="18" y="18" width="384" height="564" rx="22" fill="none" stroke="${accent}" stroke-width="4" opacity=".6"/><text x="34" y="76" font-family="Arial" font-size="24" font-weight="700" fill="${accent}">${safe(i.series)}</text><text x="34" y="138" font-family="Arial" font-size="48" font-weight="900" fill="#fff">#${pad3(i.n)}</text><foreignObject x="34" y="175" width="352" height="270"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial;color:#d8e2eb;font-size:27px;font-weight:800;line-height:1.18">${safe(i.title)}</div></foreignObject><text x="34" y="548" font-family="Arial" font-size="17" fill="#8292a3">Copertina remota non disponibile</text></svg>`;
@@ -455,9 +472,11 @@ function renderPathProfile(){
 }
 function renderHero(){
   document.documentElement.style.setProperty("--accent",currentCharacter.accent||currentMeta.accent);
+  const universeArtwork=universeArtworkMarkup(currentMeta);
   els.heroPathVisual.classList.toggle("heroPathVisual--event",currentMeta?.type==="event");
+  els.heroPathVisual.classList.toggle("heroPathVisual--universe",Boolean(universeArtwork));
   els.logoSub.textContent=currentCharacter.subtitle||currentMeta.subtitle;
-  els.heroPathVisual.innerHTML=pathIconImage(currentMeta,{alt:`Immagine del percorso ${currentMeta.name}`,className:"heroPathImage"});
+  els.heroPathVisual.innerHTML=universeArtwork||pathIconImage(currentMeta,{alt:`Immagine del percorso ${currentMeta.name}`,className:"heroPathImage"});
   els.heroLabel.textContent="Percorso attivo";
   els.heroTitle.innerHTML=`${esc(currentCharacter.name)}<span class="heroTimeline">${esc(currentCharacter.start)}</span>`;
   els.heroDesc.textContent=currentCharacter.description;
