@@ -34,7 +34,8 @@ function pathArtworkMarkup(path){
   const logoSource = pathLogoSource(path);
   const raster = /\.(?:png|jpe?g|webp)(?:[?#]|$)/i.test(logoSource.logo);
   if(fallback && (path?.type === "character" || (logoSource.override && raster))){
-    return `<img class="pathArtPrimary pathCharacterPortrait pathIconImage ${raster?"pathIconRaster":"pathIconVector"}" loading="lazy" src="${esc(fallback)}" alt="" data-path-icon-id="${esc(path.id)}" onerror="this.remove()">`;
+    const artworkClass = path?.type === "character" ? "pathCharacterPortrait" : "pathEditorialArtwork";
+    return `<img class="pathArtPrimary ${artworkClass} pathIconImage ${raster?"pathIconRaster":"pathIconVector"}" loading="lazy" src="${esc(fallback)}" alt="" data-path-icon-id="${esc(path.id)}" onerror="this.remove()">`;
   }
   const cover = uiArt?.paths?.[path?.id] || "";
   return `${cover?`<img class="pathArtPrimary" loading="lazy" src="${esc(cover)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">`:""}${fallback?`<img class="pathArtFallback pathIconImage ${raster?"pathIconRaster":"pathIconVector"}" loading="lazy" src="${esc(fallback)}" alt="" data-path-icon-id="${esc(path?.id||"")}">`:""}`;

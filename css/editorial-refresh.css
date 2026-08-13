@@ -35,7 +35,9 @@
 .hubPathLogo{width:74px!important;height:92px!important;border-radius:11px!important;align-self:center;box-shadow:0 18px 30px rgba(0,0,0,.38)!important}
 .hubPathLogo .pathArtPrimary{object-fit:cover!important}
 .hubPathLogo .pathArtFallback{padding:9px!important;object-fit:contain!important;background:#071019!important}
-.hubPathLogo .pathArtFallback.pathIconRaster{padding:0!important;object-fit:cover!important;object-position:center!important}
+.hubPathLogo .pathArtFallback.pathIconRaster,
+.hubPathLogo .pathArtPrimary.pathEditorialArtwork{padding:0!important;object-fit:contain!important;object-position:center!important;background:#071019!important}
+.hubSideArtwork .pathArtPrimary.pathEditorialArtwork{object-fit:contain!important;object-position:center!important;background:#071019!important}
 .hubPathMain{align-self:center;gap:3px!important}
 .hubPathMain small{font-size:6.5px!important;color:var(--path-accent)!important}
 .hubPathMain b{font-size:17px!important;line-height:1.12;letter-spacing:-.035em!important}

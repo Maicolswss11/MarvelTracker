@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "paths": {
     "ironman": "assets/path-icons/ironman.jpg",
     "war-machine": "assets/path-icons/war-machine.jpg",
@@ -98,6 +98,7 @@
     "ultimate-new-black-panther": "assets/path-icons/ultimate-new-black-panther.jpg",
     "ultimate-new-wolverine": "assets/path-icons/ultimate-new-wolverine.jpg",
     "ultimate-new-ultimates": "assets/path-icons/ultimate-new-ultimates.jpg",
+    "ultimate-new-xmen": "assets/path-icons/newultimatexmen.webp",
     "ultimate-origins": "assets/path-icons/ultimateorigins.webp",
     "ultimate-doomsday": "assets/path-icons/UltimateDoomsday.webp",
     "ultimate-cataclysm": "assets/path-icons/cataclisma.png",
