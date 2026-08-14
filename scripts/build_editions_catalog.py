@@ -92,6 +92,7 @@ PATH_ALIASES = {
     "daredevil": ['daredevil', 'devil'],
     "wolverine-616": ['wolverine'],
     "venom": ['venom'],
+    "knull": ['knull', 'king in black', 're in nero'],
     "doctor-doom": ['doctor doom', 'dottor destino', 'doom', 'destino'],
     "black-cat": ['black cat', 'gatta nera', 'felicia hardy'],
     "quicksilver": ['quicksilver', 'pietro maximoff'],

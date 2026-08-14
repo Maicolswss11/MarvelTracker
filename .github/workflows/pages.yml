@@ -35,6 +35,10 @@ jobs:
         run: node scripts/verify-what-if.mjs
       - name: Verify Age of Apocalypse universe
         run: node scripts/verify-age-of-apocalypse.mjs
+      - name: Verify classic Avengers chronology
+        run: node scripts/verify-avengers-classic.mjs
+      - name: Verify Knull path
+        run: node scripts/verify-knull.mjs
       - name: Verify character biographies
         run: node scripts/verify-character-profiles.mjs
       - name: Verify team and event dossiers

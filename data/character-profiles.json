@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "profiles": {
     "ironman": {
       "realName": "Anthony Edward Stark",
@@ -1503,6 +1503,29 @@
         "Percezione delle energie e delle realtà"
       ],
       "bio": "Nate Grey nasce nei laboratori di Mister Sinister dall'unione artificiale del patrimonio genetico di Scott Summers e Jean Grey. Sinistro vuole creare un'arma psionica abbastanza potente da distruggere Apocalisse, ma Nate cresce lontano dal suo controllo insieme agli Outcasts guidati da Forge. È un adolescente dotato di poteri enormi, poca esperienza e un corpo incapace di contenere senza conseguenze tutta la propria energia. Nei primi quattro numeri scopre frammenti della propria origine, affronta i cacciatori del regime e comprende che sia Sinistro sia Apocalisse vedono in lui uno strumento. Questo profilo riguarda Nate di Terra-295 prima del suo successivo passaggio nella continuità principale."
+    },
+    "knull": {
+      "realName": "Knull",
+      "aliases": [
+        "Dio dei Simbionti",
+        "Re in Nero",
+        "Signore dell'Abisso"
+      ],
+      "universe": "Terra-616",
+      "debut": "Venom (2018) #3; apparizione senza nome in Thor: God of Thunder #6",
+      "creators": "Donny Cates e Ryan Stegman",
+      "affiliations": [
+        "Alveare dei simbionti",
+        "Draghi simbionti",
+        "Chiesa della Nuova Oscurità"
+      ],
+      "abilities": [
+        "Controllo dell'alveare",
+        "Creazione di simbionti",
+        "Manipolazione dell'oscurità vivente",
+        "Forza e longevità cosmiche"
+      ],
+      "bio": "Knull è un'entità primordiale che sostiene di esistere da prima che la luce riempisse il cosmo. Quando i Celestiali sconvolgono il suo abisso, forgia dalla propria oscurità All-Black, la Necrospada, e con essa uccide un Celestiale. Perduta la lama che finirà nelle mani di Gorr, Knull crea i simbionti e li governa attraverso una mente alveare. Un colpo di Thor spezza però quel legame: le creature scoprono la possibilità della simbiosi, si ribellano e trasformano i propri corpi nel pianeta-prigione Klyntar. Millenni dopo il drago Grendel, i codici lasciati negli ospiti e il culto di Carnage preparano il suo risveglio. Liberato durante Absolute Carnage, Knull marcia sulla Terra in King in Black, dove Eddie Brock e l'Enigma Force pongono fine al suo regno. La sua ombra resta tuttavia legata alla mitologia dei simbionti e torna a farsi sentire nelle storie di Venom del 2026."
     }
   }
 }

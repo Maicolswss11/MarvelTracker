@@ -210,7 +210,7 @@ def main() -> None:
         path_id = path_meta["id"]
         character = unpack_character(path_id, path_meta["data"])
         for issue in character.get("issues", []):
-            issue_id = issue.get("id")
+            issue_id = issue.get("physicalId") or issue.get("id")
             if not issue_id:
                 continue
 
