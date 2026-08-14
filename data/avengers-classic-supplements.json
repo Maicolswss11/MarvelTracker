@@ -1,0 +1,663 @@
+{
+  "version": 1,
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "issues": [
+    {
+      "id": "AV1A_001",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 1,
+      "title": "Il mostruoso piano del Mandarino",
+      "after": "AV1_044",
+      "reason": "Primo Annual: missione della squadra collocata fra Avengers #44 e #45.",
+      "primaryPublicationIds": ["THOR_C1_056"],
+      "italianPublications": [
+        {"id": "THOR_C1_056", "name": "Il mitico Thor #56 | Il mostruoso piano del Mandarino!", "publisher": "Editoriale Corno", "date": "Giugno 1973"},
+        {"id": "MCOLL_M_010", "name": "Marvel Collection #10", "publisher": "Marvel Italia", "date": ""},
+        {"id": "MMW_M_033", "name": "Marvel Masterworks #33 - I Vendicatori", "publisher": "Panini Comics", "date": ""},
+        {"id": "MAROMNIB_192", "name": "Marvel Omnibus #192 - Avengers Classic Anniversary Edition 2", "publisher": "Panini Comics", "date": "Novembre 2023"}
+      ]
+    },
+    {
+      "id": "XM1_045",
+      "seriesId": "XM1",
+      "series": "X-Men vol. 1",
+      "number": 45,
+      "title": "When Mutants Clash!",
+      "after": "AV1_052",
+      "reason": "Capitolo parallelo che precede la conclusione dello scontro in Avengers #53.",
+      "primaryPublicationIds": ["CAP_C1_046"],
+      "italianPublications": [
+        {"id": "CAP_C1_046", "name": "Capitan America #46 | Assalto a Cap", "publisher": "Editoriale Corno", "date": "Gennaio 1975"},
+        {"id": "MSP_M_015", "name": "Marvel Special #15", "publisher": "Marvel Italia", "date": ""},
+        {"id": "MMW_M_037", "name": "Marvel Masterworks #37 - I Vendicatori", "publisher": "Panini Comics", "date": ""},
+        {"id": "MAROMNIB_192", "name": "Marvel Omnibus #192 - Avengers Classic Anniversary Edition 2", "publisher": "Panini Comics", "date": "Novembre 2023"}
+      ]
+    },
+    {
+      "id": "AV1A_002",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 2,
+      "title": "And Time, the Rushing River",
+      "after": "AV1_056",
+      "reason": "Secondo Annual, prima di Avengers #57.",
+      "primaryPublicationIds": ["THOR_C1_070"],
+      "italianPublications": [
+        {"id": "THOR_C1_070", "name": "Il mitico Thor #70 | Lotta tra Vendicatori!", "publisher": "Editoriale Corno", "date": "Dicembre 1973"},
+        {"id": "MMW_M_037", "name": "Marvel Masterworks #37 - I Vendicatori", "publisher": "Panini Comics", "date": ""},
+        {"id": "MAROMNIB_192", "name": "Marvel Omnibus #192 - Avengers Classic Anniversary Edition 2", "publisher": "Panini Comics", "date": "Novembre 2023"}
+      ]
+    },
+    {
+      "id": "IH2_140",
+      "seriesId": "IH2",
+      "series": "The Incredible Hulk vol. 2",
+      "number": 140,
+      "title": "The Brute That Shouted Love at the Heart of the Atom",
+      "after": "AV1_088",
+      "reason": "Conclusione diretta del cliffhanger di Avengers #88.",
+      "primaryPublicationIds": ["HED_017"],
+      "italianPublications": [
+        {"id": "HED_017", "name": "Hulk e i Difensori #17 | Il bruto che ama la terra dell'atomo", "publisher": "Editoriale Corno", "date": "Ottobre 1975"},
+        {"id": "MMW_M_074", "name": "Marvel Masterworks #74 - I Vendicatori", "publisher": "Panini Comics", "date": ""},
+        {"id": "MAROMNIB_193", "name": "Marvel Omnibus #193 - Avengers Classic Anniversary Edition 3", "publisher": "Panini Comics", "date": "Dicembre 2023"}
+      ]
+    },
+    {
+      "id": "DE1_008",
+      "seriesId": "DE1",
+      "series": "The Defenders vol. 1",
+      "number": 8,
+      "title": "Avengers/Defenders War, parte 2",
+      "after": "AV1_115",
+      "reason": "Seconda parte del crossover Vendicatori/Difensori.",
+      "primaryPublicationIds": ["ASE_C_036"],
+      "italianPublications": [
+        {"id": "ASE_C_036", "name": "Albi dei Super-Eroi #36", "publisher": "Editoriale Corno", "date": "Settembre 1974"},
+        {"id": "MMW_M_032", "name": "Marvel Masterworks #32 - I Difensori", "publisher": "Panini Comics", "date": ""},
+        {"id": "MAR_GOLD_001", "name": "Marvel Gold #1 - I Vendicatori contro i Difensori", "publisher": "Panini Comics", "date": "Dicembre 2008"},
+        {"id": "SUPEROI_017", "name": "Super-Eroi: Le Grandi Saghe #17 - I Vendicatori contro i Difensori", "publisher": "RCS Quotidiani", "date": "Luglio 2009"},
+        {"id": "GREVMAR_M_024", "name": "Grandi Eventi Marvel #24 - Avengers/Defenders War", "publisher": "Panini Comics", "date": "Luglio 2018"},
+        {"id": "SUPEROICLA_196", "name": "Super Eroi Classic #196 - I Difensori 3", "publisher": "RCS Quotidiani", "date": "Dicembre 2020"},
+        {"id": "MARVELMUST_103", "name": "Marvel Must-Have #103 - La guerra Vendicatori/Difensori", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "DE1_009",
+      "seriesId": "DE1",
+      "series": "The Defenders vol. 1",
+      "number": 9,
+      "title": "Avengers/Defenders War, parte 4",
+      "after": "AV1_116",
+      "reason": "Quarta parte del crossover; la prima edizione Corno è spezzata in due albi fisici.",
+      "primaryPublicationIds": ["ASE_C_036", "ASE_C_037"],
+      "italianPublications": [
+        {"id": "ASE_C_036", "name": "Albi dei Super-Eroi #36", "publisher": "Editoriale Corno", "date": "Settembre 1974"},
+        {"id": "ASE_C_037", "name": "Albi dei Super-Eroi #37", "publisher": "Editoriale Corno", "date": "Settembre 1974"},
+        {"id": "MMW_M_120", "name": "Marvel Masterworks #120 - I Difensori", "publisher": "Panini Comics", "date": ""},
+        {"id": "MAR_GOLD_001", "name": "Marvel Gold #1 - I Vendicatori contro i Difensori", "publisher": "Panini Comics", "date": "Dicembre 2008"},
+        {"id": "SUPEROI_017", "name": "Super-Eroi: Le Grandi Saghe #17 - I Vendicatori contro i Difensori", "publisher": "RCS Quotidiani", "date": "Luglio 2009"},
+        {"id": "GREVMAR_M_024", "name": "Grandi Eventi Marvel #24 - Avengers/Defenders War", "publisher": "Panini Comics", "date": "Luglio 2018"},
+        {"id": "SUPEROICLA_196", "name": "Super Eroi Classic #196 - I Difensori 3", "publisher": "RCS Quotidiani", "date": "Dicembre 2020"},
+        {"id": "MARVELMUST_103", "name": "Marvel Must-Have #103 - La guerra Vendicatori/Difensori", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "DE1_010",
+      "seriesId": "DE1",
+      "series": "The Defenders vol. 1",
+      "number": 10,
+      "title": "Avengers/Defenders War, parte 6",
+      "after": "AV1_117",
+      "reason": "Sesta parte del crossover Vendicatori/Difensori.",
+      "primaryPublicationIds": ["ASE_C_037"],
+      "italianPublications": [
+        {"id": "ASE_C_037", "name": "Albi dei Super-Eroi #37", "publisher": "Editoriale Corno", "date": "Settembre 1974"},
+        {"id": "MMW_M_120", "name": "Marvel Masterworks #120 - I Difensori", "publisher": "Panini Comics", "date": ""},
+        {"id": "MAR_GOLD_001", "name": "Marvel Gold #1 - I Vendicatori contro i Difensori", "publisher": "Panini Comics", "date": "Dicembre 2008"},
+        {"id": "SUPEROI_017", "name": "Super-Eroi: Le Grandi Saghe #17 - I Vendicatori contro i Difensori", "publisher": "RCS Quotidiani", "date": "Luglio 2009"},
+        {"id": "GREVMAR_M_024", "name": "Grandi Eventi Marvel #24 - Avengers/Defenders War", "publisher": "Panini Comics", "date": "Luglio 2018"},
+        {"id": "SUPEROICLA_196", "name": "Super Eroi Classic #196 - I Difensori 3", "publisher": "RCS Quotidiani", "date": "Dicembre 2020"},
+        {"id": "MARVELMUST_103", "name": "Marvel Must-Have #103 - La guerra Vendicatori/Difensori", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "DE1_011",
+      "seriesId": "DE1",
+      "series": "The Defenders vol. 1",
+      "number": 11,
+      "title": "Avengers/Defenders War, finale",
+      "after": "AV1_118",
+      "reason": "Conclusione diretta del crossover prima di Avengers #119.",
+      "primaryPublicationIds": ["ASE_C_038"],
+      "italianPublications": [
+        {"id": "ASE_C_038", "name": "Albi dei Super-Eroi #38", "publisher": "Editoriale Corno", "date": "Ottobre 1974"},
+        {"id": "MMW_M_120", "name": "Marvel Masterworks #120 - I Difensori", "publisher": "Panini Comics", "date": ""},
+        {"id": "MAR_GOLD_001", "name": "Marvel Gold #1 - I Vendicatori contro i Difensori", "publisher": "Panini Comics", "date": "Dicembre 2008"},
+        {"id": "SUPEROI_017", "name": "Super-Eroi: Le Grandi Saghe #17 - I Vendicatori contro i Difensori", "publisher": "RCS Quotidiani", "date": "Luglio 2009"},
+        {"id": "GREVMAR_M_024", "name": "Grandi Eventi Marvel #24 - Avengers/Defenders War", "publisher": "Panini Comics", "date": "Luglio 2018"},
+        {"id": "SUPEROICLA_196", "name": "Super Eroi Classic #196 - I Difensori 3", "publisher": "RCS Quotidiani", "date": "Dicembre 2020"},
+        {"id": "MARVELMUST_103", "name": "Marvel Must-Have #103 - La guerra Vendicatori/Difensori", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "CM1_033",
+      "seriesId": "CM1",
+      "series": "Captain Marvel vol. 1",
+      "number": 33,
+      "title": "The God Himself",
+      "after": "AV1_125",
+      "order": 1,
+      "reason": "Ponte narrativo della saga di Thanos immediatamente prima di Giant-Size Avengers #1.",
+      "primaryPublicationIds": ["F4_C1_144"],
+      "italianPublications": [
+        {"id": "F4_C1_144", "name": "I Fantastici Quattro #144 | Incubo sulla neve", "publisher": "Editoriale Corno", "date": "Ottobre 1976"},
+        {"id": "MMW_M_142", "name": "Marvel Masterworks #142 - I Vendicatori", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "GSA_001",
+      "seriesId": "GSA",
+      "series": "Giant-Size Avengers",
+      "number": 1,
+      "title": "Nuklo — The Invader That Time Forgot",
+      "after": "AV1_126",
+      "reason": "Capitolo della serie della squadra fra Avengers #126 e #127; sviluppa le origini di Scarlet Witch e Quicksilver.",
+      "primaryPublicationIds": ["THOR_C1_133", "THOR_C1_134"],
+      "italianPublications": [
+        {"id": "THOR_C1_133", "name": "Il mitico Thor #133", "publisher": "Editoriale Corno", "date": ""},
+        {"id": "THOR_C1_134", "name": "Il mitico Thor #134", "publisher": "Editoriale Corno", "date": ""},
+        {"id": "MMW_M_142", "name": "Marvel Masterworks #142 - I Vendicatori", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "F41_150",
+      "seriesId": "F41",
+      "series": "Fantastic Four vol. 1",
+      "number": 150,
+      "title": "Ultron-7: He'll Rule the World",
+      "after": "AV1_127",
+      "reason": "Conclusione diretta delle nozze di Crystal e Quicksilver iniziate in Avengers #127.",
+      "primaryPublicationIds": ["THOR_C1_135", "THOR_C1_136"],
+      "italianPublications": [
+        {"id": "THOR_C1_135", "name": "Il mitico Thor #135", "publisher": "Editoriale Corno", "date": ""},
+        {"id": "THOR_C1_136", "name": "Il mitico Thor #136", "publisher": "Editoriale Corno", "date": ""},
+        {"id": "MMW_M_142", "name": "Marvel Masterworks #142 - I Vendicatori", "publisher": "Panini Comics", "date": ""},
+        {"id": "MMW_M_146", "name": "Marvel Masterworks #146 - Fantastici Quattro", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "GSA_002",
+      "seriesId": "GSA",
+      "series": "Giant-Size Avengers",
+      "number": 2,
+      "title": "A Blast from the Past",
+      "after": "AV1_129",
+      "reason": "Capitolo della Saga della Madonna Celestiale fra Avengers #129 e #130.",
+      "primaryPublicationIds": ["THOR_C1_137", "THOR_C1_138"],
+      "italianPublications": [
+        {"id": "THOR_C1_137", "name": "Il mitico Thor #137", "publisher": "Editoriale Corno", "date": ""},
+        {"id": "THOR_C1_138", "name": "Il mitico Thor #138", "publisher": "Editoriale Corno", "date": ""},
+        {"id": "MMW_M_161", "name": "Marvel Masterworks #161 - I Vendicatori", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "GSA_003",
+      "seriesId": "GSA",
+      "series": "Giant-Size Avengers",
+      "number": 3,
+      "title": "...What Time Hath Put Asunder!",
+      "after": "AV1_132",
+      "reason": "Capitolo della Saga della Madonna Celestiale fra Avengers #132 e #133.",
+      "primaryPublicationIds": ["THOR_C1_142"],
+      "italianPublications": [
+        {"id": "THOR_C1_142", "name": "Il mitico Thor #142", "publisher": "Editoriale Corno", "date": ""},
+        {"id": "MMW_M_161", "name": "Marvel Masterworks #161 - I Vendicatori", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "GSA_004",
+      "seriesId": "GSA",
+      "series": "Giant-Size Avengers",
+      "number": 4,
+      "title": "...Let All Men Bring Together",
+      "after": "AV1_135",
+      "reason": "Conclusione della Saga della Madonna Celestiale prima di Avengers #136.",
+      "primaryPublicationIds": ["THOR_C1_146"],
+      "italianPublications": [
+        {"id": "THOR_C1_146", "name": "Il mitico Thor #146", "publisher": "Editoriale Corno", "date": ""},
+        {"id": "MMW_M_161", "name": "Marvel Masterworks #161 - I Vendicatori", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "AV1A_006",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 6,
+      "title": "No Final Victory!",
+      "after": "AV1_153",
+      "reason": "Annual inedito della squadra prima di Avengers #154.",
+      "primaryPublicationIds": ["THOR_C1_202"],
+      "italianPublications": [
+        {"id": "THOR_C1_202", "name": "Il mitico Thor #202 | Vittoria parziale", "publisher": "Editoriale Corno", "date": "Gennaio 1979"},
+        {"id": "MMW_M_197", "name": "Marvel Masterworks #197 - I Vendicatori", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "SVTU_009",
+      "seriesId": "SVTU",
+      "series": "Super-Villain Team-Up",
+      "number": 9,
+      "title": "Pawns of Attuma",
+      "after": "AV1_154",
+      "reason": "Conclusione diretta della battaglia con Attuma iniziata in Avengers #154.",
+      "primaryPublicationIds": ["THOR_C1_204"],
+      "italianPublications": [
+        {"id": "THOR_C1_204", "name": "Il mitico Thor #204 | L'ultimo Vendicatore", "publisher": "Editoriale Corno", "date": "Febbraio 1979"},
+        {"id": "MMW_M_197", "name": "Marvel Masterworks #197 - I Vendicatori", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "AV1A_007",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 7,
+      "title": "The Final Threat",
+      "after": "AV1_166",
+      "order": 1,
+      "reason": "Prima parte del finale della saga di Thanos.",
+      "primaryPublicationIds": ["THOR_C1_208"],
+      "italianPublications": [
+        {"id": "THOR_C1_208", "name": "Il mitico Thor #208 | L'ultima minaccia", "publisher": "Editoriale Corno", "date": "Aprile 1979"},
+        {"id": "NOIVEND_M_002", "name": "Noi siamo i Vendicatori", "publisher": "Panini Comics", "date": "Aprile 2015"},
+        {"id": "MARVELAED_007", "name": "Marvel Anniversary Edition #7 - Noi siamo gli Avengers", "publisher": "Panini Comics", "date": "Settembre 2023"}
+      ]
+    },
+    {
+      "id": "MTIOA_002",
+      "seriesId": "MTIOA",
+      "series": "Marvel Two-in-One Annual",
+      "number": 2,
+      "title": "Death Watch!",
+      "after": "AV1_166",
+      "order": 2,
+      "reason": "Conclusione diretta di Avengers Annual #7.",
+      "primaryPublicationIds": ["THOR_C1_209"],
+      "italianPublications": [
+        {"id": "THOR_C1_209", "name": "Il mitico Thor #209 | Gli osservatori di morte", "publisher": "Editoriale Corno", "date": "Aprile 1979"},
+        {"id": "NOIVEND_M_002", "name": "Noi siamo i Vendicatori", "publisher": "Panini Comics", "date": "Aprile 2015"},
+        {"id": "MARVELAED_007", "name": "Marvel Anniversary Edition #7 - Noi siamo gli Avengers", "publisher": "Panini Comics", "date": "Settembre 2023"}
+      ]
+    },
+    {
+      "id": "AV1A_008",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 8,
+      "title": "Spectrums of Deceit",
+      "after": "AV1_177",
+      "reason": "Annual della squadra dopo la Saga di Korvac.",
+      "primaryPublicationIds": ["THOR_C1_239"],
+      "italianPublications": [
+        {"id": "THOR_C1_239", "name": "Il mitico Thor #239 | Illusione spettrale!", "publisher": "Editoriale Corno", "date": "Giugno 1980"},
+        {"id": "SUPEROICLA_332", "name": "Super Eroi Classic #332", "publisher": "RCS Quotidiani", "date": ""}
+      ]
+    },
+    {
+      "id": "AV1A_009",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 9,
+      "title": "Today the Avengers Die!",
+      "after": "AV1_188",
+      "reason": "Annual della squadra prima di Avengers #189.",
+      "primaryPublicationIds": ["STARMAGO_003"],
+      "italianPublications": [
+        {"id": "STARMAGO_003", "name": "Star Magazine Oro #3", "publisher": "Star Comics", "date": "Luglio 1992"},
+        {"id": "MAROMNIB_042", "name": "Marvel Omnibus #42 - Avengers", "publisher": "Panini Comics", "date": ""},
+        {"id": "SUPEROICLA_349", "name": "Super Eroi Classic #349", "publisher": "RCS Quotidiani", "date": ""}
+      ]
+    },
+    {
+      "id": "AV1A_010",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 10,
+      "title": "By Friends Betrayed!",
+      "after": "AV1_209",
+      "reason": "Snodo essenziale su Carol Danvers, fra Avengers #209 e #210.",
+      "primaryPublicationIds": ["SPE_VEN_S_001"],
+      "italianPublications": [
+        {"id": "SPE_VEN_S_001", "name": "Speciale Vendicatori #1 | Il destino di Miss Marvel", "publisher": "Star Comics", "date": "Maggio 1989"},
+        {"id": "MAROMNIB_042", "name": "Marvel Omnibus #42 - Avengers", "publisher": "Panini Comics", "date": ""},
+        {"id": "MMW_M_175", "name": "Marvel Masterworks #175 - I Vendicatori", "publisher": "Panini Comics", "date": ""},
+        {"id": "SUPEROICLA_399", "name": "Super Eroi Classic #399", "publisher": "RCS Quotidiani", "date": ""}
+      ]
+    },
+    {
+      "id": "AV1A_011",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 11,
+      "title": "In Honor's Name!",
+      "after": "AV1_220",
+      "reason": "Annual della squadra prima di Avengers #221.",
+      "primaryPublicationIds": ["MAROMNIB_082"],
+      "italianPublications": [
+        {"id": "MAROMNIB_082", "name": "Marvel Omnibus #82 - Avengers: Visione assoluta", "publisher": "Panini Comics", "date": "Luglio 2018"},
+        {"id": "SUPEROICLA_438", "name": "Super Eroi Classic #438", "publisher": "RCS Quotidiani", "date": "Agosto 2025"}
+      ]
+    },
+    {
+      "id": "ASMA_016",
+      "seriesId": "ASMA",
+      "series": "Amazing Spider-Man Annual",
+      "number": 16,
+      "title": "Who's That Lady?",
+      "after": "AV1_226",
+      "reason": "Esordio di Monica Rambeau immediatamente prima del suo ingresso in Avengers #227.",
+      "primaryPublicationIds": ["UR_SM_021"],
+      "italianPublications": [
+        {"id": "UR_SM_021", "name": "L'Uomo Ragno #21 | Chi è quella signora?", "publisher": "Star Comics", "date": "Febbraio 1989"},
+        {"id": "MAROMNIB_082", "name": "Marvel Omnibus #82 - Avengers: Visione assoluta", "publisher": "Panini Comics", "date": "Luglio 2018"},
+        {"id": "MMW_M_163", "name": "Marvel Masterworks #163 - Amazing Spider-Man", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "AV1A_012",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 12,
+      "title": "Moonrise",
+      "after": "AV1_232",
+      "reason": "Annual della squadra prima di Avengers #233.",
+      "primaryPublicationIds": ["MAROMNIB_082"],
+      "italianPublications": [
+        {"id": "MAROMNIB_082", "name": "Marvel Omnibus #82 - Avengers: Visione assoluta", "publisher": "Panini Comics", "date": "Luglio 2018"},
+        {"id": "SUPEROICLA_478", "name": "Super Eroi Classic #478", "publisher": "RCS Quotidiani", "date": "Maggio 2026"}
+      ]
+    },
+    {
+      "id": "F41_256",
+      "seriesId": "F41",
+      "series": "Fantastic Four vol. 1",
+      "number": 256,
+      "title": "The Annihilation Gambit!",
+      "after": "AV1_233",
+      "reason": "Capitolo del piano della Visione che prosegue direttamente in Avengers #234.",
+      "primaryPublicationIds": ["F4_SM_028"],
+      "italianPublications": [
+        {"id": "F4_SM_028", "name": "Fantastici Quattro #28 | Il gioco della distruzione", "publisher": "Star Comics", "date": "Agosto 1990"},
+        {"id": "MAROMNIB_082", "name": "Marvel Omnibus #82 - Avengers: Visione assoluta", "publisher": "Panini Comics", "date": "Luglio 2018"},
+        {"id": "MARVELMAST_007", "name": "Marvel Masters #7 - Fantastic Four di John Byrne", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "DS2_060",
+      "seriesId": "DS2",
+      "series": "Doctor Strange vol. 2",
+      "number": 60,
+      "title": "The Sorcerer's Apprentice",
+      "after": "AV1_234",
+      "reason": "Capitolo del piano della Visione fra Avengers #234 e #235.",
+      "primaryPublicationIds": ["THOR_PP_051"],
+      "italianPublications": [
+        {"id": "THOR_PP_051", "name": "The Mighty Thor #51", "publisher": "Play Press", "date": "Maggio 1993"},
+        {"id": "MAROMNIB_082", "name": "Marvel Omnibus #82 - Avengers: Visione assoluta", "publisher": "Panini Comics", "date": "Luglio 2018"}
+      ]
+    },
+    {
+      "id": "AV1A_013",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 13,
+      "title": "In Memory Yet Green",
+      "after": "AV1_245",
+      "reason": "Annual della squadra prima della fondazione operativa della Costa Ovest.",
+      "primaryPublicationIds": ["MAROMNIB_082"],
+      "italianPublications": [
+        {"id": "MAROMNIB_082", "name": "Marvel Omnibus #82 - Avengers: Visione assoluta", "publisher": "Panini Comics", "date": "Luglio 2018"},
+        {"id": "MAROMNIB_148", "name": "Marvel Omnibus #148 - Avengers", "publisher": "Panini Comics", "date": "Marzo 2022"}
+      ]
+    },
+    {
+      "id": "WCA1_001",
+      "seriesId": "WCA1",
+      "series": "West Coast Avengers vol. 1",
+      "number": 1,
+      "title": "Vendicatori uniti!",
+      "after": "AV1_248",
+      "order": 1,
+      "reason": "Fondazione operativa della squadra della Costa Ovest.",
+      "primaryPublicationIds": ["SPE_VCO_S_001"],
+      "italianPublications": [
+        {"id": "SPE_VCO_S_001", "name": "Speciale Vendicatori Costa Ovest | Vendicatori Uniti!", "publisher": "Star Comics", "date": "Febbraio 1991"},
+        {"id": "AVENSORO_012", "name": "Avengers Serie Oro #12 - I Vendicatori della Costa Ovest", "publisher": "Panini Comics", "date": "Luglio 2015"}
+      ]
+    },
+    {
+      "id": "IMA_007",
+      "seriesId": "IMA",
+      "series": "Iron Man Annual",
+      "number": 7,
+      "title": "The Thoughts of Man...",
+      "after": "AV1_248",
+      "order": 2,
+      "reason": "Ponte esplicito fra West Coast Avengers #1 e #2.",
+      "primaryPublicationIds": ["AVENSORO_012"],
+      "italianPublications": [
+        {"id": "AVENSORO_012", "name": "Avengers Serie Oro #12 - I Vendicatori della Costa Ovest", "publisher": "Panini Comics", "date": "Luglio 2015"}
+      ]
+    },
+    {
+      "id": "WCA1_002",
+      "seriesId": "WCA1",
+      "series": "West Coast Avengers vol. 1",
+      "number": 2,
+      "title": "Il vuoto intorno a noi",
+      "after": "AV1_248",
+      "order": 3,
+      "reason": "Secondo capitolo della miniserie fondativa, dopo Iron Man Annual #7.",
+      "primaryPublicationIds": ["SPE_VCO_S_001"],
+      "italianPublications": [
+        {"id": "SPE_VCO_S_001", "name": "Speciale Vendicatori Costa Ovest | Vendicatori Uniti!", "publisher": "Star Comics", "date": "Febbraio 1991"},
+        {"id": "AVENSORO_012", "name": "Avengers Serie Oro #12 - I Vendicatori della Costa Ovest", "publisher": "Panini Comics", "date": "Luglio 2015"}
+      ]
+    },
+    {
+      "id": "WCA1_003",
+      "seriesId": "WCA1",
+      "series": "West Coast Avengers vol. 1",
+      "number": 3,
+      "title": "Problemi da risolvere",
+      "after": "AV1_249",
+      "order": 1,
+      "reason": "Terzo capitolo fondativo, collocato dopo Avengers #249.",
+      "primaryPublicationIds": ["SPE_VCO_S_001"],
+      "italianPublications": [
+        {"id": "SPE_VCO_S_001", "name": "Speciale Vendicatori Costa Ovest | Vendicatori Uniti!", "publisher": "Star Comics", "date": "Febbraio 1991"},
+        {"id": "AVENSORO_012", "name": "Avengers Serie Oro #12 - I Vendicatori della Costa Ovest", "publisher": "Panini Comics", "date": "Luglio 2015"}
+      ]
+    },
+    {
+      "id": "WCA1_004",
+      "seriesId": "WCA1",
+      "series": "West Coast Avengers vol. 1",
+      "number": 4,
+      "title": "Finale",
+      "after": "AV1_249",
+      "order": 2,
+      "reason": "Conclusione della miniserie prima della riunione in Avengers #250.",
+      "primaryPublicationIds": ["SPE_VCO_S_001"],
+      "italianPublications": [
+        {"id": "SPE_VCO_S_001", "name": "Speciale Vendicatori Costa Ovest | Vendicatori Uniti!", "publisher": "Star Comics", "date": "Febbraio 1991"},
+        {"id": "AVENSORO_012", "name": "Avengers Serie Oro #12 - I Vendicatori della Costa Ovest", "publisher": "Panini Comics", "date": "Luglio 2015"}
+      ]
+    },
+    {
+      "id": "AV1A_014",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 14,
+      "title": "The War to End All Skrulls",
+      "after": "AV1_260",
+      "reason": "Conclusione diretta della trama di Nebula e degli Skrull di Avengers #255–260.",
+      "primaryPublicationIds": ["CAP_SM_044"],
+      "italianPublications": [
+        {"id": "CAP_SM_044", "name": "Capitan America e i Vendicatori #44 | Quinta colonna", "publisher": "Star Comics", "date": "Marzo 1992"},
+        {"id": "MAROMNIB_043", "name": "Marvel Omnibus #43 - Avengers", "publisher": "Panini Comics", "date": ""},
+        {"id": "MAROMNIB_097", "name": "Marvel Omnibus #97 - Avengers: Sotto Assedio", "publisher": "Panini Comics", "date": "Marzo 2019"},
+        {"id": "AVENSORO_023", "name": "Avengers Serie Oro #23", "publisher": "Panini Comics", "date": ""}
+      ]
+    },
+    {
+      "id": "WCAA_002",
+      "seriesId": "WCAA",
+      "series": "West Coast Avengers Annual",
+      "number": 2,
+      "title": "Death and Texas",
+      "after": "AV1_265",
+      "order": 1,
+      "reason": "Prima parte del confronto Est/Ovest con il Gran Maestro; cronologia interna fra Avengers #265 e #266.",
+      "primaryPublicationIds": ["GREVMAR_M_016"],
+      "italianPublications": [
+        {"id": "GREVMAR_M_016", "name": "Grandi Eventi Marvel #16 - Contest of Champions", "publisher": "Panini Comics", "date": "Settembre 2016"},
+        {"id": "MAROMNIB_115", "name": "Marvel Omnibus #115 - Avengers 5: Il Giorno dell'Adattoide", "publisher": "Panini Comics", "date": "Giugno 2020"},
+        {"id": "MARVELMUST_112", "name": "Marvel Must-Have #112 - Marvel Super Hero Contest of Champions", "publisher": "Panini Comics", "date": "Novembre 2024"}
+      ]
+    },
+    {
+      "id": "AV1A_016",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 16,
+      "title": "The Day Death Died",
+      "after": "AV1_265",
+      "order": 2,
+      "reason": "Conclusione diretta di West Coast Avengers Annual #2.",
+      "primaryPublicationIds": ["GREVMAR_M_016"],
+      "italianPublications": [
+        {"id": "GREVMAR_M_016", "name": "Grandi Eventi Marvel #16 - Contest of Champions", "publisher": "Panini Comics", "date": "Settembre 2016"},
+        {"id": "MAROMNIB_115", "name": "Marvel Omnibus #115 - Avengers 5: Il Giorno dell'Adattoide", "publisher": "Panini Comics", "date": "Giugno 2020"},
+        {"id": "MARVELMUST_112", "name": "Marvel Must-Have #112 - Marvel Super Hero Contest of Champions", "publisher": "Panini Comics", "date": "Novembre 2024"}
+      ]
+    },
+    {
+      "id": "APF1_039",
+      "seriesId": "APF1",
+      "series": "Alpha Flight vol. 1",
+      "number": 39,
+      "title": "The Invasion of Atlantis!",
+      "after": "AV1_271",
+      "reason": "Prima parte del crossover Atlantis; prosegue in Avengers #272.",
+      "primaryPublicationIds": ["XM_SM_030"],
+      "italianPublications": [
+        {"id": "XM_SM_030", "name": "Gli Incredibili X-Men #30 | Ditelo a Sparta", "publisher": "Star Comics", "date": "Gennaio 1993"},
+        {"id": "MAROMNIB_097", "name": "Marvel Omnibus #97 - Avengers: Sotto Assedio", "publisher": "Panini Comics", "date": "Marzo 2019"}
+      ]
+    },
+    {
+      "id": "APF1_040",
+      "seriesId": "APF1",
+      "series": "Alpha Flight vol. 1",
+      "number": 40,
+      "title": "Love",
+      "after": "AV1_272",
+      "order": 1,
+      "reason": "Terza e ultima parte del crossover Atlantis iniziato in Alpha Flight #39.",
+      "primaryPublicationIds": ["XM_SM_031"],
+      "italianPublications": [
+        {"id": "XM_SM_031", "name": "Gli Incredibili X-Men #31 | In memoriam", "publisher": "Star Comics", "date": "Febbraio 1993"}
+      ]
+    },
+    {
+      "id": "AV1A_015",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 15,
+      "title": "Betrayal",
+      "after": "AV1_272",
+      "order": 2,
+      "reason": "Prima parte del crossover annuale Est/Ovest, fra Avengers #272 e #273.",
+      "primaryPublicationIds": ["STARMAG_029"],
+      "italianPublications": [
+        {"id": "STARMAG_029", "name": "Star Magazine #29", "publisher": "Star Comics", "date": "Febbraio 1993"},
+        {"id": "MAROMNIB_097", "name": "Marvel Omnibus #97 - Avengers: Sotto Assedio", "publisher": "Panini Comics", "date": "Marzo 2019"}
+      ]
+    },
+    {
+      "id": "WCAA_001",
+      "seriesId": "WCAA",
+      "series": "West Coast Avengers Annual",
+      "number": 1,
+      "title": "One of Our Own",
+      "after": "AV1_272",
+      "order": 3,
+      "reason": "Conclusione diretta di Avengers Annual #15.",
+      "primaryPublicationIds": ["STARMAG_030"],
+      "italianPublications": [
+        {"id": "STARMAG_030", "name": "Star Magazine #30", "publisher": "Star Comics", "date": "Marzo 1993"},
+        {"id": "MAROMNIB_097", "name": "Marvel Omnibus #97 - Avengers: Sotto Assedio", "publisher": "Panini Comics", "date": "Marzo 2019"}
+      ]
+    },
+    {
+      "id": "AV1A_017",
+      "seriesId": "AV1A",
+      "series": "Avengers Annual vol. 1",
+      "number": 17,
+      "title": "Prometheus Mutans",
+      "after": "AV1_298",
+      "reason": "Conclusione di Evolutionary War e ponte interno fra Avengers #298 e #299.",
+      "primaryPublicationIds": ["SPE_EVW_002"],
+      "italianPublications": [
+        {"id": "SPE_EVW_002", "name": "Speciale Evolutionary War #2 - L'Uomo Ragno e i Vendicatori", "publisher": "Star Comics", "date": "Settembre 1992"},
+        {"id": "GREVMAR_021", "name": "Grandi Eventi Marvel #21 - Evolutionary War 2", "publisher": "Panini Comics", "date": "Novembre 2017"},
+        {"id": "MAROMNIB_115", "name": "Marvel Omnibus #115 - Avengers 5: Il Giorno dell'Adattoide", "publisher": "Panini Comics", "date": "Giugno 2020"}
+      ]
+    }
+  ],
+  "excludedReprints": [
+    {"id": "AV1A_003", "reason": "Ristampa di Avengers #4."},
+    {"id": "AV1A_004", "reason": "Ristampa di Avengers #5."},
+    {"id": "AV1A_005", "reason": "Ristampa di Avengers #6."},
+    {"id": "GSA_005", "reason": "Ristampa di Avengers Annual #1."}
+  ],
+  "scopeExclusions": [
+    {"scope": "West Coast Avengers vol. 2", "reason": "Serie parallela autonoma: nel percorso classico entrano la fondazione e i crossover obbligatori con la squadra principale, non l'intero spin-off."},
+    {"scope": "miniserie e storie soliste", "reason": "Vision and the Scarlet Witch, Hawkeye, Marvel Premiere e Marvel Super-Heroes non sono capitoli necessari della storia della squadra."},
+    {"scope": "eventi Marvel esterni", "reason": "I tie-in non collegati da una continuazione diretta sono esclusi per evitare apparizioni-only e l'espansione arbitraria del percorso."}
+  ],
+  "sources": [
+    {"name": "ComicsBox", "url": "https://www.comicsbox.it/albo/AV1_001", "use": "contenuti USA, prime pubblicazioni italiane e rimandi espliciti fra capitoli"},
+    {"name": "Grand Comics Database", "url": "https://www.comics.org/series/1571/", "use": "controllo bibliografico della serie Avengers (1963)"},
+    {"name": "Grand Comics Database", "url": "https://www.comics.org/issue/28719/", "use": "controllo reprint-only di Avengers #136"},
+    {"name": "Marvel", "url": "https://www.marvel.com/comics/issue/6931/avengers_annual_1967_17", "use": "data e contenuto di Avengers Annual #17"},
+    {"name": "Marvel Masterworks / Collected Editions", "url": "https://collectededitions.com/marvel-masterworks-avengers-vol-17/", "use": "ordine Avengers #164–177, Annual #7 e Marvel Two-in-One Annual #2"},
+    {"name": "Marvel Masterworks / Collected Editions", "url": "https://collectededitions.com/marvel-masterworks-avengers-vol-20/", "use": "ordine Avengers #203–216 e Annual #10"},
+    {"name": "Marvel Masterworks / Collected Editions", "url": "https://collectededitions.com/marvel-masterworks-avengers-vol-21-hc/", "use": "ordine Avengers #217–226 e Annual #11"},
+    {"name": "Marvel Masterworks / Collected Editions", "url": "https://collectededitions.com/marvel-masterworks-avengers-vol-22-hc/", "use": "ordine Avengers #227–235 e crossover della Visione"},
+    {"name": "Marvel Masterworks / Collected Editions", "url": "https://collectededitions.com/marvel-masterworks-avengers-vol-23-hc/", "use": "ordine Avengers #236–245 e Annual #13"},
+    {"name": "Marvel Masterworks / Collected Editions", "url": "https://collectededitions.com/marvel-masterworks-avengers-vol-24-hc/", "use": "ordine capitolo per capitolo della fondazione West Coast"},
+    {"name": "Marvel Masterworks / Collected Editions", "url": "https://collectededitions.com/marvel-masterworks-avengers-vol-25-hc/", "use": "ordine Avengers #255–263 e Annual #14"},
+    {"name": "Crushing Krisis", "url": "https://crushingkrisis.com/collecting-avengers-comic-books-as-graphic-novels-a-definitive-guide/collecting-the-avengers-1963-1996-comic-books-as-graphic-novels/", "use": "controllo Annual, ristampe e collocazioni interne"},
+    {"name": "MyComicShop", "url": "https://www.mycomicshop.com/search?SeriesID=19867233", "use": "ordine in tre parti Alpha Flight #39 / Avengers #272 / Alpha Flight #40"},
+    {"name": "ComicsBox", "url": "https://www.comicsbox.it/albo/MAROMNIB_191", "use": "copertura Anniversary Edition #1"},
+    {"name": "ComicsBox", "url": "https://www.comicsbox.it/albo/MAROMNIB_192", "use": "copertura Anniversary Edition #2"},
+    {"name": "ComicsBox", "url": "https://www.comicsbox.it/albo/MAROMNIB_193", "use": "copertura Anniversary Edition #3"}
+  ],
+  "sourceConflicts": [
+    {
+      "subject": "primi Marvel Masterworks italiani",
+      "decision": "Gli ID fisici Marvel Masterworks già catalogati nel progetto seguono le schede ComicsBox delle edizioni Marvel Italia 2007: MMW_M_003 contiene Avengers #1–11 e MMW_M_006 #12–24.",
+      "conflict": "Le attuali schede Panini della ristampa ISBN indicano #1–10 per il volume 1 e #12–24 per il volume 2, lasciando #11 fuori da quella specifica coppia.",
+      "policy": "Non si fondono ristampe ISBN diverse sotto gli ID fisici storici; la ristampa corrente non è proposta come alternativa completa finché la collocazione italiana di #11 non è chiarita.",
+      "sources": [
+        "https://www.comicsbox.it/albo/MMW_M_003",
+        "https://www.comicsbox.it/albo/MMW_M_006",
+        "https://www.panini.it/shp_ita_it/i-vendicatori-1-mmmve001isbnr2-it08.html",
+        "https://www.panini.it/shp_ita_it/i-vendicatori-2-mmmve002isbnr-it08.html"
+      ]
+    }
+  ]
+}
