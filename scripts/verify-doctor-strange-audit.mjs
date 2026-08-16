@@ -48,13 +48,13 @@ expectAlbum("DS3_057", "DSTR_M_004");
 assert(mapping.get("DS3_076")?.storyId?.startsWith(STORY_PREFIX), "DS3 #76 should have an audited story feature");
 assert(mapping.get("DS3_090")?.storyId?.startsWith(STORY_PREFIX), "DS3 #90 should have an audited story feature");
 
-// Strange Tales (1987) #7 was split over two Italian Wolverine issues.
+// ComicsBox catalogs Wolverine #32/33 as one double-numbered physical issue.
 const st2 = mapping.get("ST2_007");
-assert(JSON.stringify(st2.italianAlbums) === JSON.stringify(["WOL_PM_032", "WOL_PM_033"]), "ST2 #7 must map to Wolverine #32-33");
-assert(Array.isArray(st2.physicalIds) && st2.physicalIds.length === 2, "ST2 #7 must expose two physical IDs");
 const st2Steps = character.issues.filter(issue => issue.readingStep.contentIds.includes(st2.storyId));
-assert(st2Steps.length === 2, `ST2 #7 should require two physical steps, got ${st2Steps.length}`);
-assert(st2Steps.some(issue => issue.id === "WOL_PM:32") && st2Steps.some(issue => issue.id === "WOL_PM:33"), "Wolverine #32-33 split steps missing");
+assert(st2Steps.length === 1, `ST2 #7 should require one double-numbered physical step, got ${st2Steps.length}`);
+assert(st2Steps[0].id === "WOL_PM:32", `ST2 #7 should map to WOL_PM:32, got ${st2Steps[0].id}`);
+assert(!character.issues.some(issue => issue.id === "WOL_PM:33"), "Wolverine #33 must not be invented as a separate physical issue");
+assert(/single double-numbered Italian physical issue/i.test(audit.guardrails?.splitItalianStories || ""), "ST2 #7 double-number guardrail missing");
 
 // The first Masterworks must select only the Doctor Strange feature of each
 // anthology issue; Human Torch/Nick Fury labels were the semantic bug that
