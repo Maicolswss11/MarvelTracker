@@ -7,7 +7,7 @@
   "exactDoctorStrangeStoryBlocks": 754,
   "completeStepLinks": 91,
   "partialStepLinks": 94,
-  "rule": "A Doctor Strange alternative is linked from the actual Doctor Strange story block in the Italian edition. Classic anthology/backup material uses source-issue + story-title identity; ownership is complete only when the union of owned editions covers every required story feature.",
+  "rule": "A Doctor Strange alternative is linked from the actual Doctor Strange story block in the Italian edition. Classic anthology/backup material uses source-USA-issue plus a title-independent story fingerprint; ownership is complete only when the union of owned editions covers every required story feature.",
   "fanTranslations": "excluded from official-edition coverage",
   "auditedSeries": [
     "100M",
