@@ -26,10 +26,12 @@ assert.ok(firstIds.every(id => id.startsWith("ironman-story:IM1_001:")), "ironma
 const mappings = audit.mappings || [];
 const gaps = mappings.filter(row => !row.physicalId);
 const gapCodes = new Set(gaps.map(row => row.usaCode));
+const map183 = mappings.filter(row => row.usaCode === "IM1_183");
 console.log("Iron Man gap IDs:", [...gapCodes].join(", "));
+console.log("IM1_183 mapping:", JSON.stringify(map183));
 for (let n = 183; n <= 192; n += 1) {
   const code = `IM1_${String(n).padStart(3, "0")}`;
-  assert.ok(gapCodes.has(code), `ironman: Iron Man #${n} non risulta tra le lacune italiane; gap=${[...gapCodes].join(",")}`);
+  assert.ok(gapCodes.has(code), `ironman: Iron Man #${n} non risulta tra le lacune italiane; mapping183=${JSON.stringify(map183)}`);
 }
 assert.ok(gapCodes.has("IM1_255"), "ironman: Iron Man #255 non risulta inedito");
 assert.ok(gapCodes.has("IM1_257"), "ironman: Iron Man #257 non risulta inedito");
