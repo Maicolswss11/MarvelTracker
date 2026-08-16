@@ -3,8 +3,8 @@
 
 Some ComicsBox entries, notably Triumph and Torment, omit a protagonists line
 and identify the feature only with a joint heading such as
-``Dr. Strange and Dr. Doom``.  This remains an exact Doctor Strange story block
-and is accepted without relaxing source-issue + story-title identity.
+``Dr. Strange and Dr. Doom``.  Wolverine #32/33 is also one double-numbered
+Italian physical issue, not two separate objects.
 """
 from __future__ import annotations
 
@@ -36,7 +36,27 @@ def is_doctor_strange_feature(lines: list[str]) -> bool:
 
 def main(argv: list[str] | None = None) -> None:
     base.is_doctor_strange_feature = is_doctor_strange_feature
+
+    # ComicsBox's Italian series index identifies this as one physical double
+    # issue: "Wolverine #32/33" with source code WOL_PM_032.  The base refiner's
+    # earlier two-object assumption is intentionally disabled.
+    base.SPLIT_ITALIAN = {}
     base.main(argv)
+
+    phase = "all"
+    if argv and "--phase" in argv:
+        try:
+            phase = argv[argv.index("--phase") + 1]
+        except (IndexError, ValueError):
+            phase = "all"
+    if phase in {"route", "all"}:
+        audit_path = base.DATA / "doctor-strange-audit.json"
+        audit = base.read_json(audit_path)
+        audit.setdefault("guardrails", {})["splitItalianStories"] = (
+            "Strange Tales (1987) #7 is published in the single double-numbered Italian physical issue "
+            "Wolverine #32/33 (WOL_PM_032); it must create one physical reading step, not two."
+        )
+        base.write_json(audit_path, audit, pretty=True)
 
 
 if __name__ == "__main__":
