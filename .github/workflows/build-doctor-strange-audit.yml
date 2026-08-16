@@ -8,6 +8,7 @@ on:
       - "scripts/build_doctor_strange_audit.py"
       - "scripts/build_doctor_strange_audit_v2.py"
       - "scripts/refine_doctor_strange_story_features.py"
+      - "scripts/refine_doctor_strange_story_features_v2.py"
       - "scripts/patch_doctor_strange_editions.py"
       - "scripts/verify-doctor-strange-audit.mjs"
       - "js/editions.js"
@@ -39,7 +40,7 @@ jobs:
         run: python scripts/build_doctor_strange_audit_v2.py --workers 20
 
       - name: Refine classic route to exact story features
-        run: python scripts/refine_doctor_strange_story_features.py --phase route --workers 20
+        run: python scripts/refine_doctor_strange_story_features_v2.py --phase route --workers 20
 
       - name: Rebuild physical catalog
         run: python scripts/build_catalog.py
