@@ -7,6 +7,10 @@ const character = await readJson("data/characters/ironman.json");
 const audit = await readJson("data/ironman-audit.json");
 const alternatives = await readJson("data/ironman-alternatives-audit.json");
 const editions = await readJson("data/editions.json");
+const issueNumber = value => {
+  const match = String(value ?? "").match(/\d+/);
+  return match ? Number(match[0]) : Number.NaN;
+};
 
 assert.equal(character.id, "ironman");
 assert.equal(character.editorialModel, "physical-issue/usa-contents/reading-step@1");
@@ -25,18 +29,28 @@ assert.ok(firstIds.every(id => id.startsWith("ironman-story:IM1_001:")), "ironma
 
 const mappings = audit.mappings || [];
 const gaps = mappings.filter(row => !row.physicalId);
-const gapNumbers = new Set(gaps.map(row => Number(row.usaNumber)));
+const gapNumbers = new Set(gaps.map(row => issueNumber(row.usaNumber)).filter(Number.isFinite));
 for (let n = 183; n <= 192; n += 1) {
   assert.ok(gapNumbers.has(n), `ironman: Iron Man #${n} non risulta tra le lacune italiane`);
 }
 assert.ok(gapNumbers.has(255), "ironman: Iron Man #255 non risulta inedito");
 assert.ok(gapNumbers.has(257), "ironman: Iron Man #257 non risulta inedito");
-assert.ok(gaps.some(row => Number(row.usaNumber) === 178 && /struggle/i.test(row.usaTitle || "")), "ironman: il backup Struggle! di #178 non è dichiarato come lacuna");
+
+const struggle = mappings.find(row => issueNumber(row.usaNumber) === 178 && /struggle/i.test(row.usaTitle || ""));
+assert.ok(struggle, "ironman: backup Struggle! di Iron Man #178 non censito");
+assert.equal(struggle.italianAlbum, "SUPEROICLA_475", "ironman: Struggle! non usa la pubblicazione italiana Super Eroi Classic #475");
+assert.ok(struggle.physicalId, "ironman: Struggle! viene ancora trattato come inedito");
 
 for (let n = 154; n <= 157; n += 1) {
-  const rows = mappings.filter(row => Number(row.usaNumber) === n);
+  const rows = mappings.filter(row => issueNumber(row.usaNumber) === n);
   assert.ok(rows.some(row => row.italianAlbum === "MMW_M_176"), `ironman: #${n} non mappato a Marvel Masterworks #176`);
 }
+
+assert.ok(!character.issues.some(issue =>
+  (issue.contents || []).some(content => content.sourceIssueId === "IM1_076") ||
+  (issue.readingStep?.contentIds || []).some(id => String(id).startsWith("ironman-story:IM1_076:"))
+), "ironman: Iron Man #76 reprint-only crea ancora una tappa narrativa");
+assert.deepEqual(character.coverage?.reprintOnlyIssuesExcluded, [76], "ironman: #76 non documentato come reprint-only escluso");
 
 const tail = character.issues.find(issue => issue.id === "IM_VEN:1");
 assert.ok(tail, "ironman: coda moderna Iron Man e i Vendicatori #1 assente");
