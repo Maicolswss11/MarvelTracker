@@ -3,7 +3,7 @@
   "status": "audited",
   "auditKind": "path/character",
   "auditDate": "2026-08-16",
-  "generatedAt": "2026-08-16T01:14:04.688066+00:00",
+  "generatedAt": "2026-08-16T01:45:39.551882+00:00",
   "editorialModel": "physical-issue/usa-contents/reading-step@1",
   "scope": "Stephen Strange main reading spine from Strange Tales (1963) through the current route, with explicit pre-2005 Italian publication gaps",
   "sourceSummary": {
@@ -39,8 +39,8 @@
       {
         "code": "DS2",
         "name": "DS2",
-        "chapters": 81,
-        "mapped": 81,
+        "chapters": 80,
+        "mapped": 80,
         "unmapped": 0
       },
       {
@@ -89,10 +89,11 @@
     "masterworkContents": 152
   },
   "classic": {
-    "chapters": 283,
-    "mapped": 221,
+    "chapters": 282,
+    "mapped": 220,
     "unpublishedInItaly": 62,
-    "physicalItalianIssues": 48
+    "physicalItalianIssues": 48,
+    "storyFeatures": 220
   },
   "knownGaps": {
     "strangeTalesVol2DoctorStrange": [
@@ -167,7 +168,9 @@
   "guardrails": {
     "dstrM2M3": "Dottor Strange #2-3 are not sequential Sorcerer Supreme issues and are excluded from that spine; their Secret Defenders / Annual material must be routed by selected USA content only.",
     "fanTranslations": "Unofficial/fan Italian translations may be noted externally by the reader but never satisfy official-edition ownership or availability in MarvelTracker.",
-    "alternatives": "An alternative edition must expose the same selected USA content IDs; partial alternatives are recorded as partial and do not individually satisfy a route step."
+    "alternatives": "An alternative edition must expose the same selected USA content IDs; partial alternatives are recorded as partial and do not individually satisfy a route step.",
+    "storyFeatureIdentity": "Classic Doctor Strange reading steps use source-USA-issue plus a title-independent ComicsBox story fingerprint. Retitled Italian reprints of the same story match, while different features/backups from the same USA issue remain distinct.",
+    "splitItalianStories": "Strange Tales (1987) #7 is published in the single double-numbered Italian physical issue Wolverine #32/33 (WOL_PM_032); it must create one physical reading step, not two."
   },
   "tail": {
     "tailIssues": 80,
@@ -211,7 +214,9 @@
       "usa": "ST1 #110 — Human Torch: The Wizard and Paste-Pot-Pete!",
       "usaDate": "Jul 1963",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_110:f3d762630330",
+      "storyTitle": "Dr. strange, maestro della magia nera!"
     },
     {
       "kind": "chapter",
@@ -220,7 +225,9 @@
       "usa": "ST1 #111 — Human Torch: Fighting to the Death with the Asbestos Man!",
       "usaDate": "Aug 1963",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_111:36f321995074",
+      "storyTitle": "Faccia a faccia con la magia del barone mordo!"
     },
     {
       "kind": "chapter",
@@ -229,7 +236,9 @@
       "usa": "ST1 #114 — Human Torch: The Human Torch meets...",
       "usaDate": "Nov 1963",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_114:8dea36fd3da1",
+      "storyTitle": "Il ritorno dell'onnipotente barone mordo!"
     },
     {
       "kind": "chapter",
@@ -238,7 +247,9 @@
       "usa": "ST1 #115 — Human Torch: The Sandman Strikes!",
       "usaDate": "Dec 1963",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_115:1475daee70ab",
+      "storyTitle": "L'origine del dr. strange"
     },
     {
       "kind": "chapter",
@@ -247,7 +258,9 @@
       "usa": "ST1 #116 — Human Torch: In the Clutches of the Puppet Master!",
       "usaDate": "Jan 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_116:d1f57f3cd25c",
+      "storyTitle": "Il mondo di incubo!"
     },
     {
       "kind": "chapter",
@@ -256,7 +269,9 @@
       "usa": "ST1 #117 — Human Torch: The Return of the Eel!",
       "usaDate": "Feb 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_117:f2695e2c9167",
+      "storyTitle": "Le molte trappole del Barone Mordo!"
     },
     {
       "kind": "chapter",
@@ -265,7 +280,9 @@
       "usa": "ST1 #118 — Human Torch: The Man Who Became the Torch!",
       "usaDate": "Mar 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_118:6862806e01a6",
+      "storyTitle": "I posseduti!"
     },
     {
       "kind": "chapter",
@@ -274,7 +291,9 @@
       "usa": "ST1 #119 — Human Torch: The Torch Goes Wild!",
       "usaDate": "Apr 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_119:16fbfb66ef78",
+      "storyTitle": "Oltre il velo purpureo!"
     },
     {
       "kind": "chapter",
@@ -283,7 +302,9 @@
       "usa": "ST1 #120 — Human Torch: The Torch Meets Iceman!",
       "usaDate": "May 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_120:28c2abcf2a32",
+      "storyTitle": "La casa delle ombre"
     },
     {
       "kind": "chapter",
@@ -292,7 +313,9 @@
       "usa": "ST1 #121 — Human Torch: Prisoner of the Plantman!",
       "usaDate": "Jun 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_121:1e5385dd5ffc",
+      "storyTitle": "Stregoneria al museo delle cere!"
     },
     {
       "kind": "chapter",
@@ -301,7 +324,9 @@
       "usa": "ST1 #122 — Human Torch: 3 Against The Torch!",
       "usaDate": "Jul 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_122:2b633917d646",
+      "storyTitle": "L'altro mondo"
     },
     {
       "kind": "chapter",
@@ -310,7 +335,9 @@
       "usa": "ST1 #123 — Human Torch and Thing: The Birth of the Beetle!",
       "usaDate": "Aug 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_123:3ff89d86fa25",
+      "storyTitle": "La sfida di Loki!"
     },
     {
       "kind": "chapter",
@@ -319,7 +346,9 @@
       "usa": "ST1 #124 — Human Torch and Thing: Paste-Pot-Pete",
       "usaDate": "Sep 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_124:d4a2cb2eb554",
+      "storyTitle": "La donna venuta dal nulla"
     },
     {
       "kind": "chapter",
@@ -328,7 +357,9 @@
       "usa": "ST1 #125 — Human Torch and Thing: The Sub-Mariner Must Be Stopped!",
       "usaDate": "Oct 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_125:7c120f004d91",
+      "storyTitle": "Mordo non deve prendermi!"
     },
     {
       "kind": "chapter",
@@ -337,7 +368,9 @@
       "usa": "ST1 #126 — Human Torch and Thing: Pawns of the Deadly Duo!",
       "usaDate": "Nov 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_126:137728f2dd2b",
+      "storyTitle": "Il regno del terribile dormammu!"
     },
     {
       "kind": "chapter",
@@ -346,7 +379,9 @@
       "usa": "ST1 #127 — Human Torch and Thing: The Mystery Villain!",
       "usaDate": "Dec 1964",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_127:6c1c9261ffa9",
+      "storyTitle": "Duello con il terribile Dormammu"
     },
     {
       "kind": "chapter",
@@ -355,7 +390,9 @@
       "usa": "ST1 #128 — Human Torch and Thing: Quicksilver and the Scarlet Witch",
       "usaDate": "Jan 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_128:d951ab635bdf",
+      "storyTitle": "Il dilemma del... discepolo del demone"
     },
     {
       "kind": "chapter",
@@ -364,7 +401,9 @@
       "usa": "ST1 #129 — Human Torch and Thing: The Terrible Trio!",
       "usaDate": "Feb 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_129:490f4ceef4bf",
+      "storyTitle": "Tiboro! Il tiranno della sesta dimensione"
     },
     {
       "kind": "chapter",
@@ -373,7 +412,9 @@
       "usa": "ST1 #130 — Human Torch and Thing: Meet the Beatles!",
       "usaDate": "Mar 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_130:430cc30e3a25",
+      "storyTitle": "La sconfitta del Dr. Strange"
     },
     {
       "kind": "chapter",
@@ -382,7 +423,9 @@
       "usa": "ST1 #131 — Human Torch and Thing: The Bouncing Ball of Doom!",
       "usaDate": "Apr 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_131:2b96e948e949",
+      "storyTitle": "Il cacciatore e la preda"
     },
     {
       "kind": "chapter",
@@ -391,7 +434,9 @@
       "usa": "ST1 #132 — Human Torch and Thing: The Sinister Spacetrap!",
       "usaDate": "May 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_132:c719c77a07f0",
+      "storyTitle": "Finalmente faccia a faccia con il Barone Mordo"
     },
     {
       "kind": "chapter",
@@ -400,7 +445,9 @@
       "usa": "ST1 #133 — Human Torch and Thing: The Terrible Toys!",
       "usaDate": "Jun 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_133:2cd843962097",
+      "storyTitle": "Terra senza nome, terra senza tempo!"
     },
     {
       "kind": "chapter",
@@ -409,7 +456,9 @@
       "usa": "ST1 #134 — Human Torch and Thing: The Challenge of...The Watcher!",
       "usaDate": "Jul 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_134:64fa4548d5ee",
+      "storyTitle": "La Terra sia il mio campo di battaglia"
     },
     {
       "kind": "chapter",
@@ -418,7 +467,9 @@
       "usa": "ST1 #135 — Nick Fury: The Man for the Job!",
       "usaDate": "Aug 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_135:e5270a80868f",
+      "storyTitle": "Il richiamo di Eternità"
     },
     {
       "kind": "chapter",
@@ -427,7 +478,9 @@
       "usa": "ST1 #136 — Nick Fury: Find Fury or Die!",
       "usaDate": "Sep 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_136:6cc2995a967f",
+      "storyTitle": "Cosa si cela sotto la maschera?"
     },
     {
       "kind": "chapter",
@@ -436,7 +489,9 @@
       "usa": "ST1 #137 — Nick Fury: The Prize is... Earth!",
       "usaDate": "Oct 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_137:7eaea9946ee0",
+      "storyTitle": "Quando le mistiche menti si incontrano!"
     },
     {
       "kind": "chapter",
@@ -445,7 +500,9 @@
       "usa": "ST1 #138 — Nick Fury: Sometimes the Good Guys Lose!",
       "usaDate": "Nov 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_138:7e92cfdd2273",
+      "storyTitle": "Se Eternità fallisse"
     },
     {
       "kind": "chapter",
@@ -454,7 +511,9 @@
       "usa": "ST1 #139 — Nick Fury: The Brave Die Hard!",
       "usaDate": "Dec 1965",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_139:cb0e36133d3f",
+      "storyTitle": "Attento...Dormammu ti osserva!"
     },
     {
       "kind": "chapter",
@@ -463,7 +522,9 @@
       "usa": "ST1 #140 — Nick Fury: The End of Hydra!",
       "usaDate": "Jan 1966",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_140:bae8d9260dec",
+      "storyTitle": "La morsa del potere!"
     },
     {
       "kind": "chapter",
@@ -472,7 +533,9 @@
       "usa": "ST1 #141 — Nick Fury: Operation: Brain Blast!",
       "usaDate": "Feb 1966",
       "italianAlbum": "MMW_M_067",
-      "physicalId": "MMW_M:67"
+      "physicalId": "MMW_M:67",
+      "storyId": "doctor-strange-story:ST1_141:5c0bc40797b4",
+      "storyTitle": "E vittoria sia!"
     },
     {
       "kind": "chapter",
@@ -481,7 +544,9 @@
       "usa": "ST1 #142 — Nick Fury: Who Strikes at Shield?",
       "usaDate": "Mar 1966",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_142:305edbe58692",
+      "storyTitle": "Coloro che vorrebbero distruggermi!"
     },
     {
       "kind": "chapter",
@@ -490,7 +555,9 @@
       "usa": "ST1 #143 — Nick Fury: To Free a Brain Slave",
       "usaDate": "Apr 1966",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_143:855d54c30e5c",
+      "storyTitle": "Senza nessuno accanto!"
     },
     {
       "kind": "chapter",
@@ -499,7 +566,9 @@
       "usa": "ST1 #144 — Nick Fury: The day of the Druid!",
       "usaDate": "May 1966",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_144:9a3402bc274d",
+      "storyTitle": "Dove l'uomo mai si è avventurato"
     },
     {
       "kind": "chapter",
@@ -508,7 +577,9 @@
       "usa": "ST1 #145 — Nick Fury: Lo! The Eggs Shall Hatch!",
       "usaDate": "Jun 1966",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_145:1ced7e644e0a",
+      "storyTitle": "Per catturare uno stregone"
     },
     {
       "kind": "chapter",
@@ -517,7 +588,9 @@
       "usa": "ST1 #146 — Nick Fury: When the Unliving Strike!",
       "usaDate": "Jul 1966",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_146:452c44137470",
+      "storyTitle": "Finalmente... la fine"
     },
     {
       "kind": "chapter",
@@ -526,7 +599,9 @@
       "usa": "ST1 #147 — Nick Fury: The Enemy Within!",
       "usaDate": "Aug 1966",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_147:bb3fa795dd7c",
+      "storyTitle": "Dal nulla ecco che arriva... Kaluu!"
     },
     {
       "kind": "chapter",
@@ -535,7 +610,9 @@
       "usa": "ST1 #148 — Nick Fury: Death Before Dishonor!",
       "usaDate": "Sep 1966",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_148:b7cf2c127bf9",
+      "storyTitle": "L'origine dell'Antico!"
     },
     {
       "kind": "chapter",
@@ -544,7 +621,9 @@
       "usa": "ST1 #149 — Nick Fury: The End of A.I.M.!",
       "usaDate": "Oct 1966",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_149:8c8793aa8856",
+      "storyTitle": "Se Kaluu trionfasse"
     },
     {
       "kind": "chapter",
@@ -553,7 +632,9 @@
       "usa": "ST1 #150 — Nick Fury: Hydra Lives!",
       "usaDate": "Nov 1966",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_150:1d97556e5215",
+      "storyTitle": "La conquista di kaluu!"
     },
     {
       "kind": "chapter",
@@ -562,7 +643,9 @@
       "usa": "ST1 #151 — Nick Fury: Overkill!",
       "usaDate": "Dec 1966",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_151:cdfb3dd819f0",
+      "storyTitle": "Umar colpisce!"
     },
     {
       "kind": "chapter",
@@ -571,7 +654,9 @@
       "usa": "ST1 #152 — Nick Fury: The Power of Shield!",
       "usaDate": "Jan 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_152:800869e3a98b",
+      "storyTitle": "Nella dimensione della morte!"
     },
     {
       "kind": "chapter",
@@ -580,7 +665,9 @@
       "usa": "ST1 #153 — Nick Fury: The Hiding Place!",
       "usaDate": "Feb 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_153:c54b26c339f6",
+      "storyTitle": "Solo contro i senza mente"
     },
     {
       "kind": "chapter",
@@ -589,7 +676,9 @@
       "usa": "ST1 #154 — Nick Fury: Beware... the Deadly Dreadnought!",
       "usaDate": "Mar 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_154:421d0423e4f7",
+      "storyTitle": "Clea deve morire!"
     },
     {
       "kind": "chapter",
@@ -598,7 +687,9 @@
       "usa": "ST1 #155 — Nick Fury: Death Trap!",
       "usaDate": "Apr 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_155:33f769ff5349",
+      "storyTitle": "La tremenda fine!"
     },
     {
       "kind": "chapter",
@@ -607,7 +698,9 @@
       "usa": "ST1 #156 — Nick Fury: The Tribunal!",
       "usaDate": "May 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_156:8489dadcd96e",
+      "storyTitle": "Umar è sulla Terra!"
     },
     {
       "kind": "chapter",
@@ -616,7 +709,9 @@
       "usa": "ST1 #157 — Nick Fury: Crisis!",
       "usaDate": "Jun 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_157:244023458fa6",
+      "storyTitle": "La fine dell'Antico!"
     },
     {
       "kind": "chapter",
@@ -625,7 +720,9 @@
       "usa": "ST1 #158 — Nick Fury: Final Encounter!",
       "usaDate": "Jul 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_158:2ec46b84c417",
+      "storyTitle": "Le sabbie della morte"
     },
     {
       "kind": "chapter",
@@ -634,7 +731,9 @@
       "usa": "ST1 #159 — Nick Fury: Spy School",
       "usaDate": "Aug 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_159:63e9d3b2d0d8",
+      "storyTitle": "La malvagità degli uomini"
     },
     {
       "kind": "chapter",
@@ -643,7 +742,9 @@
       "usa": "ST1 #160 — Nick Fury: Project: Blackout",
       "usaDate": "Sep 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_160:94c6bb0f6c4a",
+      "storyTitle": "Se questo pianeta vuoi salvare"
     },
     {
       "kind": "chapter",
@@ -652,7 +753,9 @@
       "usa": "ST1 #161 — Nick Fury: The Second Doom",
       "usaDate": "Oct 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_161:d84be886fac4",
+      "storyTitle": "Il flagello si abbatterà su di te!"
     },
     {
       "kind": "chapter",
@@ -661,7 +764,9 @@
       "usa": "ST1 #162 — Nick Fury: So Evil, The Night!",
       "usaDate": "Nov 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_162:b27ecc6bbd31",
+      "storyTitle": "Dal mondo che non c'e' giunge... nebulos!"
     },
     {
       "kind": "chapter",
@@ -670,7 +775,9 @@
       "usa": "ST1 #163 — Nick Fury: And the Dragon Cried... Death!",
       "usaDate": "Dec 1967",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_163:6b52855ceb1d",
+      "storyTitle": "...i tre volti del destino!"
     },
     {
       "kind": "chapter",
@@ -679,7 +786,9 @@
       "usa": "ST1 #164 — Dr. Strange: Nightmare!",
       "usaDate": "Jan 1968",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_164:75675f4597cc",
+      "storyTitle": "Incubo"
     },
     {
       "kind": "chapter",
@@ -688,7 +797,9 @@
       "usa": "ST1 #165 — Nick Fury: Behold the Savage Sky!",
       "usaDate": "Feb 1968",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_165:dd7413f694af",
+      "storyTitle": "Il mistico e la macchina!"
     },
     {
       "kind": "chapter",
@@ -697,7 +808,9 @@
       "usa": "ST1 #166 — Dr. Strange: Nothing Can Halt... Voltorg!",
       "usaDate": "Mar 1968",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_166:2d66b9817272",
+      "storyTitle": "Nulla puo' arrestare... voltorg!"
     },
     {
       "kind": "chapter",
@@ -706,7 +819,9 @@
       "usa": "ST1 #167 — Nick Fury: Armageddon!",
       "usaDate": "Apr 1968",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_167:22f923a82b91",
+      "storyTitle": "Questo sogno... questa fine !"
     },
     {
       "kind": "chapter",
@@ -715,7 +830,9 @@
       "usa": "ST1 #168 — Dr. Strange: Exile!",
       "usaDate": "May 1968",
       "italianAlbum": "MMW_M_083",
-      "physicalId": "MMW_M:83"
+      "physicalId": "MMW_M:83",
+      "storyId": "doctor-strange-story:ST1_168:44df6b73f432",
+      "storyTitle": "Esilio"
     },
     {
       "kind": "chapter",
@@ -724,7 +841,9 @@
       "usa": "DS1 #169 — The Coming of... Dr. Strange",
       "usaDate": "Jun 1968",
       "italianAlbum": "MMW_M_097",
-      "physicalId": "MMW_M:97"
+      "physicalId": "MMW_M:97",
+      "storyId": "doctor-strange-story:DS1_169:e6063b3b5fcf",
+      "storyTitle": "L'avvento di… dr. strange"
     },
     {
       "kind": "chapter",
@@ -733,7 +852,9 @@
       "usa": "DS1 #170 — To Dream.. Perchance to Die!",
       "usaDate": "Jul 1968",
       "italianAlbum": "MMW_M_097",
-      "physicalId": "MMW_M:97"
+      "physicalId": "MMW_M:97",
+      "storyId": "doctor-strange-story:DS1_170:441cba9e98f9",
+      "storyTitle": "Sognare... forse morire!"
     },
     {
       "kind": "chapter",
@@ -742,7 +863,9 @@
       "usa": "DS1 #171 — In the Shadow of... Death!",
       "usaDate": "Aug 1968",
       "italianAlbum": "MMW_M_097",
-      "physicalId": "MMW_M:97"
+      "physicalId": "MMW_M:97",
+      "storyId": "doctor-strange-story:DS1_171:6c8f69e0afdb",
+      "storyTitle": "Nell'ombra della... Morte"
     },
     {
       "kind": "chapter",
@@ -751,7 +874,9 @@
       "usa": "DS1 #172 — I, Dormammu",
       "usaDate": "Sep 1968",
       "italianAlbum": "MMW_M_097",
-      "physicalId": "MMW_M:97"
+      "physicalId": "MMW_M:97",
+      "storyId": "doctor-strange-story:DS1_172:c4376bcfc617",
+      "storyTitle": "Io Dormammu!"
     },
     {
       "kind": "chapter",
@@ -760,7 +885,9 @@
       "usa": "DS1 #173 — While a World Waits!",
       "usaDate": "Oct 1968",
       "italianAlbum": "MMW_M_097",
-      "physicalId": "MMW_M:97"
+      "physicalId": "MMW_M:97",
+      "storyId": "doctor-strange-story:DS1_173:30e2901ad1ec",
+      "storyTitle": "…mentre un mondo aspetta!"
     },
     {
       "kind": "chapter",
@@ -769,7 +896,9 @@
       "usa": "DS1 #174 — The Power and the Pendulum",
       "usaDate": "Nov 1968",
       "italianAlbum": "MMW_M_097",
-      "physicalId": "MMW_M:97"
+      "physicalId": "MMW_M:97",
+      "storyId": "doctor-strange-story:DS1_174:8765222ec6a4",
+      "storyTitle": "Il potere e il pendolo"
     },
     {
       "kind": "chapter",
@@ -778,7 +907,9 @@
       "usa": "DS1 #175 — Unto Us... The Sons of Satannish",
       "usaDate": "Dec 1968",
       "italianAlbum": "MMW_M_097",
-      "physicalId": "MMW_M:97"
+      "physicalId": "MMW_M:97",
+      "storyId": "doctor-strange-story:DS1_175:fcc268326244",
+      "storyTitle": "Tra noi.. i figli di Satannish!"
     },
     {
       "kind": "chapter",
@@ -787,7 +918,9 @@
       "usa": "DS1 #176 — O Grave Where Is Thy Victory?",
       "usaDate": "Jan 1969",
       "italianAlbum": "MMW_M_097",
-      "physicalId": "MMW_M:97"
+      "physicalId": "MMW_M:97",
+      "storyId": "doctor-strange-story:DS1_176:b8f0b496d635",
+      "storyTitle": "Sepolcro, dov'e' la tua vittoria?"
     },
     {
       "kind": "chapter",
@@ -796,7 +929,9 @@
       "usa": "DS1 #177 — The Cult and the Curse",
       "usaDate": "Feb 1969",
       "italianAlbum": "MMW_M_097",
-      "physicalId": "MMW_M:97"
+      "physicalId": "MMW_M:97",
+      "storyId": "doctor-strange-story:DS1_177:f0052601b436",
+      "storyTitle": "Il culto e la maledizione"
     },
     {
       "kind": "chapter",
@@ -805,7 +940,9 @@
       "usa": "DS1 #178 — With One Beside Him",
       "usaDate": "Mar 1969",
       "italianAlbum": "MMW_M_097",
-      "physicalId": "MMW_M:97"
+      "physicalId": "MMW_M:97",
+      "storyId": "doctor-strange-story:DS1_178:479aa85bbbae",
+      "storyTitle": "Qualcuno e' al suo fianco"
     },
     {
       "kind": "chapter",
@@ -814,7 +951,9 @@
       "usa": "DS1 #180 — Eternity, Eternity",
       "usaDate": "May 1969",
       "italianAlbum": "MMW_M_114",
-      "physicalId": "MMW_M:114"
+      "physicalId": "MMW_M:114",
+      "storyId": "doctor-strange-story:DS1_180:17110808f578",
+      "storyTitle": "Eternità"
     },
     {
       "kind": "chapter",
@@ -823,7 +962,9 @@
       "usa": "DS1 #181 — If a World Should Die Before I Wake",
       "usaDate": "Jul 1969",
       "italianAlbum": "MMW_M_114",
-      "physicalId": "MMW_M:114"
+      "physicalId": "MMW_M:114",
+      "storyId": "doctor-strange-story:DS1_181:97ebda5dac70",
+      "storyTitle": "Se un mondo dovesse morire prima che io mi svegli"
     },
     {
       "kind": "chapter",
@@ -832,7 +973,9 @@
       "usa": "DS1 #182 — And Juggernaut Makes Three!",
       "usaDate": "Sep 1969",
       "italianAlbum": "MMW_M_114",
-      "physicalId": "MMW_M:114"
+      "physicalId": "MMW_M:114",
+      "storyId": "doctor-strange-story:DS1_182:f0ff77a7d3b5",
+      "storyTitle": "E Juggernaut fa tre!"
     },
     {
       "kind": "chapter",
@@ -841,7 +984,9 @@
       "usa": "DS1 #183 — They Walk by Night!",
       "usaDate": "Nov 1969",
       "italianAlbum": "MMW_M_114",
-      "physicalId": "MMW_M:114"
+      "physicalId": "MMW_M:114",
+      "storyId": "doctor-strange-story:DS1_183:c49e32348246",
+      "storyTitle": "I cavalieri della notte"
     },
     {
       "kind": "chapter",
@@ -850,7 +995,9 @@
       "usa": "MFEAT1 #1 — Defenders: The Day of the Defenders",
       "usaDate": "Dec 1971",
       "italianAlbum": "MMW_M_114",
-      "physicalId": "MMW_M:114"
+      "physicalId": "MMW_M:114",
+      "storyId": "doctor-strange-story:MFEAT1_001:8dba094bf08d",
+      "storyTitle": "Il ritorno!"
     },
     {
       "kind": "chapter",
@@ -859,7 +1006,9 @@
       "usa": "MP1 #3 — Dr. Strange: While The World Spins Mad!",
       "usaDate": "Jul 1972",
       "italianAlbum": "MMW_M_114",
-      "physicalId": "MMW_M:114"
+      "physicalId": "MMW_M:114",
+      "storyId": "doctor-strange-story:MP1_003:4e76a70bc444",
+      "storyTitle": "Mentre il mondo turbina in preda alla follia!"
     },
     {
       "kind": "chapter",
@@ -868,7 +1017,9 @@
       "usa": "MP1 #4 — Dr. Strange: The Spawn Of Sligguth!",
       "usaDate": "Sep 1972",
       "italianAlbum": "MMW_M_114",
-      "physicalId": "MMW_M:114"
+      "physicalId": "MMW_M:114",
+      "storyId": "doctor-strange-story:MP1_004:a4fc8734f07f",
+      "storyTitle": "I figli di Sligguth!"
     },
     {
       "kind": "chapter",
@@ -877,7 +1028,9 @@
       "usa": "MP1 #5 — Dr. Strange: The Lurker In The Labyrinth!",
       "usaDate": "Nov 1972",
       "italianAlbum": "MMW_M_114",
-      "physicalId": "MMW_M:114"
+      "physicalId": "MMW_M:114",
+      "storyId": "doctor-strange-story:MP1_005:31fc69ad0e7d",
+      "storyTitle": "La creatura del labirinto"
     },
     {
       "kind": "chapter",
@@ -886,7 +1039,9 @@
       "usa": "MP1 #6 — Dr. Strange: The Shambler From The Sea!",
       "usaDate": "Jan 1973",
       "italianAlbum": "MMW_M_114",
-      "physicalId": "MMW_M:114"
+      "physicalId": "MMW_M:114",
+      "storyId": "doctor-strange-story:MP1_006:a506c9f9a2a0",
+      "storyTitle": "Il mostro che viene dal mare"
     },
     {
       "kind": "chapter",
@@ -895,7 +1050,9 @@
       "usa": "MP1 #7 — Dr. Strange: The Shadows Of The Starstone!",
       "usaDate": "Mar 1973",
       "italianAlbum": "MMW_M_114",
-      "physicalId": "MMW_M:114"
+      "physicalId": "MMW_M:114",
+      "storyId": "doctor-strange-story:MP1_007:e2ec2ad5347e",
+      "storyTitle": "Le ombre della pietra lunare!"
     },
     {
       "kind": "chapter",
@@ -904,7 +1061,9 @@
       "usa": "MP1 #8 — Dr. Strange: The Doom That Bloomed On Kathulos!",
       "usaDate": "May 1973",
       "italianAlbum": "MMW_M_114",
-      "physicalId": "MMW_M:114"
+      "physicalId": "MMW_M:114",
+      "storyId": "doctor-strange-story:MP1_008:e696c937b83c",
+      "storyTitle": "Il destino di Kathulos!"
     },
     {
       "kind": "chapter",
@@ -913,7 +1072,9 @@
       "usa": "MP1 #9 — Dr. Strange: The Crypts Of Kaa-U!",
       "usaDate": "Jul 1973",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:MP1_009:596ffe2a36f7",
+      "storyTitle": "Le cripte di Kaa-U!"
     },
     {
       "kind": "chapter",
@@ -922,7 +1083,9 @@
       "usa": "MP1 #10 — Dr. Strange: Finally, Shuma-Gorath!",
       "usaDate": "Sep 1973",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:MP1_010:9b0d11e695ee",
+      "storyTitle": "Ecco infine Shuma-Gorath!"
     },
     {
       "kind": "chapter",
@@ -931,7 +1094,9 @@
       "usa": "MP1 #11 — Dr. Strange: Homecoming",
       "usaDate": "Oct 1973",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:MP1_011:27766f95ed63",
+      "storyTitle": "Ritorna!"
     },
     {
       "kind": "chapter",
@@ -940,7 +1105,9 @@
       "usa": "MP1 #12 — Dr. Strange: Portal To The Past!",
       "usaDate": "Nov 1973",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:MP1_012:101074f847a5",
+      "storyTitle": "Entrata nel passato"
     },
     {
       "kind": "chapter",
@@ -949,7 +1116,9 @@
       "usa": "MP1 #13 — Dr. Strange: Time Doom",
       "usaDate": "Jan 1974",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:MP1_013:ea78a1d44aa9",
+      "storyTitle": "Il tempo del destino"
     },
     {
       "kind": "chapter",
@@ -958,7 +1127,9 @@
       "usa": "MP1 #14 — Dr. Strange: Sise-Neg Genesis",
       "usaDate": "Mar 1974",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:MP1_014:7a8022e615c0",
+      "storyTitle": "La genesi di Size-Neg"
     },
     {
       "kind": "chapter",
@@ -967,7 +1138,9 @@
       "usa": "DS2 #1 — Throught An Orb Darkly",
       "usaDate": "Jun 1974",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:DS2_001:03a3c8df00c4",
+      "storyTitle": "Dentro una sfera, oscuramente"
     },
     {
       "kind": "chapter",
@@ -976,7 +1149,9 @@
       "usa": "DS2 #2 — A Separate Reality",
       "usaDate": "Aug 1974",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:DS2_002:bef99198c405",
+      "storyTitle": "Una realtà separata"
     },
     {
       "kind": "chapter",
@@ -985,7 +1160,9 @@
       "usa": "DS2 #3 — Amidst The Madness",
       "usaDate": "Sep 1974",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:DS2_003:4a86b49c107e",
+      "storyTitle": "In fondo alla pazzia"
     },
     {
       "kind": "chapter",
@@ -994,7 +1171,9 @@
       "usa": "DS2 #4 — ..where bound'ries ...decay",
       "usaDate": "Oct 1974",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:DS2_004:7a9c87438cda",
+      "storyTitle": "Il Dottor Strange incontra la.. Morte"
     },
     {
       "kind": "chapter",
@@ -1003,7 +1182,9 @@
       "usa": "DS2 #5 — Cloak And Dagger",
       "usaDate": "Dec 1974",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:DS2_005:da923b62e226",
+      "storyTitle": "La cappa e il pugnale"
     },
     {
       "kind": "chapter",
@@ -1012,7 +1193,9 @@
       "usa": "DS2 #6 — Lift High The Veil Of Fears!",
       "usaDate": "Feb 1975",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:DS2_006:8a27482c9893",
+      "storyTitle": "Si alza il velo della paura!"
     },
     {
       "kind": "chapter",
@@ -1021,7 +1204,9 @@
       "usa": "DS2 #7 — The Demon Fever!",
       "usaDate": "Apr 1975",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:DS2_007:864ccc3eb8e6",
+      "storyTitle": "La febbre del demonio"
     },
     {
       "kind": "chapter",
@@ -1030,7 +1215,9 @@
       "usa": "DS2 #8 — Rights Of Passage!",
       "usaDate": "Jun 1975",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:DS2_008:70137d478680",
+      "storyTitle": "Diritti di passaggio"
     },
     {
       "kind": "chapter",
@@ -1039,7 +1226,9 @@
       "usa": "DS2 #9 — Consummation",
       "usaDate": "Aug 1975",
       "italianAlbum": "MMW_M_135",
-      "physicalId": "MMW_M:135"
+      "physicalId": "MMW_M:135",
+      "storyId": "doctor-strange-story:DS2_009:9b1408303e01",
+      "storyTitle": "La fine!"
     },
     {
       "kind": "chapter",
@@ -1048,7 +1237,9 @@
       "usa": "DS2 #10 — Alone Against Eternity",
       "usaDate": "Oct 1975",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_010:f1fa2c66cb8f",
+      "storyTitle": "Solo contro eternità"
     },
     {
       "kind": "chapter",
@@ -1057,7 +1248,9 @@
       "usa": "DS2 #11 — Shadowplay!",
       "usaDate": "Dec 1975",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_011:70137d478680",
+      "storyTitle": "Gioco di ombre!"
     },
     {
       "kind": "chapter",
@@ -1066,7 +1259,9 @@
       "usa": "DS2 #12 — Final Curtain!",
       "usaDate": "Feb 1976",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_012:70137d478680",
+      "storyTitle": "Il gran finale!"
     },
     {
       "kind": "chapter",
@@ -1075,7 +1270,9 @@
       "usa": "DS2 #13 — Planet Earth Is No More!",
       "usaDate": "Apr 1976",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_013:3e7f143c19a5",
+      "storyTitle": "Il pianeta terra non esiste più!"
     },
     {
       "kind": "chapter",
@@ -1084,7 +1281,9 @@
       "usa": "DS2 #14 — The Tomb Of Dr. Strange!",
       "usaDate": "May 1976",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_014:3e7f143c19a5",
+      "storyTitle": "La tomba del Dottor Strange"
     },
     {
       "kind": "chapter",
@@ -1093,7 +1292,9 @@
       "usa": "DS2 #15 — Where There's Smoke…",
       "usaDate": "Jun 1976",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_015:c13713936ece",
+      "storyTitle": "Dove c'è fumo"
     },
     {
       "kind": "chapter",
@@ -1102,7 +1303,9 @@
       "usa": "DS2 #16 — Beelzebub On Parade!",
       "usaDate": "Jul 1976",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_016:3e7f143c19a5",
+      "storyTitle": "Belzebù in marcia!"
     },
     {
       "kind": "chapter",
@@ -1111,7 +1314,9 @@
       "usa": "DS2 #17 — Utopia Rising!",
       "usaDate": "Aug 1976",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_017:3e7f143c19a5",
+      "storyTitle": "L'ascesa dell'utopia!"
     },
     {
       "kind": "chapter",
@@ -1120,7 +1325,9 @@
       "usa": "DS2 #18 — The Dream Is Dead!",
       "usaDate": "Sep 1976",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_018:d120637b4222",
+      "storyTitle": "Il sogno è morto"
     },
     {
       "kind": "chapter",
@@ -1129,7 +1336,9 @@
       "usa": "DS2 #19 — Lo, The Powers Changeth!",
       "usaDate": "Oct 1976",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_019:aaba57d967f4",
+      "storyTitle": "Guarda, i poteri cambiano!"
     },
     {
       "kind": "chapter",
@@ -1138,7 +1347,9 @@
       "usa": "DS2 #20 — Call Him: Xander The Merciless!",
       "usaDate": "Dec 1976",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_020:9d35a9d8c73f",
+      "storyTitle": "Chiamatelo xander lo spietato!"
     },
     {
       "kind": "chapter",
@@ -1147,16 +1358,9 @@
       "usa": "DSA #1 — Dr. Strange: ...And There Will Be Worlds Anew!",
       "usaDate": "Dec 1976",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
-    },
-    {
-      "kind": "chapter",
-      "sourceCode": "DS2",
-      "usaCode": "DS2_021",
-      "usa": "DS2 #21 — The Coming of... Dr. Strange",
-      "usaDate": "Feb 1977",
-      "italianAlbum": "UR_C1_001",
-      "physicalId": "UR_C1:1"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DSA_001:c7560c509291",
+      "storyTitle": "... e ci saranno nuovi mondi!"
     },
     {
       "kind": "chapter",
@@ -1165,7 +1369,9 @@
       "usa": "DS2 #22 — Mind Trip!",
       "usaDate": "Apr 1977",
       "italianAlbum": "MMW_M_150",
-      "physicalId": "MMW_M:150"
+      "physicalId": "MMW_M:150",
+      "storyId": "doctor-strange-story:DS2_022:a5460ef39cbf",
+      "storyTitle": "Viaggio mentale!"
     },
     {
       "kind": "chapter",
@@ -1174,7 +1380,9 @@
       "usa": "DS2 #23 — Into The Quadriverse!",
       "usaDate": "Jun 1977",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_023:d8cb5d883d45",
+      "storyTitle": "Viaggio nel quadriverso"
     },
     {
       "kind": "chapter",
@@ -1183,7 +1391,9 @@
       "usa": "DS2 #24 — A Change Cometh!",
       "usaDate": "Aug 1977",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_024:6404e339da35",
+      "storyTitle": "Avviene un cambiamento"
     },
     {
       "kind": "chapter",
@@ -1192,7 +1402,9 @@
       "usa": "DS2 #25 — Doctor Stranger Yet",
       "usaDate": "Oct 1977",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_025:b66895505d9f",
+      "storyTitle": "Un mondo in rovina"
     },
     {
       "kind": "chapter",
@@ -1201,7 +1413,9 @@
       "usa": "DS2 #26 — The Return Of The Ancient One!",
       "usaDate": "Dec 1977",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_026:e6d8aa156033",
+      "storyTitle": "Il ritorno dell'Antico"
     },
     {
       "kind": "chapter",
@@ -1210,7 +1424,9 @@
       "usa": "DS2 #27 — I... The In-Betweener!",
       "usaDate": "Feb 1978",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_027:75a523171640",
+      "storyTitle": "Io... il mediatore!"
     },
     {
       "kind": "chapter",
@@ -1219,7 +1435,9 @@
       "usa": "DS2 #28 — Fate... Like A Wheel",
       "usaDate": "Apr 1978",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_028:225248c34cc2",
+      "storyTitle": "Il destino è una ruota"
     },
     {
       "kind": "chapter",
@@ -1228,7 +1446,9 @@
       "usa": "DS2 #29 — He Who Stalks!",
       "usaDate": "Jun 1978",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_029:ac162861134e",
+      "storyTitle": "L'agguato"
     },
     {
       "kind": "chapter",
@@ -1237,7 +1457,9 @@
       "usa": "DS2 #30 — A Gathering of Fear!",
       "usaDate": "Aug 1978",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_030:e5f74c8d266d",
+      "storyTitle": "La riunione del terrore!"
     },
     {
       "kind": "chapter",
@@ -1246,7 +1468,9 @@
       "usa": "DS2 #31 — A Death for Immortality",
       "usaDate": "Oct 1978",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_031:ccc2acbf6461",
+      "storyTitle": "Morire per l'eternità"
     },
     {
       "kind": "chapter",
@@ -1255,7 +1479,9 @@
       "usa": "DS2 #32 — The Dream Weaver!",
       "usaDate": "Dec 1978",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_032:ea87e9083931",
+      "storyTitle": "La tessitrice di sogni!"
     },
     {
       "kind": "chapter",
@@ -1264,7 +1490,9 @@
       "usa": "DS2 #33 — All My Dreams Against Me",
       "usaDate": "Feb 1979",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_033:171bf76482cc",
+      "storyTitle": "Tutti i miei sogni contro di me"
     },
     {
       "kind": "chapter",
@@ -1273,7 +1501,9 @@
       "usa": "DS2 #34 — A Midsummer's Nightmare!",
       "usaDate": "Apr 1979",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_034:4915c0edd4ab",
+      "storyTitle": "Un incubo di una notte di mezza estate"
     },
     {
       "kind": "chapter",
@@ -1282,7 +1512,9 @@
       "usa": "DS2 #35 — Of Knights -- and Pawns",
       "usaDate": "Jun 1979",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_035:ac15a6202745",
+      "storyTitle": "Di cavalieri... e pedine"
     },
     {
       "kind": "chapter",
@@ -1291,7 +1523,9 @@
       "usa": "DS2 #36 — The Man Who Knew Stephen Sanders!",
       "usaDate": "Aug 1979",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_036:09f5f6d88019",
+      "storyTitle": "L'uomo che conosceva Stephen Sanders"
     },
     {
       "kind": "chapter",
@@ -1300,7 +1534,9 @@
       "usa": "DS2 #37 — And Fear, the Final Victor!",
       "usaDate": "Oct 1979",
       "italianAlbum": "MMW_M_169",
-      "physicalId": "MMW_M:169"
+      "physicalId": "MMW_M:169",
+      "storyId": "doctor-strange-story:DS2_037:09f5f6d88019",
+      "storyTitle": "E la paura trionferà"
     },
     {
       "kind": "chapter",
@@ -1309,7 +1545,9 @@
       "usa": "DS2 #38 — Eye of the Beholder!",
       "usaDate": "Dec 1979",
       "italianAlbum": "MMW_M_186",
-      "physicalId": "MMW_M:186"
+      "physicalId": "MMW_M:186",
+      "storyId": "doctor-strange-story:DS2_038:d66ec6e8836a",
+      "storyTitle": "L'occhio dell'osservatore!"
     },
     {
       "kind": "chapter",
@@ -1318,7 +1556,9 @@
       "usa": "DS2 #39 — The Old Dark House",
       "usaDate": "Feb 1980",
       "italianAlbum": "MMW_M_186",
-      "physicalId": "MMW_M:186"
+      "physicalId": "MMW_M:186",
+      "storyId": "doctor-strange-story:DS2_039:a293f07486ee",
+      "storyTitle": "La vecchia casa oscura"
     },
     {
       "kind": "chapter",
@@ -1327,7 +1567,9 @@
       "usa": "DS2 #40 — Dawn of Death!",
       "usaDate": "Apr 1980",
       "italianAlbum": "MMW_M_186",
-      "physicalId": "MMW_M:186"
+      "physicalId": "MMW_M:186",
+      "storyId": "doctor-strange-story:DS2_040:db816d589a05",
+      "storyTitle": "Alba di morte!"
     },
     {
       "kind": "chapter",
@@ -1336,7 +1578,9 @@
       "usa": "DS2 #41 — Weep for the Soul of Man…",
       "usaDate": "Jun 1980",
       "italianAlbum": "MMW_M_186",
-      "physicalId": "MMW_M:186"
+      "physicalId": "MMW_M:186",
+      "storyId": "doctor-strange-story:DS2_041:b8ba5a025fbd",
+      "storyTitle": "Pianto per l'anima di un uomo"
     },
     {
       "kind": "chapter",
@@ -1345,7 +1589,9 @@
       "usa": "DS2 #42 — The Black Mirror!",
       "usaDate": "Aug 1980",
       "italianAlbum": "MMW_M_186",
-      "physicalId": "MMW_M:186"
+      "physicalId": "MMW_M:186",
+      "storyId": "doctor-strange-story:DS2_042:d66ec6e8836a",
+      "storyTitle": "Lo specchio nero"
     },
     {
       "kind": "chapter",
@@ -1354,7 +1600,9 @@
       "usa": "DS2 #43 — Shadowqueen!",
       "usaDate": "Oct 1980",
       "italianAlbum": "MMW_M_186",
-      "physicalId": "MMW_M:186"
+      "physicalId": "MMW_M:186",
+      "storyId": "doctor-strange-story:DS2_043:087ba35fe119",
+      "storyTitle": "Shadowqueen!"
     },
     {
       "kind": "chapter",
@@ -1363,7 +1611,9 @@
       "usa": "DS2 #44 — Duel of Fire!",
       "usaDate": "Dec 1980",
       "italianAlbum": "MMW_M_186",
-      "physicalId": "MMW_M:186"
+      "physicalId": "MMW_M:186",
+      "storyId": "doctor-strange-story:DS2_044:e46821010080",
+      "storyTitle": "Duello di fuoco!"
     },
     {
       "kind": "chapter",
@@ -1372,7 +1622,9 @@
       "usa": "DS2 #45 — Wizard of the West Village",
       "usaDate": "Feb 1981",
       "italianAlbum": "MMW_M_186",
-      "physicalId": "MMW_M:186"
+      "physicalId": "MMW_M:186",
+      "storyId": "doctor-strange-story:DS2_045:09c8030d29a4",
+      "storyTitle": "Lo stregone del West Village"
     },
     {
       "kind": "chapter",
@@ -1381,7 +1633,9 @@
       "usa": "DS2 #46 — The Reality War",
       "usaDate": "Apr 1981",
       "italianAlbum": "MMW_M_186",
-      "physicalId": "MMW_M:186"
+      "physicalId": "MMW_M:186",
+      "storyId": "doctor-strange-story:DS2_046:d2327677778c",
+      "storyTitle": "La guerra delle realtà"
     },
     {
       "kind": "chapter",
@@ -1390,7 +1644,9 @@
       "usa": "DS2 #47 — The Grand Illusion!",
       "usaDate": "Jun 1981",
       "italianAlbum": "MMW_M_203",
-      "physicalId": "MMW_M:203"
+      "physicalId": "MMW_M:203",
+      "storyId": "doctor-strange-story:DS2_047:ee86937dacfb",
+      "storyTitle": "La grande illusione"
     },
     {
       "kind": "chapter",
@@ -1399,7 +1655,9 @@
       "usa": "DS2 #48 — The Power of Dr. Strange!",
       "usaDate": "Aug 1981",
       "italianAlbum": "MMW_M_203",
-      "physicalId": "MMW_M:203"
+      "physicalId": "MMW_M:203",
+      "storyId": "doctor-strange-story:DS2_048:9278d9a27db1",
+      "storyTitle": "Il potere del Dr Strange"
     },
     {
       "kind": "chapter",
@@ -1408,7 +1666,9 @@
       "usa": "DS2 #49 — This Menace Reborn!",
       "usaDate": "Oct 1981",
       "italianAlbum": "MMW_M_203",
-      "physicalId": "MMW_M:203"
+      "physicalId": "MMW_M:203",
+      "storyId": "doctor-strange-story:DS2_049:f91707879868",
+      "storyTitle": "This menace reborn!"
     },
     {
       "kind": "chapter",
@@ -1417,7 +1677,9 @@
       "usa": "DS2 #50 — The Cat & the Cataclysm",
       "usaDate": "Dec 1981",
       "italianAlbum": "MMW_M_203",
-      "physicalId": "MMW_M:203"
+      "physicalId": "MMW_M:203",
+      "storyId": "doctor-strange-story:DS2_050:4da2100b1bdd",
+      "storyTitle": "Il gatto e il cataclisma"
     },
     {
       "kind": "chapter",
@@ -1426,7 +1688,9 @@
       "usa": "DS2 #51 — A Time For Love, A Time For Hate!",
       "usaDate": "Feb 1982",
       "italianAlbum": "MMW_M_203",
-      "physicalId": "MMW_M:203"
+      "physicalId": "MMW_M:203",
+      "storyId": "doctor-strange-story:DS2_051:9278d9a27db1",
+      "storyTitle": "Un tempo per l'amore, un tempo per l'odio!"
     },
     {
       "kind": "chapter",
@@ -1435,7 +1699,9 @@
       "usa": "DS2 #52 — Life-Times",
       "usaDate": "Apr 1982",
       "italianAlbum": "MMW_M_203",
-      "physicalId": "MMW_M:203"
+      "physicalId": "MMW_M:203",
+      "storyId": "doctor-strange-story:DS2_052:9278d9a27db1",
+      "storyTitle": "I tempi della vita"
     },
     {
       "kind": "chapter",
@@ -1444,7 +1710,9 @@
       "usa": "DS2 #53 — Land of the Pharohs",
       "usaDate": "Jun 1982",
       "italianAlbum": "MMW_M_203",
-      "physicalId": "MMW_M:203"
+      "physicalId": "MMW_M:203",
+      "storyId": "doctor-strange-story:DS2_053:9278d9a27db1",
+      "storyTitle": "La terra dei Faraoni"
     },
     {
       "kind": "chapter",
@@ -1453,7 +1721,9 @@
       "usa": "DS2 #54 — Alone!",
       "usaDate": "Aug 1982",
       "italianAlbum": "MMW_M_203",
-      "physicalId": "MMW_M:203"
+      "physicalId": "MMW_M:203",
+      "storyId": "doctor-strange-story:DS2_054:169028a2c4dc",
+      "storyTitle": "Solo!"
     },
     {
       "kind": "chapter",
@@ -1462,7 +1732,9 @@
       "usa": "DS2 #55 — To Have Loved... and Lost!",
       "usaDate": "Oct 1982",
       "italianAlbum": "MMW_M_203",
-      "physicalId": "MMW_M:203"
+      "physicalId": "MMW_M:203",
+      "storyId": "doctor-strange-story:DS2_055:3f7f4c3a6b01",
+      "storyTitle": "Aver amato... e perso!"
     },
     {
       "kind": "chapter",
@@ -1471,7 +1743,9 @@
       "usa": "DS2 #56 — A Mystic Reborn",
       "usaDate": "Dec 1982",
       "italianAlbum": "MMW_M_203",
-      "physicalId": "MMW_M:203"
+      "physicalId": "MMW_M:203",
+      "storyId": "doctor-strange-story:DS2_056:f936b1c594dd",
+      "storyTitle": "Una mistica rinascita!"
     },
     {
       "kind": "chapter",
@@ -1480,7 +1754,9 @@
       "usa": "DS2 #57 — Gather My Disciples Before Me!",
       "usaDate": "Feb 1983",
       "italianAlbum": "MMW_M_203",
-      "physicalId": "MMW_M:203"
+      "physicalId": "MMW_M:203",
+      "storyId": "doctor-strange-story:DS2_057:a4b671b7a1e7",
+      "storyTitle": "Raduna i miei discepoli innanzi a me"
     },
     {
       "kind": "chapter",
@@ -1489,7 +1765,9 @@
       "usa": "DS2 #58 — ...At Loose Ends!",
       "usaDate": "Apr 1983",
       "italianAlbum": "THOR_PP_048",
-      "physicalId": "THOR_PP:48"
+      "physicalId": "THOR_PP:48",
+      "storyId": "doctor-strange-story:DS2_058:644ef6bd472d",
+      "storyTitle": "... in sospeso!"
     },
     {
       "kind": "chapter",
@@ -1498,7 +1776,9 @@
       "usa": "DS2 #59 — Children of the Night!",
       "usaDate": "Jun 1983",
       "italianAlbum": "THOR_PP_049",
-      "physicalId": "THOR_PP:49"
+      "physicalId": "THOR_PP:49",
+      "storyId": "doctor-strange-story:DS2_059:644ef6bd472d",
+      "storyTitle": "I figli della notte!"
     },
     {
       "kind": "chapter",
@@ -1507,7 +1787,9 @@
       "usa": "DS2 #60 — Assault on Avengers Mansion",
       "usaDate": "Aug 1983",
       "italianAlbum": "THOR_PP_051",
-      "physicalId": "THOR_PP:51"
+      "physicalId": "THOR_PP:51",
+      "storyId": "doctor-strange-story:DS2_060:644ef6bd472d",
+      "storyTitle": "Assalto alla dimora dei Vendicatori!"
     },
     {
       "kind": "chapter",
@@ -1516,7 +1798,9 @@
       "usa": "DS2 #61 — Power be the Prize!",
       "usaDate": "Oct 1983",
       "italianAlbum": "THOR_PP_051",
-      "physicalId": "THOR_PP:51"
+      "physicalId": "THOR_PP:51",
+      "storyId": "doctor-strange-story:DS2_061:121160459e8f",
+      "storyTitle": "Il potere è il premio!"
     },
     {
       "kind": "chapter",
@@ -1525,7 +1809,9 @@
       "usa": "DS2 #62 — Deliver Us From Evil!",
       "usaDate": "Dec 1983",
       "italianAlbum": "THOR_PP_052",
-      "physicalId": "THOR_PP:52"
+      "physicalId": "THOR_PP:52",
+      "storyId": "doctor-strange-story:DS2_062:46c33554ec4b",
+      "storyTitle": "Liberaci dal male!"
     },
     {
       "kind": "chapter",
@@ -1534,7 +1820,9 @@
       "usa": "DS2 #63 — Cry of the Spirit",
       "usaDate": "Feb 1984",
       "italianAlbum": "THOR_PP_052",
-      "physicalId": "THOR_PP:52"
+      "physicalId": "THOR_PP:52",
+      "storyId": "doctor-strange-story:DS2_063:ce3e9d5856fd",
+      "storyTitle": "Il pianto dell'anima"
     },
     {
       "kind": "chapter",
@@ -1543,7 +1831,9 @@
       "usa": "DS2 #64 — Art Rage",
       "usaDate": "Apr 1984",
       "italianAlbum": "THOR_PP_053",
-      "physicalId": "THOR_PP:53"
+      "physicalId": "THOR_PP:53",
+      "storyId": "doctor-strange-story:DS2_064:7b1e1b562f26",
+      "storyTitle": "Furia artistica"
     },
     {
       "kind": "chapter",
@@ -1552,7 +1842,9 @@
       "usa": "DS2 #65 — Charlatan!",
       "usaDate": "Jun 1984",
       "italianAlbum": "THOR_PP_053",
-      "physicalId": "THOR_PP:53"
+      "physicalId": "THOR_PP:53",
+      "storyId": "doctor-strange-story:DS2_065:687e7ae221bb",
+      "storyTitle": "Ciarlatano!"
     },
     {
       "kind": "chapter",
@@ -1561,7 +1853,9 @@
       "usa": "DS2 #66 — The Chosen One",
       "usaDate": "Aug 1984",
       "italianAlbum": "THOR_PP_054",
-      "physicalId": "THOR_PP:54"
+      "physicalId": "THOR_PP:54",
+      "storyId": "doctor-strange-story:DS2_066:f936b1c594dd",
+      "storyTitle": "Il prescelto"
     },
     {
       "kind": "chapter",
@@ -1570,7 +1864,9 @@
       "usa": "DS2 #67 — Private Eyes",
       "usaDate": "Oct 1984",
       "italianAlbum": "THOR_PP_054",
-      "physicalId": "THOR_PP:54"
+      "physicalId": "THOR_PP:54",
+      "storyId": "doctor-strange-story:DS2_067:871e280feb6f",
+      "storyTitle": "Investigatori"
     },
     {
       "kind": "chapter",
@@ -1579,7 +1875,9 @@
       "usa": "DS2 #68 — Sword and Sorcery",
       "usaDate": "Dec 1984",
       "italianAlbum": "THOR_PP_055",
-      "physicalId": "THOR_PP:55"
+      "physicalId": "THOR_PP:55",
+      "storyId": "doctor-strange-story:DS2_068:f936b1c594dd",
+      "storyTitle": "Spada e magia"
     },
     {
       "kind": "chapter",
@@ -1588,7 +1886,9 @@
       "usa": "DS2 #69 — Sea Cruise",
       "usaDate": "Feb 1985",
       "italianAlbum": "THOR_PP_055",
-      "physicalId": "THOR_PP:55"
+      "physicalId": "THOR_PP:55",
+      "storyId": "doctor-strange-story:DS2_069:687e7ae221bb",
+      "storyTitle": "Crociera"
     },
     {
       "kind": "chapter",
@@ -1597,7 +1897,9 @@
       "usa": "DS2 #70 — Deadly Exchange",
       "usaDate": "Apr 1985",
       "italianAlbum": "THOR_PP_056",
-      "physicalId": "THOR_PP:56"
+      "physicalId": "THOR_PP:56",
+      "storyId": "doctor-strange-story:DS2_070:823724dc055f",
+      "storyTitle": "Scambio mortale"
     },
     {
       "kind": "chapter",
@@ -1606,7 +1908,9 @@
       "usa": "DS2 #71 — Into the Dark Dimension",
       "usaDate": "Jun 1985",
       "italianAlbum": "THOR_PP_056",
-      "physicalId": "THOR_PP:56"
+      "physicalId": "THOR_PP:56",
+      "storyId": "doctor-strange-story:DS2_071:529c6c118e54",
+      "storyTitle": "Nella dimensione oscura"
     },
     {
       "kind": "chapter",
@@ -1615,7 +1919,9 @@
       "usa": "DS2 #72 — Secret Origin",
       "usaDate": "Aug 1985",
       "italianAlbum": "THOR_PP_057",
-      "physicalId": "THOR_PP:57"
+      "physicalId": "THOR_PP:57",
+      "storyId": "doctor-strange-story:DS2_072:5eaccf8a095d",
+      "storyTitle": "Origine segreta"
     },
     {
       "kind": "chapter",
@@ -1624,7 +1930,9 @@
       "usa": "DS2 #73 — Final Triumph",
       "usaDate": "Oct 1985",
       "italianAlbum": "THOR_PP_057",
-      "physicalId": "THOR_PP:57"
+      "physicalId": "THOR_PP:57",
+      "storyId": "doctor-strange-story:DS2_073:50d47c06518c",
+      "storyTitle": "Trionfo finale"
     },
     {
       "kind": "chapter",
@@ -1633,7 +1941,9 @@
       "usa": "DS2 #74 — And Now... The Beyonder!",
       "usaDate": "Dec 1985",
       "italianAlbum": "THOR_PP_058",
-      "physicalId": "THOR_PP:58"
+      "physicalId": "THOR_PP:58",
+      "storyId": "doctor-strange-story:DS2_074:4170d50cbc0b",
+      "storyTitle": "Ed ora... l'Arcano!"
     },
     {
       "kind": "chapter",
@@ -1642,7 +1952,9 @@
       "usa": "DS2 #75 — Souls in Torment!",
       "usaDate": "Feb 1986",
       "italianAlbum": "THOR_PP_058",
-      "physicalId": "THOR_PP:58"
+      "physicalId": "THOR_PP:58",
+      "storyId": "doctor-strange-story:DS2_075:21f85febb4e0",
+      "storyTitle": "Anime tormentate!"
     },
     {
       "kind": "chapter",
@@ -1651,7 +1963,9 @@
       "usa": "DS2 #76 — What Song the Sirens Sang!",
       "usaDate": "Apr 1986",
       "italianAlbum": "THOR_PP_059",
-      "physicalId": "THOR_PP:59"
+      "physicalId": "THOR_PP:59",
+      "storyId": "doctor-strange-story:DS2_076:60e1c8e2f7ee",
+      "storyTitle": "Quale canto cantano le sirene!"
     },
     {
       "kind": "chapter",
@@ -1660,7 +1974,9 @@
       "usa": "DS2 #77 — Khat!",
       "usaDate": "Jun 1986",
       "italianAlbum": "THOR_PP_059",
-      "physicalId": "THOR_PP:59"
+      "physicalId": "THOR_PP:59",
+      "storyId": "doctor-strange-story:DS2_077:16e51d6f3c12",
+      "storyTitle": "Ghattho!"
     },
     {
       "kind": "chapter",
@@ -1669,7 +1985,9 @@
       "usa": "DS2 #78 — Cloaks and Dangers!",
       "usaDate": "Aug 1986",
       "italianAlbum": "THOR_PP_060",
-      "physicalId": "THOR_PP:60"
+      "physicalId": "THOR_PP:60",
+      "storyId": "doctor-strange-story:DS2_078:0035dbcd9134",
+      "storyTitle": "Cappe e pericoli !"
     },
     {
       "kind": "chapter",
@@ -1678,7 +1996,9 @@
       "usa": "DS2 #79 — Fata Morganna!",
       "usaDate": "Oct 1986",
       "italianAlbum": "THOR_PP_060",
-      "physicalId": "THOR_PP:60"
+      "physicalId": "THOR_PP:60",
+      "storyId": "doctor-strange-story:DS2_079:99dd759bd1a2",
+      "storyTitle": "Fata Morgana!"
     },
     {
       "kind": "chapter",
@@ -1687,7 +2007,9 @@
       "usa": "DS2 #80 — Don't Pay the Ferryman!",
       "usaDate": "Dec 1986",
       "italianAlbum": "DSTRANGEORO_006",
-      "physicalId": "DSTRANGEORO:6"
+      "physicalId": "DSTRANGEORO:6",
+      "storyId": "doctor-strange-story:DS2_080:16e51d6f3c12",
+      "storyTitle": "Don't Pay the Ferryman!"
     },
     {
       "kind": "chapter",
@@ -1696,7 +2018,9 @@
       "usa": "DS2 #81 — The Tongues of Men and Angels...!",
       "usaDate": "Feb 1987",
       "italianAlbum": "DSTRANGEORO_006",
-      "physicalId": "DSTRANGEORO:6"
+      "physicalId": "DSTRANGEORO:6",
+      "storyId": "doctor-strange-story:DS2_081:16e51d6f3c12",
+      "storyTitle": "The Tongues of Men and Angels...!"
     },
     {
       "kind": "chapter",
@@ -1759,7 +2083,9 @@
       "usa": "ST2 #7 — Cloak and Dagger: Doorway To Nightmare!",
       "usaDate": "Oct 1987",
       "italianAlbum": "WOL_PM_032",
-      "physicalId": "WOL_PM:32/33"
+      "physicalId": "WOL_PM:32/33",
+      "storyId": "doctor-strange-story:ST2_007:c2c6a2c4e12a",
+      "storyTitle": "More Light!"
     },
     {
       "kind": "chapter",
@@ -1876,7 +2202,9 @@
       "usa": "DS3 #1 — Love Is A Spell, The Spell Is Death!",
       "usaDate": "Nov 1988",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_001:536dba74a0d8",
+      "storyTitle": "Love Is A Spell, The Spell Is Death!"
     },
     {
       "kind": "chapter",
@@ -1885,7 +2213,9 @@
       "usa": "DS3 #2 — The Unbearable Lightness Of Being !",
       "usaDate": "Jan 1989",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_002:fa5d0f3791e4",
+      "storyTitle": "The Unbearable Lightness Of Being !"
     },
     {
       "kind": "chapter",
@@ -1894,7 +2224,9 @@
       "usa": "DS3 #3 — Dragon Circle",
       "usaDate": "Mar 1989",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_003:0f6c1464ae5c",
+      "storyTitle": "Dragon Circle"
     },
     {
       "kind": "chapter",
@@ -1903,7 +2235,9 @@
       "usa": "DS3 #4 — Dragon's Dream !",
       "usaDate": "May 1989",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_004:669979cb4880",
+      "storyTitle": "Dragon's Dream !"
     },
     {
       "kind": "chapter",
@@ -1912,7 +2246,9 @@
       "usa": "DS3 #5 — The Faust Gambit, Part 1 : Souled Out !",
       "usaDate": "Jul 1989",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_005:66dbce10874f",
+      "storyTitle": "The Faust Gambit, Part 1 : Souled Out !"
     },
     {
       "kind": "chapter",
@@ -1921,7 +2257,9 @@
       "usa": "DS3 #6 — The Faust Gambit, Part 2 : Demonic Re-Possession",
       "usaDate": "Aug 1989",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_006:41461b620055",
+      "storyTitle": "The Faust Gambit, Part 2 : Demonic Re-Possession"
     },
     {
       "kind": "chapter",
@@ -1930,7 +2268,9 @@
       "usa": "DS3 #7 — The Faust Gambit, Part 3 : Agamotto Mon Amour",
       "usaDate": "Sep 1989",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_007:41461b620055",
+      "storyTitle": "The Faust Gambit, Part 3 : Agamotto Mon Amour"
     },
     {
       "kind": "chapter",
@@ -1939,7 +2279,9 @@
       "usa": "DS3 #8 — The Faust Gambit, Part 4 : Mephisto Waltz With Satannish Verses",
       "usaDate": "Oct 1989",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_008:41461b620055",
+      "storyTitle": "The Faust Gambit, Part 4 : Mephisto Waltz With Satannish Verses"
     },
     {
       "kind": "chapter",
@@ -1948,7 +2290,9 @@
       "usa": "DS3 #9 — That Was Then... This Is NOW",
       "usaDate": "Nov 1989",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_009:0007aa684db4",
+      "storyTitle": "That Was Then... This Is NOW"
     },
     {
       "kind": "chapter",
@@ -1957,7 +2301,9 @@
       "usa": "DS3 #10 — Acts Of Vengeance ! - The Vampire Strikes Back!",
       "usaDate": "Nov 1989",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_010:7b76d880a9f8",
+      "storyTitle": "Acts Of Vengeance ! - The Vampire Strikes Back!"
     },
     {
       "kind": "chapter",
@@ -1966,7 +2312,9 @@
       "usa": "DS3 #11 — Acts Of Vengeance ! - The Hobgoblin Of Little Minds",
       "usaDate": "Dec 1989",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_011:7b76d880a9f8",
+      "storyTitle": "Acts Of Vengeance ! - The Hobgoblin Of Little Minds"
     },
     {
       "kind": "chapter",
@@ -1975,7 +2323,9 @@
       "usa": "DS3 #12 — Acts Of Vengeance ! - Some Enchantress Evening",
       "usaDate": "Dec 1989",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_012:7b76d880a9f8",
+      "storyTitle": "Acts Of Vengeance ! - Some Enchantress Evening"
     },
     {
       "kind": "chapter",
@@ -1984,7 +2334,9 @@
       "usa": "MGN_STDO #1 — Triumph and Torment",
       "usaDate": "Dec 1989",
       "italianAlbum": "PSPP_006",
-      "physicalId": "PSPP:6"
+      "physicalId": "PSPP:6",
+      "storyId": "doctor-strange-story:MGN_STDO_001:66bd125b3440",
+      "storyTitle": "Trionfo E Tormento"
     },
     {
       "kind": "chapter",
@@ -1993,7 +2345,9 @@
       "usa": "DS3 #13 — Acts Of Vengeance ! - Arkon's New York Adventure",
       "usaDate": "Jan 1990",
       "italianAlbum": "MAREPCOLL_003",
-      "physicalId": "MAREPCOLL:3"
+      "physicalId": "MAREPCOLL:3",
+      "storyId": "doctor-strange-story:DS3_013:7b76d880a9f8",
+      "storyTitle": "Acts Of Vengeance ! - Arkon's New York Adventure"
     },
     {
       "kind": "chapter",
@@ -2047,7 +2401,9 @@
       "usa": "DS3 #19 — The Azrael Touch",
       "usaDate": "Jul 1990",
       "italianAlbum": "MAR_MAG_008",
-      "physicalId": "MAR_MAG:8"
+      "physicalId": "MAR_MAG:8",
+      "storyId": "doctor-strange-story:DS3_019:6784f8e749d9",
+      "storyTitle": "Il tocco di Azrael"
     },
     {
       "kind": "chapter",
@@ -2128,7 +2484,9 @@
       "usa": "DS3 #28 — Strange Tales II",
       "usaDate": "Apr 1991",
       "italianAlbum": "AAC_CM_030",
-      "physicalId": "AAC_CM:30"
+      "physicalId": "AAC_CM:30",
+      "storyId": "doctor-strange-story:DS3_028:482fdfd64b06",
+      "storyTitle": "Strange Tales II"
     },
     {
       "kind": "chapter",
@@ -2254,7 +2612,9 @@
       "usa": "DS3 #42 — Infinity War : Galactus, Go Home !",
       "usaDate": "Jun 1992",
       "italianAlbum": "MCP_M_018",
-      "physicalId": "MCP_M:18"
+      "physicalId": "MCP_M:18",
+      "storyId": "doctor-strange-story:DS3_042:50af75d99d34",
+      "storyTitle": "Torna a casa Galactus!"
     },
     {
       "kind": "chapter",
@@ -2263,7 +2623,9 @@
       "usa": "DS3 #43 — Infinity War : An Eye For An Eye...",
       "usaDate": "Jul 1992",
       "italianAlbum": "F4_SM_120",
-      "physicalId": "F4_SM:120"
+      "physicalId": "F4_SM:120",
+      "storyId": "doctor-strange-story:DS3_043:50af75d99d34",
+      "storyTitle": "Occhio per occhio"
     },
     {
       "kind": "chapter",
@@ -2272,7 +2634,9 @@
       "usa": "DS3 #44 — Infinity War : The Color Crimson",
       "usaDate": "Aug 1992",
       "italianAlbum": "F4_SM_122",
-      "physicalId": "F4_SM:122"
+      "physicalId": "F4_SM:122",
+      "storyId": "doctor-strange-story:DS3_044:50af75d99d34",
+      "storyTitle": "Il colore scarlatto"
     },
     {
       "kind": "chapter",
@@ -2281,7 +2645,9 @@
       "usa": "DS3 #45 — Infinity War : Death's Greatest Hits",
       "usaDate": "Sep 1992",
       "italianAlbum": "F4_SM_122",
-      "physicalId": "F4_SM:122"
+      "physicalId": "F4_SM:122",
+      "storyId": "doctor-strange-story:DS3_045:50af75d99d34",
+      "storyTitle": "I più grandi successi della morte"
     },
     {
       "kind": "chapter",
@@ -2290,7 +2656,9 @@
       "usa": "DS3 #46 — Infinity War : Strange Bedfellows Part 1",
       "usaDate": "Oct 1992",
       "italianAlbum": "F4_SM_123",
-      "physicalId": "F4_SM:123"
+      "physicalId": "F4_SM:123",
+      "storyId": "doctor-strange-story:DS3_046:50af75d99d34",
+      "storyTitle": "Strane compagnie ,pt 1"
     },
     {
       "kind": "chapter",
@@ -2299,7 +2667,9 @@
       "usa": "DS3 #47 — Infinity War : Strange Bedfellows, Part 2",
       "usaDate": "Nov 1992",
       "italianAlbum": "F4_SM_124",
-      "physicalId": "F4_SM:124"
+      "physicalId": "F4_SM:124",
+      "storyId": "doctor-strange-story:DS3_047:9238623a1918",
+      "storyTitle": "Strane compagnie, pt 2"
     },
     {
       "kind": "chapter",
@@ -2308,7 +2678,9 @@
       "usa": "DSA #2 — Dr. Strange: The Return of the Defenders Part 4 - Hot Spell",
       "usaDate": "Dec 1992",
       "italianAlbum": "MCP_M_016",
-      "physicalId": "MCP_M:16"
+      "physicalId": "MCP_M:16",
+      "storyId": "doctor-strange-story:DSA_002:dc99df0d9425",
+      "storyTitle": "Magia calda"
     },
     {
       "kind": "chapter",
@@ -2317,7 +2689,9 @@
       "usa": "DS3 #48 — To Serve In Heaven",
       "usaDate": "Dec 1992",
       "italianAlbum": "DSTR_M_000",
-      "physicalId": "DSTR_M:0"
+      "physicalId": "DSTR_M:0",
+      "storyId": "doctor-strange-story:DS3_048:dc7ad4deed83",
+      "storyTitle": "Servire nei cieli"
     },
     {
       "kind": "chapter",
@@ -2326,7 +2700,9 @@
       "usa": "DS3 #49 — The Wrath Of Gods",
       "usaDate": "Jan 1993",
       "italianAlbum": "DSTR_M_000",
-      "physicalId": "DSTR_M:0"
+      "physicalId": "DSTR_M:0",
+      "storyId": "doctor-strange-story:DS3_049:d24010be93ec",
+      "storyTitle": "L'ira degli dei"
     },
     {
       "kind": "chapter",
@@ -2335,7 +2711,9 @@
       "usa": "DS3 #50 — The Heart Of Dearkness",
       "usaDate": "Feb 1993",
       "italianAlbum": "DSTR_M_001",
-      "physicalId": "DSTR_M:1"
+      "physicalId": "DSTR_M:1",
+      "storyId": "doctor-strange-story:DS3_050:46eebdbfcd3f",
+      "storyTitle": "Cuore di tenebra"
     },
     {
       "kind": "chapter",
@@ -2344,7 +2722,9 @@
       "usa": "DS3 #51 — Redemption",
       "usaDate": "Mar 1993",
       "italianAlbum": "DSTR_M_001",
-      "physicalId": "DSTR_M:1"
+      "physicalId": "DSTR_M:1",
+      "storyId": "doctor-strange-story:DS3_051:c7e8b7bf79fe",
+      "storyTitle": "Redenzione"
     },
     {
       "kind": "chapter",
@@ -2353,7 +2733,9 @@
       "usa": "DS3 #52 — Field Of Bad Dreams",
       "usaDate": "Apr 1993",
       "italianAlbum": "GHST_M_002",
-      "physicalId": "GHST_M:2"
+      "physicalId": "GHST_M:2",
+      "storyId": "doctor-strange-story:DS3_052:fcaf7d11db1d",
+      "storyTitle": "Un boccone di nome Morbius"
     },
     {
       "kind": "chapter",
@@ -2362,7 +2744,9 @@
       "usa": "DS3 #53 — Nightmare On Bleecker Street",
       "usaDate": "May 1993",
       "italianAlbum": "GHST_M_004",
-      "physicalId": "GHST_M:4"
+      "physicalId": "GHST_M:4",
+      "storyId": "doctor-strange-story:DS3_053:50af75d99d34",
+      "storyTitle": "Incubo su Bleecker Street"
     },
     {
       "kind": "chapter",
@@ -2398,7 +2782,9 @@
       "usa": "DS3 #57 — And A World Dies !",
       "usaDate": "Sep 1993",
       "italianAlbum": "DSTR_M_004",
-      "physicalId": "DSTR_M:4"
+      "physicalId": "DSTR_M:4",
+      "storyId": "doctor-strange-story:DS3_057:c7e8b7bf79fe",
+      "storyTitle": "E un mondo muore"
     },
     {
       "kind": "chapter",
@@ -2407,7 +2793,9 @@
       "usa": "DS3 #58 — Urthona Engaged",
       "usaDate": "Oct 1993",
       "italianAlbum": "DSTR_M_004",
-      "physicalId": "DSTR_M:4"
+      "physicalId": "DSTR_M:4",
+      "storyId": "doctor-strange-story:DS3_058:c7e8b7bf79fe",
+      "storyTitle": "Sfida a Urthona"
     },
     {
       "kind": "chapter",
@@ -2416,7 +2804,9 @@
       "usa": "DS3 #59 — Case Of Refuge",
       "usaDate": "Nov 1993",
       "italianAlbum": "DSTR_M_004",
-      "physicalId": "DSTR_M:4"
+      "physicalId": "DSTR_M:4",
+      "storyId": "doctor-strange-story:DS3_059:c7e8b7bf79fe",
+      "storyTitle": "Una gabbia dorata"
     },
     {
       "kind": "chapter",
@@ -2425,7 +2815,9 @@
       "usa": "DS3 #60 — Siege Of Darkness, Part 7 : Scatter... And Sister Nil",
       "usaDate": "Dec 1993",
       "italianAlbum": "GHST_M_014",
-      "physicalId": "GHST_M:14"
+      "physicalId": "GHST_M:14",
+      "storyId": "doctor-strange-story:DS3_060:61a4c68c0f1c",
+      "storyTitle": "Scatter... e sorella Nil"
     },
     {
       "kind": "chapter",
@@ -2434,7 +2826,9 @@
       "usa": "DS3 #61 — Siege Of Darkness, Part 15 : Sacrifice Supreme",
       "usaDate": "Jan 1994",
       "italianAlbum": "GHST_M_016",
-      "physicalId": "GHST_M:16"
+      "physicalId": "GHST_M:16",
+      "storyId": "doctor-strange-story:DS3_061:61a4c68c0f1c",
+      "storyTitle": "Sacrificio supremo"
     },
     {
       "kind": "chapter",
@@ -2578,7 +2972,9 @@
       "usa": "DS3 #76 — Earthly Powers",
       "usaDate": "Apr 1995",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_076:7cd5ee9c3b87",
+      "storyTitle": "Earthly Powers"
     },
     {
       "kind": "chapter",
@@ -2587,7 +2983,9 @@
       "usa": "DS3 #77 — Dead Reckoning",
       "usaDate": "May 1995",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_077:19bbde74a171",
+      "storyTitle": "Dead Reckoning"
     },
     {
       "kind": "chapter",
@@ -2596,7 +2994,9 @@
       "usa": "DS3 #78 — The Sensual World",
       "usaDate": "Jun 1995",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_078:53f0df87e73b",
+      "storyTitle": "The Sensual World"
     },
     {
       "kind": "chapter",
@@ -2605,7 +3005,9 @@
       "usa": "DS3 #79 — Farewell, Nightmare Music",
       "usaDate": "Jul 1995",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_079:f6f14989d342",
+      "storyTitle": "Farewell, Nightmare Music"
     },
     {
       "kind": "chapter",
@@ -2614,7 +3016,9 @@
       "usa": "DS3 #80 — Earthquake Logic, Part 1",
       "usaDate": "Aug 1995",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_080:0d413c6d0886",
+      "storyTitle": "Earthquake Logic, Part 1"
     },
     {
       "kind": "chapter",
@@ -2623,7 +3027,9 @@
       "usa": "DS3 #81 — Earthquake Logic, Part 2, Over The Edge : Tectonic Shift",
       "usaDate": "Sep 1995",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_081:090eac1972d3",
+      "storyTitle": "Earthquake Logic, Part 2, Over The Edge : Tectonic Shift"
     },
     {
       "kind": "chapter",
@@ -2632,7 +3038,9 @@
       "usa": "DS3 #82 — Earthquake Logic, Part 3 : Seismics",
       "usaDate": "Oct 1995",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_082:3ccf70ebb2e6",
+      "storyTitle": "Earthquake Logic, Part 3 : Seismics"
     },
     {
       "kind": "chapter",
@@ -2641,7 +3049,9 @@
       "usa": "DS3 #83 — Losing My Religion",
       "usaDate": "Nov 1995",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_083:5b7bd1362944",
+      "storyTitle": "Losing My Religion"
     },
     {
       "kind": "chapter",
@@ -2650,7 +3060,9 @@
       "usa": "DS3 #84 — The Homecoming, Part 1 : Journey To The East",
       "usaDate": "Dec 1995",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_084:2abedcf42e51",
+      "storyTitle": "The Homecoming, Part 1 : Journey To The East"
     },
     {
       "kind": "chapter",
@@ -2659,7 +3071,9 @@
       "usa": "DS3 #85 — The Homecoming, Part 2 : The Disciple's Tale",
       "usaDate": "Jan 1996",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_085:acef3180afe7",
+      "storyTitle": "The Homecoming, Part 2 : The Disciple's Tale"
     },
     {
       "kind": "chapter",
@@ -2668,7 +3082,9 @@
       "usa": "DS3 #86 — The Homecoming, Part 3 : Walking Into Yesterday",
       "usaDate": "Feb 1996",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_086:2abedcf42e51",
+      "storyTitle": "The Homecoming, Part 3 : Walking Into Yesterday"
     },
     {
       "kind": "chapter",
@@ -2677,7 +3093,9 @@
       "usa": "DS3 #87 — The Homecoming, Part 4 : Resurrection",
       "usaDate": "Mar 1996",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_087:2abedcf42e51",
+      "storyTitle": "The Homecoming, Part 4 : Resurrection"
     },
     {
       "kind": "chapter",
@@ -2686,7 +3104,9 @@
       "usa": "DS3 #88 — Afterlife, Part 1",
       "usaDate": "Apr 1996",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_088:2abedcf42e51",
+      "storyTitle": "Afterlife, Part 1"
     },
     {
       "kind": "chapter",
@@ -2695,7 +3115,9 @@
       "usa": "DS3 #89 — Afterlife, Part 2",
       "usaDate": "May 1996",
       "italianAlbum": "DSTALDEDDE_001",
-      "physicalId": "DSTALDEDDE:1"
+      "physicalId": "DSTALDEDDE:1",
+      "storyId": "doctor-strange-story:DS3_089:2abedcf42e51",
+      "storyTitle": "Afterlife, Part 2"
     },
     {
       "kind": "chapter",
@@ -2704,7 +3126,9 @@
       "usa": "DS3 #90 — Born Again?",
       "usaDate": "Jun 1996",
       "italianAlbum": "DARKHOLD_001",
-      "physicalId": "DARKHOLD:1"
+      "physicalId": "DARKHOLD:1",
+      "storyId": "doctor-strange-story:DS3_090:2abedcf42e51",
+      "storyTitle": "Born Again?"
     },
     {
       "kind": "chapter",
@@ -2713,7 +3137,9 @@
       "usa": "DS_DISTU #1 — What Is It That Disturb You Stephen?",
       "usaDate": "Oct 1997",
       "italianAlbum": "WIZ_M_034",
-      "physicalId": "WIZ_M:34"
+      "physicalId": "WIZ_M:34",
+      "storyId": "doctor-strange-story:DS_DISTU_001:67c9d187efbd",
+      "storyTitle": "Che cosa ti turba, Stephen?"
     },
     {
       "kind": "chapter",
@@ -2722,7 +3148,9 @@
       "usa": "DS_TFOBO #1 — The Flight Of Bones, Part 1",
       "usaDate": "Feb 1999",
       "italianAlbum": "WIZ_M_050",
-      "physicalId": "WIZ_M:50"
+      "physicalId": "WIZ_M:50",
+      "storyId": "doctor-strange-story:DS_TFOBO_001:578d2b1537c2",
+      "storyTitle": "Il volo delle ossa, pt 1"
     },
     {
       "kind": "chapter",
@@ -2731,7 +3159,9 @@
       "usa": "DS_TFOBO #2 — The Flight Of Bones, Part 2",
       "usaDate": "Mar 1999",
       "italianAlbum": "WIZ_M_052",
-      "physicalId": "WIZ_M:52"
+      "physicalId": "WIZ_M:52",
+      "storyId": "doctor-strange-story:DS_TFOBO_002:578d2b1537c2",
+      "storyTitle": "Il volo delle ossa, pt 2"
     },
     {
       "kind": "chapter",
@@ -2740,7 +3170,9 @@
       "usa": "DS_TFOBO #3 — The Flight Of Bones, Part 3",
       "usaDate": "Apr 1999",
       "italianAlbum": "WIZ_M_053",
-      "physicalId": "WIZ_M:53"
+      "physicalId": "WIZ_M:53",
+      "storyId": "doctor-strange-story:DS_TFOBO_003:835f151da9e7",
+      "storyTitle": "Il volo delle ossa, pt 3"
     },
     {
       "kind": "chapter",
@@ -2749,7 +3181,9 @@
       "usa": "DS_TFOBO #4 — The Flight Of Bones, Part 4",
       "usaDate": "May 1999",
       "italianAlbum": "WIZ_M_054",
-      "physicalId": "WIZ_M:54"
+      "physicalId": "WIZ_M:54",
+      "storyId": "doctor-strange-story:DS_TFOBO_004:1ab1bd4ee6d3",
+      "storyTitle": "Il volo delle ossa, pt 4"
     }
   ],
   "checks": {
@@ -2834,5 +3268,6 @@
       "italianAlbum": "PSPP_006",
       "physicalId": "PSPP:6"
     }
-  }
+  },
+  "storyIdentityModel": "comicsbox-story-feature@2"
 }

@@ -1,11 +1,30 @@
 {
-  "version": 1,
+  "version": 2,
   "path": "doctor-strange",
-  "coverageModel": "content-union@1",
-  "candidateEditions": 95,
-  "editionsWithRelevantContents": 84,
-  "completeStepLinks": 89,
-  "partialStepLinks": 88,
-  "rule": "A route step is covered by alternatives only when the union of owned edition contentIds contains every requiredContentId for that step.",
-  "fanTranslations": "excluded from official-edition coverage"
+  "coverageModel": "comicsbox-story-feature@2",
+  "candidateEditions": 100,
+  "editionsWithRelevantContents": 86,
+  "exactDoctorStrangeStoryBlocks": 754,
+  "completeStepLinks": 91,
+  "partialStepLinks": 94,
+  "rule": "A Doctor Strange alternative is linked from the actual Doctor Strange story block in the Italian edition. Classic anthology/backup material uses source-issue + story-title identity; ownership is complete only when the union of owned editions covers every required story feature.",
+  "fanTranslations": "excluded from official-edition coverage",
+  "auditedSeries": [
+    "100M",
+    "DSTRANGEORO",
+    "GEM_CA",
+    "GN_M",
+    "MAREPCOLL",
+    "MARHIST_P",
+    "MAROMNIB",
+    "MARVELANT2",
+    "MARVELLC",
+    "MARVELMUST",
+    "MCOLL_M",
+    "MGNHCHT",
+    "MMW_M",
+    "MVNWCOL_P",
+    "PSPP",
+    "SUPEROICLA"
+  ]
 }
