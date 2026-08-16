@@ -5,7 +5,7 @@ const root = path.resolve(import.meta.dirname, "..");
 const read = rel => JSON.parse(fs.readFileSync(path.join(root, rel), "utf8"));
 const fail = message => { throw new Error(message); };
 const assert = (condition, message) => { if(!condition) fail(message); };
-const STORY_MODEL = "comicsbox-story-feature@1";
+const STORY_MODEL = "comicsbox-story-feature@2";
 const STORY_PREFIX = "doctor-strange-story:";
 
 const character = read("data/characters/doctor-strange.json");
@@ -122,7 +122,8 @@ const edition = id => editions.editions.find(item => item.id === id);
 const rowFor = (editionId, issueId) => (edition(editionId)?.coverage || []).find(row => row.path === "doctor-strange" && row.issueIds?.includes(issueId));
 
 // Cross-volume boundaries are now real: the 2026 Ditko omnibus fully replaces
-// MMW #67, while a broad anthology containing only selected early stories is partial.
+// MMW #67 despite retitled Italian story headings, while a broad anthology
+// containing only selected early stories remains partial.
 assert(edition("MAROMNIB:252"), "2026 Ditko Doctor Strange omnibus missing");
 assert(rowFor("MAROMNIB:252", "MMW_M:67")?.complete === true, "Ditko Omnibus #252 should completely cover MMW #67 selected stories");
 assert(edition("MARVELANT2:21"), "Io sono Doctor Strange anthology missing");
