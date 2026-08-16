@@ -90,9 +90,21 @@
     return coverageIndex.get(coverageKey(pathId,issueId)) || [];
   }
 
+  // Content-aware alternatives can split one route step across several differently-collected volumes.
+  // A step becomes physically covered only when the UNION of owned alternatives contains every
+  // requiredContentId. Legacy paths without content metadata keep the original any-owned behavior.
   function coverageStatus(state,pathId,issueId){
     const options = optionsFor(pathId,issueId);
-    return {options,owned:options.filter(item => isOwned(state,item.id))};
+    const ownedOptions = options.filter(item => isOwned(state,item.id));
+    const contentAware = options.filter(item => Array.isArray(item.coverage?.requiredContentIds) && item.coverage.requiredContentIds.length);
+    if(!contentAware.length) return {options,owned:ownedOptions,ownedOptions,complete:ownedOptions.length>0};
+
+    const required = new Set();
+    for(const item of contentAware) for(const id of item.coverage.requiredContentIds || []) required.add(id);
+    const covered = new Set();
+    for(const item of ownedOptions) for(const id of item.coverage?.contentIds || []) covered.add(id);
+    const complete = required.size > 0 && [...required].every(id => covered.has(id));
+    return {options,owned:complete?ownedOptions:[],ownedOptions,complete,coveredContentIds:[...covered],requiredContentIds:[...required]};
   }
 
   function physicalObjectCount(state){
@@ -147,26 +159,41 @@
     return dialog;
   }
 
+  function coverageCopy(edition){
+    const coverage = edition.coverage || {};
+    if(Array.isArray(coverage.requiredContentIds) && coverage.requiredContentIds.length){
+      const covered = coverage.contentIds?.length || 0;
+      const required = coverage.requiredContentIds.length;
+      return coverage.complete ? `Copertura completa · ${covered}/${required} storie` : `Copertura parziale · ${covered}/${required} storie`;
+    }
+    return coverage.label || (edition.contents || []).join(" · ");
+  }
+
   function openPicker({state,pathId,issue,onToggle,onToggleWishlist,onAddToList}){
     const options = optionsFor(pathId,issue?.id);
     if(!options.length) return;
+    const status = coverageStatus(state,pathId,issue?.id);
     const dialog = ensureDialog();
     const body = dialog.querySelector(".editionDialogBody");
+    const contentAware = options.some(item => item.coverage?.requiredContentIds?.length);
+    const unionNote = contentAware
+      ? `<div class="editionExactNote"><b>Copertura per storie USA</b><span>${status.complete?"Le edizioni alternative possedute coprono insieme tutte le storie richieste.":"Le edizioni parziali possono essere combinate: la tappa conta solo quando, insieme, coprono tutte le storie richieste."}</span></div>`
+      : `<div class="editionExactNote"><b>Edizione mostrata nel percorso</b><span>${esc(issue.name)} · usa “Fisico” sulla scheda solo se possiedi davvero questo albo.</span></div>`;
     body.innerHTML = `
       <header class="editionDialogHead">
         <span>Edizioni alternative</span>
         <h2>${esc(issue.name)}</h2>
-        <p>Lo spillato e le raccolte sono pubblicazioni diverse. Segna qui la ristampa che possiedi: il tracker coprirà questa tappa senza dichiarare posseduto lo spillato.</p>
+        <p>Lo spillato e le raccolte sono pubblicazioni diverse. Segna qui la ristampa che possiedi: il tracker userà solo la copertura editoriale realmente verificata.</p>
       </header>
-      <div class="editionExactNote"><b>Edizione mostrata nel percorso</b><span>${esc(issue.name)} · usa “Fisico” sulla scheda solo se possiedi davvero questo albo.</span></div>
+      ${unionNote}
       <div class="editionChoices">${options.map(edition => {
         const owned = isOwned(state,edition.id);
         const wishlisted = !!state?.wishlist?.[edition.id];
         const lists = Object.entries(state?.lists || {});
-        const contents = (edition.contents || []).join(" · ");
-        return `<article class="editionChoice ${owned?"owned":""}">
+        const coverageClass = edition.coverage?.complete === false ? "partial" : "complete";
+        return `<article class="editionChoice ${owned?"owned":""} ${coverageClass}">
           <div class="editionChoiceCover">${edition.cover?`<img src="${esc(edition.cover)}" alt="${esc(edition.name)}" referrerpolicy="no-referrer">`:""}</div>
-          <div class="editionChoiceInfo"><span>${esc(edition.format || "Edizione alternativa")}</span><h3>${esc(edition.name)}</h3><p>${esc(edition.series)}${edition.number?` #${esc(edition.number)}`:""} · ${esc(edition.publisher || "")}</p><small>${esc(edition.coverage?.label || contents)}</small>${edition.url?`<a href="${esc(edition.url)}" target="_blank" rel="noopener">ComicsBox ↗</a>`:""}</div>
+          <div class="editionChoiceInfo"><span>${esc(edition.format || "Edizione alternativa")}</span><h3>${esc(edition.name)}</h3><p>${esc(edition.series)}${edition.number?` #${esc(edition.number)}`:""} · ${esc(edition.publisher || "")}</p><small>${esc(coverageCopy(edition))}</small>${edition.url?`<a href="${esc(edition.url)}" target="_blank" rel="noopener">ComicsBox ↗</a>`:""}</div>
           <div class="editionChoiceActions">
             <button type="button" class="editionWishlistButton ${wishlisted?"active":""}" data-toggle-edition-wishlist="${esc(edition.id)}">${wishlisted?"★ In wishlist":"☆ Wishlist"}</button>
             ${lists.length?`<select class="editionListSelect" data-add-edition-list="${esc(edition.id)}" aria-label="Aggiungi ${esc(edition.name)} a una lista"><option value="">+ Lista…</option>${lists.map(([listId,list])=>`<option value="${esc(listId)}">${(list.issueIds||[]).includes(edition.id)?"✓ ":""}${esc(list.name)}</option>`).join("")}</select>`:""}
