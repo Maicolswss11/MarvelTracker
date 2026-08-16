@@ -44,7 +44,7 @@ def story_fingerprint(lines: list[str]) -> tuple[str, str]:
     """Return a title-independent fingerprint and the normalized evidence used.
 
     ComicsBox can use different Italian titles for the same source story in
-    different reprints.  The synopsis/notes/page-count block, however, is tied
+    different reprints. The synopsis/notes/page-count block, however, is tied
     to the underlying story and also distinguishes separate features/backups
     coming from the same USA issue.
     """
@@ -58,10 +58,6 @@ def story_fingerprint(lines: list[str]) -> tuple[str, str]:
             continue
         if normalized.startswith("protagonisti ") or normalized.startswith("protagonista "):
             break
-        # The current story's source anchor ends the fragment, while publication
-        # metadata from the preceding block can occur before the script credit.
-        # Starting after the last script credit therefore removes headings and
-        # translated titles while retaining stable story evidence.
         evidence.append(normalized)
 
     # Rare entries can have almost no synopsis. Fall back to stable credit/page/
@@ -125,36 +121,67 @@ def parse_doctor_strange_features(source: str) -> list[dict[str, str]]:
     return features
 
 
-def main(argv: list[str] | None = None) -> None:
-    base.STORY_MODEL = STORY_MODEL
-    base.is_doctor_strange_feature = is_doctor_strange_feature
-    base.parse_doctor_strange_features = parse_doctor_strange_features
-
-    # ComicsBox's Italian series index identifies this as one physical double
-    # issue: "Wolverine #32/33" with source code WOL_PM_032.  The base refiner's
-    # earlier two-object assumption is intentionally disabled.
-    base.SPLIT_ITALIAN = {}
-    base.main(argv)
-
+def phase_from_argv(argv: list[str] | None) -> str:
     phase = "all"
     if argv and "--phase" in argv:
         try:
             phase = argv[argv.index("--phase") + 1]
         except (IndexError, ValueError):
             phase = "all"
+    return phase
+
+
+def clean_route_audit() -> None:
+    audit_path = base.DATA / "doctor-strange-audit.json"
+    audit = base.read_json(audit_path)
+    audit.setdefault("guardrails", {})["storyFeatureIdentity"] = (
+        "Classic Doctor Strange reading steps use source-USA-issue plus a title-independent "
+        "ComicsBox story fingerprint. Retitled Italian reprints of the same story match, while "
+        "different features/backups from the same USA issue remain distinct."
+    )
+    audit["guardrails"]["splitItalianStories"] = (
+        "Strange Tales (1987) #7 is published in the single double-numbered Italian physical issue "
+        "Wolverine #32/33 (WOL_PM_032); it must create one physical reading step, not two."
+    )
+    # The first-pass series parser can label anthology rows with the first feature
+    # in the USA issue (e.g. Human Torch). Once the exact Doctor Strange story is
+    # resolved, the audit row must expose that selected feature instead.
+    for mapping in audit.get("mappings", []):
+        source_code = mapping.get("usaCode")
+        story_title = mapping.get("storyTitle")
+        if source_code and story_title:
+            mapping["usa"] = base.source_label(source_code, story_title)
+    base.write_json(audit_path, audit, pretty=True)
+
+
+def clean_alternatives_audit() -> None:
+    audit_path = base.DATA / "doctor-strange-alternatives-audit.json"
+    audit = base.read_json(audit_path)
+    audit["coverageModel"] = STORY_MODEL
+    audit["rule"] = (
+        "A Doctor Strange alternative is linked from the actual Doctor Strange story block in the Italian edition. "
+        "Classic anthology/backup material uses source-USA-issue plus a title-independent story fingerprint; "
+        "ownership is complete only when the union of owned editions covers every required story feature."
+    )
+    base.write_json(audit_path, audit, pretty=True)
+
+
+def main(argv: list[str] | None = None) -> None:
+    base.STORY_MODEL = STORY_MODEL
+    base.is_doctor_strange_feature = is_doctor_strange_feature
+    base.parse_doctor_strange_features = parse_doctor_strange_features
+
+    # ComicsBox's Italian series index identifies this as one physical double
+    # issue: "Wolverine #32/33" with source code WOL_PM_032. The base refiner's
+    # earlier two-object assumption is intentionally disabled.
+    base.SPLIT_ITALIAN = {}
+    base.main(argv)
+
+    phase = phase_from_argv(argv)
     if phase in {"route", "all"}:
-        audit_path = base.DATA / "doctor-strange-audit.json"
-        audit = base.read_json(audit_path)
-        audit.setdefault("guardrails", {})["storyFeatureIdentity"] = (
-            "Classic Doctor Strange reading steps use source-USA-issue plus a title-independent "
-            "ComicsBox story fingerprint. Retitled Italian reprints of the same story match, while "
-            "different features/backups from the same USA issue remain distinct."
-        )
-        audit["guardrails"]["splitItalianStories"] = (
-            "Strange Tales (1987) #7 is published in the single double-numbered Italian physical issue "
-            "Wolverine #32/33 (WOL_PM_032); it must create one physical reading step, not two."
-        )
-        base.write_json(audit_path, audit, pretty=True)
+        clean_route_audit()
+    if phase in {"editions", "all"}:
+        clean_alternatives_audit()
 
 
 if __name__ == "__main__":
