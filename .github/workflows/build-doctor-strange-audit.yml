@@ -19,7 +19,7 @@ permissions:
 
 concurrency:
   group: build-doctor-strange-audit
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -44,9 +44,6 @@ jobs:
 
       - name: Rebuild physical catalog
         run: python scripts/build_catalog.py
-
-      - name: Rebuild alternative-edition base
-        run: python scripts/build_editions_catalog.py
 
       - name: Apply exact Doctor Strange story-feature alternatives
         run: python scripts/patch_doctor_strange_editions.py --workers 16
