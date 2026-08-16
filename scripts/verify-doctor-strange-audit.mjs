@@ -52,7 +52,7 @@ assert(mapping.get("DS3_090")?.storyId?.startsWith(STORY_PREFIX), "DS3 #90 shoul
 const st2 = mapping.get("ST2_007");
 const st2Steps = character.issues.filter(issue => issue.readingStep.contentIds.includes(st2.storyId));
 assert(st2Steps.length === 1, `ST2 #7 should require one double-numbered physical step, got ${st2Steps.length}`);
-assert(st2Steps[0].id === "WOL_PM:32", `ST2 #7 should map to WOL_PM:32, got ${st2Steps[0].id}`);
+assert(st2Steps[0].id === "WOL_PM:32/33", `ST2 #7 should map to WOL_PM:32/33, got ${st2Steps[0].id}`);
 assert(!character.issues.some(issue => issue.id === "WOL_PM:33"), "Wolverine #33 must not be invented as a separate physical issue");
 assert(/single double-numbered Italian physical issue/i.test(audit.guardrails?.splitItalianStories || ""), "ST2 #7 double-number guardrail missing");
 
