@@ -39,10 +39,11 @@ assert.ok(issue183, "ironman: Iron Man #183 non censito");
 assert.equal(issue183.italianAlbum, "SUPEROICLA_488", "ironman: Iron Man #183 non usa Super Eroi Classic #488");
 assert.ok(issue183.physicalId, "ironman: Iron Man #183 viene ancora trattato come inedito");
 
-const struggle = mappings.find(row => row.usaCode === "IM1_178" && /struggle/i.test(row.usaTitle || ""));
-assert.ok(struggle, "ironman: backup Struggle! di Iron Man #178 non censito");
-assert.equal(struggle.italianAlbum, "SUPEROICLA_475", "ironman: Struggle! non usa la pubblicazione italiana Super Eroi Classic #475");
-assert.ok(struggle.physicalId, "ironman: Struggle! viene ancora trattato come inedito");
+const issue178Rows = mappings.filter(row => row.usaCode === "IM1_178");
+assert.ok(issue178Rows.length >= 2, "ironman: Iron Man #178 non conserva entrambe le story row");
+const strugglePublication = issue178Rows.find(row => row.italianAlbum === "SUPEROICLA_475");
+assert.ok(strugglePublication, "ironman: la seconda feature di Iron Man #178 non usa Super Eroi Classic #475");
+assert.ok(strugglePublication.physicalId, "ironman: la feature di #178 pubblicata in SEC #475 viene trattata come inedita");
 
 for (let n = 154; n <= 157; n += 1) {
   const code = `IM1_${String(n).padStart(3, "0")}`;
