@@ -25,16 +25,19 @@ assert.ok(firstIds.every(id => id.startsWith("ironman-story:IM1_001:")), "ironma
 
 const mappings = audit.mappings || [];
 const gaps = mappings.filter(row => !row.physicalId);
-const gapCodes = new Set(gaps.map(row => row.usaCode));
-const map183 = mappings.filter(row => row.usaCode === "IM1_183");
-console.log("Iron Man gap IDs:", [...gapCodes].join(", "));
-console.log("IM1_183 mapping:", JSON.stringify(map183));
-for (let n = 183; n <= 192; n += 1) {
-  const code = `IM1_${String(n).padStart(3, "0")}`;
-  assert.ok(gapCodes.has(code), `ironman: Iron Man #${n} non risulta tra le lacune italiane; mapping183=${JSON.stringify(map183)}`);
-}
-assert.ok(gapCodes.has("IM1_255"), "ironman: Iron Man #255 non risulta inedito");
-assert.ok(gapCodes.has("IM1_257"), "ironman: Iron Man #257 non risulta inedito");
+const actualGapCodes = [...new Set(gaps.map(row => row.usaCode))].sort();
+const expectedGapCodes = [
+  ...Array.from({length: 9}, (_, index) => `IM1_${String(184 + index).padStart(3, "0")}`),
+  ...Array.from({length: 14}, (_, index) => `IM1_${String(201 + index).padStart(3, "0")}`),
+  "IM1_255",
+  "IM1_257",
+].sort();
+assert.deepEqual(actualGapCodes, expectedGapCodes, "ironman: elenco attuale delle lacune italiane inatteso");
+
+const issue183 = mappings.find(row => row.usaCode === "IM1_183");
+assert.ok(issue183, "ironman: Iron Man #183 non censito");
+assert.equal(issue183.italianAlbum, "SUPEROICLA_488", "ironman: Iron Man #183 non usa Super Eroi Classic #488");
+assert.ok(issue183.physicalId, "ironman: Iron Man #183 viene ancora trattato come inedito");
 
 const struggle = mappings.find(row => row.usaCode === "IM1_178" && /struggle/i.test(row.usaTitle || ""));
 assert.ok(struggle, "ironman: backup Struggle! di Iron Man #178 non censito");
@@ -105,6 +108,6 @@ assert.ok(alternatives.partialStepLinks > 0, "ironman: nessuna copertura parzial
 
 console.log(
   `OK: Iron Man audit — ${character.issues.length} tappe fisiche, ` +
-  `${audit.classic.stories} story rows classiche, ${audit.classic.unmappedStories} lacune, ` +
+  `${audit.classic.stories} story rows classiche, ${actualGapCodes.length} lacune correnti, ` +
   `${alternatives.editionsWithRelevantContents} edizioni alternative rilevanti.`
 );
