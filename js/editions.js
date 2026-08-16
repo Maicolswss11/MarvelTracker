@@ -102,6 +102,7 @@
   function isPhysical(state,id){ return formatsFor(state,id).physical; }
   function isDigital(state,id){ return formatsFor(state,id).digital; }
   function isOwned(state,id){
+    if(state?.collection?.[id]?.physical || state?.collection?.[id]?.digital) return true;
     const formats = formatsFor(state,id);
     return formats.physical || formats.digital;
   }
