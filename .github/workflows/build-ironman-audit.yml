@@ -9,6 +9,7 @@ on:
       - "scripts/build_ironman_audit_v2.py"
       - "scripts/build_ironman_audit_v3.py"
       - "scripts/refine_ironman_story_features.py"
+      - "scripts/finalize_ironman_audit_metadata.py"
       - "scripts/patch_ironman_editions.py"
       - "scripts/verify-ironman-audit.mjs"
       - "js/editions.js"
@@ -41,6 +42,9 @@ jobs:
 
       - name: Refine classic Iron Man to exact story features
         run: python scripts/refine_ironman_story_features.py --workers 20
+
+      - name: Finalize Iron Man summary metadata
+        run: python scripts/finalize_ironman_audit_metadata.py
 
       - name: Rebuild physical catalog
         run: python scripts/build_catalog.py
