@@ -375,6 +375,47 @@ def enrich_tail(existing: dict[str, Any], start_position: int, workers: int) -> 
     }
 
 
+def dedupe_route_ids(issues: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Give repeated path-local uses unique IDs while sharing one physicalId.
+
+    The legacy Iron Man route legitimately revisits some physical publications
+    at different narrative points.  Ownership must stay global for that book,
+    but read state and alternative coverage need unique route-step identifiers.
+    """
+    seen: dict[str, int] = {}
+    first_by_id: dict[str, dict[str, Any]] = {}
+    used_ids = {str(issue.get("id")) for issue in issues if issue.get("id")}
+    changes: list[dict[str, Any]] = []
+    for issue in issues:
+        route_id = str(issue.get("id") or "")
+        if not route_id:
+            continue
+        occurrence = seen.get(route_id, 0) + 1
+        seen[route_id] = occurrence
+        if occurrence == 1:
+            first_by_id[route_id] = issue
+            continue
+
+        first = first_by_id[route_id]
+        physical_id = str(first.get("physicalId") or route_id)
+        first["physicalId"] = physical_id
+        issue["physicalId"] = str(issue.get("physicalId") or physical_id)
+        suffix = occurrence
+        candidate = f"{route_id}@ironman-{suffix}"
+        while candidate in used_ids:
+            suffix += 1
+            candidate = f"{route_id}@ironman-{suffix}"
+        issue["id"] = candidate
+        used_ids.add(candidate)
+        changes.append({
+            "oldRouteId": route_id,
+            "newRouteId": candidate,
+            "physicalId": physical_id,
+            "occurrence": occurrence,
+        })
+    return changes
+
+
 def series_index(issues: list[dict[str, Any]]) -> list[dict[str, Any]]:
     result: dict[str, dict[str, Any]] = {}
     for issue in issues:
@@ -420,6 +461,7 @@ def main() -> None:
     tail, tail_audit = enrich_tail(existing, len(classic_issues) + 1, workers)
 
     issues = classic_issues + tail
+    deduped_route_ids = dedupe_route_ids(issues)
     for position, issue in enumerate(issues, 1):
         issue["seq"] = position
         if isinstance(issue.get("readingStep"), dict):
@@ -430,6 +472,7 @@ def main() -> None:
     gap_issue_numbers = sorted({int(mapping["usaNumber"]) for mapping in gaps})
     first = issues[0]
     last = issues[-1]
+    unique_physical_ids = {str(issue.get("physicalId") or issue.get("id")) for issue in issues}
 
     character = {
         "id": PATH_ID,
@@ -455,7 +498,9 @@ def main() -> None:
             "classicMappedStories": len(chapters) - len(gaps),
             "missingItalianStories": len(gaps),
             "classicPhysicalItalianIssues": len(classic_issues),
-            "physicalItalianIssues": len(issues),
+            "physicalItalianIssues": len(unique_physical_ids),
+            "readingSteps": len(issues),
+            "reusedPhysicalRouteSegments": len(deduped_route_ids),
         },
         "series": series_index(issues),
         "archives": existing.get("archives", []),
@@ -485,13 +530,20 @@ def main() -> None:
             "firstPublication": "Primary physical steps use ComicsBox first official Italian publication; later collections are alternatives.",
             "storyLevel": "Same-USA-issue backups are audited independently. A later reprint may cover only part of a physical reading step.",
             "join": "Classic audit stops at Iron Man vol.1 #306; the preserved Marvel Italia tail begins with Iron Man vol.1 #307 in Iron Man e i Vendicatori #1.",
+            "reusedPhysicalIssues": "Repeated narrative uses of the same Italian publication have unique route IDs but one shared physicalId, so ownership is counted once and read state remains path-step-specific.",
         },
-        "tail": tail_audit,
+        "tail": {
+            **tail_audit,
+            "deduplicatedRouteIds": deduped_route_ids,
+        },
         "albumFetchWarnings": album_errors,
         "mappings": mappings,
     }
     write_json(AUDIT_PATH, audit, pretty=True)
-    log(f"Iron Man: {len(classic_issues)} tappe classiche + {len(tail)} moderne = {len(issues)}; {len(gaps)} storie senza edizione italiana")
+    log(
+        f"Iron Man: {len(classic_issues)} tappe classiche + {len(tail)} moderne = {len(issues)} reading steps; "
+        f"{len(unique_physical_ids)} albi fisici; {len(gaps)} storie senza edizione italiana"
+    )
 
 
 if __name__ == "__main__":
