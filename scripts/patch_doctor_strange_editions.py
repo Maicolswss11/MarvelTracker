@@ -3,13 +3,13 @@
 
 The original issue-level implementation was superseded by exact ComicsBox
 story-feature identity.  Keep this filename for manual workflows while routing
-all work through the authoritative refiner.
+all work through the authoritative refiner and its markup compatibility layer.
 """
 from __future__ import annotations
 
 import sys
 
-from refine_doctor_strange_story_features import main
+from refine_doctor_strange_story_features_v2 import main
 
 
 if __name__ == "__main__":
