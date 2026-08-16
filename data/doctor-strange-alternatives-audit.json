@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "path": "doctor-strange",
+  "coverageModel": "content-union@1",
+  "candidateEditions": 95,
+  "editionsWithRelevantContents": 84,
+  "completeStepLinks": 89,
+  "partialStepLinks": 88,
+  "rule": "A route step is covered by alternatives only when the union of owned edition contentIds contains every requiredContentId for that step.",
+  "fanTranslations": "excluded from official-edition coverage"
+}

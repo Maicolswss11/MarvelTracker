@@ -1,0 +1,2838 @@
+{
+  "version": 1,
+  "status": "audited",
+  "auditKind": "path/character",
+  "auditDate": "2026-08-16",
+  "generatedAt": "2026-08-16T01:14:04.688066+00:00",
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "scope": "Stephen Strange main reading spine from Strange Tales (1963) through the current route, with explicit pre-2005 Italian publication gaps",
+  "sourceSummary": {
+    "sources": [
+      {
+        "code": "ST1",
+        "name": "ST1",
+        "chapters": 57,
+        "mapped": 57,
+        "unmapped": 0
+      },
+      {
+        "code": "DS1",
+        "name": "DS1",
+        "chapters": 14,
+        "mapped": 14,
+        "unmapped": 0
+      },
+      {
+        "code": "MFEAT1",
+        "name": "MFEAT1",
+        "chapters": 1,
+        "mapped": 1,
+        "unmapped": 0
+      },
+      {
+        "code": "MP1",
+        "name": "MP1",
+        "chapters": 12,
+        "mapped": 12,
+        "unmapped": 0
+      },
+      {
+        "code": "DS2",
+        "name": "DS2",
+        "chapters": 81,
+        "mapped": 81,
+        "unmapped": 0
+      },
+      {
+        "code": "DSA",
+        "name": "DSA",
+        "chapters": 3,
+        "mapped": 2,
+        "unmapped": 1
+      },
+      {
+        "code": "ST2",
+        "name": "ST2",
+        "chapters": 19,
+        "mapped": 1,
+        "unmapped": 18
+      },
+      {
+        "code": "DS3",
+        "name": "DS3",
+        "chapters": 90,
+        "mapped": 47,
+        "unmapped": 43
+      },
+      {
+        "code": "MGN_STDO",
+        "name": "MGN_STDO",
+        "chapters": 1,
+        "mapped": 1,
+        "unmapped": 0
+      },
+      {
+        "code": "DS_DISTU",
+        "name": "DS_DISTU",
+        "chapters": 1,
+        "mapped": 1,
+        "unmapped": 0
+      },
+      {
+        "code": "DS_TFOBO",
+        "name": "DS_TFOBO",
+        "chapters": 4,
+        "mapped": 4,
+        "unmapped": 0
+      }
+    ],
+    "masterworkContents": 152
+  },
+  "classic": {
+    "chapters": 283,
+    "mapped": 221,
+    "unpublishedInItaly": 62,
+    "physicalItalianIssues": 48
+  },
+  "knownGaps": {
+    "strangeTalesVol2DoctorStrange": [
+      "ST2_001",
+      "ST2_002",
+      "ST2_003",
+      "ST2_004",
+      "ST2_005",
+      "ST2_006",
+      "ST2_008",
+      "ST2_009",
+      "ST2_010",
+      "ST2_011",
+      "ST2_012",
+      "ST2_013",
+      "ST2_014",
+      "ST2_015",
+      "ST2_016",
+      "ST2_017",
+      "ST2_018",
+      "ST2_019"
+    ],
+    "sorcererSupremeMainStories": [
+      "DS3_014",
+      "DS3_015",
+      "DS3_016",
+      "DS3_017",
+      "DS3_018",
+      "DS3_020",
+      "DS3_021",
+      "DS3_022",
+      "DS3_023",
+      "DS3_024",
+      "DS3_025",
+      "DS3_026",
+      "DS3_027",
+      "DS3_029",
+      "DS3_030",
+      "DS3_031",
+      "DS3_032",
+      "DS3_033",
+      "DS3_034",
+      "DS3_035",
+      "DS3_036",
+      "DS3_037",
+      "DS3_038",
+      "DS3_039",
+      "DS3_040",
+      "DS3_041",
+      "DS3_054",
+      "DS3_055",
+      "DS3_056",
+      "DS3_062",
+      "DS3_063",
+      "DS3_064",
+      "DS3_065",
+      "DS3_066",
+      "DS3_067",
+      "DS3_068",
+      "DS3_069",
+      "DS3_070",
+      "DS3_071",
+      "DS3_072",
+      "DS3_073",
+      "DS3_074",
+      "DS3_075"
+    ],
+    "doctorStrangeAnnual4": [
+      "DSA_004"
+    ]
+  },
+  "guardrails": {
+    "dstrM2M3": "Dottor Strange #2-3 are not sequential Sorcerer Supreme issues and are excluded from that spine; their Secret Defenders / Annual material must be routed by selected USA content only.",
+    "fanTranslations": "Unofficial/fan Italian translations may be noted externally by the reader but never satisfy official-edition ownership or availability in MarvelTracker.",
+    "alternatives": "An alternative edition must expose the same selected USA content IDs; partial alternatives are recorded as partial and do not individually satisfy a route step."
+  },
+  "tail": {
+    "tailIssues": 80,
+    "fallbackWholeAlbumSelection": [
+      "100M:31",
+      "100M:65",
+      "100M:174",
+      "DSTRANGE_P:1",
+      "DSTRANGE_P:5",
+      "DSTRANGE_P:6",
+      "DSTRANGE_P:17",
+      "DSTRANGE_P:20",
+      "DSTRANGE_P:21",
+      "DSTRANGE_P:22",
+      "DSTRANGE_P:23",
+      "DSTRANGE_P:24",
+      "DSTRANGE_P:25",
+      "DSTRANGE_P:26",
+      "DSTRANGE_P:38",
+      "DSTRANGE_P:39",
+      "DSTRANGE_P:40",
+      "DSTRANGE_P:41",
+      "DSTRANGE_P:42",
+      "DSTRANGE_P:43",
+      "MVNWCOL_P:310",
+      "MVNWCOL_P:391",
+      "MVNWCOL_P:399",
+      "MVNWCOL_P:443",
+      "MVNWCOL_P:487",
+      "MVNWCOL_P:528",
+      "MVNWCOL_P:568",
+      "MVNWCOL_P:640"
+    ]
+  },
+  "albumFetchWarnings": {},
+  "mappings": [
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_110",
+      "usa": "ST1 #110 — Human Torch: The Wizard and Paste-Pot-Pete!",
+      "usaDate": "Jul 1963",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_111",
+      "usa": "ST1 #111 — Human Torch: Fighting to the Death with the Asbestos Man!",
+      "usaDate": "Aug 1963",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_114",
+      "usa": "ST1 #114 — Human Torch: The Human Torch meets...",
+      "usaDate": "Nov 1963",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_115",
+      "usa": "ST1 #115 — Human Torch: The Sandman Strikes!",
+      "usaDate": "Dec 1963",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_116",
+      "usa": "ST1 #116 — Human Torch: In the Clutches of the Puppet Master!",
+      "usaDate": "Jan 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_117",
+      "usa": "ST1 #117 — Human Torch: The Return of the Eel!",
+      "usaDate": "Feb 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_118",
+      "usa": "ST1 #118 — Human Torch: The Man Who Became the Torch!",
+      "usaDate": "Mar 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_119",
+      "usa": "ST1 #119 — Human Torch: The Torch Goes Wild!",
+      "usaDate": "Apr 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_120",
+      "usa": "ST1 #120 — Human Torch: The Torch Meets Iceman!",
+      "usaDate": "May 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_121",
+      "usa": "ST1 #121 — Human Torch: Prisoner of the Plantman!",
+      "usaDate": "Jun 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_122",
+      "usa": "ST1 #122 — Human Torch: 3 Against The Torch!",
+      "usaDate": "Jul 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_123",
+      "usa": "ST1 #123 — Human Torch and Thing: The Birth of the Beetle!",
+      "usaDate": "Aug 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_124",
+      "usa": "ST1 #124 — Human Torch and Thing: Paste-Pot-Pete",
+      "usaDate": "Sep 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_125",
+      "usa": "ST1 #125 — Human Torch and Thing: The Sub-Mariner Must Be Stopped!",
+      "usaDate": "Oct 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_126",
+      "usa": "ST1 #126 — Human Torch and Thing: Pawns of the Deadly Duo!",
+      "usaDate": "Nov 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_127",
+      "usa": "ST1 #127 — Human Torch and Thing: The Mystery Villain!",
+      "usaDate": "Dec 1964",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_128",
+      "usa": "ST1 #128 — Human Torch and Thing: Quicksilver and the Scarlet Witch",
+      "usaDate": "Jan 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_129",
+      "usa": "ST1 #129 — Human Torch and Thing: The Terrible Trio!",
+      "usaDate": "Feb 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_130",
+      "usa": "ST1 #130 — Human Torch and Thing: Meet the Beatles!",
+      "usaDate": "Mar 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_131",
+      "usa": "ST1 #131 — Human Torch and Thing: The Bouncing Ball of Doom!",
+      "usaDate": "Apr 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_132",
+      "usa": "ST1 #132 — Human Torch and Thing: The Sinister Spacetrap!",
+      "usaDate": "May 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_133",
+      "usa": "ST1 #133 — Human Torch and Thing: The Terrible Toys!",
+      "usaDate": "Jun 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_134",
+      "usa": "ST1 #134 — Human Torch and Thing: The Challenge of...The Watcher!",
+      "usaDate": "Jul 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_135",
+      "usa": "ST1 #135 — Nick Fury: The Man for the Job!",
+      "usaDate": "Aug 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_136",
+      "usa": "ST1 #136 — Nick Fury: Find Fury or Die!",
+      "usaDate": "Sep 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_137",
+      "usa": "ST1 #137 — Nick Fury: The Prize is... Earth!",
+      "usaDate": "Oct 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_138",
+      "usa": "ST1 #138 — Nick Fury: Sometimes the Good Guys Lose!",
+      "usaDate": "Nov 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_139",
+      "usa": "ST1 #139 — Nick Fury: The Brave Die Hard!",
+      "usaDate": "Dec 1965",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_140",
+      "usa": "ST1 #140 — Nick Fury: The End of Hydra!",
+      "usaDate": "Jan 1966",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_141",
+      "usa": "ST1 #141 — Nick Fury: Operation: Brain Blast!",
+      "usaDate": "Feb 1966",
+      "italianAlbum": "MMW_M_067",
+      "physicalId": "MMW_M:67"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_142",
+      "usa": "ST1 #142 — Nick Fury: Who Strikes at Shield?",
+      "usaDate": "Mar 1966",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_143",
+      "usa": "ST1 #143 — Nick Fury: To Free a Brain Slave",
+      "usaDate": "Apr 1966",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_144",
+      "usa": "ST1 #144 — Nick Fury: The day of the Druid!",
+      "usaDate": "May 1966",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_145",
+      "usa": "ST1 #145 — Nick Fury: Lo! The Eggs Shall Hatch!",
+      "usaDate": "Jun 1966",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_146",
+      "usa": "ST1 #146 — Nick Fury: When the Unliving Strike!",
+      "usaDate": "Jul 1966",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_147",
+      "usa": "ST1 #147 — Nick Fury: The Enemy Within!",
+      "usaDate": "Aug 1966",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_148",
+      "usa": "ST1 #148 — Nick Fury: Death Before Dishonor!",
+      "usaDate": "Sep 1966",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_149",
+      "usa": "ST1 #149 — Nick Fury: The End of A.I.M.!",
+      "usaDate": "Oct 1966",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_150",
+      "usa": "ST1 #150 — Nick Fury: Hydra Lives!",
+      "usaDate": "Nov 1966",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_151",
+      "usa": "ST1 #151 — Nick Fury: Overkill!",
+      "usaDate": "Dec 1966",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_152",
+      "usa": "ST1 #152 — Nick Fury: The Power of Shield!",
+      "usaDate": "Jan 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_153",
+      "usa": "ST1 #153 — Nick Fury: The Hiding Place!",
+      "usaDate": "Feb 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_154",
+      "usa": "ST1 #154 — Nick Fury: Beware... the Deadly Dreadnought!",
+      "usaDate": "Mar 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_155",
+      "usa": "ST1 #155 — Nick Fury: Death Trap!",
+      "usaDate": "Apr 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_156",
+      "usa": "ST1 #156 — Nick Fury: The Tribunal!",
+      "usaDate": "May 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_157",
+      "usa": "ST1 #157 — Nick Fury: Crisis!",
+      "usaDate": "Jun 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_158",
+      "usa": "ST1 #158 — Nick Fury: Final Encounter!",
+      "usaDate": "Jul 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_159",
+      "usa": "ST1 #159 — Nick Fury: Spy School",
+      "usaDate": "Aug 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_160",
+      "usa": "ST1 #160 — Nick Fury: Project: Blackout",
+      "usaDate": "Sep 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_161",
+      "usa": "ST1 #161 — Nick Fury: The Second Doom",
+      "usaDate": "Oct 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_162",
+      "usa": "ST1 #162 — Nick Fury: So Evil, The Night!",
+      "usaDate": "Nov 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_163",
+      "usa": "ST1 #163 — Nick Fury: And the Dragon Cried... Death!",
+      "usaDate": "Dec 1967",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_164",
+      "usa": "ST1 #164 — Dr. Strange: Nightmare!",
+      "usaDate": "Jan 1968",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_165",
+      "usa": "ST1 #165 — Nick Fury: Behold the Savage Sky!",
+      "usaDate": "Feb 1968",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_166",
+      "usa": "ST1 #166 — Dr. Strange: Nothing Can Halt... Voltorg!",
+      "usaDate": "Mar 1968",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_167",
+      "usa": "ST1 #167 — Nick Fury: Armageddon!",
+      "usaDate": "Apr 1968",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST1",
+      "usaCode": "ST1_168",
+      "usa": "ST1 #168 — Dr. Strange: Exile!",
+      "usaDate": "May 1968",
+      "italianAlbum": "MMW_M_083",
+      "physicalId": "MMW_M:83"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_169",
+      "usa": "DS1 #169 — The Coming of... Dr. Strange",
+      "usaDate": "Jun 1968",
+      "italianAlbum": "MMW_M_097",
+      "physicalId": "MMW_M:97"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_170",
+      "usa": "DS1 #170 — To Dream.. Perchance to Die!",
+      "usaDate": "Jul 1968",
+      "italianAlbum": "MMW_M_097",
+      "physicalId": "MMW_M:97"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_171",
+      "usa": "DS1 #171 — In the Shadow of... Death!",
+      "usaDate": "Aug 1968",
+      "italianAlbum": "MMW_M_097",
+      "physicalId": "MMW_M:97"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_172",
+      "usa": "DS1 #172 — I, Dormammu",
+      "usaDate": "Sep 1968",
+      "italianAlbum": "MMW_M_097",
+      "physicalId": "MMW_M:97"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_173",
+      "usa": "DS1 #173 — While a World Waits!",
+      "usaDate": "Oct 1968",
+      "italianAlbum": "MMW_M_097",
+      "physicalId": "MMW_M:97"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_174",
+      "usa": "DS1 #174 — The Power and the Pendulum",
+      "usaDate": "Nov 1968",
+      "italianAlbum": "MMW_M_097",
+      "physicalId": "MMW_M:97"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_175",
+      "usa": "DS1 #175 — Unto Us... The Sons of Satannish",
+      "usaDate": "Dec 1968",
+      "italianAlbum": "MMW_M_097",
+      "physicalId": "MMW_M:97"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_176",
+      "usa": "DS1 #176 — O Grave Where Is Thy Victory?",
+      "usaDate": "Jan 1969",
+      "italianAlbum": "MMW_M_097",
+      "physicalId": "MMW_M:97"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_177",
+      "usa": "DS1 #177 — The Cult and the Curse",
+      "usaDate": "Feb 1969",
+      "italianAlbum": "MMW_M_097",
+      "physicalId": "MMW_M:97"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_178",
+      "usa": "DS1 #178 — With One Beside Him",
+      "usaDate": "Mar 1969",
+      "italianAlbum": "MMW_M_097",
+      "physicalId": "MMW_M:97"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_180",
+      "usa": "DS1 #180 — Eternity, Eternity",
+      "usaDate": "May 1969",
+      "italianAlbum": "MMW_M_114",
+      "physicalId": "MMW_M:114"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_181",
+      "usa": "DS1 #181 — If a World Should Die Before I Wake",
+      "usaDate": "Jul 1969",
+      "italianAlbum": "MMW_M_114",
+      "physicalId": "MMW_M:114"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_182",
+      "usa": "DS1 #182 — And Juggernaut Makes Three!",
+      "usaDate": "Sep 1969",
+      "italianAlbum": "MMW_M_114",
+      "physicalId": "MMW_M:114"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS1",
+      "usaCode": "DS1_183",
+      "usa": "DS1 #183 — They Walk by Night!",
+      "usaDate": "Nov 1969",
+      "italianAlbum": "MMW_M_114",
+      "physicalId": "MMW_M:114"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MFEAT1",
+      "usaCode": "MFEAT1_001",
+      "usa": "MFEAT1 #1 — Defenders: The Day of the Defenders",
+      "usaDate": "Dec 1971",
+      "italianAlbum": "MMW_M_114",
+      "physicalId": "MMW_M:114"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_003",
+      "usa": "MP1 #3 — Dr. Strange: While The World Spins Mad!",
+      "usaDate": "Jul 1972",
+      "italianAlbum": "MMW_M_114",
+      "physicalId": "MMW_M:114"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_004",
+      "usa": "MP1 #4 — Dr. Strange: The Spawn Of Sligguth!",
+      "usaDate": "Sep 1972",
+      "italianAlbum": "MMW_M_114",
+      "physicalId": "MMW_M:114"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_005",
+      "usa": "MP1 #5 — Dr. Strange: The Lurker In The Labyrinth!",
+      "usaDate": "Nov 1972",
+      "italianAlbum": "MMW_M_114",
+      "physicalId": "MMW_M:114"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_006",
+      "usa": "MP1 #6 — Dr. Strange: The Shambler From The Sea!",
+      "usaDate": "Jan 1973",
+      "italianAlbum": "MMW_M_114",
+      "physicalId": "MMW_M:114"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_007",
+      "usa": "MP1 #7 — Dr. Strange: The Shadows Of The Starstone!",
+      "usaDate": "Mar 1973",
+      "italianAlbum": "MMW_M_114",
+      "physicalId": "MMW_M:114"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_008",
+      "usa": "MP1 #8 — Dr. Strange: The Doom That Bloomed On Kathulos!",
+      "usaDate": "May 1973",
+      "italianAlbum": "MMW_M_114",
+      "physicalId": "MMW_M:114"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_009",
+      "usa": "MP1 #9 — Dr. Strange: The Crypts Of Kaa-U!",
+      "usaDate": "Jul 1973",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_010",
+      "usa": "MP1 #10 — Dr. Strange: Finally, Shuma-Gorath!",
+      "usaDate": "Sep 1973",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_011",
+      "usa": "MP1 #11 — Dr. Strange: Homecoming",
+      "usaDate": "Oct 1973",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_012",
+      "usa": "MP1 #12 — Dr. Strange: Portal To The Past!",
+      "usaDate": "Nov 1973",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_013",
+      "usa": "MP1 #13 — Dr. Strange: Time Doom",
+      "usaDate": "Jan 1974",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MP1",
+      "usaCode": "MP1_014",
+      "usa": "MP1 #14 — Dr. Strange: Sise-Neg Genesis",
+      "usaDate": "Mar 1974",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_001",
+      "usa": "DS2 #1 — Throught An Orb Darkly",
+      "usaDate": "Jun 1974",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_002",
+      "usa": "DS2 #2 — A Separate Reality",
+      "usaDate": "Aug 1974",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_003",
+      "usa": "DS2 #3 — Amidst The Madness",
+      "usaDate": "Sep 1974",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_004",
+      "usa": "DS2 #4 — ..where bound'ries ...decay",
+      "usaDate": "Oct 1974",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_005",
+      "usa": "DS2 #5 — Cloak And Dagger",
+      "usaDate": "Dec 1974",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_006",
+      "usa": "DS2 #6 — Lift High The Veil Of Fears!",
+      "usaDate": "Feb 1975",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_007",
+      "usa": "DS2 #7 — The Demon Fever!",
+      "usaDate": "Apr 1975",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_008",
+      "usa": "DS2 #8 — Rights Of Passage!",
+      "usaDate": "Jun 1975",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_009",
+      "usa": "DS2 #9 — Consummation",
+      "usaDate": "Aug 1975",
+      "italianAlbum": "MMW_M_135",
+      "physicalId": "MMW_M:135"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_010",
+      "usa": "DS2 #10 — Alone Against Eternity",
+      "usaDate": "Oct 1975",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_011",
+      "usa": "DS2 #11 — Shadowplay!",
+      "usaDate": "Dec 1975",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_012",
+      "usa": "DS2 #12 — Final Curtain!",
+      "usaDate": "Feb 1976",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_013",
+      "usa": "DS2 #13 — Planet Earth Is No More!",
+      "usaDate": "Apr 1976",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_014",
+      "usa": "DS2 #14 — The Tomb Of Dr. Strange!",
+      "usaDate": "May 1976",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_015",
+      "usa": "DS2 #15 — Where There's Smoke…",
+      "usaDate": "Jun 1976",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_016",
+      "usa": "DS2 #16 — Beelzebub On Parade!",
+      "usaDate": "Jul 1976",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_017",
+      "usa": "DS2 #17 — Utopia Rising!",
+      "usaDate": "Aug 1976",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_018",
+      "usa": "DS2 #18 — The Dream Is Dead!",
+      "usaDate": "Sep 1976",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_019",
+      "usa": "DS2 #19 — Lo, The Powers Changeth!",
+      "usaDate": "Oct 1976",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_020",
+      "usa": "DS2 #20 — Call Him: Xander The Merciless!",
+      "usaDate": "Dec 1976",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DSA",
+      "usaCode": "DSA_001",
+      "usa": "DSA #1 — Dr. Strange: ...And There Will Be Worlds Anew!",
+      "usaDate": "Dec 1976",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_021",
+      "usa": "DS2 #21 — The Coming of... Dr. Strange",
+      "usaDate": "Feb 1977",
+      "italianAlbum": "UR_C1_001",
+      "physicalId": "UR_C1:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_022",
+      "usa": "DS2 #22 — Mind Trip!",
+      "usaDate": "Apr 1977",
+      "italianAlbum": "MMW_M_150",
+      "physicalId": "MMW_M:150"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_023",
+      "usa": "DS2 #23 — Into The Quadriverse!",
+      "usaDate": "Jun 1977",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_024",
+      "usa": "DS2 #24 — A Change Cometh!",
+      "usaDate": "Aug 1977",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_025",
+      "usa": "DS2 #25 — Doctor Stranger Yet",
+      "usaDate": "Oct 1977",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_026",
+      "usa": "DS2 #26 — The Return Of The Ancient One!",
+      "usaDate": "Dec 1977",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_027",
+      "usa": "DS2 #27 — I... The In-Betweener!",
+      "usaDate": "Feb 1978",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_028",
+      "usa": "DS2 #28 — Fate... Like A Wheel",
+      "usaDate": "Apr 1978",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_029",
+      "usa": "DS2 #29 — He Who Stalks!",
+      "usaDate": "Jun 1978",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_030",
+      "usa": "DS2 #30 — A Gathering of Fear!",
+      "usaDate": "Aug 1978",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_031",
+      "usa": "DS2 #31 — A Death for Immortality",
+      "usaDate": "Oct 1978",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_032",
+      "usa": "DS2 #32 — The Dream Weaver!",
+      "usaDate": "Dec 1978",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_033",
+      "usa": "DS2 #33 — All My Dreams Against Me",
+      "usaDate": "Feb 1979",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_034",
+      "usa": "DS2 #34 — A Midsummer's Nightmare!",
+      "usaDate": "Apr 1979",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_035",
+      "usa": "DS2 #35 — Of Knights -- and Pawns",
+      "usaDate": "Jun 1979",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_036",
+      "usa": "DS2 #36 — The Man Who Knew Stephen Sanders!",
+      "usaDate": "Aug 1979",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_037",
+      "usa": "DS2 #37 — And Fear, the Final Victor!",
+      "usaDate": "Oct 1979",
+      "italianAlbum": "MMW_M_169",
+      "physicalId": "MMW_M:169"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_038",
+      "usa": "DS2 #38 — Eye of the Beholder!",
+      "usaDate": "Dec 1979",
+      "italianAlbum": "MMW_M_186",
+      "physicalId": "MMW_M:186"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_039",
+      "usa": "DS2 #39 — The Old Dark House",
+      "usaDate": "Feb 1980",
+      "italianAlbum": "MMW_M_186",
+      "physicalId": "MMW_M:186"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_040",
+      "usa": "DS2 #40 — Dawn of Death!",
+      "usaDate": "Apr 1980",
+      "italianAlbum": "MMW_M_186",
+      "physicalId": "MMW_M:186"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_041",
+      "usa": "DS2 #41 — Weep for the Soul of Man…",
+      "usaDate": "Jun 1980",
+      "italianAlbum": "MMW_M_186",
+      "physicalId": "MMW_M:186"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_042",
+      "usa": "DS2 #42 — The Black Mirror!",
+      "usaDate": "Aug 1980",
+      "italianAlbum": "MMW_M_186",
+      "physicalId": "MMW_M:186"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_043",
+      "usa": "DS2 #43 — Shadowqueen!",
+      "usaDate": "Oct 1980",
+      "italianAlbum": "MMW_M_186",
+      "physicalId": "MMW_M:186"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_044",
+      "usa": "DS2 #44 — Duel of Fire!",
+      "usaDate": "Dec 1980",
+      "italianAlbum": "MMW_M_186",
+      "physicalId": "MMW_M:186"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_045",
+      "usa": "DS2 #45 — Wizard of the West Village",
+      "usaDate": "Feb 1981",
+      "italianAlbum": "MMW_M_186",
+      "physicalId": "MMW_M:186"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_046",
+      "usa": "DS2 #46 — The Reality War",
+      "usaDate": "Apr 1981",
+      "italianAlbum": "MMW_M_186",
+      "physicalId": "MMW_M:186"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_047",
+      "usa": "DS2 #47 — The Grand Illusion!",
+      "usaDate": "Jun 1981",
+      "italianAlbum": "MMW_M_203",
+      "physicalId": "MMW_M:203"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_048",
+      "usa": "DS2 #48 — The Power of Dr. Strange!",
+      "usaDate": "Aug 1981",
+      "italianAlbum": "MMW_M_203",
+      "physicalId": "MMW_M:203"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_049",
+      "usa": "DS2 #49 — This Menace Reborn!",
+      "usaDate": "Oct 1981",
+      "italianAlbum": "MMW_M_203",
+      "physicalId": "MMW_M:203"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_050",
+      "usa": "DS2 #50 — The Cat & the Cataclysm",
+      "usaDate": "Dec 1981",
+      "italianAlbum": "MMW_M_203",
+      "physicalId": "MMW_M:203"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_051",
+      "usa": "DS2 #51 — A Time For Love, A Time For Hate!",
+      "usaDate": "Feb 1982",
+      "italianAlbum": "MMW_M_203",
+      "physicalId": "MMW_M:203"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_052",
+      "usa": "DS2 #52 — Life-Times",
+      "usaDate": "Apr 1982",
+      "italianAlbum": "MMW_M_203",
+      "physicalId": "MMW_M:203"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_053",
+      "usa": "DS2 #53 — Land of the Pharohs",
+      "usaDate": "Jun 1982",
+      "italianAlbum": "MMW_M_203",
+      "physicalId": "MMW_M:203"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_054",
+      "usa": "DS2 #54 — Alone!",
+      "usaDate": "Aug 1982",
+      "italianAlbum": "MMW_M_203",
+      "physicalId": "MMW_M:203"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_055",
+      "usa": "DS2 #55 — To Have Loved... and Lost!",
+      "usaDate": "Oct 1982",
+      "italianAlbum": "MMW_M_203",
+      "physicalId": "MMW_M:203"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_056",
+      "usa": "DS2 #56 — A Mystic Reborn",
+      "usaDate": "Dec 1982",
+      "italianAlbum": "MMW_M_203",
+      "physicalId": "MMW_M:203"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_057",
+      "usa": "DS2 #57 — Gather My Disciples Before Me!",
+      "usaDate": "Feb 1983",
+      "italianAlbum": "MMW_M_203",
+      "physicalId": "MMW_M:203"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_058",
+      "usa": "DS2 #58 — ...At Loose Ends!",
+      "usaDate": "Apr 1983",
+      "italianAlbum": "THOR_PP_048",
+      "physicalId": "THOR_PP:48"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_059",
+      "usa": "DS2 #59 — Children of the Night!",
+      "usaDate": "Jun 1983",
+      "italianAlbum": "THOR_PP_049",
+      "physicalId": "THOR_PP:49"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_060",
+      "usa": "DS2 #60 — Assault on Avengers Mansion",
+      "usaDate": "Aug 1983",
+      "italianAlbum": "THOR_PP_051",
+      "physicalId": "THOR_PP:51"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_061",
+      "usa": "DS2 #61 — Power be the Prize!",
+      "usaDate": "Oct 1983",
+      "italianAlbum": "THOR_PP_051",
+      "physicalId": "THOR_PP:51"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_062",
+      "usa": "DS2 #62 — Deliver Us From Evil!",
+      "usaDate": "Dec 1983",
+      "italianAlbum": "THOR_PP_052",
+      "physicalId": "THOR_PP:52"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_063",
+      "usa": "DS2 #63 — Cry of the Spirit",
+      "usaDate": "Feb 1984",
+      "italianAlbum": "THOR_PP_052",
+      "physicalId": "THOR_PP:52"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_064",
+      "usa": "DS2 #64 — Art Rage",
+      "usaDate": "Apr 1984",
+      "italianAlbum": "THOR_PP_053",
+      "physicalId": "THOR_PP:53"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_065",
+      "usa": "DS2 #65 — Charlatan!",
+      "usaDate": "Jun 1984",
+      "italianAlbum": "THOR_PP_053",
+      "physicalId": "THOR_PP:53"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_066",
+      "usa": "DS2 #66 — The Chosen One",
+      "usaDate": "Aug 1984",
+      "italianAlbum": "THOR_PP_054",
+      "physicalId": "THOR_PP:54"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_067",
+      "usa": "DS2 #67 — Private Eyes",
+      "usaDate": "Oct 1984",
+      "italianAlbum": "THOR_PP_054",
+      "physicalId": "THOR_PP:54"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_068",
+      "usa": "DS2 #68 — Sword and Sorcery",
+      "usaDate": "Dec 1984",
+      "italianAlbum": "THOR_PP_055",
+      "physicalId": "THOR_PP:55"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_069",
+      "usa": "DS2 #69 — Sea Cruise",
+      "usaDate": "Feb 1985",
+      "italianAlbum": "THOR_PP_055",
+      "physicalId": "THOR_PP:55"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_070",
+      "usa": "DS2 #70 — Deadly Exchange",
+      "usaDate": "Apr 1985",
+      "italianAlbum": "THOR_PP_056",
+      "physicalId": "THOR_PP:56"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_071",
+      "usa": "DS2 #71 — Into the Dark Dimension",
+      "usaDate": "Jun 1985",
+      "italianAlbum": "THOR_PP_056",
+      "physicalId": "THOR_PP:56"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_072",
+      "usa": "DS2 #72 — Secret Origin",
+      "usaDate": "Aug 1985",
+      "italianAlbum": "THOR_PP_057",
+      "physicalId": "THOR_PP:57"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_073",
+      "usa": "DS2 #73 — Final Triumph",
+      "usaDate": "Oct 1985",
+      "italianAlbum": "THOR_PP_057",
+      "physicalId": "THOR_PP:57"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_074",
+      "usa": "DS2 #74 — And Now... The Beyonder!",
+      "usaDate": "Dec 1985",
+      "italianAlbum": "THOR_PP_058",
+      "physicalId": "THOR_PP:58"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_075",
+      "usa": "DS2 #75 — Souls in Torment!",
+      "usaDate": "Feb 1986",
+      "italianAlbum": "THOR_PP_058",
+      "physicalId": "THOR_PP:58"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_076",
+      "usa": "DS2 #76 — What Song the Sirens Sang!",
+      "usaDate": "Apr 1986",
+      "italianAlbum": "THOR_PP_059",
+      "physicalId": "THOR_PP:59"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_077",
+      "usa": "DS2 #77 — Khat!",
+      "usaDate": "Jun 1986",
+      "italianAlbum": "THOR_PP_059",
+      "physicalId": "THOR_PP:59"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_078",
+      "usa": "DS2 #78 — Cloaks and Dangers!",
+      "usaDate": "Aug 1986",
+      "italianAlbum": "THOR_PP_060",
+      "physicalId": "THOR_PP:60"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_079",
+      "usa": "DS2 #79 — Fata Morganna!",
+      "usaDate": "Oct 1986",
+      "italianAlbum": "THOR_PP_060",
+      "physicalId": "THOR_PP:60"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_080",
+      "usa": "DS2 #80 — Don't Pay the Ferryman!",
+      "usaDate": "Dec 1986",
+      "italianAlbum": "DSTRANGEORO_006",
+      "physicalId": "DSTRANGEORO:6"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS2",
+      "usaCode": "DS2_081",
+      "usa": "DS2 #81 — The Tongues of Men and Angels...!",
+      "usaDate": "Feb 1987",
+      "italianAlbum": "DSTRANGEORO_006",
+      "physicalId": "DSTRANGEORO:6"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_001",
+      "usa": "ST2 #1 — Cloak and Dagger: Daddy!",
+      "usaDate": "Apr 1987",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_002",
+      "usa": "ST2 #2 — Cloak and Dagger: All In The Family",
+      "usaDate": "May 1987",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_003",
+      "usa": "ST2 #3 — Cloak and Dagger: Nightflight",
+      "usaDate": "Jun 1987",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_004",
+      "usa": "ST2 #4 — Cloak and Dagger: Perchance To Dream!",
+      "usaDate": "Jul 1987",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_005",
+      "usa": "ST2 #5 — Cloak and Dagger: Vermin",
+      "usaDate": "Aug 1987",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_006",
+      "usa": "ST2 #6 — Cloak and Dagger: Zapper!",
+      "usaDate": "Sep 1987",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_007",
+      "usa": "ST2 #7 — Cloak and Dagger: Doorway To Nightmare!",
+      "usaDate": "Oct 1987",
+      "italianAlbum": "WOL_PM_032",
+      "physicalId": "WOL_PM:32/33"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_008",
+      "usa": "ST2 #8 — Cloak and Dagger: The Black Tear-Drop",
+      "usaDate": "Nov 1987",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_009",
+      "usa": "ST2 #9 — Cloak and Dagger: The Luminous Lady",
+      "usaDate": "Dec 1987",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_010",
+      "usa": "ST2 #10 — Cloak and Dagger: The Felonious Feline",
+      "usaDate": "Jan 1988",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_011",
+      "usa": "ST2 #11 — Cloak and Dagger: Mister Jip, Usurper Of Souls!",
+      "usaDate": "Feb 1988",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_012",
+      "usa": "ST2 #12 — Cloak and Dagger: Blue Skies",
+      "usaDate": "Mar 1988",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_013",
+      "usa": "ST2 #13 — Cloak and Dagger: Disorderly Conduct",
+      "usaDate": "Apr 1988",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_014",
+      "usa": "ST2 #14 — Cloak and Dagger: Disorderly Conduc",
+      "usaDate": "May 1988",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_015",
+      "usa": "ST2 #15 — Cloak and Dagger: Gathering Dusk!!",
+      "usaDate": "Jun 1988",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_016",
+      "usa": "ST2 #16 — Cloak and Dagger: Bitter Obligations Like An Unmade Bed",
+      "usaDate": "Jul 1988",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_017",
+      "usa": "ST2 #17 — Cloak and Dagger: Desperate Straits",
+      "usaDate": "Aug 1988",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_018",
+      "usa": "ST2 #18 — Cloak and Dagger: Descent Into Darkness",
+      "usaDate": "Sep 1988",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_019",
+      "usa": "ST2 #19 — Thing And Mayhem: Volatile Combinations",
+      "usaDate": "Oct 1988",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_001",
+      "usa": "DS3 #1 — Love Is A Spell, The Spell Is Death!",
+      "usaDate": "Nov 1988",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_002",
+      "usa": "DS3 #2 — The Unbearable Lightness Of Being !",
+      "usaDate": "Jan 1989",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_003",
+      "usa": "DS3 #3 — Dragon Circle",
+      "usaDate": "Mar 1989",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_004",
+      "usa": "DS3 #4 — Dragon's Dream !",
+      "usaDate": "May 1989",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_005",
+      "usa": "DS3 #5 — The Faust Gambit, Part 1 : Souled Out !",
+      "usaDate": "Jul 1989",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_006",
+      "usa": "DS3 #6 — The Faust Gambit, Part 2 : Demonic Re-Possession",
+      "usaDate": "Aug 1989",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_007",
+      "usa": "DS3 #7 — The Faust Gambit, Part 3 : Agamotto Mon Amour",
+      "usaDate": "Sep 1989",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_008",
+      "usa": "DS3 #8 — The Faust Gambit, Part 4 : Mephisto Waltz With Satannish Verses",
+      "usaDate": "Oct 1989",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_009",
+      "usa": "DS3 #9 — That Was Then... This Is NOW",
+      "usaDate": "Nov 1989",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_010",
+      "usa": "DS3 #10 — Acts Of Vengeance ! - The Vampire Strikes Back!",
+      "usaDate": "Nov 1989",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_011",
+      "usa": "DS3 #11 — Acts Of Vengeance ! - The Hobgoblin Of Little Minds",
+      "usaDate": "Dec 1989",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_012",
+      "usa": "DS3 #12 — Acts Of Vengeance ! - Some Enchantress Evening",
+      "usaDate": "Dec 1989",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "MGN_STDO",
+      "usaCode": "MGN_STDO_001",
+      "usa": "MGN_STDO #1 — Triumph and Torment",
+      "usaDate": "Dec 1989",
+      "italianAlbum": "PSPP_006",
+      "physicalId": "PSPP:6"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_013",
+      "usa": "DS3 #13 — Acts Of Vengeance ! - Arkon's New York Adventure",
+      "usaDate": "Jan 1990",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_014",
+      "usa": "DS3 #14 — The Vampiric Verses, Part 1 : It's In The Blood…",
+      "usaDate": "Feb 1990",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_015",
+      "usa": "DS3 #15 — The Vampiric Verses, Part 2 : Vampires On Broadway",
+      "usaDate": "Mar 1990",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_016",
+      "usa": "DS3 #16 — The Vampiric Verses, Part 3 : Love And Haiti",
+      "usaDate": "Apr 1990",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_017",
+      "usa": "DS3 #17 — The Vampiric Verses, Part 4 : Torn On The Bayou",
+      "usaDate": "May 1990",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_018",
+      "usa": "DS3 #18 — The Vampiric Verses, Part 5 : Blood Is Thicker...",
+      "usaDate": "Jun 1990",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_019",
+      "usa": "DS3 #19 — The Azrael Touch",
+      "usaDate": "Jul 1990",
+      "italianAlbum": "MAR_MAG_008",
+      "physicalId": "MAR_MAG:8"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_020",
+      "usa": "DS3 #20 — Better Homes And Gargoyles",
+      "usaDate": "Aug 1990",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_021",
+      "usa": "DS3 #21 — The Dark Wars, Part 1 : Mindless In Manhattan",
+      "usaDate": "Sep 1990",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_022",
+      "usa": "DS3 #22 — The Dark Wars, Part 2 : Dormammu Ascendant",
+      "usaDate": "Oct 1990",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_023",
+      "usa": "DS3 #23 — The Dark Wars, Part 3 : Mondo Mordo",
+      "usaDate": "Nov 1990",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_024",
+      "usa": "DS3 #24 — The Dark Wars, Part 4 : Do Not Go Gently Into That Dark Night...",
+      "usaDate": "Dec 1990",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_025",
+      "usa": "DS3 #25 — Always Autumn",
+      "usaDate": "Jan 1991",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_026",
+      "usa": "DS3 #26 — Werewolf At The Door",
+      "usaDate": "Feb 1991",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_027",
+      "usa": "DS3 #27 — Possession Is 9/10 Of The Logarithm",
+      "usaDate": "Mar 1991",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_028",
+      "usa": "DS3 #28 — Strange Tales II",
+      "usaDate": "Apr 1991",
+      "italianAlbum": "AAC_CM_030",
+      "physicalId": "AAC_CM:30"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_029",
+      "usa": "DS3 #29 — Blood Will Tell!",
+      "usaDate": "May 1991",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_030",
+      "usa": "DS3 #30 — The Topaz Possession",
+      "usaDate": "Jun 1991",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_031",
+      "usa": "DS3 #31 — An Infinity Gauntlet Crossover : A Gauntlet Hurdler!",
+      "usaDate": "Jul 1991",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_032",
+      "usa": "DS3 #32 — An Infinity Gauntlet Crossover : Silver-Tongued Devil",
+      "usaDate": "Aug 1991",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_033",
+      "usa": "DS3 #33 — An Infinity Gauntlet Crossover : The Alexandra Quatrain",
+      "usaDate": "Sep 1991",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_034",
+      "usa": "DS3 #34 — Infinity Gauntlet : Is There A Doctor Not In The House?",
+      "usaDate": "Oct 1991",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_035",
+      "usa": "DS3 #35 — Infinity Gauntlet : To Hela And Back",
+      "usaDate": "Nov 1991",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_036",
+      "usa": "DS3 #36 — Infinity Gauntlet : Footnote To Infinity",
+      "usaDate": "Dec 1991",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_037",
+      "usa": "DS3 #37 — Frankensurfer",
+      "usaDate": "Jan 1992",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_038",
+      "usa": "DS3 #38 — The Great Fear, Part 1 : Fear Itself",
+      "usaDate": "Feb 1992",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_039",
+      "usa": "DS3 #39 — The Great Fear, Part 2 : The Fear That Kills !",
+      "usaDate": "Mar 1992",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_040",
+      "usa": "DS3 #40 — The Great Fear, Part 3 : From Hope And Fear Set Free...",
+      "usaDate": "Apr 1992",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_041",
+      "usa": "DS3 #41 — A Wolverine At The Door",
+      "usaDate": "May 1992",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_042",
+      "usa": "DS3 #42 — Infinity War : Galactus, Go Home !",
+      "usaDate": "Jun 1992",
+      "italianAlbum": "MCP_M_018",
+      "physicalId": "MCP_M:18"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_043",
+      "usa": "DS3 #43 — Infinity War : An Eye For An Eye...",
+      "usaDate": "Jul 1992",
+      "italianAlbum": "F4_SM_120",
+      "physicalId": "F4_SM:120"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_044",
+      "usa": "DS3 #44 — Infinity War : The Color Crimson",
+      "usaDate": "Aug 1992",
+      "italianAlbum": "F4_SM_122",
+      "physicalId": "F4_SM:122"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_045",
+      "usa": "DS3 #45 — Infinity War : Death's Greatest Hits",
+      "usaDate": "Sep 1992",
+      "italianAlbum": "F4_SM_122",
+      "physicalId": "F4_SM:122"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_046",
+      "usa": "DS3 #46 — Infinity War : Strange Bedfellows Part 1",
+      "usaDate": "Oct 1992",
+      "italianAlbum": "F4_SM_123",
+      "physicalId": "F4_SM:123"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_047",
+      "usa": "DS3 #47 — Infinity War : Strange Bedfellows, Part 2",
+      "usaDate": "Nov 1992",
+      "italianAlbum": "F4_SM_124",
+      "physicalId": "F4_SM:124"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DSA",
+      "usaCode": "DSA_002",
+      "usa": "DSA #2 — Dr. Strange: The Return of the Defenders Part 4 - Hot Spell",
+      "usaDate": "Dec 1992",
+      "italianAlbum": "MCP_M_016",
+      "physicalId": "MCP_M:16"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_048",
+      "usa": "DS3 #48 — To Serve In Heaven",
+      "usaDate": "Dec 1992",
+      "italianAlbum": "DSTR_M_000",
+      "physicalId": "DSTR_M:0"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_049",
+      "usa": "DS3 #49 — The Wrath Of Gods",
+      "usaDate": "Jan 1993",
+      "italianAlbum": "DSTR_M_000",
+      "physicalId": "DSTR_M:0"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_050",
+      "usa": "DS3 #50 — The Heart Of Dearkness",
+      "usaDate": "Feb 1993",
+      "italianAlbum": "DSTR_M_001",
+      "physicalId": "DSTR_M:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_051",
+      "usa": "DS3 #51 — Redemption",
+      "usaDate": "Mar 1993",
+      "italianAlbum": "DSTR_M_001",
+      "physicalId": "DSTR_M:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_052",
+      "usa": "DS3 #52 — Field Of Bad Dreams",
+      "usaDate": "Apr 1993",
+      "italianAlbum": "GHST_M_002",
+      "physicalId": "GHST_M:2"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_053",
+      "usa": "DS3 #53 — Nightmare On Bleecker Street",
+      "usaDate": "May 1993",
+      "italianAlbum": "GHST_M_004",
+      "physicalId": "GHST_M:4"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_054",
+      "usa": "DS3 #54 — An Infinity Crusade Crossover : From Here... To There... To Eternity !",
+      "usaDate": "Jun 1993",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_055",
+      "usa": "DS3 #55 — An Infinity Crusade Crossover : World Enough, And Time…",
+      "usaDate": "Jul 1993",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_056",
+      "usa": "DS3 #56 — An Infinity Crusade Crossover : Blood Relations",
+      "usaDate": "Aug 1993",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_057",
+      "usa": "DS3 #57 — And A World Dies !",
+      "usaDate": "Sep 1993",
+      "italianAlbum": "DSTR_M_004",
+      "physicalId": "DSTR_M:4"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_058",
+      "usa": "DS3 #58 — Urthona Engaged",
+      "usaDate": "Oct 1993",
+      "italianAlbum": "DSTR_M_004",
+      "physicalId": "DSTR_M:4"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_059",
+      "usa": "DS3 #59 — Case Of Refuge",
+      "usaDate": "Nov 1993",
+      "italianAlbum": "DSTR_M_004",
+      "physicalId": "DSTR_M:4"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_060",
+      "usa": "DS3 #60 — Siege Of Darkness, Part 7 : Scatter... And Sister Nil",
+      "usaDate": "Dec 1993",
+      "italianAlbum": "GHST_M_014",
+      "physicalId": "GHST_M:14"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_061",
+      "usa": "DS3 #61 — Siege Of Darkness, Part 15 : Sacrifice Supreme",
+      "usaDate": "Jan 1994",
+      "italianAlbum": "GHST_M_016",
+      "physicalId": "GHST_M:16"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_062",
+      "usa": "DS3 #62 — Stranger And Stranger",
+      "usaDate": "Feb 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_063",
+      "usa": "DS3 #63 — Song Of The Blood Opal",
+      "usaDate": "Mar 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_064",
+      "usa": "DS3 #64 — Strangers Among Us, Act 1 : The Brilliant One",
+      "usaDate": "Apr 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_065",
+      "usa": "DS3 #65 — Strangers Among Us, Act 2 : Amok!",
+      "usaDate": "May 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_066",
+      "usa": "DS3 #66 — Strangers Among Us, Act 3 : Shattered!",
+      "usaDate": "Jun 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_067",
+      "usa": "DS3 #67 — The Heart Of Saturday Night",
+      "usaDate": "Jul 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_068",
+      "usa": "DS3 #68 — Stranger At My Heels !",
+      "usaDate": "Aug 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_069",
+      "usa": "DS3 #69 — Be With Me",
+      "usaDate": "Sep 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_070",
+      "usa": "DS3 #70 — Half Lives, Part 1 : Serendipity!",
+      "usaDate": "Oct 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_071",
+      "usa": "DS3 #71 — Half Lives, Part 2 : Bodyslam!",
+      "usaDate": "Nov 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DSA",
+      "usaCode": "DSA_004",
+      "usa": "DSA #4 — Dr. Strange: Salome's Children",
+      "usaDate": "Dec 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_072",
+      "usa": "DS3 #72 — Last Rites, First Verse : The Journey Outward",
+      "usaDate": "Dec 1994",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_073",
+      "usa": "DS3 #73 — Last Rites, Second Verse : A Threshold Of Ashes",
+      "usaDate": "Jan 1995",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_074",
+      "usa": "DS3 #74 — Last Rites, Third Verse : Mask And Mirror",
+      "usaDate": "Feb 1995",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_075",
+      "usa": "DS3 #75 — Last Rites, Final Verse : A Moment Of Silence",
+      "usaDate": "Mar 1995",
+      "italianAlbum": null,
+      "physicalId": null
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_076",
+      "usa": "DS3 #76 — Earthly Powers",
+      "usaDate": "Apr 1995",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_077",
+      "usa": "DS3 #77 — Dead Reckoning",
+      "usaDate": "May 1995",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_078",
+      "usa": "DS3 #78 — The Sensual World",
+      "usaDate": "Jun 1995",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_079",
+      "usa": "DS3 #79 — Farewell, Nightmare Music",
+      "usaDate": "Jul 1995",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_080",
+      "usa": "DS3 #80 — Earthquake Logic, Part 1",
+      "usaDate": "Aug 1995",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_081",
+      "usa": "DS3 #81 — Earthquake Logic, Part 2, Over The Edge : Tectonic Shift",
+      "usaDate": "Sep 1995",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_082",
+      "usa": "DS3 #82 — Earthquake Logic, Part 3 : Seismics",
+      "usaDate": "Oct 1995",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_083",
+      "usa": "DS3 #83 — Losing My Religion",
+      "usaDate": "Nov 1995",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_084",
+      "usa": "DS3 #84 — The Homecoming, Part 1 : Journey To The East",
+      "usaDate": "Dec 1995",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_085",
+      "usa": "DS3 #85 — The Homecoming, Part 2 : The Disciple's Tale",
+      "usaDate": "Jan 1996",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_086",
+      "usa": "DS3 #86 — The Homecoming, Part 3 : Walking Into Yesterday",
+      "usaDate": "Feb 1996",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_087",
+      "usa": "DS3 #87 — The Homecoming, Part 4 : Resurrection",
+      "usaDate": "Mar 1996",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_088",
+      "usa": "DS3 #88 — Afterlife, Part 1",
+      "usaDate": "Apr 1996",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_089",
+      "usa": "DS3 #89 — Afterlife, Part 2",
+      "usaDate": "May 1996",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_090",
+      "usa": "DS3 #90 — Born Again?",
+      "usaDate": "Jun 1996",
+      "italianAlbum": "DARKHOLD_001",
+      "physicalId": "DARKHOLD:1"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS_DISTU",
+      "usaCode": "DS_DISTU_001",
+      "usa": "DS_DISTU #1 — What Is It That Disturb You Stephen?",
+      "usaDate": "Oct 1997",
+      "italianAlbum": "WIZ_M_034",
+      "physicalId": "WIZ_M:34"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS_TFOBO",
+      "usaCode": "DS_TFOBO_001",
+      "usa": "DS_TFOBO #1 — The Flight Of Bones, Part 1",
+      "usaDate": "Feb 1999",
+      "italianAlbum": "WIZ_M_050",
+      "physicalId": "WIZ_M:50"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS_TFOBO",
+      "usaCode": "DS_TFOBO_002",
+      "usa": "DS_TFOBO #2 — The Flight Of Bones, Part 2",
+      "usaDate": "Mar 1999",
+      "italianAlbum": "WIZ_M_052",
+      "physicalId": "WIZ_M:52"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS_TFOBO",
+      "usaCode": "DS_TFOBO_003",
+      "usa": "DS_TFOBO #3 — The Flight Of Bones, Part 3",
+      "usaDate": "Apr 1999",
+      "italianAlbum": "WIZ_M_053",
+      "physicalId": "WIZ_M:53"
+    },
+    {
+      "kind": "chapter",
+      "sourceCode": "DS_TFOBO",
+      "usaCode": "DS_TFOBO_004",
+      "usa": "DS_TFOBO #4 — The Flight Of Bones, Part 4",
+      "usaDate": "May 1999",
+      "italianAlbum": "WIZ_M_054",
+      "physicalId": "WIZ_M:54"
+    }
+  ],
+  "checks": {
+    "DS3_001": {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_001",
+      "usa": "DS3 #1 — Love Is A Spell, The Spell Is Death!",
+      "usaDate": "Nov 1988",
+      "italianAlbum": "MAREPCOLL_003",
+      "physicalId": "MAREPCOLL:3"
+    },
+    "DS3_019": {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_019",
+      "usa": "DS3 #19 — The Azrael Touch",
+      "usaDate": "Jul 1990",
+      "italianAlbum": "MAR_MAG_008",
+      "physicalId": "MAR_MAG:8"
+    },
+    "DS3_042": {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_042",
+      "usa": "DS3 #42 — Infinity War : Galactus, Go Home !",
+      "usaDate": "Jun 1992",
+      "italianAlbum": "MCP_M_018",
+      "physicalId": "MCP_M:18"
+    },
+    "DS3_048": {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_048",
+      "usa": "DS3 #48 — To Serve In Heaven",
+      "usaDate": "Dec 1992",
+      "italianAlbum": "DSTR_M_000",
+      "physicalId": "DSTR_M:0"
+    },
+    "DS3_057": {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_057",
+      "usa": "DS3 #57 — And A World Dies !",
+      "usaDate": "Sep 1993",
+      "italianAlbum": "DSTR_M_004",
+      "physicalId": "DSTR_M:4"
+    },
+    "DS3_076": {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_076",
+      "usa": "DS3 #76 — Earthly Powers",
+      "usaDate": "Apr 1995",
+      "italianAlbum": "DSTALDEDDE_001",
+      "physicalId": "DSTALDEDDE:1"
+    },
+    "DS3_090": {
+      "kind": "chapter",
+      "sourceCode": "DS3",
+      "usaCode": "DS3_090",
+      "usa": "DS3 #90 — Born Again?",
+      "usaDate": "Jun 1996",
+      "italianAlbum": "DARKHOLD_001",
+      "physicalId": "DARKHOLD:1"
+    },
+    "ST2_007": {
+      "kind": "chapter",
+      "sourceCode": "ST2",
+      "usaCode": "ST2_007",
+      "usa": "ST2 #7 — Cloak and Dagger: Doorway To Nightmare!",
+      "usaDate": "Oct 1987",
+      "italianAlbum": "WOL_PM_032",
+      "physicalId": "WOL_PM:32/33"
+    },
+    "MGN_STDO_001": {
+      "kind": "chapter",
+      "sourceCode": "MGN_STDO",
+      "usaCode": "MGN_STDO_001",
+      "usa": "MGN_STDO #1 — Triumph and Torment",
+      "usaDate": "Dec 1989",
+      "italianAlbum": "PSPP_006",
+      "physicalId": "PSPP:6"
+    }
+  }
+}
