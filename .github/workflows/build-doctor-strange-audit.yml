@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/build-doctor-strange-audit.yml"
       - "scripts/build_doctor_strange_audit.py"
+      - "scripts/refine_doctor_strange_story_features.py"
       - "scripts/patch_doctor_strange_editions.py"
       - "scripts/verify-doctor-strange-audit.mjs"
       - "js/editions.js"
@@ -36,13 +37,16 @@ jobs:
       - name: Build audited Doctor Strange route
         run: python scripts/build_doctor_strange_audit.py --workers 20
 
+      - name: Refine classic route to exact story features
+        run: python scripts/refine_doctor_strange_story_features.py --phase route --workers 20
+
       - name: Rebuild physical catalog
         run: python scripts/build_catalog.py
 
       - name: Rebuild alternative-edition base
         run: python scripts/build_editions_catalog.py
 
-      - name: Apply Doctor Strange content-level alternatives
+      - name: Apply exact Doctor Strange story-feature alternatives
         run: python scripts/patch_doctor_strange_editions.py --workers 16
 
       - name: Verify Doctor Strange audit
@@ -67,7 +71,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No Doctor Strange data changes to commit"
           else
-            git commit -m "Rebuild Doctor Strange with audited story coverage"
+            git commit -m "Refine Doctor Strange to exact story features"
             git pull --rebase --autostash origin main
             git push origin HEAD:main
           fi
