@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "path": "ironman",
+  "coverageModel": "comicsbox-story-feature@2",
+  "candidateEditions": 109,
+  "editionsWithRelevantContents": 95,
+  "exactIronManStoryBlocks": 756,
+  "completeStepLinks": 428,
+  "partialStepLinks": 85,
+  "auditedSeries": [
+    "MAREPCOLL",
+    "MARHIST_P",
+    "MAROMNIB",
+    "MARVELANT2",
+    "MARVELLC",
+    "MARVELMUST",
+    "MARVELREP",
+    "MARVGEEKS",
+    "MAR_GOLD",
+    "MCOLL_M",
+    "MMW_M",
+    "MVNWCOL_P",
+    "SUPEROICLA",
+    "SUPER_LG"
+  ],
+  "rule": "An alternative is linked only from actual Iron Man story blocks. A route step is complete only when the union of owned editions covers every required content ID."
+}

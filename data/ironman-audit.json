@@ -1,0 +1,4688 @@
+{
+  "version": 1,
+  "status": "audited",
+  "auditKind": "path/character",
+  "auditDate": "2026-08-16",
+  "generatedAt": "2026-08-16T03:32:04.665141+00:00",
+  "editorialModel": "physical-issue/usa-contents/reading-step@1",
+  "scope": "Tony Stark main path from Iron Man (1968) #1 through the existing modern Italian route; Tales of Suspense remains pre-series context.",
+  "classic": {
+    "series": "Iron Man Vol 1",
+    "stories": 310,
+    "issues": 305,
+    "mappedStories": 283,
+    "unmappedStories": 26,
+    "seriesRangeIssues": 306,
+    "reprintOnlyIssues": [
+      76
+    ],
+    "correctedSeriesTableMappings": [
+      {
+        "usaCode": "IM1_183",
+        "number": 183,
+        "discardedItalianAlbum": "SUPEROICLA_488"
+      }
+    ],
+    "physicalItalianIssues": 206,
+    "gapIssueNumbers": [
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      255,
+      257
+    ],
+    "storyFeatureIds": 284,
+    "mappedStoryFeatures": 284,
+    "readingSteps": 207
+  },
+  "guardrails": {
+    "start": "Mandatory route begins with Iron Man (1968) #1. Tales of Suspense #39 and Iron Man & Sub-Mariner #1 are pre-series context, not mandatory step 1.",
+    "firstPublication": "Primary physical steps use ComicsBox first official Italian publication; later collections are alternatives.",
+    "storyLevel": "Same-USA-issue backups are audited independently. A later reprint may cover only part of a physical reading step.",
+    "join": "Classic audit stops at Iron Man vol.1 #306; the preserved Marvel Italia tail begins with Iron Man vol.1 #307 in Iron Man e i Vendicatori #1.",
+    "reusedPhysicalIssues": "Repeated narrative uses of the same Italian publication have unique route IDs but one shared physicalId, so ownership is counted once and read state remains path-step-specific.",
+    "reprintOnly": "Iron Man (1968) #76 is a reprint of Iron Man #9 and is excluded from the mandatory narrative spine; it must not create a second reading requirement for the same story.",
+    "seriesTableBoundaryOverride": "Iron Man (1968) #183 remains without an official Italian publication in the audited source. SUPEROICLA_488 contains #179-182; a nested-table boundary artifact must not carry that link into #183.",
+    "storyFeatureIdentity": "Classic Iron Man coverage uses source-USA-issue plus a title-independent ComicsBox story fingerprint. Retitled reprints match; separate backups/features from the same USA issue remain distinct.",
+    "splitPrimaryFeatures": "Iron Man (1968) #178 contains two story features with different first official Italian publications. The route segments the surrounding collected volume path-locally and inserts Super Eroi Classic #475 for the missing feature while reusing physicalId for repeated segments of the same owned book."
+  },
+  "tail": {
+    "issues": 305,
+    "albumFetchErrors": {},
+    "fallbackWholeAlbumSelection": [
+      "IM_VEN:7",
+      "IM_VEN:9",
+      "IM_VEN:32",
+      "IM_VEN:43",
+      "IM_VEN:64",
+      "IM_VEN:72",
+      "IM_VEN2:34",
+      "IRONM3_P:25",
+      "IRONM3_P:33",
+      "IRONM3_P:34",
+      "IRONM3_P:35",
+      "IRONM3_P:36",
+      "IRONM3_P:86",
+      "IRONM3_P:141",
+      "IRONM3_P:147",
+      "IRONM3_P:148",
+      "IRONM3_P:149"
+    ],
+    "deduplicatedRouteIds": [
+      {
+        "oldRouteId": "IRONM3_P:9",
+        "newRouteId": "IRONM3_P:9@ironman-2",
+        "physicalId": "IRONM3_P:9",
+        "occurrence": 2
+      },
+      {
+        "oldRouteId": "IRONM3_P:10",
+        "newRouteId": "IRONM3_P:10@ironman-2",
+        "physicalId": "IRONM3_P:10",
+        "occurrence": 2
+      },
+      {
+        "oldRouteId": "IRONM3_P:11",
+        "newRouteId": "IRONM3_P:11@ironman-2",
+        "physicalId": "IRONM3_P:11",
+        "occurrence": 2
+      },
+      {
+        "oldRouteId": "IRONM3_P:12",
+        "newRouteId": "IRONM3_P:12@ironman-2",
+        "physicalId": "IRONM3_P:12",
+        "occurrence": 2
+      }
+    ]
+  },
+  "albumFetchWarnings": {},
+  "mappings": [
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_001",
+      "usaNumber": "1",
+      "usaTitle": "The Origin of Iron Man",
+      "usa": "Iron Man Vol 1 #1 — The Origin of Iron Man",
+      "usaDate": "May 1968",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_086",
+      "italianLabel": "L'incredibile Devil # 86 (Editoriale Corno)",
+      "physicalId": "ID1:86",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_001:32bade15cd60",
+        "ironman-story:IM1_001:7c137f57ab82"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_002",
+      "usaNumber": "2",
+      "usaTitle": "The Day Of The Demolisher!",
+      "usa": "Iron Man Vol 1 #2 — The Day Of The Demolisher!",
+      "usaDate": "Jun 1968",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_087",
+      "italianLabel": "L'incredibile Devil # 87 (Editoriale Corno)",
+      "physicalId": "ID1:87",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_002:7d31c26f9f64"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_003",
+      "usaNumber": "3",
+      "usaTitle": "My Friend, My Foe... The Freak!",
+      "usa": "Iron Man Vol 1 #3 — My Friend, My Foe... The Freak!",
+      "usaDate": "Jul 1968",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_089",
+      "italianLabel": "L'incredibile Devil # 89 (Editoriale Corno)",
+      "physicalId": "ID1:89",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_003:cd8ca7a11ad2"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_004",
+      "usaNumber": "4",
+      "usaTitle": "Unconquered Is The Unicorn!",
+      "usa": "Iron Man Vol 1 #4 — Unconquered Is The Unicorn!",
+      "usaDate": "Aug 1968",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_090",
+      "italianLabel": "L'incredibile Devil # 90 (Editoriale Corno)",
+      "physicalId": "ID1:90",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_004:bd6b912a31f4"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_005",
+      "usaNumber": "5",
+      "usaTitle": "Frenzy In A Far-Flung Future!",
+      "usa": "Iron Man Vol 1 #5 — Frenzy In A Far-Flung Future!",
+      "usaDate": "Sep 1968",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_091",
+      "italianLabel": "L'incredibile Devil # 91 (Editoriale Corno)",
+      "physicalId": "ID1:91",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_005:f1b51bd75492"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_006",
+      "usaNumber": "6",
+      "usaTitle": "Vengeance... Cries The Crusher!",
+      "usa": "Iron Man Vol 1 #6 — Vengeance... Cries The Crusher!",
+      "usaDate": "Oct 1968",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_092",
+      "italianLabel": "L'incredibile Devil # 92 (Editoriale Corno)",
+      "physicalId": "ID1:92",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_006:1e734187ed31"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_007",
+      "usaNumber": "7",
+      "usaTitle": "The Maggia Strikes",
+      "usa": "Iron Man Vol 1 #7 — The Maggia Strikes",
+      "usaDate": "Nov 1968",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_094",
+      "italianLabel": "L'incredibile Devil # 94 (Editoriale Corno)",
+      "physicalId": "ID1:94",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_007:e7b507e070ea"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_008",
+      "usaNumber": "8",
+      "usaTitle": "A Duel Must End!",
+      "usa": "Iron Man Vol 1 #8 — A Duel Must End!",
+      "usaDate": "Dec 1968",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_094",
+      "italianLabel": "L'incredibile Devil # 94 (Editoriale Corno)",
+      "physicalId": "ID1:94",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_008:bcc8bfa92d92"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_009",
+      "usaNumber": "9",
+      "usaTitle": "...There Lives A Green Goliath",
+      "usa": "Iron Man Vol 1 #9 — ...There Lives A Green Goliath",
+      "usaDate": "Jan 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_095",
+      "italianLabel": "L'incredibile Devil # 95 (Editoriale Corno)",
+      "physicalId": "ID1:95",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_009:d6dfaee80bcf"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_010",
+      "usaNumber": "10",
+      "usaTitle": "Once More... The Mandarin!",
+      "usa": "Iron Man Vol 1 #10 — Once More... The Mandarin!",
+      "usaDate": "Feb 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_097",
+      "italianLabel": "L'incredibile Devil # 97 (Editoriale Corno)",
+      "physicalId": "ID1:97",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_010:dcf90becdfbc"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_011",
+      "usaNumber": "11",
+      "usaTitle": "Unmasked!",
+      "usa": "Iron Man Vol 1 #11 — Unmasked!",
+      "usaDate": "Mar 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_098",
+      "italianLabel": "L'incredibile Devil # 98 (Editoriale Corno)",
+      "physicalId": "ID1:98",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_011:da1d4725f0a2"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_012",
+      "usaNumber": "12",
+      "usaTitle": "The Coming Of The Controller",
+      "usa": "Iron Man Vol 1 #12 — The Coming Of The Controller",
+      "usaDate": "Apr 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_099",
+      "italianLabel": "L'incredibile Devil # 99 (Editoriale Corno)",
+      "physicalId": "ID1:99",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_012:f690ab2d8197"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_013",
+      "usaNumber": "13",
+      "usaTitle": "Captives Of The Controller",
+      "usa": "Iron Man Vol 1 #13 — Captives Of The Controller",
+      "usaDate": "May 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_100",
+      "italianLabel": "L'incredibile Devil # 100 (Editoriale Corno)",
+      "physicalId": "ID1:100",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_013:c032cce72293"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_014",
+      "usaNumber": "14",
+      "usaTitle": "The Night Phantom Walks",
+      "usa": "Iron Man Vol 1 #14 — The Night Phantom Walks",
+      "usaDate": "Jun 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_102",
+      "italianLabel": "L'incredibile Devil # 102 (Editoriale Corno)",
+      "physicalId": "ID1:102",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_014:3a8d6648986b"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_015",
+      "usaNumber": "15",
+      "usaTitle": "Said The Unicorn To The Ghost",
+      "usa": "Iron Man Vol 1 #15 — Said The Unicorn To The Ghost",
+      "usaDate": "Jul 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_104",
+      "italianLabel": "L'incredibile Devil # 104 (Editoriale Corno)",
+      "physicalId": "ID1:104",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_015:7cbd00c83b4d"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_016",
+      "usaNumber": "16",
+      "usaTitle": "Of Beasts And Men",
+      "usa": "Iron Man Vol 1 #16 — Of Beasts And Men",
+      "usaDate": "Aug 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_105",
+      "italianLabel": "L'incredibile Devil # 105 (Editoriale Corno)",
+      "physicalId": "ID1:105",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_016:77067ef4569f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_017",
+      "usaNumber": "17",
+      "usaTitle": "The Beginning Of The End",
+      "usa": "Iron Man Vol 1 #17 — The Beginning Of The End",
+      "usaDate": "Sep 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_106",
+      "italianLabel": "L'incredibile Devil # 106 (Editoriale Corno)",
+      "physicalId": "ID1:106",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_017:7943baab8125"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_018",
+      "usaNumber": "18",
+      "usaTitle": "Even Heroes Die",
+      "usa": "Iron Man Vol 1 #18 — Even Heroes Die",
+      "usaDate": "Oct 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_107",
+      "italianLabel": "L'incredibile Devil # 107 (Editoriale Corno)",
+      "physicalId": "ID1:107",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_018:a92438e38d36"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_019",
+      "usaNumber": "19",
+      "usaTitle": "What Price Life?",
+      "usa": "Iron Man Vol 1 #19 — What Price Life?",
+      "usaDate": "Nov 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_109",
+      "italianLabel": "L'incredibile Devil # 109 (Editoriale Corno)",
+      "physicalId": "ID1:109",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_019:7412d1381911"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_020",
+      "usaNumber": "20",
+      "usaTitle": "Who Serves Lucifer?",
+      "usa": "Iron Man Vol 1 #20 — Who Serves Lucifer?",
+      "usaDate": "Dec 1969",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_110",
+      "italianLabel": "L'incredibile Devil # 110 (Editoriale Corno)",
+      "physicalId": "ID1:110",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_020:32abe8ea4faf"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_021",
+      "usaNumber": "21",
+      "usaTitle": "The Replacement",
+      "usa": "Iron Man Vol 1 #21 — The Replacement",
+      "usaDate": "Jan 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_111",
+      "italianLabel": "L'incredibile Devil # 111 (Editoriale Corno)",
+      "physicalId": "ID1:111",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_021:a57ab0eceed8"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_022",
+      "usaNumber": "22",
+      "usaTitle": "From This Conflict, Death",
+      "usa": "Iron Man Vol 1 #22 — From This Conflict, Death",
+      "usaDate": "Feb 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_112",
+      "italianLabel": "L'incredibile Devil # 112 (Editoriale Corno)",
+      "physicalId": "ID1:112",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_022:3d2c6c118181"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_023",
+      "usaNumber": "23",
+      "usaTitle": "The Man Who Killed Tony Stark",
+      "usa": "Iron Man Vol 1 #23 — The Man Who Killed Tony Stark",
+      "usaDate": "Mar 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_112",
+      "italianLabel": "L'incredibile Devil # 112 (Editoriale Corno)",
+      "physicalId": "ID1:112",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_023:4d4030d5988a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_024",
+      "usaNumber": "24",
+      "usaTitle": "My Son... The Minotaur!",
+      "usa": "Iron Man Vol 1 #24 — My Son... The Minotaur!",
+      "usaDate": "Apr 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_113",
+      "italianLabel": "L'incredibile Devil # 113 (Editoriale Corno)",
+      "physicalId": "ID1:113",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_024:075c100f472c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_025",
+      "usaNumber": "25",
+      "usaTitle": "This Doomed Land, This Dying Sea",
+      "usa": "Iron Man Vol 1 #25 — This Doomed Land, This Dying Sea",
+      "usaDate": "May 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_114",
+      "italianLabel": "L'incredibile Devil # 114 (Editoriale Corno)",
+      "physicalId": "ID1:114",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_025:5494225fb319"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_026",
+      "usaNumber": "26",
+      "usaTitle": "Duel In A Dark Dimension!",
+      "usa": "Iron Man Vol 1 #26 — Duel In A Dark Dimension!",
+      "usaDate": "Jun 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_115",
+      "italianLabel": "L'incredibile Devil # 115 (Editoriale Corno)",
+      "physicalId": "ID1:115",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_026:16a7dff61235"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_027",
+      "usaNumber": "27",
+      "usaTitle": "The Fury Of The Firebrand",
+      "usa": "Iron Man Vol 1 #27 — The Fury Of The Firebrand",
+      "usaDate": "Jul 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_116",
+      "italianLabel": "L'incredibile Devil # 116 (Editoriale Corno)",
+      "physicalId": "ID1:116",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_027:c5a762056ce3"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_028",
+      "usaNumber": "28",
+      "usaTitle": "The Controller Lives",
+      "usa": "Iron Man Vol 1 #28 — The Controller Lives",
+      "usaDate": "Aug 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_117",
+      "italianLabel": "L'incredibile Devil # 117 (Editoriale Corno)",
+      "physicalId": "ID1:117",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_028:53d8cd897262"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_029",
+      "usaNumber": "29",
+      "usaTitle": "Save The People... Save The Country!",
+      "usa": "Iron Man Vol 1 #29 — Save The People... Save The Country!",
+      "usaDate": "Sep 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_118",
+      "italianLabel": "L'incredibile Devil # 118 (Editoriale Corno)",
+      "physicalId": "ID1:118",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_029:749cca00eddd"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_030",
+      "usaNumber": "30",
+      "usaTitle": "The Menace Of The Monster-Master",
+      "usa": "Iron Man Vol 1 #30 — The Menace Of The Monster-Master",
+      "usaDate": "Oct 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_119",
+      "italianLabel": "L'incredibile Devil # 119 (Editoriale Corno)",
+      "physicalId": "ID1:119",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_030:cc4a7871a12d"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_031",
+      "usaNumber": "31",
+      "usaTitle": "Anything For The Cause",
+      "usa": "Iron Man Vol 1 #31 — Anything For The Cause",
+      "usaDate": "Nov 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_119",
+      "italianLabel": "L'incredibile Devil # 119 (Editoriale Corno)",
+      "physicalId": "ID1:119",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_031:75e449180935"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_032",
+      "usaNumber": "32",
+      "usaTitle": "Beware The Mechanoid",
+      "usa": "Iron Man Vol 1 #32 — Beware The Mechanoid",
+      "usaDate": "Dec 1970",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_120",
+      "italianLabel": "L'incredibile Devil # 120 (Editoriale Corno)",
+      "physicalId": "ID1:120",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_032:d40e03e90437"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_033",
+      "usaNumber": "33",
+      "usaTitle": "Their Mission: Destroy Stark Industries",
+      "usa": "Iron Man Vol 1 #33 — Their Mission: Destroy Stark Industries",
+      "usaDate": "Jan 1971",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_121",
+      "italianLabel": "L'incredibile Devil # 121 (Editoriale Corno)",
+      "physicalId": "ID1:121",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_033:2a2e8a213109"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_034",
+      "usaNumber": "34",
+      "usaTitle": "Crisis And Calamity",
+      "usa": "Iron Man Vol 1 #34 — Crisis And Calamity",
+      "usaDate": "Feb 1971",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_121",
+      "italianLabel": "L'incredibile Devil # 121 (Editoriale Corno)",
+      "physicalId": "ID1:121",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_034:4383ec80efe5"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_035",
+      "usaNumber": "35",
+      "usaTitle": "Revenge",
+      "usa": "Iron Man Vol 1 #35 — Revenge",
+      "usaDate": "Mar 1971",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_071",
+      "italianLabel": "L'incredibile Devil # 71 (Editoriale Corno)",
+      "physicalId": "ID1:71",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_035:0528c38cfb7f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_036",
+      "usaNumber": "36",
+      "usaTitle": "Among Men Stalks The Ramrod",
+      "usa": "Iron Man Vol 1 #36 — Among Men Stalks The Ramrod",
+      "usaDate": "Apr 1971",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_072",
+      "italianLabel": "L'incredibile Devil # 72 (Editoriale Corno)",
+      "physicalId": "ID1:72",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_036:a3af2ed9eb12"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_037",
+      "usaNumber": "37",
+      "usaTitle": "In This Hour Of Earthdoom",
+      "usa": "Iron Man Vol 1 #37 — In This Hour Of Earthdoom",
+      "usaDate": "May 1971",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_123",
+      "italianLabel": "L'incredibile Devil # 123 (Editoriale Corno)",
+      "physicalId": "ID1:123",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_037:8ae3dfdc3753"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_038",
+      "usaNumber": "38",
+      "usaTitle": "When Calls Jonah",
+      "usa": "Iron Man Vol 1 #38 — When Calls Jonah",
+      "usaDate": "Jun 1971",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_124",
+      "italianLabel": "L'incredibile Devil # 124 (Editoriale Corno)",
+      "physicalId": "ID1:124",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_038:5169951f94ed"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_039",
+      "usaNumber": "39",
+      "usaTitle": "A Twist Of Memory, A Turn Of Mind",
+      "usa": "Iron Man Vol 1 #39 — A Twist Of Memory, A Turn Of Mind",
+      "usaDate": "Jul 1971",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_124",
+      "italianLabel": "L'incredibile Devil # 124 (Editoriale Corno)",
+      "physicalId": "ID1:124",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_039:52db9076b7e8"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_040",
+      "usaNumber": "40",
+      "usaTitle": "Nightwalk",
+      "usa": "Iron Man Vol 1 #40 — Nightwalk",
+      "usaDate": "Aug 1971",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_125",
+      "italianLabel": "L'incredibile Devil # 125 (Editoriale Corno)",
+      "physicalId": "ID1:125",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_040:119ff3aa0953"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_041",
+      "usaNumber": "41",
+      "usaTitle": "The Claws Of The Slasher",
+      "usa": "Iron Man Vol 1 #41 — The Claws Of The Slasher",
+      "usaDate": "Sep 1971",
+      "storyOrdinal": 1,
+      "italianAlbum": "ID1_125",
+      "italianLabel": "L'incredibile Devil # 125 (Editoriale Corno)",
+      "physicalId": "ID1:125",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_041:38d329596c57"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_042",
+      "usaNumber": "42",
+      "usaTitle": "When Demons Wail",
+      "usa": "Iron Man Vol 1 #42 — When Demons Wail",
+      "usaDate": "Nov 1971",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_131",
+      "italianLabel": "L'Uomo Ragno # 131 (Editoriale Corno)",
+      "physicalId": "UR_C1:131",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_042:32a0bc1a6850"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_043",
+      "usaNumber": "43",
+      "usaTitle": "Doomprayer",
+      "usa": "Iron Man Vol 1 #43 — Doomprayer",
+      "usaDate": "Dec 1971",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_132",
+      "italianLabel": "L'Uomo Ragno # 132 (Editoriale Corno)",
+      "physicalId": "UR_C1:132",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_043:b94eb9c5ddae"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_044",
+      "usaNumber": "44",
+      "usaTitle": "Weep For A Lost Nightmare!",
+      "usa": "Iron Man Vol 1 #44 — Weep For A Lost Nightmare!",
+      "usaDate": "Jan 1972",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_133",
+      "italianLabel": "L'Uomo Ragno # 133 (Editoriale Corno)",
+      "physicalId": "UR_C1:133",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_044:3130d5f83d84"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_045",
+      "usaNumber": "45",
+      "usaTitle": "Beneath The Armor Beats A Heart",
+      "usa": "Iron Man Vol 1 #45 — Beneath The Armor Beats A Heart",
+      "usaDate": "Mar 1972",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_134",
+      "italianLabel": "L'Uomo Ragno # 134 (Editoriale Corno)",
+      "physicalId": "UR_C1:134",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_045:b80204a01004"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_046",
+      "usaNumber": "46",
+      "usaTitle": "Menace At Large",
+      "usa": "Iron Man Vol 1 #46 — Menace At Large",
+      "usaDate": "May 1972",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_135",
+      "italianLabel": "L'Uomo Ragno # 135 (Editoriale Corno)",
+      "physicalId": "UR_C1:135",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_046:15821c0bace4"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_047",
+      "usaNumber": "47",
+      "usaTitle": "Why Must There Be An Iron Man?",
+      "usa": "Iron Man Vol 1 #47 — Why Must There Be An Iron Man?",
+      "usaDate": "Jun 1972",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_136",
+      "italianLabel": "L'Uomo Ragno # 136 (Editoriale Corno)",
+      "physicalId": "UR_C1:136",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_047:c1f271054756"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_048",
+      "usaNumber": "48",
+      "usaTitle": "The Fury And The Inferno",
+      "usa": "Iron Man Vol 1 #48 — The Fury And The Inferno",
+      "usaDate": "Jul 1972",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_137",
+      "italianLabel": "L'Uomo Ragno # 137 (Editoriale Corno)",
+      "physicalId": "UR_C1:137",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_048:fce82a67364b"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_049",
+      "usaNumber": "49",
+      "usaTitle": "...There Lurks The Adaptoid!",
+      "usa": "Iron Man Vol 1 #49 — ...There Lurks The Adaptoid!",
+      "usaDate": "Aug 1972",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_138",
+      "italianLabel": "L'Uomo Ragno # 138 (Editoriale Corno)",
+      "physicalId": "UR_C1:138",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_049:128b04d4b451"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_050",
+      "usaNumber": "50",
+      "usaTitle": "Deathplay!",
+      "usa": "Iron Man Vol 1 #50 — Deathplay!",
+      "usaDate": "Sep 1972",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_139",
+      "italianLabel": "L'Uomo Ragno # 139 (Editoriale Corno)",
+      "physicalId": "UR_C1:139",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_050:8803845e41e1"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_051",
+      "usaNumber": "51",
+      "usaTitle": "Now Stalks The Cyborg-Sinister!",
+      "usa": "Iron Man Vol 1 #51 — Now Stalks The Cyborg-Sinister!",
+      "usaDate": "Oct 1972",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_140",
+      "italianLabel": "L'Uomo Ragno # 140 (Editoriale Corno)",
+      "physicalId": "UR_C1:140",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_051:9742001da563"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_052",
+      "usaNumber": "52",
+      "usaTitle": "Raga: Son Of Fire",
+      "usa": "Iron Man Vol 1 #52 — Raga: Son Of Fire",
+      "usaDate": "Nov 1972",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_141",
+      "italianLabel": "L'Uomo Ragno # 141 (Editoriale Corno)",
+      "physicalId": "UR_C1:141",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_052:6f6682878df1"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_053",
+      "usaNumber": "53",
+      "usaTitle": "The Black Lama",
+      "usa": "Iron Man Vol 1 #53 — The Black Lama",
+      "usaDate": "Dec 1972",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_142",
+      "italianLabel": "L'Uomo Ragno # 142 (Editoriale Corno)",
+      "physicalId": "UR_C1:142",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_053:103f09fd8701"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_054",
+      "usaNumber": "54",
+      "usaTitle": "Sub-Mariner: Target For Death",
+      "usa": "Iron Man Vol 1 #54 — Sub-Mariner: Target For Death",
+      "usaDate": "Jan 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_143",
+      "italianLabel": "L'Uomo Ragno # 143 (Editoriale Corno)",
+      "physicalId": "UR_C1:143",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_054:e72c8738675e"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_055",
+      "usaNumber": "55",
+      "usaTitle": "Beware The Blood Brothers",
+      "usa": "Iron Man Vol 1 #55 — Beware The Blood Brothers",
+      "usaDate": "Feb 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_144",
+      "italianLabel": "L'Uomo Ragno # 144 (Editoriale Corno)",
+      "physicalId": "UR_C1:144",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_055:bc91aa9658b3"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_056",
+      "usaNumber": "56",
+      "usaTitle": "Rasputin's Revenge !",
+      "usa": "Iron Man Vol 1 #56 — Rasputin's Revenge !",
+      "usaDate": "Mar 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_145",
+      "italianLabel": "L'Uomo Ragno # 145 (Editoriale Corno)",
+      "physicalId": "UR_C1:145",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_056:57ce643a2953"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_057",
+      "usaNumber": "57",
+      "usaTitle": "Strike!",
+      "usa": "Iron Man Vol 1 #57 — Strike!",
+      "usaDate": "Apr 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_146",
+      "italianLabel": "L'Uomo Ragno # 146 (Editoriale Corno)",
+      "physicalId": "UR_C1:146",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_057:e01594c20503"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_058",
+      "usaNumber": "58",
+      "usaTitle": "Mandarin And The Unicorn: Double Death",
+      "usa": "Iron Man Vol 1 #58 — Mandarin And The Unicorn: Double Death",
+      "usaDate": "May 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_147",
+      "italianLabel": "L'Uomo Ragno # 147 (Editoriale Corno)",
+      "physicalId": "UR_C1:147",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_058:2466d0a2292e"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_059",
+      "usaNumber": "59",
+      "usaTitle": "A Madness In Motown",
+      "usa": "Iron Man Vol 1 #59 — A Madness In Motown",
+      "usaDate": "Jun 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_148",
+      "italianLabel": "L'Uomo Ragno # 148 (Editoriale Corno)",
+      "physicalId": "UR_C1:148",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_059:1bb0b11f7417"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_060",
+      "usaNumber": "60",
+      "usaTitle": "Cry Marauder",
+      "usa": "Iron Man Vol 1 #60 — Cry Marauder",
+      "usaDate": "Jul 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_149",
+      "italianLabel": "L'Uomo Ragno # 149 (Editoriale Corno)",
+      "physicalId": "UR_C1:149",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_060:909edcc8d069"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_061",
+      "usaNumber": "61",
+      "usaTitle": "Death Knells Over Detroit",
+      "usa": "Iron Man Vol 1 #61 — Death Knells Over Detroit",
+      "usaDate": "Aug 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_151",
+      "italianLabel": "L'Uomo Ragno # 151 (Editoriale Corno)",
+      "physicalId": "UR_C1:151",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_061:a0b6b33b158d"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_062",
+      "usaNumber": "62",
+      "usaTitle": "Whiplash Returns",
+      "usa": "Iron Man Vol 1 #62 — Whiplash Returns",
+      "usaDate": "Sep 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_152",
+      "italianLabel": "L'Uomo Ragno # 152 (Editoriale Corno)",
+      "physicalId": "UR_C1:152",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_062:45396fcbf76f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_063",
+      "usaNumber": "63",
+      "usaTitle": "Enter: Dr. Spectrum",
+      "usa": "Iron Man Vol 1 #63 — Enter: Dr. Spectrum",
+      "usaDate": "Oct 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_153",
+      "italianLabel": "L'Uomo Ragno # 153 (Editoriale Corno)",
+      "physicalId": "UR_C1:153",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_063:c796e0c45bfb"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_064",
+      "usaNumber": "64",
+      "usaTitle": "Rokk Cometh",
+      "usa": "Iron Man Vol 1 #64 — Rokk Cometh",
+      "usaDate": "Nov 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_154",
+      "italianLabel": "L'Uomo Ragno # 154 (Editoriale Corno)",
+      "physicalId": "UR_C1:154",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_064:ea3b9f00efaa"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_065",
+      "usaNumber": "65",
+      "usaTitle": "The Cutting Edge Of Death",
+      "usa": "Iron Man Vol 1 #65 — The Cutting Edge Of Death",
+      "usaDate": "Dec 1973",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_155",
+      "italianLabel": "L'Uomo Ragno # 155 (Editoriale Corno)",
+      "physicalId": "UR_C1:155",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_065:b16d66adaf7f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_066",
+      "usaNumber": "66",
+      "usaTitle": "Battle Royal / The Final Battle",
+      "usa": "Iron Man Vol 1 #66 — Battle Royal / The Final Battle",
+      "usaDate": "Feb 1974",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_156",
+      "italianLabel": "L'Uomo Ragno # 156 (Editoriale Corno)",
+      "physicalId": "UR_C1:156",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_066:01c90e6bf7e7"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_067",
+      "usaNumber": "67",
+      "usaTitle": "Return Of The Freak",
+      "usa": "Iron Man Vol 1 #67 — Return Of The Freak",
+      "usaDate": "Apr 1974",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_157",
+      "italianLabel": "L'Uomo Ragno # 157 (Editoriale Corno)",
+      "physicalId": "UR_C1:157",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_067:5a1350661b55"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_068",
+      "usaNumber": "68",
+      "usaTitle": "Night Of The Rising Sun",
+      "usa": "Iron Man Vol 1 #68 — Night Of The Rising Sun",
+      "usaDate": "Jun 1974",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_158",
+      "italianLabel": "L'Uomo Ragno # 158 (Editoriale Corno)",
+      "physicalId": "UR_C1:158",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_068:d27f5173240c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_069",
+      "usaNumber": "69",
+      "usaTitle": "Confrontation, Part 1",
+      "usa": "Iron Man Vol 1 #69 — Confrontation, Part 1",
+      "usaDate": "Aug 1974",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_159",
+      "italianLabel": "L'Uomo Ragno # 159 (Editoriale Corno)",
+      "physicalId": "UR_C1:159",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_069:b920badb6726"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_070",
+      "usaNumber": "70",
+      "usaTitle": "Confrontation, Part 2: Who Shall Stop Ultimo?",
+      "usa": "Iron Man Vol 1 #70 — Confrontation, Part 2: Who Shall Stop Ultimo?",
+      "usaDate": "Sep 1974",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_160",
+      "italianLabel": "L'Uomo Ragno # 160 (Editoriale Corno)",
+      "physicalId": "UR_C1:160",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_070:f756d466c6e2"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_071",
+      "usaNumber": "71",
+      "usaTitle": "Battle: Tooth And Yellow Claw",
+      "usa": "Iron Man Vol 1 #71 — Battle: Tooth And Yellow Claw",
+      "usaDate": "Nov 1974",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_161",
+      "italianLabel": "L'Uomo Ragno # 161 (Editoriale Corno)",
+      "physicalId": "UR_C1:161",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_071:ae18ffe3cc1b"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_072",
+      "usaNumber": "72",
+      "usaTitle": "Convention Of Fear",
+      "usa": "Iron Man Vol 1 #72 — Convention Of Fear",
+      "usaDate": "Jan 1975",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_170",
+      "italianLabel": "L'Uomo Ragno # 170 (Editoriale Corno)",
+      "physicalId": "UR_C1:170",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_072:65c2d879e212"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_073",
+      "usaNumber": "73",
+      "usaTitle": "Turnabout: A Most Foul Play",
+      "usa": "Iron Man Vol 1 #73 — Turnabout: A Most Foul Play",
+      "usaDate": "Mar 1975",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_171",
+      "italianLabel": "L'Uomo Ragno # 171 (Editoriale Corno)",
+      "physicalId": "UR_C1:171",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_073:dd509da74bd7"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_074",
+      "usaNumber": "74",
+      "usaTitle": "The Modok Machine",
+      "usa": "Iron Man Vol 1 #74 — The Modok Machine",
+      "usaDate": "May 1975",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_172",
+      "italianLabel": "L'Uomo Ragno # 172 (Editoriale Corno)",
+      "physicalId": "UR_C1:172",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_074:1d9ce225e9c3"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_075",
+      "usaNumber": "75",
+      "usaTitle": "Slave To The Power Imperious",
+      "usa": "Iron Man Vol 1 #75 — Slave To The Power Imperious",
+      "usaDate": "Jun 1975",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_173",
+      "italianLabel": "L'Uomo Ragno # 173 (Editoriale Corno)",
+      "physicalId": "UR_C1:173",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_075:db1e84ede3f0"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_077",
+      "usaNumber": "77",
+      "usaTitle": "I Cry: Revenge",
+      "usa": "Iron Man Vol 1 #77 — I Cry: Revenge",
+      "usaDate": "Aug 1975",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_175",
+      "italianLabel": "L'Uomo Ragno # 175 (Editoriale Corno)",
+      "physicalId": "UR_C1:175",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_077:c293695222e6"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_078",
+      "usaNumber": "78",
+      "usaTitle": "Long Time Gone",
+      "usa": "Iron Man Vol 1 #78 — Long Time Gone",
+      "usaDate": "Sep 1975",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_176",
+      "italianLabel": "L'Uomo Ragno # 176 (Editoriale Corno)",
+      "physicalId": "UR_C1:176",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_078:71d67ac68ac8"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_079",
+      "usaNumber": "79",
+      "usaTitle": "Midnite On Murder Mountain",
+      "usa": "Iron Man Vol 1 #79 — Midnite On Murder Mountain",
+      "usaDate": "Oct 1975",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_177",
+      "italianLabel": "L'Uomo Ragno # 177 (Editoriale Corno)",
+      "physicalId": "UR_C1:177",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_079:6d7d39049fea"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_080",
+      "usaNumber": "80",
+      "usaTitle": "Mission Into Madness!",
+      "usa": "Iron Man Vol 1 #80 — Mission Into Madness!",
+      "usaDate": "Nov 1975",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_178",
+      "italianLabel": "L'Uomo Ragno # 178 (Editoriale Corno)",
+      "physicalId": "UR_C1:178",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_080:41df01f8d9c9"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_081",
+      "usaNumber": "81",
+      "usaTitle": "War Of The Mind-Dragons",
+      "usa": "Iron Man Vol 1 #81 — War Of The Mind-Dragons",
+      "usaDate": "Dec 1975",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_179",
+      "italianLabel": "L'Uomo Ragno # 179 (Editoriale Corno)",
+      "physicalId": "UR_C1:179",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_081:f546461e7ada"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_082",
+      "usaNumber": "82",
+      "usaTitle": "Plunder Of The Apes",
+      "usa": "Iron Man Vol 1 #82 — Plunder Of The Apes",
+      "usaDate": "Jan 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_180",
+      "italianLabel": "L'Uomo Ragno # 180 (Editoriale Corno)",
+      "physicalId": "UR_C1:180",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_082:7183418ffdf9"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_083",
+      "usaNumber": "83",
+      "usaTitle": "The Rage Of The Red Ghost",
+      "usa": "Iron Man Vol 1 #83 — The Rage Of The Red Ghost",
+      "usaDate": "Feb 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_181",
+      "italianLabel": "L'Uomo Ragno # 181 (Editoriale Corno)",
+      "physicalId": "UR_C1:181",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_083:72cd92afa079"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_084",
+      "usaNumber": "84",
+      "usaTitle": "Night Of The Walking Bomb",
+      "usa": "Iron Man Vol 1 #84 — Night Of The Walking Bomb",
+      "usaDate": "Mar 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_182",
+      "italianLabel": "L'Uomo Ragno # 182 (Editoriale Corno)",
+      "physicalId": "UR_C1:182",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_084:2089cedcc43a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_085",
+      "usaNumber": "85",
+      "usaTitle": "And The Freak Shall Inherit The Earth",
+      "usa": "Iron Man Vol 1 #85 — And The Freak Shall Inherit The Earth",
+      "usaDate": "Apr 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_183",
+      "italianLabel": "L'Uomo Ragno # 183 (Editoriale Corno)",
+      "physicalId": "UR_C1:183",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_085:44c942512f55"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_086",
+      "usaNumber": "86",
+      "usaTitle": "The Gentleman's Name Is Blizzard",
+      "usa": "Iron Man Vol 1 #86 — The Gentleman's Name Is Blizzard",
+      "usaDate": "May 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_184",
+      "italianLabel": "L'Uomo Ragno # 184 (Editoriale Corno)",
+      "physicalId": "UR_C1:184",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_086:1353c5d26d9c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_087",
+      "usaNumber": "87",
+      "usaTitle": "The Icy Hand Of Death",
+      "usa": "Iron Man Vol 1 #87 — The Icy Hand Of Death",
+      "usaDate": "Jun 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_185",
+      "italianLabel": "L'Uomo Ragno # 185 (Editoriale Corno)",
+      "physicalId": "UR_C1:185",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_087:fe76e73351a8"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_088",
+      "usaNumber": "88",
+      "usaTitle": "Fear Wears Two Faces",
+      "usa": "Iron Man Vol 1 #88 — Fear Wears Two Faces",
+      "usaDate": "Jul 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_207",
+      "italianLabel": "L'Uomo Ragno # 207 (Editoriale Corno)",
+      "physicalId": "UR_C1:207",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_088:698b6eda633a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_089",
+      "usaNumber": "89",
+      "usaTitle": "Brute Fury",
+      "usa": "Iron Man Vol 1 #89 — Brute Fury",
+      "usaDate": "Aug 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_208",
+      "italianLabel": "L'Uomo Ragno # 208 (Editoriale Corno)",
+      "physicalId": "UR_C1:208",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_089:dec81806597d"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_090",
+      "usaNumber": "90",
+      "usaTitle": "When Calls The Controller",
+      "usa": "Iron Man Vol 1 #90 — When Calls The Controller",
+      "usaDate": "Sep 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_209",
+      "italianLabel": "L'Uomo Ragno # 209 (Editoriale Corno)",
+      "physicalId": "UR_C1:209",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_090:2906b250e36b"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_091",
+      "usaNumber": "91",
+      "usaTitle": "Breakout!",
+      "usa": "Iron Man Vol 1 #91 — Breakout!",
+      "usaDate": "Oct 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_210",
+      "italianLabel": "L'Uomo Ragno # 210 (Editoriale Corno)",
+      "physicalId": "UR_C1:210",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_091:9d2602c01ac7"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_092",
+      "usaNumber": "92",
+      "usaTitle": "Burn, Hero, Burn",
+      "usa": "Iron Man Vol 1 #92 — Burn, Hero, Burn",
+      "usaDate": "Nov 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_211",
+      "italianLabel": "L'Uomo Ragno # 211 (Editoriale Corno)",
+      "physicalId": "UR_C1:211",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_092:8839ab87a3ad"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_093",
+      "usaNumber": "93",
+      "usaTitle": "Kraken Kills",
+      "usa": "Iron Man Vol 1 #93 — Kraken Kills",
+      "usaDate": "Dec 1976",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_212",
+      "italianLabel": "L'Uomo Ragno # 212 (Editoriale Corno)",
+      "physicalId": "UR_C1:212",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_093:09173b8b51ed"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_094",
+      "usaNumber": "94",
+      "usaTitle": "Frenzy At Fifty Fathoms",
+      "usa": "Iron Man Vol 1 #94 — Frenzy At Fifty Fathoms",
+      "usaDate": "Jan 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_213",
+      "italianLabel": "L'Uomo Ragno # 213 (Editoriale Corno)",
+      "physicalId": "UR_C1:213",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_094:0c36d0845c60"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_095",
+      "usaNumber": "95",
+      "usaTitle": "Ultimo!",
+      "usa": "Iron Man Vol 1 #95 — Ultimo!",
+      "usaDate": "Feb 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_214",
+      "italianLabel": "L'Uomo Ragno # 214 (Editoriale Corno)",
+      "physicalId": "UR_C1:214",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_095:b7310fb0e775"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_096",
+      "usaNumber": "96",
+      "usaTitle": "Only A Friend Can Save Him",
+      "usa": "Iron Man Vol 1 #96 — Only A Friend Can Save Him",
+      "usaDate": "Mar 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_215",
+      "italianLabel": "L'Uomo Ragno # 215 (Editoriale Corno)",
+      "physicalId": "UR_C1:215",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_096:0ebf5367b0d8"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_097",
+      "usaNumber": "97",
+      "usaTitle": "Showdown With The Guardsman",
+      "usa": "Iron Man Vol 1 #97 — Showdown With The Guardsman",
+      "usaDate": "Apr 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_216",
+      "italianLabel": "L'Uomo Ragno # 216 (Editoriale Corno)",
+      "physicalId": "UR_C1:216",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_097:ecebd992addb"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_098",
+      "usaNumber": "98",
+      "usaTitle": "Sunfire Strikes Again",
+      "usa": "Iron Man Vol 1 #98 — Sunfire Strikes Again",
+      "usaDate": "May 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_217",
+      "italianLabel": "L'Uomo Ragno # 217 (Editoriale Corno)",
+      "physicalId": "UR_C1:217",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_098:186d3c441f57"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_099",
+      "usaNumber": "99",
+      "usaTitle": "At The Mercy Of The Mandarin",
+      "usa": "Iron Man Vol 1 #99 — At The Mercy Of The Mandarin",
+      "usaDate": "Jun 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_218",
+      "italianLabel": "L'Uomo Ragno # 218 (Editoriale Corno)",
+      "physicalId": "UR_C1:218",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_099:4917c1515478"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_100",
+      "usaNumber": "100",
+      "usaTitle": "Ten Rings To Rule The World!",
+      "usa": "Iron Man Vol 1 #100 — Ten Rings To Rule The World!",
+      "usaDate": "Jul 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_219",
+      "italianLabel": "L'Uomo Ragno # 219 (Editoriale Corno)",
+      "physicalId": "UR_C1:219",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_100:4917c1515478"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_101",
+      "usaNumber": "101",
+      "usaTitle": "The Came The Monster",
+      "usa": "Iron Man Vol 1 #101 — The Came The Monster",
+      "usaDate": "Aug 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_238",
+      "italianLabel": "L'Uomo Ragno # 238 (Editoriale Corno)",
+      "physicalId": "UR_C1:238",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_101:b155585d7e6c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_102",
+      "usaNumber": "102",
+      "usaTitle": "Dreadknight And The Daughter Of Creation",
+      "usa": "Iron Man Vol 1 #102 — Dreadknight And The Daughter Of Creation",
+      "usaDate": "Sep 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_241",
+      "italianLabel": "L'Uomo Ragno # 241 (Editoriale Corno)",
+      "physicalId": "UR_C1:241",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_102:052195d1bd57"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_103",
+      "usaNumber": "103",
+      "usaTitle": "Run For The Money",
+      "usa": "Iron Man Vol 1 #103 — Run For The Money",
+      "usaDate": "Oct 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_243",
+      "italianLabel": "L'Uomo Ragno # 243 (Editoriale Corno)",
+      "physicalId": "UR_C1:243",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_103:761ce290d016"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_104",
+      "usaNumber": "104",
+      "usaTitle": "Triad",
+      "usa": "Iron Man Vol 1 #104 — Triad",
+      "usaDate": "Nov 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_251",
+      "italianLabel": "L'Uomo Ragno # 251 (Editoriale Corno)",
+      "physicalId": "UR_C1:251",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_104:f3f88f95dd8b"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_105",
+      "usaNumber": "105",
+      "usaTitle": "Every Hand Against Him",
+      "usa": "Iron Man Vol 1 #105 — Every Hand Against Him",
+      "usaDate": "Dec 1977",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_254",
+      "italianLabel": "L'Uomo Ragno # 254 (Editoriale Corno)",
+      "physicalId": "UR_C1:254",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_105:fc2347b89d16"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_106",
+      "usaNumber": "106",
+      "usaTitle": "Then There Came A War",
+      "usa": "Iron Man Vol 1 #106 — Then There Came A War",
+      "usaDate": "Jan 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_255",
+      "italianLabel": "L'Uomo Ragno # 255 (Editoriale Corno)",
+      "physicalId": "UR_C1:255",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_106:fc2347b89d16"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_107",
+      "usaNumber": "107",
+      "usaTitle": "And In The End…",
+      "usa": "Iron Man Vol 1 #107 — And In The End…",
+      "usaDate": "Feb 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_256",
+      "italianLabel": "L'Uomo Ragno # 256 (Editoriale Corno)",
+      "physicalId": "UR_C1:256",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_107:f72003ce5700"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_108",
+      "usaNumber": "108",
+      "usaTitle": "Growing Pains!",
+      "usa": "Iron Man Vol 1 #108 — Growing Pains!",
+      "usaDate": "Mar 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_260",
+      "italianLabel": "L'Uomo Ragno # 260 (Editoriale Corno)",
+      "physicalId": "UR_C1:260",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_108:c35f0eae6f59"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_109",
+      "usaNumber": "109",
+      "usaTitle": "Moonrise",
+      "usa": "Iron Man Vol 1 #109 — Moonrise",
+      "usaDate": "Apr 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_261",
+      "italianLabel": "L'Uomo Ragno # 261 (Editoriale Corno)",
+      "physicalId": "UR_C1:261",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_109:0df3a88587e0"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_110",
+      "usaNumber": "110",
+      "usaTitle": "Sojourners Through Space",
+      "usa": "Iron Man Vol 1 #110 — Sojourners Through Space",
+      "usaDate": "May 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_267",
+      "italianLabel": "L'Uomo Ragno # 267 (Editoriale Corno)",
+      "physicalId": "UR_C1:267",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_110:53b4d5f2f8b7"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_111",
+      "usaNumber": "111",
+      "usaTitle": "The Man, The Metal And The Mayhem",
+      "usa": "Iron Man Vol 1 #111 — The Man, The Metal And The Mayhem",
+      "usaDate": "Jun 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_269",
+      "italianLabel": "L'Uomo Ragno # 269 (Editoriale Corno)",
+      "physicalId": "UR_C1:269",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_111:3518dc8f366c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_112",
+      "usaNumber": "112",
+      "usaTitle": "Moon Wars",
+      "usa": "Iron Man Vol 1 #112 — Moon Wars",
+      "usaDate": "Jul 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_270",
+      "italianLabel": "L'Uomo Ragno # 270 (Editoriale Corno)",
+      "physicalId": "UR_C1:270",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_112:17afbfcde81d"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_113",
+      "usaNumber": "113",
+      "usaTitle": "The Horn Of The Unicorn",
+      "usa": "Iron Man Vol 1 #113 — The Horn Of The Unicorn",
+      "usaDate": "Aug 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_274",
+      "italianLabel": "L'Uomo Ragno # 274 (Editoriale Corno)",
+      "physicalId": "UR_C1:274",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_113:00a5d32be097"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_114",
+      "usaNumber": "114",
+      "usaTitle": "The Menace Of Arsenal",
+      "usa": "Iron Man Vol 1 #114 — The Menace Of Arsenal",
+      "usaDate": "Sep 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_275",
+      "italianLabel": "L'Uomo Ragno # 275 (Editoriale Corno)",
+      "physicalId": "UR_C1:275",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_114:c6e47a4d986b"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_115",
+      "usaNumber": "115",
+      "usaTitle": "Betrayal",
+      "usa": "Iron Man Vol 1 #115 — Betrayal",
+      "usaDate": "Oct 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_276",
+      "italianLabel": "L'Uomo Ragno # 276 (Editoriale Corno)",
+      "physicalId": "UR_C1:276",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_115:af8498e127c3"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_116",
+      "usaNumber": "116",
+      "usaTitle": "Anguish, Once Removed",
+      "usa": "Iron Man Vol 1 #116 — Anguish, Once Removed",
+      "usaDate": "Nov 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_277",
+      "italianLabel": "L'Uomo Ragno # 277 (Editoriale Corno)",
+      "physicalId": "UR_C1:277",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_116:021ec8a0b60a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_117",
+      "usaNumber": "117",
+      "usaTitle": "The Spy Who Killed Me",
+      "usa": "Iron Man Vol 1 #117 — The Spy Who Killed Me",
+      "usaDate": "Dec 1978",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_279",
+      "italianLabel": "L'Uomo Ragno # 279 (Editoriale Corno)",
+      "physicalId": "UR_C1:279",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_117:5119eba44de7"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_118",
+      "usaNumber": "118",
+      "usaTitle": "At The Mercy Of My Friends",
+      "usa": "Iron Man Vol 1 #118 — At The Mercy Of My Friends",
+      "usaDate": "Jan 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_280",
+      "italianLabel": "L'Uomo Ragno # 280 (Editoriale Corno)",
+      "physicalId": "UR_C1:280",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_118:8035cd59d0cc"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_119",
+      "usaNumber": "119",
+      "usaTitle": "No S.H.I.E.L.D. To Protect Me!",
+      "usa": "Iron Man Vol 1 #119 — No S.H.I.E.L.D. To Protect Me!",
+      "usaDate": "Feb 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_281",
+      "italianLabel": "L'Uomo Ragno # 281 (Editoriale Corno)",
+      "physicalId": "UR_C1:281",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_119:f16aadb76b3c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_120",
+      "usaNumber": "120",
+      "usaTitle": "The Old Man And The Sea Prince!",
+      "usa": "Iron Man Vol 1 #120 — The Old Man And The Sea Prince!",
+      "usaDate": "Mar 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_282",
+      "italianLabel": "L'Uomo Ragno # 282 (Editoriale Corno)",
+      "physicalId": "UR_C1:282",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_120:10ccde255614"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_121",
+      "usaNumber": "121",
+      "usaTitle": "A Ruse By Any Other Name…",
+      "usa": "Iron Man Vol 1 #121 — A Ruse By Any Other Name…",
+      "usaDate": "Apr 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "UR_C1_283",
+      "italianLabel": "L'Uomo Ragno # 283 (Editoriale Corno)",
+      "physicalId": "UR_C1:283",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_121:c006e8d13c3d"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_122",
+      "usaNumber": "122",
+      "usaTitle": "Journey !",
+      "usa": "Iron Man Vol 1 #122 — Journey !",
+      "usaDate": "May 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "SUR_C_013",
+      "italianLabel": "Il settimanale de l'Uomo Ragno # 13 (Editoriale Corno)",
+      "physicalId": "SUR_C:13",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_122:369c40928297"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_123",
+      "usaNumber": "123",
+      "usaTitle": "Casino Fatale!",
+      "usa": "Iron Man Vol 1 #123 — Casino Fatale!",
+      "usaDate": "Jun 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "SUR_C_014",
+      "italianLabel": "Il settimanale de l'Uomo Ragno # 14 (Editoriale Corno)",
+      "physicalId": "SUR_C:14",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_123:6a6b8fc1fdc0"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_124",
+      "usaNumber": "124",
+      "usaTitle": "Pieces Of Hate!",
+      "usa": "Iron Man Vol 1 #124 — Pieces Of Hate!",
+      "usaDate": "Jul 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "SUR_C_015",
+      "italianLabel": "Il settimanale de l'Uomo Ragno # 15 (Editoriale Corno)",
+      "physicalId": "SUR_C:15",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_124:6d887b8f495c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_125",
+      "usaNumber": "125",
+      "usaTitle": "The Monaco Prelude",
+      "usa": "Iron Man Vol 1 #125 — The Monaco Prelude",
+      "usaDate": "Aug 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "SUR_C_016",
+      "italianLabel": "Il settimanale de l'Uomo Ragno # 16 (Editoriale Corno)",
+      "physicalId": "SUR_C:16",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_125:514b20b4ed74"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_126",
+      "usaNumber": "126",
+      "usaTitle": "The Hammer Strikes!",
+      "usa": "Iron Man Vol 1 #126 — The Hammer Strikes!",
+      "usaDate": "Sep 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "SUR_C_017",
+      "italianLabel": "Il settimanale de l'Uomo Ragno # 17 (Editoriale Corno)",
+      "physicalId": "SUR_C:17",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_126:514b20b4ed74"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_127",
+      "usaNumber": "127",
+      "usaTitle": "...A Man's Home Is His Battlefield!",
+      "usa": "Iron Man Vol 1 #127 — ...A Man's Home Is His Battlefield!",
+      "usaDate": "Oct 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "SUR_C_019",
+      "italianLabel": "Il settimanale de l'Uomo Ragno # 19 (Editoriale Corno)",
+      "physicalId": "SUR_C:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_127:0cf716aa408e"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_128",
+      "usaNumber": "128",
+      "usaTitle": "Demon In A Bottle",
+      "usa": "Iron Man Vol 1 #128 — Demon In A Bottle",
+      "usaDate": "Nov 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "DP7_P_006",
+      "italianLabel": "D.P.7 # 6 (Play Press)",
+      "physicalId": "DP7_P:6",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_128:e6924ad2a1a1"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_129",
+      "usaNumber": "129",
+      "usaTitle": "Dread Night Of The Dreadnought!",
+      "usa": "Iron Man Vol 1 #129 — Dread Night Of The Dreadnought!",
+      "usaDate": "Dec 1979",
+      "storyOrdinal": 1,
+      "italianAlbum": "DP7_P_014",
+      "italianLabel": "D.P.7 # 14 (Play Press)",
+      "physicalId": "DP7_P:14",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_129:c9ce179ba391"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_130",
+      "usaNumber": "130",
+      "usaTitle": "The Digital Devil!",
+      "usa": "Iron Man Vol 1 #130 — The Digital Devil!",
+      "usaDate": "Jan 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "NAM_PP_001",
+      "italianLabel": "Namor - The Sub Mariner # 1 (Play Press)",
+      "physicalId": "NAM_PP:1",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_130:2d6c2250ccbf"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_131",
+      "usaNumber": "131",
+      "usaTitle": "Hulk Is Where The Heart Is!",
+      "usa": "Iron Man Vol 1 #131 — Hulk Is Where The Heart Is!",
+      "usaDate": "Feb 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "DP7_P_008",
+      "italianLabel": "D.P.7 # 8 (Play Press)",
+      "physicalId": "DP7_P:8",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_131:e14263955236"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_132",
+      "usaNumber": "132",
+      "usaTitle": "The Man Who Would Be Hulk!",
+      "usa": "Iron Man Vol 1 #132 — The Man Who Would Be Hulk!",
+      "usaDate": "Mar 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "DP7_P_010",
+      "italianLabel": "D.P.7 # 10 (Play Press)",
+      "physicalId": "DP7_P:10",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_132:dd26e1998d2a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_133",
+      "usaNumber": "133",
+      "usaTitle": "The Hero Within!",
+      "usa": "Iron Man Vol 1 #133 — The Hero Within!",
+      "usaDate": "Apr 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "DP7_P_012",
+      "italianLabel": "D.P.7 # 12 (Play Press)",
+      "physicalId": "DP7_P:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_133:5ddbafa3bd7f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_134",
+      "usaNumber": "134",
+      "usaTitle": "The Challenge",
+      "usa": "Iron Man Vol 1 #134 — The Challenge",
+      "usaDate": "May 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "NAM_PP_002",
+      "italianLabel": "Namor - The Sub Mariner # 2 (Play Press)",
+      "physicalId": "NAM_PP:2",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_134:2e4648670cb1"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_135",
+      "usaNumber": "135",
+      "usaTitle": "Return Of The Hero",
+      "usa": "Iron Man Vol 1 #135 — Return Of The Hero",
+      "usaDate": "Jun 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "NAM_PP_003",
+      "italianLabel": "Namor - The Sub Mariner # 3 (Play Press)",
+      "physicalId": "NAM_PP:3",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_135:2e4648670cb1"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_136",
+      "usaNumber": "136",
+      "usaTitle": "The Beginning For The Endotherm!",
+      "usa": "Iron Man Vol 1 #136 — The Beginning For The Endotherm!",
+      "usaDate": "Jul 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "MMW_M_158",
+      "italianLabel": "Marvel Masterworks # 158 (Panini Comics)",
+      "physicalId": "MMW_M:158",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_136:d3b823908783"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_137",
+      "usaNumber": "137",
+      "usaTitle": "Facades!",
+      "usa": "Iron Man Vol 1 #137 — Facades!",
+      "usaDate": "Aug 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "NAM_PP_004",
+      "italianLabel": "Namor - The Sub Mariner # 4 (Play Press)",
+      "physicalId": "NAM_PP:4",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_137:2d6c2250ccbf"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_138",
+      "usaNumber": "138",
+      "usaTitle": "Facades And Ruses",
+      "usa": "Iron Man Vol 1 #138 — Facades And Ruses",
+      "usaDate": "Sep 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "NAM_PP_005",
+      "italianLabel": "Namor - The Sub Mariner # 5 (Play Press)",
+      "physicalId": "NAM_PP:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_138:dae05d1a99f3"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_139",
+      "usaNumber": "139",
+      "usaTitle": "Facades, Ruses And Masques",
+      "usa": "Iron Man Vol 1 #139 — Facades, Ruses And Masques",
+      "usaDate": "Oct 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "NAM_PP_006",
+      "italianLabel": "Namor - The Sub Mariner # 6 (Play Press)",
+      "physicalId": "NAM_PP:6",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_139:22188d9c9648"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_140",
+      "usaNumber": "140",
+      "usaTitle": "The Use Of Deadly Force",
+      "usa": "Iron Man Vol 1 #140 — The Use Of Deadly Force",
+      "usaDate": "Nov 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "NAM_PP_007",
+      "italianLabel": "Namor - The Sub Mariner # 7 (Play Press)",
+      "physicalId": "NAM_PP:7",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_140:468a9a00b9e2"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_141",
+      "usaNumber": "141",
+      "usaTitle": "The Carribean Connection",
+      "usa": "Iron Man Vol 1 #141 — The Carribean Connection",
+      "usaDate": "Dec 1980",
+      "storyOrdinal": 1,
+      "italianAlbum": "NAM_PP_009",
+      "italianLabel": "Namor - The Sub Mariner # 9 (Play Press)",
+      "physicalId": "NAM_PP:9",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_141:945adac3c86e"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_142",
+      "usaNumber": "142",
+      "usaTitle": "Sky Die!",
+      "usa": "Iron Man Vol 1 #142 — Sky Die!",
+      "usaDate": "Jan 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "NAM_PP_011",
+      "italianLabel": "Namor - The Sub Mariner # 11 (Play Press)",
+      "physicalId": "NAM_PP:11",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_142:06a00935899f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_143",
+      "usaNumber": "143",
+      "usaTitle": "Meter On The Sun!",
+      "usa": "Iron Man Vol 1 #143 — Meter On The Sun!",
+      "usaDate": "Feb 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "NAM_PP_014",
+      "italianLabel": "Namor - The Sub Mariner # 14 (Play Press)",
+      "physicalId": "NAM_PP:14",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_143:06a00935899f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_144",
+      "usaNumber": "144",
+      "usaTitle": "Sunfall",
+      "usa": "Iron Man Vol 1 #144 — Sunfall",
+      "usaDate": "Mar 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "NAM_PP_014",
+      "italianLabel": "Namor - The Sub Mariner # 14 (Play Press)",
+      "physicalId": "NAM_PP:14",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_144:97e331d92d5f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_145",
+      "usaNumber": "145",
+      "usaTitle": "Raiders' Rampage!",
+      "usa": "Iron Man Vol 1 #145 — Raiders' Rampage!",
+      "usaDate": "Apr 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_033",
+      "italianLabel": "Iron Man # 33 (Play Press)",
+      "physicalId": "IM_PP:33",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_145:a6819a759760"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_146",
+      "usaNumber": "146",
+      "usaTitle": "Blacklash And The Burning!",
+      "usa": "Iron Man Vol 1 #146 — Blacklash And The Burning!",
+      "usaDate": "May 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_037",
+      "italianLabel": "Iron Man # 37 (Play Press)",
+      "physicalId": "IM_PP:37",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_146:06a00935899f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_147",
+      "usaNumber": "147",
+      "usaTitle": "Holocaust At High Noon!",
+      "usa": "Iron Man Vol 1 #147 — Holocaust At High Noon!",
+      "usaDate": "Jun 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_038",
+      "italianLabel": "Iron Man # 38 (Play Press)",
+      "physicalId": "IM_PP:38",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_147:06a00935899f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_148",
+      "usaNumber": "148",
+      "usaTitle": "Siege!",
+      "usa": "Iron Man Vol 1 #148 — Siege!",
+      "usaDate": "Jul 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_040",
+      "italianLabel": "Iron Man # 40 (Play Press)",
+      "physicalId": "IM_PP:40",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_148:06a00935899f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_149",
+      "usaNumber": "149",
+      "usaTitle": "Doomquest",
+      "usa": "Iron Man Vol 1 #149 — Doomquest",
+      "usaDate": "Aug 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_041",
+      "italianLabel": "Iron Man # 41/42 (Play Press)",
+      "physicalId": "IM_PP:41/42",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_149:06a00935899f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_150",
+      "usaNumber": "150",
+      "usaTitle": "Knightmare",
+      "usa": "Iron Man Vol 1 #150 — Knightmare",
+      "usaDate": "Sep 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_043",
+      "italianLabel": "Iron Man # 43 (Play Press)",
+      "physicalId": "IM_PP:43",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_150:fd6564fb4521"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_151",
+      "usaNumber": "151",
+      "usaTitle": "G.A.R.D.'s Gauntlet",
+      "usa": "Iron Man Vol 1 #151 — G.A.R.D.'s Gauntlet",
+      "usaDate": "Oct 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_044",
+      "italianLabel": "Iron Man # 44 (Play Press)",
+      "physicalId": "IM_PP:44",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_151:b1caf1443bf1"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_152",
+      "usaNumber": "152",
+      "usaTitle": "Escape From Heaven's Hand!",
+      "usa": "Iron Man Vol 1 #152 — Escape From Heaven's Hand!",
+      "usaDate": "Nov 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_045",
+      "italianLabel": "Iron Man # 45 (Play Press)",
+      "physicalId": "IM_PP:45",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_152:71a04dd532aa"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_153",
+      "usaNumber": "153",
+      "usaTitle": "Light Makes Might!",
+      "usa": "Iron Man Vol 1 #153 — Light Makes Might!",
+      "usaDate": "Dec 1981",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_046",
+      "italianLabel": "Iron Man # 46 (Play Press)",
+      "physicalId": "IM_PP:46",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_153:b84db16f4c15"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_154",
+      "usaNumber": "154",
+      "usaTitle": "The Other Side Of Madness!",
+      "usa": "Iron Man Vol 1 #154 — The Other Side Of Madness!",
+      "usaDate": "Jan 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MMW_M_176",
+      "italianLabel": "Marvel Masterworks # 176 (Panini Comics)",
+      "physicalId": "MMW_M:176",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_154:dc6569614363"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_155",
+      "usaNumber": "155",
+      "usaTitle": "The Back-Getters!",
+      "usa": "Iron Man Vol 1 #155 — The Back-Getters!",
+      "usaDate": "Feb 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MMW_M_176",
+      "italianLabel": "Marvel Masterworks # 176 (Panini Comics)",
+      "physicalId": "MMW_M:176",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_155:762ae4e1d728"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_156",
+      "usaNumber": "156",
+      "usaTitle": "The Mauler Mandate!",
+      "usa": "Iron Man Vol 1 #156 — The Mauler Mandate!",
+      "usaDate": "Mar 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MMW_M_176",
+      "italianLabel": "Marvel Masterworks # 176 (Panini Comics)",
+      "physicalId": "MMW_M:176",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_156:83fff807a4d8"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_157",
+      "usaNumber": "157",
+      "usaTitle": "Spores!",
+      "usa": "Iron Man Vol 1 #157 — Spores!",
+      "usaDate": "Apr 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MMW_M_176",
+      "italianLabel": "Marvel Masterworks # 176 (Panini Comics)",
+      "physicalId": "MMW_M:176",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_157:3e6c47d4b71e"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_158",
+      "usaNumber": "158",
+      "usaTitle": "Moms",
+      "usa": "Iron Man Vol 1 #158 — Moms",
+      "usaDate": "May 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_158:78a061dac6ea"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_159",
+      "usaNumber": "159",
+      "usaTitle": "When Strikes Diablo!",
+      "usa": "Iron Man Vol 1 #159 — When Strikes Diablo!",
+      "usaDate": "Jun 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_159:6bc41dad94df"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_160",
+      "usaNumber": "160",
+      "usaTitle": "A Cry Of Beasts",
+      "usa": "Iron Man Vol 1 #160 — A Cry Of Beasts",
+      "usaDate": "Jul 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_160:7d31840fba93"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_161",
+      "usaNumber": "161",
+      "usaTitle": "If The Moonman Should Fail!",
+      "usa": "Iron Man Vol 1 #161 — If The Moonman Should Fail!",
+      "usaDate": "Aug 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_161:aa7d287cbbd3"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_162",
+      "usaNumber": "162",
+      "usaTitle": "The Menace Within!",
+      "usa": "Iron Man Vol 1 #162 — The Menace Within!",
+      "usaDate": "Sep 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_162:7ac089a5efce"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_163",
+      "usaNumber": "163",
+      "usaTitle": "Knight's Errand!",
+      "usa": "Iron Man Vol 1 #163 — Knight's Errand!",
+      "usaDate": "Oct 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_163:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_164",
+      "usaNumber": "164",
+      "usaTitle": "Deadly Blessing",
+      "usa": "Iron Man Vol 1 #164 — Deadly Blessing",
+      "usaDate": "Nov 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_164:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_165",
+      "usaNumber": "165",
+      "usaTitle": "Endgame",
+      "usa": "Iron Man Vol 1 #165 — Endgame",
+      "usaDate": "Dec 1982",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_165:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_166",
+      "usaNumber": "166",
+      "usaTitle": "One Of Those Days…",
+      "usa": "Iron Man Vol 1 #166 — One Of Those Days…",
+      "usaDate": "Jan 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_166:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_167",
+      "usaNumber": "167",
+      "usaTitle": "The Empty Shell",
+      "usa": "Iron Man Vol 1 #167 — The Empty Shell",
+      "usaDate": "Feb 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_167:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_168",
+      "usaNumber": "168",
+      "usaTitle": "The Iron Scream",
+      "usa": "Iron Man Vol 1 #168 — The Iron Scream",
+      "usaDate": "Mar 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_168:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_169",
+      "usaNumber": "169",
+      "usaTitle": "Blackout !",
+      "usa": "Iron Man Vol 1 #169 — Blackout !",
+      "usaDate": "Apr 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_012",
+      "italianLabel": "Marvel Geeks # 12 (Panini Comics)",
+      "physicalId": "MARVGEEKS:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_169:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_170",
+      "usaNumber": "170",
+      "usaTitle": "And Who Shall Clothe Himself In Iron?",
+      "usa": "Iron Man Vol 1 #170 — And Who Shall Clothe Himself In Iron?",
+      "usaDate": "May 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "DECENNI_005",
+      "italianLabel": "Decenni # 5 (Panini Comics)",
+      "physicalId": "DECENNI:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_170:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_171",
+      "usaNumber": "171",
+      "usaTitle": "Ball And Chain",
+      "usa": "Iron Man Vol 1 #171 — Ball And Chain",
+      "usaDate": "Jun 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_171:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_172",
+      "usaNumber": "172",
+      "usaTitle": "Firebrand's Revenge!",
+      "usa": "Iron Man Vol 1 #172 — Firebrand's Revenge!",
+      "usaDate": "Jul 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_172:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_173",
+      "usaNumber": "173",
+      "usaTitle": "Judas Is A Woman",
+      "usa": "Iron Man Vol 1 #173 — Judas Is A Woman",
+      "usaDate": "Aug 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_173:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_174",
+      "usaNumber": "174",
+      "usaTitle": "Armor Chase",
+      "usa": "Iron Man Vol 1 #174 — Armor Chase",
+      "usaDate": "Sep 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_174:9ac9cb5021bf"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_175",
+      "usaNumber": "175",
+      "usaTitle": "This Treasure Of Red And Gold…",
+      "usa": "Iron Man Vol 1 #175 — This Treasure Of Red And Gold…",
+      "usaDate": "Oct 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_175:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_176",
+      "usaNumber": "176",
+      "usaTitle": "Turf",
+      "usa": "Iron Man Vol 1 #176 — Turf",
+      "usaDate": "Nov 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_176:10dd27fc04a3"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_177",
+      "usaNumber": "177",
+      "usaTitle": "Have Armor Will Travel",
+      "usa": "Iron Man Vol 1 #177 — Have Armor Will Travel",
+      "usaDate": "Dec 1983",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_177:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_178",
+      "usaNumber": "178",
+      "usaTitle": "Once An Avenger, Always An Avenger!",
+      "usa": "Iron Man Vol 1 #178 — Once An Avenger, Always An Avenger!",
+      "usaDate": "Jan 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_178:d3a50eae43f1"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_179",
+      "usaNumber": "179",
+      "usaTitle": "Mission Into Darkness",
+      "usa": "Iron Man Vol 1 #179 — Mission Into Darkness",
+      "usaDate": "Feb 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_179:cea769685c79"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_180",
+      "usaNumber": "180",
+      "usaTitle": "This Ancient Enemy!",
+      "usa": "Iron Man Vol 1 #180 — This Ancient Enemy!",
+      "usaDate": "Mar 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_180:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_181",
+      "usaNumber": "181",
+      "usaTitle": "Though My Life Be Forfeit…",
+      "usa": "Iron Man Vol 1 #181 — Though My Life Be Forfeit…",
+      "usaDate": "Apr 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_181:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_182",
+      "usaNumber": "182",
+      "usaTitle": "Deliverance",
+      "usa": "Iron Man Vol 1 #182 — Deliverance",
+      "usaDate": "May 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": "MARVGEEKS_019",
+      "italianLabel": "Marvel Geeks # 19 (Panini Comics)",
+      "physicalId": "MARVGEEKS:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_182:abc3472b527a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_183",
+      "usaNumber": "183",
+      "usaTitle": "All The Kinds Of Fear!",
+      "usa": "Iron Man Vol 1 #183 — All The Kinds Of Fear!",
+      "usaDate": "Jun 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_184",
+      "usaNumber": "184",
+      "usaTitle": "On The Road…",
+      "usa": "Iron Man Vol 1 #184 — On The Road…",
+      "usaDate": "Jul 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_185",
+      "usaNumber": "185",
+      "usaTitle": "Terror In Tulaluma!",
+      "usa": "Iron Man Vol 1 #185 — Terror In Tulaluma!",
+      "usaDate": "Aug 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_186",
+      "usaNumber": "186",
+      "usaTitle": "Though This Fault Be Mine…",
+      "usa": "Iron Man Vol 1 #186 — Though This Fault Be Mine…",
+      "usaDate": "Sep 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_187",
+      "usaNumber": "187",
+      "usaTitle": "The Vengeance Of Vibro!",
+      "usa": "Iron Man Vol 1 #187 — The Vengeance Of Vibro!",
+      "usaDate": "Oct 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_188",
+      "usaNumber": "188",
+      "usaTitle": "And Grimm Shall Be Their Name!",
+      "usa": "Iron Man Vol 1 #188 — And Grimm Shall Be Their Name!",
+      "usaDate": "Nov 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_189",
+      "usaNumber": "189",
+      "usaTitle": "A Thing That Bores From Within…",
+      "usa": "Iron Man Vol 1 #189 — A Thing That Bores From Within…",
+      "usaDate": "Dec 1984",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_190",
+      "usaNumber": "190",
+      "usaTitle": "Losing The Touch!",
+      "usa": "Iron Man Vol 1 #190 — Losing The Touch!",
+      "usaDate": "Jan 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_191",
+      "usaNumber": "191",
+      "usaTitle": "The Iron Destiny",
+      "usa": "Iron Man Vol 1 #191 — The Iron Destiny",
+      "usaDate": "Feb 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_192",
+      "usaNumber": "192",
+      "usaTitle": "A Duel Of Iron",
+      "usa": "Iron Man Vol 1 #192 — A Duel Of Iron",
+      "usaDate": "Mar 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_193",
+      "usaNumber": "193",
+      "usaTitle": "The Choice And The Challenge!",
+      "usa": "Iron Man Vol 1 #193 — The Choice And The Challenge!",
+      "usaDate": "Apr 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": "MAR_GOLD_032",
+      "italianLabel": "Marvel Gold # 32 (Panini Comics)",
+      "physicalId": "MAR_GOLD:32",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_193:be4828107f44"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_194",
+      "usaNumber": "194",
+      "usaTitle": "Otherwhere!",
+      "usa": "Iron Man Vol 1 #194 — Otherwhere!",
+      "usaDate": "May 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": "MAR_GOLD_032",
+      "italianLabel": "Marvel Gold # 32 (Panini Comics)",
+      "physicalId": "MAR_GOLD:32",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_194:ca7e19499a6a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_195",
+      "usaNumber": "195",
+      "usaTitle": "The Thing Most Precious",
+      "usa": "Iron Man Vol 1 #195 — The Thing Most Precious",
+      "usaDate": "Jun 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": "MAR_GOLD_032",
+      "italianLabel": "Marvel Gold # 32 (Panini Comics)",
+      "physicalId": "MAR_GOLD:32",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_195:1d75ada81278"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_196",
+      "usaNumber": "196",
+      "usaTitle": "(untitled)",
+      "usa": "Iron Man Vol 1 #196 — (untitled)",
+      "usaDate": "Jul 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": "MAR_GOLD_032",
+      "italianLabel": "Marvel Gold # 32 (Panini Comics)",
+      "physicalId": "MAR_GOLD:32",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_196:1391436faef7"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_197",
+      "usaNumber": "197",
+      "usaTitle": "Secret Wars II - Call Him... Thundersword!",
+      "usa": "Iron Man Vol 1 #197 — Secret Wars II - Call Him... Thundersword!",
+      "usaDate": "Aug 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": "MAR_GOLD_032",
+      "italianLabel": "Marvel Gold # 32 (Panini Comics)",
+      "physicalId": "MAR_GOLD:32",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_197:63e0e8b1be7d"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_198",
+      "usaNumber": "198",
+      "usaTitle": "Revelations!",
+      "usa": "Iron Man Vol 1 #198 — Revelations!",
+      "usaDate": "Sep 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": "MAR_GOLD_032",
+      "italianLabel": "Marvel Gold # 32 (Panini Comics)",
+      "physicalId": "MAR_GOLD:32",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_198:025ac5b74657"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_199",
+      "usaNumber": "199",
+      "usaTitle": "And One Of Them Must Die!",
+      "usa": "Iron Man Vol 1 #199 — And One Of Them Must Die!",
+      "usaDate": "Oct 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": "MAR_GOLD_032",
+      "italianLabel": "Marvel Gold # 32 (Panini Comics)",
+      "physicalId": "MAR_GOLD:32",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_199:461107a7f0f1"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_200",
+      "usaNumber": "200",
+      "usaTitle": "Resolutions!",
+      "usa": "Iron Man Vol 1 #200 — Resolutions!",
+      "usaDate": "Nov 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": "MAR_GOLD_032",
+      "italianLabel": "Marvel Gold # 32 (Panini Comics)",
+      "physicalId": "MAR_GOLD:32",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_200:a6ba3f450758"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_201",
+      "usaNumber": "201",
+      "usaTitle": "Sky Duel!",
+      "usa": "Iron Man Vol 1 #201 — Sky Duel!",
+      "usaDate": "Dec 1985",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_202",
+      "usaNumber": "202",
+      "usaTitle": "The Savage Goes West!",
+      "usa": "Iron Man Vol 1 #202 — The Savage Goes West!",
+      "usaDate": "Jan 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_203",
+      "usaNumber": "203",
+      "usaTitle": "The Maze",
+      "usa": "Iron Man Vol 1 #203 — The Maze",
+      "usaDate": "Feb 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_204",
+      "usaNumber": "204",
+      "usaTitle": "Crossing",
+      "usa": "Iron Man Vol 1 #204 — Crossing",
+      "usaDate": "Mar 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_205",
+      "usaNumber": "205",
+      "usaTitle": "The Resurrection Gambit",
+      "usa": "Iron Man Vol 1 #205 — The Resurrection Gambit",
+      "usaDate": "Apr 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_206",
+      "usaNumber": "206",
+      "usaTitle": "Prisons",
+      "usa": "Iron Man Vol 1 #206 — Prisons",
+      "usaDate": "May 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_207",
+      "usaNumber": "207",
+      "usaTitle": "Heat",
+      "usa": "Iron Man Vol 1 #207 — Heat",
+      "usaDate": "Jun 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_208",
+      "usaNumber": "208",
+      "usaTitle": "Firefang!",
+      "usa": "Iron Man Vol 1 #208 — Firefang!",
+      "usaDate": "Jul 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_209",
+      "usaNumber": "209",
+      "usaTitle": "A Renaissance of Magic!",
+      "usa": "Iron Man Vol 1 #209 — A Renaissance of Magic!",
+      "usaDate": "Aug 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_210",
+      "usaNumber": "210",
+      "usaTitle": "Happy's Story",
+      "usa": "Iron Man Vol 1 #210 — Happy's Story",
+      "usaDate": "Sep 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_211",
+      "usaNumber": "211",
+      "usaTitle": "Seeing The Light!",
+      "usa": "Iron Man Vol 1 #211 — Seeing The Light!",
+      "usaDate": "Oct 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_212",
+      "usaNumber": "212",
+      "usaTitle": "Precious Legacy",
+      "usa": "Iron Man Vol 1 #212 — Precious Legacy",
+      "usaDate": "Nov 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_213",
+      "usaNumber": "213",
+      "usaTitle": "Fortune's Child",
+      "usa": "Iron Man Vol 1 #213 — Fortune's Child",
+      "usaDate": "Dec 1986",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_214",
+      "usaNumber": "214",
+      "usaTitle": "Bring Me Spider-Woman!",
+      "usa": "Iron Man Vol 1 #214 — Bring Me Spider-Woman!",
+      "usaDate": "Jan 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_215",
+      "usaNumber": "215",
+      "usaTitle": "The Shattered Sky",
+      "usa": "Iron Man Vol 1 #215 — The Shattered Sky",
+      "usaDate": "Feb 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_001",
+      "italianLabel": "Iron Man # 1 (Play Press)",
+      "physicalId": "IM_PP:1",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_215:ec5a7c73e7dd"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_216",
+      "usaNumber": "216",
+      "usaTitle": "Requiescat...And Revenge",
+      "usa": "Iron Man Vol 1 #216 — Requiescat...And Revenge",
+      "usaDate": "Mar 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_002",
+      "italianLabel": "Iron Man # 2 (Play Press)",
+      "physicalId": "IM_PP:2",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_216:db52867c67c8"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_217",
+      "usaNumber": "217",
+      "usaTitle": "Metamorphosis Oddity",
+      "usa": "Iron Man Vol 1 #217 — Metamorphosis Oddity",
+      "usaDate": "Apr 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_003",
+      "italianLabel": "Iron Man # 3 (Play Press)",
+      "physicalId": "IM_PP:3",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_217:8f0c7edfc8af"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_218",
+      "usaNumber": "218",
+      "usaTitle": "Deep Trouble!",
+      "usa": "Iron Man Vol 1 #218 — Deep Trouble!",
+      "usaDate": "May 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_004",
+      "italianLabel": "Iron Man # 4 (Play Press)",
+      "physicalId": "IM_PP:4",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_218:9858c485b52d"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_219",
+      "usaNumber": "219",
+      "usaTitle": "Ghost Story",
+      "usa": "Iron Man Vol 1 #219 — Ghost Story",
+      "usaDate": "Jun 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_005",
+      "italianLabel": "Iron Man # 5 (Play Press)",
+      "physicalId": "IM_PP:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_219:2037ad3128a8"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_220",
+      "usaNumber": "220",
+      "usaTitle": "Ghost Of A Chance",
+      "usa": "Iron Man Vol 1 #220 — Ghost Of A Chance",
+      "usaDate": "Jul 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_006",
+      "italianLabel": "Iron Man # 6 (Play Press)",
+      "physicalId": "IM_PP:6",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_220:f55e24ac5881"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_221",
+      "usaNumber": "221",
+      "usaTitle": "Ghost In The Machine!",
+      "usa": "Iron Man Vol 1 #221 — Ghost In The Machine!",
+      "usaDate": "Aug 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_007",
+      "italianLabel": "Iron Man # 7 (Play Press)",
+      "physicalId": "IM_PP:7",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_221:cd9d1d03d7b0"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_222",
+      "usaNumber": "222",
+      "usaTitle": "The Party",
+      "usa": "Iron Man Vol 1 #222 — The Party",
+      "usaDate": "Sep 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_008",
+      "italianLabel": "Iron Man # 8 (Play Press)",
+      "physicalId": "IM_PP:8",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_222:094f5e8a3727"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_223",
+      "usaNumber": "223",
+      "usaTitle": "Counter Force!",
+      "usa": "Iron Man Vol 1 #223 — Counter Force!",
+      "usaDate": "Oct 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_009",
+      "italianLabel": "Iron Man # 9 (Play Press)",
+      "physicalId": "IM_PP:9",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_223:22ddb93fd5a3"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_224",
+      "usaNumber": "224",
+      "usaTitle": "Low Noon!",
+      "usa": "Iron Man Vol 1 #224 — Low Noon!",
+      "usaDate": "Nov 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_010",
+      "italianLabel": "Iron Man # 10 (Play Press)",
+      "physicalId": "IM_PP:10",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_224:2a9cbef0ba52"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_225",
+      "usaNumber": "225",
+      "usaTitle": "Stark Wars, Chapter I",
+      "usa": "Iron Man Vol 1 #225 — Stark Wars, Chapter I",
+      "usaDate": "Dec 1987",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_011",
+      "italianLabel": "Iron Man # 11 (Play Press)",
+      "physicalId": "IM_PP:11",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_225:29555ee6700f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_226",
+      "usaNumber": "226",
+      "usaTitle": "Stark Wars, Chapter II: Glitch",
+      "usa": "Iron Man Vol 1 #226 — Stark Wars, Chapter II: Glitch",
+      "usaDate": "Jan 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_012",
+      "italianLabel": "Iron Man # 12 (Play Press)",
+      "physicalId": "IM_PP:12",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_226:5921168b20b4"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_227",
+      "usaNumber": "227",
+      "usaTitle": "Stark Wars, Chapter III: The Last Mandroid",
+      "usa": "Iron Man Vol 1 #227 — Stark Wars, Chapter III: The Last Mandroid",
+      "usaDate": "Feb 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_013",
+      "italianLabel": "Iron Man # 13 (Play Press)",
+      "physicalId": "IM_PP:13",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_227:bcc78549e3c4"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_228",
+      "usaNumber": "228",
+      "usaTitle": "Stark Wars, Chapter IV: Who Guards the Guardsmen?",
+      "usa": "Iron Man Vol 1 #228 — Stark Wars, Chapter IV: Who Guards the Guardsmen?",
+      "usaDate": "Mar 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_013",
+      "italianLabel": "Iron Man # 13 (Play Press)",
+      "physicalId": "IM_PP:13",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_228:4e8bde867aee"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_229",
+      "usaNumber": "229",
+      "usaTitle": "Stark Wars, Chapter V: Red Snow",
+      "usa": "Iron Man Vol 1 #229 — Stark Wars, Chapter V: Red Snow",
+      "usaDate": "Apr 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_014",
+      "italianLabel": "Iron Man # 14 (Play Press)",
+      "physicalId": "IM_PP:14",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_229:dcd285d928d6"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_230",
+      "usaNumber": "230",
+      "usaTitle": "Stark Wars, Chapter VI: The Day the Hero Died",
+      "usa": "Iron Man Vol 1 #230 — Stark Wars, Chapter VI: The Day the Hero Died",
+      "usaDate": "May 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_014",
+      "italianLabel": "Iron Man # 14 (Play Press)",
+      "physicalId": "IM_PP:14",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_230:ceb930e1a001"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_231",
+      "usaNumber": "231",
+      "usaTitle": "Stark Wars, Chapter VII: Reborn Again",
+      "usa": "Iron Man Vol 1 #231 — Stark Wars, Chapter VII: Reborn Again",
+      "usaDate": "Jun 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_015",
+      "italianLabel": "Iron Man # 15 (Play Press)",
+      "physicalId": "IM_PP:15",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_231:4355479a2461"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_232",
+      "usaNumber": "232",
+      "usaTitle": "Stark Wars: Epilogue Intimate Enemies",
+      "usa": "Iron Man Vol 1 #232 — Stark Wars: Epilogue Intimate Enemies",
+      "usaDate": "Jul 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_016",
+      "italianLabel": "Iron Man # 16 (Play Press)",
+      "physicalId": "IM_PP:16",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_232:79ea996a165d"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_233",
+      "usaNumber": "233",
+      "usaTitle": "Slaughterday!",
+      "usa": "Iron Man Vol 1 #233 — Slaughterday!",
+      "usaDate": "Aug 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_017",
+      "italianLabel": "Iron Man # 17 (Play Press)",
+      "physicalId": "IM_PP:17",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_233:64d2a09f6f2f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_234",
+      "usaNumber": "234",
+      "usaTitle": "Fallout!",
+      "usa": "Iron Man Vol 1 #234 — Fallout!",
+      "usaDate": "Sep 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_018",
+      "italianLabel": "Iron Man # 18 (Play Press)",
+      "physicalId": "IM_PP:18",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_234:e6dbe6294379"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_235",
+      "usaNumber": "235",
+      "usaTitle": "Epitaph In Grey",
+      "usa": "Iron Man Vol 1 #235 — Epitaph In Grey",
+      "usaDate": "Oct 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_019",
+      "italianLabel": "Iron Man # 19 (Play Press)",
+      "physicalId": "IM_PP:19",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_235:64d2a09f6f2f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_236",
+      "usaNumber": "236",
+      "usaTitle": "Stone Cold!",
+      "usa": "Iron Man Vol 1 #236 — Stone Cold!",
+      "usaDate": "Nov 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_020",
+      "italianLabel": "Iron Man # 20 (Play Press)",
+      "physicalId": "IM_PP:20",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_236:b3fff5f63f2e"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_237",
+      "usaNumber": "237",
+      "usaTitle": "Star Hunter!",
+      "usa": "Iron Man Vol 1 #237 — Star Hunter!",
+      "usaDate": "Dec 1988",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_021",
+      "italianLabel": "Iron Man # 21 (Play Press)",
+      "physicalId": "IM_PP:21",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_237:adba64fc0003"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_238",
+      "usaNumber": "238",
+      "usaTitle": "Two Live Or Die In L.A.!",
+      "usa": "Iron Man Vol 1 #238 — Two Live Or Die In L.A.!",
+      "usaDate": "Jan 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_022",
+      "italianLabel": "Iron Man # 22 (Play Press)",
+      "physicalId": "IM_PP:22",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_238:87747857aa23"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_239",
+      "usaNumber": "239",
+      "usaTitle": "Unholy Ghost!",
+      "usa": "Iron Man Vol 1 #239 — Unholy Ghost!",
+      "usaDate": "Feb 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_023",
+      "italianLabel": "Iron Man # 23 (Play Press)",
+      "physicalId": "IM_PP:23",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_239:7ae5a0c3114c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_240",
+      "usaNumber": "240",
+      "usaTitle": "Ghost Righter!",
+      "usa": "Iron Man Vol 1 #240 — Ghost Righter!",
+      "usaDate": "Mar 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_024",
+      "italianLabel": "Iron Man # 24 (Play Press)",
+      "physicalId": "IM_PP:24",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_240:cb1718de990c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_241",
+      "usaNumber": "241",
+      "usaTitle": "China See!",
+      "usa": "Iron Man Vol 1 #241 — China See!",
+      "usaDate": "Apr 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_025",
+      "italianLabel": "Iron Man # 25 (Play Press)",
+      "physicalId": "IM_PP:25",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_241:1ee1b34a9e97"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_242",
+      "usaNumber": "242",
+      "usaTitle": "Master Blaster!",
+      "usa": "Iron Man Vol 1 #242 — Master Blaster!",
+      "usaDate": "May 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_026",
+      "italianLabel": "Iron Man # 26 (Play Press)",
+      "physicalId": "IM_PP:26",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_242:1fd1a2ff38fe"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_243",
+      "usaNumber": "243",
+      "usaTitle": "Heartbeaten",
+      "usa": "Iron Man Vol 1 #243 — Heartbeaten",
+      "usaDate": "Jun 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_027",
+      "italianLabel": "Iron Man # 27 (Play Press)",
+      "physicalId": "IM_PP:27",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_243:4722ed6e493f"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_244",
+      "usaNumber": "244",
+      "usaTitle": "Yesterday... And Tomorrow",
+      "usa": "Iron Man Vol 1 #244 — Yesterday... And Tomorrow",
+      "usaDate": "Jul 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_028",
+      "italianLabel": "Iron Man # 28 (Play Press)",
+      "physicalId": "IM_PP:28",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_244:bcc3ed8aad38"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_245",
+      "usaNumber": "245",
+      "usaTitle": "Inside Angry",
+      "usa": "Iron Man Vol 1 #245 — Inside Angry",
+      "usaDate": "Aug 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_029",
+      "italianLabel": "Iron Man # 29/30 (Play Press)",
+      "physicalId": "IM_PP:29/30",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_245:197b058e8658"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_246",
+      "usaNumber": "246",
+      "usaTitle": "Heavy Mettle!",
+      "usa": "Iron Man Vol 1 #246 — Heavy Mettle!",
+      "usaDate": "Sep 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_031",
+      "italianLabel": "Iron Man # 31 (Play Press)",
+      "physicalId": "IM_PP:31",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_246:1c7050db4032"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_247",
+      "usaNumber": "247",
+      "usaTitle": "Malled !",
+      "usa": "Iron Man Vol 1 #247 — Malled !",
+      "usaDate": "Oct 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_032",
+      "italianLabel": "Iron Man # 32 (Play Press)",
+      "physicalId": "IM_PP:32",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_247:00f4840a0c53"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_248",
+      "usaNumber": "248",
+      "usaTitle": "Footsteps",
+      "usa": "Iron Man Vol 1 #248 — Footsteps",
+      "usaDate": "Nov 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_033",
+      "italianLabel": "Iron Man # 33 (Play Press)",
+      "physicalId": "IM_PP:33",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_248:7417ee93aa2b"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_249",
+      "usaNumber": "249",
+      "usaTitle": "The Doctor's Passion",
+      "usa": "Iron Man Vol 1 #249 — The Doctor's Passion",
+      "usaDate": "Nov 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_034",
+      "italianLabel": "Iron Man # 34 (Play Press)",
+      "physicalId": "IM_PP:34",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_249:7417ee93aa2b"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_250",
+      "usaNumber": "250",
+      "usaTitle": "Acts Of Vengeance - Wrecked Him? He Nearly Killed Him!",
+      "usa": "Iron Man Vol 1 #250 — Acts Of Vengeance - Wrecked Him? He Nearly Killed Him!",
+      "usaDate": "Dec 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_035",
+      "italianLabel": "Iron Man # 35 (Play Press)",
+      "physicalId": "IM_PP:35",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_250:7e1f16eae4b3"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_251",
+      "usaNumber": "251",
+      "usaTitle": "Acts Of Vengeance - Wrecked Him? He Nearly Killed Him !",
+      "usa": "Iron Man Vol 1 #251 — Acts Of Vengeance - Wrecked Him? He Nearly Killed Him !",
+      "usaDate": "Dec 1989",
+      "storyOrdinal": 1,
+      "italianAlbum": "GREVMAR_M_028",
+      "italianLabel": "Grandi Eventi Marvel # 28 (Panini Comics)",
+      "physicalId": "GREVMAR_M:28",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_251:99d45db19361"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_252",
+      "usaNumber": "252",
+      "usaTitle": "Acts Of Vengeance - Apothecary Now !",
+      "usa": "Iron Man Vol 1 #252 — Acts Of Vengeance - Apothecary Now !",
+      "usaDate": "Jan 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": "GREVMAR_M_028",
+      "italianLabel": "Grandi Eventi Marvel # 28 (Panini Comics)",
+      "physicalId": "GREVMAR_M:28",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_252:99d45db19361"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_253",
+      "usaNumber": "253",
+      "usaTitle": "Laughing All The Way To The Graveyard",
+      "usa": "Iron Man Vol 1 #253 — Laughing All The Way To The Graveyard",
+      "usaDate": "Feb 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": "MAR_MAG_005",
+      "italianLabel": "Marvel Magazine # 5 (Marvel Italia)",
+      "physicalId": "MAR_MAG:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_253:2d9e95bd5f6c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_254",
+      "usaNumber": "254",
+      "usaTitle": "Graduation Day",
+      "usa": "Iron Man Vol 1 #254 — Graduation Day",
+      "usaDate": "Mar 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_036",
+      "italianLabel": "Iron Man # 36 (Play Press)",
+      "physicalId": "IM_PP:36",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_254:1c72963fab4e"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_255",
+      "usaNumber": "255",
+      "usaTitle": "Switching Channels",
+      "usa": "Iron Man Vol 1 #255 — Switching Channels",
+      "usaDate": "Apr 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_256",
+      "usaNumber": "256",
+      "usaTitle": "Soliloquy In Silence",
+      "usa": "Iron Man Vol 1 #256 — Soliloquy In Silence",
+      "usaDate": "May 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_038",
+      "italianLabel": "Iron Man # 38 (Play Press)",
+      "physicalId": "IM_PP:38",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_256:db21c58ff503"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_257",
+      "usaNumber": "257",
+      "usaTitle": "Retribution",
+      "usa": "Iron Man Vol 1 #257 — Retribution",
+      "usaDate": "Jun 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": null,
+      "italianLabel": null,
+      "physicalId": null
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_258",
+      "usaNumber": "258",
+      "usaTitle": "Armor Wars II - Lo, A Spectral Enemy Rises...",
+      "usa": "Iron Man Vol 1 #258 — Armor Wars II - Lo, A Spectral Enemy Rises...",
+      "usaDate": "Jul 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_039",
+      "italianLabel": "Iron Man # 39 (Play Press)",
+      "physicalId": "IM_PP:39",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_258:5666a9e41cb6"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_259",
+      "usaNumber": "259",
+      "usaTitle": "Armor Wars II - ...Like All Secrets, Easily Revealed",
+      "usa": "Iron Man Vol 1 #259 — Armor Wars II - ...Like All Secrets, Easily Revealed",
+      "usaDate": "Aug 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_040",
+      "italianLabel": "Iron Man # 40 (Play Press)",
+      "physicalId": "IM_PP:40",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_259:5666a9e41cb6"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_260",
+      "usaNumber": "260",
+      "usaTitle": "Armor Wars II - Put Them All Together They Spell Laser !",
+      "usa": "Iron Man Vol 1 #260 — Armor Wars II - Put Them All Together They Spell Laser !",
+      "usaDate": "Sep 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_041",
+      "italianLabel": "Iron Man # 41/42 (Play Press)",
+      "physicalId": "IM_PP:41/42",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_260:bad0974dfeb9"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_261",
+      "usaNumber": "261",
+      "usaTitle": "Armor Wars II - Fin Fang Foom !!",
+      "usa": "Iron Man Vol 1 #261 — Armor Wars II - Fin Fang Foom !!",
+      "usaDate": "Oct 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_041",
+      "italianLabel": "Iron Man # 41/42 (Play Press)",
+      "physicalId": "IM_PP:41/42",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_261:5666a9e41cb6"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_262",
+      "usaNumber": "262",
+      "usaTitle": "Armor Wars II - The Enemy Within",
+      "usa": "Iron Man Vol 1 #262 — Armor Wars II - The Enemy Within",
+      "usaDate": "Nov 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_041",
+      "italianLabel": "Iron Man # 41/42 (Play Press)",
+      "physicalId": "IM_PP:41/42",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_262:5666a9e41cb6"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_263",
+      "usaNumber": "263",
+      "usaTitle": "Armor Wars II - Stone Walls Do Not A Prison Make...",
+      "usa": "Iron Man Vol 1 #263 — Armor Wars II - Stone Walls Do Not A Prison Make...",
+      "usaDate": "Dec 1990",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_043",
+      "italianLabel": "Iron Man # 43 (Play Press)",
+      "physicalId": "IM_PP:43",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_263:8b14732cc079"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_264",
+      "usaNumber": "264",
+      "usaTitle": "Armor Wars II - Where Is Iron Man ?",
+      "usa": "Iron Man Vol 1 #264 — Armor Wars II - Where Is Iron Man ?",
+      "usaDate": "Jan 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_044",
+      "italianLabel": "Iron Man # 44 (Play Press)",
+      "physicalId": "IM_PP:44",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_264:5666a9e41cb6"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_265",
+      "usaNumber": "265",
+      "usaTitle": "Armor Wars II - This Mortal Coil",
+      "usa": "Iron Man Vol 1 #265 — Armor Wars II - This Mortal Coil",
+      "usaDate": "Feb 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_045",
+      "italianLabel": "Iron Man # 45 (Play Press)",
+      "physicalId": "IM_PP:45",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_265:5666a9e41cb6"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_266",
+      "usaNumber": "266",
+      "usaTitle": "Retribution !",
+      "usa": "Iron Man Vol 1 #266 — Retribution !",
+      "usaDate": "Mar 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM_PP_046",
+      "italianLabel": "Iron Man # 46 (Play Press)",
+      "physicalId": "IM_PP:46",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_266:5666a9e41cb6"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_267",
+      "usaNumber": "267",
+      "usaTitle": "The Persistance Of Memory",
+      "usa": "Iron Man Vol 1 #267 — The Persistance Of Memory",
+      "usaDate": "Apr 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_040",
+      "italianLabel": "Silver Surfer # 40 (Play Press)",
+      "physicalId": "SS_PP1:40",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_267:99ea20e8df98"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_268",
+      "usaNumber": "268",
+      "usaTitle": "First Blood",
+      "usa": "Iron Man Vol 1 #268 — First Blood",
+      "usaDate": "May 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_041",
+      "italianLabel": "Silver Surfer # 41 (Play Press)",
+      "physicalId": "SS_PP1:41",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_268:99ea20e8df98"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_269",
+      "usaNumber": "269",
+      "usaTitle": "The Hollow Man",
+      "usa": "Iron Man Vol 1 #269 — The Hollow Man",
+      "usaDate": "Jun 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_042",
+      "italianLabel": "Silver Surfer # 42 (Play Press)",
+      "physicalId": "SS_PP1:42",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_269:c1e2aabf3d1e"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_270",
+      "usaNumber": "270",
+      "usaTitle": "The Price",
+      "usa": "Iron Man Vol 1 #270 — The Price",
+      "usaDate": "Jul 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_043",
+      "italianLabel": "Silver Surfer # 43 (Play Press)",
+      "physicalId": "SS_PP1:43",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_270:99ea20e8df98"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_271",
+      "usaNumber": "271",
+      "usaTitle": "Dragon Flame",
+      "usa": "Iron Man Vol 1 #271 — Dragon Flame",
+      "usaDate": "Aug 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_044",
+      "italianLabel": "Silver Surfer # 44 (Play Press)",
+      "physicalId": "SS_PP1:44",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_271:99ea20e8df98"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_272",
+      "usaNumber": "272",
+      "usaTitle": "Dragon Seed",
+      "usa": "Iron Man Vol 1 #272 — Dragon Seed",
+      "usaDate": "Sep 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_046",
+      "italianLabel": "Silver Surfer # 46/47 (Play Press)",
+      "physicalId": "SS_PP1:46/47",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_272:99ea20e8df98"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_273",
+      "usaNumber": "273",
+      "usaTitle": "Here There Be Dragons",
+      "usa": "Iron Man Vol 1 #273 — Here There Be Dragons",
+      "usaDate": "Oct 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_046",
+      "italianLabel": "Silver Surfer # 46/47 (Play Press)",
+      "physicalId": "SS_PP1:46/47",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_273:99ea20e8df98"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_274",
+      "usaNumber": "274",
+      "usaTitle": "Dragon Lord",
+      "usa": "Iron Man Vol 1 #274 — Dragon Lord",
+      "usaDate": "Nov 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_048",
+      "italianLabel": "Silver Surfer # 48 (Play Press)",
+      "physicalId": "SS_PP1:48",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_274:f7f295cf39d1"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_275",
+      "usaNumber": "275",
+      "usaTitle": "Dragon Doom !",
+      "usa": "Iron Man Vol 1 #275 — Dragon Doom !",
+      "usaDate": "Dec 1991",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_048",
+      "italianLabel": "Silver Surfer # 48 (Play Press)",
+      "physicalId": "SS_PP1:48",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_275:a85bb8beb25d",
+        "ironman-story:IM1_275:ffdcb50b413e"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_276",
+      "usaNumber": "276",
+      "usaTitle": "With Friends Like These…",
+      "usa": "Iron Man Vol 1 #276 — With Friends Like These…",
+      "usaDate": "Jan 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_049",
+      "italianLabel": "Silver Surfer # 49 (Play Press)",
+      "physicalId": "SS_PP1:49",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_276:0a5441127f39"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_277",
+      "usaNumber": "277",
+      "usaTitle": "War Games",
+      "usa": "Iron Man Vol 1 #277 — War Games",
+      "usaDate": "Feb 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_050",
+      "italianLabel": "Silver Surfer # 50 (Play Press)",
+      "physicalId": "SS_PP1:50",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_277:0a5441127f39"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_278",
+      "usaNumber": "278",
+      "usaTitle": "Operation : Galactic Storm, Part 6 : Decisions In A Vacuum",
+      "usa": "Iron Man Vol 1 #278 — Operation : Galactic Storm, Part 6 : Decisions In A Vacuum",
+      "usaDate": "Mar 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_051",
+      "italianLabel": "Silver Surfer # 51 (Play Press)",
+      "physicalId": "SS_PP1:51",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_278:13fb6a78304a"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_279",
+      "usaNumber": "279",
+      "usaTitle": "Operation : Galactic Storm, Part 13 : Bad Judgment",
+      "usa": "Iron Man Vol 1 #279 — Operation : Galactic Storm, Part 13 : Bad Judgment",
+      "usaDate": "Apr 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_052",
+      "italianLabel": "Silver Surfer # 52 (Play Press)",
+      "physicalId": "SS_PP1:52",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_279:2f77f3ed1f3d"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_280",
+      "usaNumber": "280",
+      "usaTitle": "Technical Difficulties",
+      "usa": "Iron Man Vol 1 #280 — Technical Difficulties",
+      "usaDate": "May 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "SS_PP1_053",
+      "italianLabel": "Silver Surfer # 53 (Play Press)",
+      "physicalId": "SS_PP1:53",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_280:f7b301805d04"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_281",
+      "usaNumber": "281",
+      "usaTitle": "The Masters Of Silence",
+      "usa": "Iron Man Vol 1 #281 — The Masters Of Silence",
+      "usaDate": "Jun 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_001",
+      "italianLabel": "Iron Man (II) # 1 (Marvel Italia)",
+      "physicalId": "IM1_M:1",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_281:be4b907757a0"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_282",
+      "usaNumber": "282",
+      "usaTitle": "War Machine !",
+      "usa": "Iron Man Vol 1 #282 — War Machine !",
+      "usaDate": "Jul 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_001",
+      "italianLabel": "Iron Man (II) # 1 (Marvel Italia)",
+      "physicalId": "IM1_M:1",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_282:208856ff040c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_283",
+      "usaNumber": "283",
+      "usaTitle": "Put The Hammer Down !",
+      "usa": "Iron Man Vol 1 #283 — Put The Hammer Down !",
+      "usaDate": "Aug 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_001",
+      "italianLabel": "Iron Man (II) # 1 (Marvel Italia)",
+      "physicalId": "IM1_M:1",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_283:be4b907757a0"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_284",
+      "usaNumber": "284",
+      "usaTitle": "Legacy Of Iron",
+      "usa": "Iron Man Vol 1 #284 — Legacy Of Iron",
+      "usaDate": "Sep 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_001",
+      "italianLabel": "Iron Man (II) # 1 (Marvel Italia)",
+      "physicalId": "IM1_M:1",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_284:f7b301805d04"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_285",
+      "usaNumber": "285",
+      "usaTitle": "Ashes To Ashes",
+      "usa": "Iron Man Vol 1 #285 — Ashes To Ashes",
+      "usaDate": "Oct 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_002",
+      "italianLabel": "Iron Man (II) # 2 (Marvel Italia)",
+      "physicalId": "IM1_M:2",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_285:f7b301805d04"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_286",
+      "usaNumber": "286",
+      "usaTitle": "Dust To Dust",
+      "usa": "Iron Man Vol 1 #286 — Dust To Dust",
+      "usaDate": "Nov 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_002",
+      "italianLabel": "Iron Man (II) # 2 (Marvel Italia)",
+      "physicalId": "IM1_M:2",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_286:f720dc88ad50"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_287",
+      "usaNumber": "287",
+      "usaTitle": "Meltdown",
+      "usa": "Iron Man Vol 1 #287 — Meltdown",
+      "usaDate": "Dec 1992",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_002",
+      "italianLabel": "Iron Man (II) # 2 (Marvel Italia)",
+      "physicalId": "IM1_M:2",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_287:e9502ff2e09c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_288",
+      "usaNumber": "288",
+      "usaTitle": "Ground Zero",
+      "usa": "Iron Man Vol 1 #288 — Ground Zero",
+      "usaDate": "Jan 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_002",
+      "italianLabel": "Iron Man (II) # 2 (Marvel Italia)",
+      "physicalId": "IM1_M:2",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_288:a8b3f4b8e09c"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_289",
+      "usaNumber": "289",
+      "usaTitle": "The Light At The End",
+      "usa": "Iron Man Vol 1 #289 — The Light At The End",
+      "usaDate": "Feb 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_003",
+      "italianLabel": "Iron Man (II) # 3 (Marvel Italia)",
+      "physicalId": "IM1_M:3",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_289:79340d0d93a6"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_290",
+      "usaNumber": "290",
+      "usaTitle": "This Year's Model",
+      "usa": "Iron Man Vol 1 #290 — This Year's Model",
+      "usaDate": "Mar 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_003",
+      "italianLabel": "Iron Man (II) # 3 (Marvel Italia)",
+      "physicalId": "IM1_M:3",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_290:dca86e2a723e"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_291",
+      "usaNumber": "291",
+      "usaTitle": "Judgment Day",
+      "usa": "Iron Man Vol 1 #291 — Judgment Day",
+      "usaDate": "Apr 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_003",
+      "italianLabel": "Iron Man (II) # 3 (Marvel Italia)",
+      "physicalId": "IM1_M:3",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_291:eaa514810382"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_292",
+      "usaNumber": "292",
+      "usaTitle": "Mixed Reactions",
+      "usa": "Iron Man Vol 1 #292 — Mixed Reactions",
+      "usaDate": "May 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_003",
+      "italianLabel": "Iron Man (II) # 3 (Marvel Italia)",
+      "physicalId": "IM1_M:3",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_292:8058d5078d87"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_293",
+      "usaNumber": "293",
+      "usaTitle": "Controlling Interests",
+      "usa": "Iron Man Vol 1 #293 — Controlling Interests",
+      "usaDate": "Jun 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_004",
+      "italianLabel": "Iron Man (II) # 4 (Marvel Italia)",
+      "physicalId": "IM1_M:4",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_293:91259ea4f673"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_294",
+      "usaNumber": "294",
+      "usaTitle": "Orbital Resonances",
+      "usa": "Iron Man Vol 1 #294 — Orbital Resonances",
+      "usaDate": "Jul 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_004",
+      "italianLabel": "Iron Man (II) # 4 (Marvel Italia)",
+      "physicalId": "IM1_M:4",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_294:91259ea4f673"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_295",
+      "usaNumber": "295",
+      "usaTitle": "Into The Void",
+      "usa": "Iron Man Vol 1 #295 — Into The Void",
+      "usaDate": "Aug 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_004",
+      "italianLabel": "Iron Man (II) # 4 (Marvel Italia)",
+      "physicalId": "IM1_M:4",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_295:91259ea4f673"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_296",
+      "usaNumber": "296",
+      "usaTitle": "Trade War",
+      "usa": "Iron Man Vol 1 #296 — Trade War",
+      "usaDate": "Sep 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_004",
+      "italianLabel": "Iron Man (II) # 4 (Marvel Italia)",
+      "physicalId": "IM1_M:4",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_296:91259ea4f673"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_297",
+      "usaNumber": "297",
+      "usaTitle": "Whipsaw",
+      "usa": "Iron Man Vol 1 #297 — Whipsaw",
+      "usaDate": "Oct 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_004",
+      "italianLabel": "Iron Man (II) # 4 (Marvel Italia)",
+      "physicalId": "IM1_M:4",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_297:91259ea4f673"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_298",
+      "usaNumber": "298",
+      "usaTitle": "Heart Of Stone",
+      "usa": "Iron Man Vol 1 #298 — Heart Of Stone",
+      "usaDate": "Nov 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_005",
+      "italianLabel": "Iron Man (II) # 5 (Marvel Italia)",
+      "physicalId": "IM1_M:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_298:96962fedfda7",
+        "ironman-story:IM1_298:7d235b66dea6"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_299",
+      "usaNumber": "299",
+      "usaTitle": "The Doomsday Machine",
+      "usa": "Iron Man Vol 1 #299 — The Doomsday Machine",
+      "usaDate": "Dec 1993",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_005",
+      "italianLabel": "Iron Man (II) # 5 (Marvel Italia)",
+      "physicalId": "IM1_M:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_299:4ba039e79dc2",
+        "ironman-story:IM1_299:d4f69fa57d86"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_300",
+      "usaNumber": "300",
+      "usaTitle": "Appetite For Destruction",
+      "usa": "Iron Man Vol 1 #300 — Appetite For Destruction",
+      "usaDate": "Jan 1994",
+      "storyOrdinal": 1,
+      "italianAlbum": "IM1_M_005",
+      "italianLabel": "Iron Man (II) # 5 (Marvel Italia)",
+      "physicalId": "IM1_M:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_300:7390941be8ec"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_301",
+      "usaNumber": "301",
+      "usaTitle": "Broadcast Storm",
+      "usa": "Iron Man Vol 1 #301 — Broadcast Storm",
+      "usaDate": "Feb 1994",
+      "storyOrdinal": 1,
+      "italianAlbum": "MA_TOP_005",
+      "italianLabel": "Marvel Top # 5 (Marvel Italia)",
+      "physicalId": "MA_TOP:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_301:91259ea4f673"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_302",
+      "usaNumber": "302",
+      "usaTitle": "Oil And Gold",
+      "usa": "Iron Man Vol 1 #302 — Oil And Gold",
+      "usaDate": "Mar 1994",
+      "storyOrdinal": 1,
+      "italianAlbum": "MA_TOP_005",
+      "italianLabel": "Marvel Top # 5 (Marvel Italia)",
+      "physicalId": "MA_TOP:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_302:a5ce63296930"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_303",
+      "usaNumber": "303",
+      "usaTitle": "Kids These Days",
+      "usa": "Iron Man Vol 1 #303 — Kids These Days",
+      "usaDate": "Apr 1994",
+      "storyOrdinal": 1,
+      "italianAlbum": "MA_TOP_005",
+      "italianLabel": "Marvel Top # 5 (Marvel Italia)",
+      "physicalId": "MA_TOP:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_303:91259ea4f673"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_304",
+      "usaNumber": "304",
+      "usaTitle": "The Sound Of Thunder !",
+      "usa": "Iron Man Vol 1 #304 — The Sound Of Thunder !",
+      "usaDate": "May 1994",
+      "storyOrdinal": 1,
+      "italianAlbum": "MA_TOP_005",
+      "italianLabel": "Marvel Top # 5 (Marvel Italia)",
+      "physicalId": "MA_TOP:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_304:91259ea4f673"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_305",
+      "usaNumber": "305",
+      "usaTitle": "Green Politics",
+      "usa": "Iron Man Vol 1 #305 — Green Politics",
+      "usaDate": "Jun 1994",
+      "storyOrdinal": 1,
+      "italianAlbum": "MA_TOP_005",
+      "italianLabel": "Marvel Top # 5 (Marvel Italia)",
+      "physicalId": "MA_TOP:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_305:69cd147c36b4"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_306",
+      "usaNumber": "306",
+      "usaTitle": "Redemption",
+      "usa": "Iron Man Vol 1 #306 — Redemption",
+      "usaDate": "Jul 1994",
+      "storyOrdinal": 1,
+      "italianAlbum": "MA_TOP_005",
+      "italianLabel": "Marvel Top # 5 (Marvel Italia)",
+      "physicalId": "MA_TOP:5",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_306:a5ce63296930"
+      ]
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_258.1",
+      "usaNumber": "258.1",
+      "usaTitle": "Entity Mine",
+      "usa": "Iron Man Vol 1 #258.1 — Entity Mine",
+      "usaDate": "Jul 2013",
+      "storyOrdinal": 1,
+      "italianAlbum": "IRONM3_P_009",
+      "italianLabel": "Iron Man # 9 (Panini Comics)",
+      "physicalId": "IRONM3_P:9"
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_258.2",
+      "usaNumber": "258.2",
+      "usaTitle": "Entity Mine",
+      "usa": "Iron Man Vol 1 #258.2 — Entity Mine",
+      "usaDate": "Jul 2013",
+      "storyOrdinal": 1,
+      "italianAlbum": "IRONM3_P_010",
+      "italianLabel": "Iron Man # 10 (Panini Comics)",
+      "physicalId": "IRONM3_P:10"
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_258.3",
+      "usaNumber": "258.3",
+      "usaTitle": "Hammered!",
+      "usa": "Iron Man Vol 1 #258.3 — Hammered!",
+      "usaDate": "Jul 2013",
+      "storyOrdinal": 1,
+      "italianAlbum": "IRONM3_P_011",
+      "italianLabel": "Iron Man # 11 (Panini Comics)",
+      "physicalId": "IRONM3_P:11"
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_258.4",
+      "usaNumber": "258.4",
+      "usaTitle": "Iron Men",
+      "usa": "Iron Man Vol 1 #258.4 — Iron Men",
+      "usaDate": "Jul 2013",
+      "storyOrdinal": 1,
+      "italianAlbum": "IRONM3_P_012",
+      "italianLabel": "Iron Man # 12 (Panini Comics)",
+      "physicalId": "IRONM3_P:12"
+    },
+    {
+      "sourceCode": "IM1",
+      "usaCode": "IM1_178",
+      "usaNumber": "178",
+      "usaTitle": "Lotta!",
+      "usa": "Iron Man (1968) #178 — Lotta!",
+      "usaDate": "Jan 1984",
+      "storyOrdinal": 2,
+      "italianAlbum": "SUPEROICLA_475",
+      "italianLabel": "Super Eroi Classic # 475 | Iron Man 42 : Cosa succede a Tony Stark ?",
+      "physicalId": "SUPEROICLA:475",
+      "storyIdsInPhysical": [
+        "ironman-story:IM1_178:378a20b69d29"
+      ],
+      "splitPrimary": true
+    }
+  ],
+  "storyIdentityModel": "comicsbox-story-feature@2"
+}
