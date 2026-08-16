@@ -7,6 +7,7 @@ on:
       - ".github/workflows/build-ironman-audit.yml"
       - "scripts/build_ironman_audit.py"
       - "scripts/build_ironman_audit_v2.py"
+      - "scripts/build_ironman_audit_v3.py"
       - "scripts/refine_ironman_story_features.py"
       - "scripts/patch_ironman_editions.py"
       - "scripts/verify-ironman-audit.mjs"
@@ -36,7 +37,7 @@ jobs:
           python-version: "3.12"
 
       - name: Build Iron Man from vol.1 #1
-        run: python scripts/build_ironman_audit_v2.py --workers 20
+        run: python scripts/build_ironman_audit_v3.py --workers 20
 
       - name: Refine classic Iron Man to exact story features
         run: python scripts/refine_ironman_story_features.py --workers 20
