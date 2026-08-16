@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/build-doctor-strange-audit.yml"
       - "scripts/build_doctor_strange_audit.py"
+      - "scripts/build_doctor_strange_audit_v2.py"
       - "scripts/refine_doctor_strange_story_features.py"
       - "scripts/patch_doctor_strange_editions.py"
       - "scripts/verify-doctor-strange-audit.mjs"
@@ -35,7 +36,7 @@ jobs:
           python-version: "3.12"
 
       - name: Build audited Doctor Strange route
-        run: python scripts/build_doctor_strange_audit.py --workers 20
+        run: python scripts/build_doctor_strange_audit_v2.py --workers 20
 
       - name: Refine classic route to exact story features
         run: python scripts/refine_doctor_strange_story_features.py --phase route --workers 20
