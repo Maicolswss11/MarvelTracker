@@ -3,7 +3,7 @@
   "status": "audited",
   "auditKind": "path/character",
   "auditDate": "2026-08-16",
-  "generatedAt": "2026-08-16T03:32:04.665141+00:00",
+  "generatedAt": "2026-08-16T03:35:42.195907+00:00",
   "editorialModel": "physical-issue/usa-contents/reading-step@1",
   "scope": "Tony Stark main path from Iron Man (1968) #1 through the existing modern Italian route; Tales of Suspense remains pre-series context.",
   "classic": {
@@ -89,32 +89,7 @@
       "IRONM3_P:148",
       "IRONM3_P:149"
     ],
-    "deduplicatedRouteIds": [
-      {
-        "oldRouteId": "IRONM3_P:9",
-        "newRouteId": "IRONM3_P:9@ironman-2",
-        "physicalId": "IRONM3_P:9",
-        "occurrence": 2
-      },
-      {
-        "oldRouteId": "IRONM3_P:10",
-        "newRouteId": "IRONM3_P:10@ironman-2",
-        "physicalId": "IRONM3_P:10",
-        "occurrence": 2
-      },
-      {
-        "oldRouteId": "IRONM3_P:11",
-        "newRouteId": "IRONM3_P:11@ironman-2",
-        "physicalId": "IRONM3_P:11",
-        "occurrence": 2
-      },
-      {
-        "oldRouteId": "IRONM3_P:12",
-        "newRouteId": "IRONM3_P:12@ironman-2",
-        "physicalId": "IRONM3_P:12",
-        "occurrence": 2
-      }
-    ]
+    "deduplicatedRouteIds": []
   },
   "albumFetchWarnings": {},
   "mappings": [
@@ -4684,5 +4659,8 @@
       "splitPrimary": true
     }
   ],
-  "storyIdentityModel": "comicsbox-story-feature@2"
+  "storyIdentityModel": "comicsbox-story-feature@2",
+  "totalReadingSteps": 516,
+  "uniquePhysicalItalianIssues": 511,
+  "totalRequired": 516
 }
